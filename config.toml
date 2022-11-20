@@ -3,7 +3,6 @@ languageCode  = "ja-jp"
 title         = "TechnoTUT"
 theme         = "roxo"
 summarylength = 25
-custom_css    = ["css/custom.css"]
 
 # Site Menus
 [menu]
@@ -31,6 +30,7 @@ custom_css    = ["css/custom.css"]
 
 # Site Params
 [params]
+  custom_css = ["css/custom.css"]
   logo = "images/logo.png"
   dateFormat = "26 FEB 1994"
   # Meta data
