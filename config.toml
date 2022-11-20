@@ -3,7 +3,6 @@ languageCode  = "ja-jp"
 title         = "TechnoTUT"
 theme         = "roxo"
 summarylength = 25
-copyright = "© Copyright 2014 - {year} TechnoTUT"
 
 # Site Menus
 [menu]
