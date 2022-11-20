@@ -60,7 +60,7 @@ summarylength = 25
   [params.navAction]
     status  = true
     name    = "Get in touch"
-    url     = "contact"
+    url     = "https://twitter.com/ToyohashiTechno/"
   
 
   # Banner Section
@@ -69,10 +69,10 @@ summarylength = 25
     background_image      = "images/backgrounds/hero-background.jpg"
     heading               = "We’re a Design Studio That Belies In the Great Ideas"
     tagline               = "WE WORK HARD, WE PLAY HARD"
-    primary_button        = "See Our Works"
-    primary_button_url    = "portfolio"
+    primary_button        = "See Our Activity"
+    primary_button_url    = "blog"
     secondary_button      = "Connect with Us"
-    secondary_button_url  = "contact"
+    secondary_button_url  = "https://twitter.com/ToyohashiTechno/"
 
   [params.portfolio]
     enable    = true
@@ -82,49 +82,44 @@ summarylength = 25
   [params.call_to_action]
     enable              = true
     background_image    = "images/backgrounds/cta-background.jpg"
-    title               = "LET’S WORK TOGETHER"
+    title               = "LET’S DJ TOGETHER"
     primary_button      = "Submit Query"
-    primary_button_url  = "contact"
+    primary_button_url  = "https://twitter.com/ToyohashiTechno"
     secondary_button    = "Not Convinced"
-    secondary_button_url = "portfolio"
+    secondary_button_url = "blog"
 
   [params.footer]
     # Footer Contact Info
     [params.footer.contactInfo]
-      title   = "Contact Info"
-      address = "713 Elmwood St.<br>Prior Lake, MN 55372"
-      phone   = "409-896-1444"
-      email   = "info@roxo.co"
+      title   = "Address"
+      address = "愛知県豊橋市天伯町雲雀ヶ丘1-1<br> 豊橋技術科学大学 クラブハウス2階"
       # Footer Sitemap
       [params.footer.sitemap]
         title   = "Sitemap"
         [[params.footer.sitemap.link]]
-          name = "About Company"
+          name = "About"
           url  = "about"
-        [[params.footer.sitemap.link]]
-          name = "Projects"
-          url  = "portfolio"
         [[params.footer.sitemap.link]]
           name = "Blog"
           url  = "blog"
         [[params.footer.sitemap.link]]
+          name = "Docs"
+          url  = "https://docs.techno.tut-club.net/"
+        [[params.footer.sitemap.link]]
           name = "Contact"
-          url  = "contact"
+          url  = "https://twitter.com/ToyohashiTechno"
       # Footer Social Media
       [params.footer.social]
         title   = "Social Media"
         [[params.footer.social.link]]
-          name = "Medium"
-          url  = "#"
-        [[params.footer.social.link]]
-          name = "Behance"
-          url  = "#"
-        [[params.footer.social.link]]
-          name = "Dribbble"
-          url  = "#"
+          name = "Twitter"
+          url  = "https://twitter.com/ToyohashiTechno"
         [[params.footer.social.link]]
           name = "Instagram"
-          url  = "#"
+          url  = "https://www.instagram.com/technotut/"
+        [[params.footer.social.link]]
+          name = "GitHub"
+          url  = "https://github.com/dodolia907/"
       # Footer Service
       [params.footer.service]
         title       = "We help brands:"
