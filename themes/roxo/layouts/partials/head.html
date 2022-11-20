@@ -18,8 +18,6 @@
   {{ "<!-- Main Stylesheets -->" | safeHTML }}
   {{ $style := resources.Get "scss/style.scss" | resources.ToCSS | minify }}
   <link href="{{ $style.Permalink }}" rel="stylesheet" />
-  {{ $override := resources.Get "css/override.css" | resources.ToCSS | minify }}
-    <link href="{{ $override.Permalink }}" rel="stylesheet" />
 
   <!--Favicon-->
   <link rel="shortcut icon" href="{{ "images/favicon.png" | absURL }}" type="image/x-icon" />
