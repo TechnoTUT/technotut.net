@@ -679,7 +679,7 @@ textarea.form-control {
       list-style: none;
       font-size: 25px;
       font-weight: 300;
-      color: #00113E; }
+      color: #F7F9FF; }
       .site-expertise-list li:not(:last-child) {
         margin-bottom: 10px; }
 
