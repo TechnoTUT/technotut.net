@@ -25,7 +25,7 @@ summarylength = 25
     weight  = 4
   [[menu.nav]]
     name    = "Get in touch"
-    url     = "contact"
+    url     = "https://twitter.com/ToyohashiTechno"
     weight  = 5
 
 # Site Params
@@ -33,28 +33,12 @@ summarylength = 25
   logo = "images/logo.png"
   dateFormat = "26 FEB 1994"
   # Meta data
-  description = "Roxo Hugo themes | Design Agency Template by StaticMania"
+  description = "TechnoTUT Unofficial Site"
   author = "TechnoTUT"
   # Google Analitycs
   googleAnalitycsID = "Your ID"
   # We're using formspree.io for form handling, paste your formspree url below
   fabform  = "https://fabform.io/f/USAg2Jl"
-
-  # Contact Form
-  [params.contactForm]
-    placeholder_first_name        = "First Name"
-    placeholder_last_name         = "Last Name"
-    placeholder_email             = "Email"
-    placeholder_project_type      = "Project Type"
-    placeholder_about_the_project = "About the Project"
-    send_message                  = "Send Message"
-
-    [[params.contactForm.projectType]]
-      value = "gd"
-      title  = "Graphics Design"
-    [[params.contactForm.projectType]]
-      value = "wd"
-      title  = "Web Design"
   
   # Navbar Action Button
   [params.navAction]
@@ -67,15 +51,15 @@ summarylength = 25
   [params.banner]
     enable                = true
     background_image      = "images/backgrounds/hero-background.jpg"
-    heading               = "We’re a Design Studio That Belies In the Great Ideas"
-    tagline               = "WE WORK HARD, WE PLAY HARD"
+    heading               = "We’re TechnoTUT"
+    tagline               = "DJ & VJ Club"
     primary_button        = "See Our Activity"
     primary_button_url    = "blog"
     secondary_button      = "Connect with Us"
     secondary_button_url  = "https://twitter.com/ToyohashiTechno/"
 
   [params.portfolio]
-    enable    = true
+    enable    = false
     title     = "OUR RECENT WORKS"
     subtitle  = "Crafting experiences and seeking to make the complex clear & beautiful."
 
@@ -83,16 +67,16 @@ summarylength = 25
     enable              = true
     background_image    = "images/backgrounds/cta-background.jpg"
     title               = "LET’S PLAY TOGETHER"
-    primary_button      = "Submit Query"
-    primary_button_url  = "https://twitter.com/ToyohashiTechno"
-    secondary_button    = "Not Convinced"
-    secondary_button_url = "blog"
+    primary_button      = "See Activity"
+    primary_button_url  = "blog"
+    secondary_button    = "Contact"
+    secondary_button_url = "https://twitter.com/ToyohashiTechno"
 
   [params.footer]
     # Footer Contact Info
     [params.footer.contactInfo]
       title   = "Address"
-      address = "愛知県豊橋市天伯町<br>雲雀ヶ丘１－１<br> 豊橋技術科学大学<br> クラブハウス ２階"
+      address = "愛知県豊橋市<br>天伯町雲雀ヶ丘１－１<br> 豊橋技術科学大学<br> クラブハウス ２階"
       # Footer Sitemap
       [params.footer.sitemap]
         title   = "Sitemap"
@@ -122,5 +106,5 @@ summarylength = 25
           url  = "https://github.com/dodolia907/"
       # Footer Service
       [params.footer.service]
-        title       = "We help brands:"
-        description = "develop design solutions<br>produce valuable cultural content<br>create fresh brand experience"
+        title       = "We are TechnoTUT:"
+        description = "A club of DJ & VJ."
