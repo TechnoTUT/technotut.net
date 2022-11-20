@@ -92,7 +92,7 @@ summarylength = 25
     # Footer Contact Info
     [params.footer.contactInfo]
       title   = "Address"
-      address = "愛知県豊橋市天伯町雲雀ヶ丘１－１<br> 豊橋技術科学大学<br> クラブハウス ２階"
+      address = "愛知県豊橋市天伯町<br>雲雀ヶ丘１－１<br> 豊橋技術科学大学<br> クラブハウス ２階"
       # Footer Sitemap
       [params.footer.sitemap]
         title   = "Sitemap"
