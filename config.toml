@@ -103,8 +103,8 @@ summarylength = 25
           url  = "https://www.instagram.com/technotut/"
         [[params.footer.social.link]]
           name = "GitHub"
-          url  = "https://github.com/dodolia907/"
+          url  = "https://github.com/TechnoTUT/"
       # Footer Service
       [params.footer.service]
         title       = "We are TechnoTUT:"
-        description = "A club of DJ & VJ."
+        description = "toyohashitechno@<br> ※アドレスの末尾に「gmail.com」を補完してください"
