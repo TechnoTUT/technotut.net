@@ -1,4 +1,4 @@
-baseURL       = "https://techno.tut-club.net/"
+baseURL       = "https://technotut.net/"
 languageCode  = "ja-jp"
 title         = "TechnoTUT"
 theme         = "roxo"
