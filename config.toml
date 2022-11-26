@@ -21,7 +21,7 @@ summarylength = 25
     weight  = 3
   [[menu.nav]]
     name    = "Docs"
-    url     = "https://docs.techno.tut-club.net/"
+    url     = "https://docs.technotut.net/"
     weight  = 4
   [[menu.nav]]
     name    = "Get in touch"
