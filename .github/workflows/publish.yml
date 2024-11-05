@@ -3,6 +3,7 @@ on: [push, workflow_dispatch]
 jobs:
   publish:
     runs-on: ubuntu-latest
+    if: github.repository == 'TechnoTUT/technotut.net'
     permissions:
       contents: read
       deployments: write
