@@ -1,8 +1,5 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the
-// README at: https://github.com/devcontainers/templates/tree/main/src/debian
 {
 	"name": "technotut.net",
-	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
 	"image": "ghcr.io/technotut/technotut.net:main",
 
 	// Configure tool-specific properties.
@@ -21,6 +18,10 @@
 		}
 	 }
 	},
+	// If you want to run on Podman, uncomment the next line.
+	// "remoteUser": "root",
+  	// "containerUser": "root",
+	
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	"forwardPorts": [3000],
 	"postCreateCommand": "npm install"

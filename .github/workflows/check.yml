@@ -1,14 +1,13 @@
-name: Publish to Cloudflare Pages
-
-on: [push, workflow_dispatch]
+on: [push]
 
 jobs:
   publish:
     runs-on: ubuntu-latest
-    if: github.repository == 'TechnoTUT/technotut.net'
+    if: github.repository != 'TechnoTUT/technotut.net'
     permissions:
       contents: read
       deployments: write
+    name: Check export
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -28,9 +27,3 @@ jobs:
         run: npm install
       - name: export
         run: npm run export
-      - name: Publish to Cloudflare Pages
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy out --project-name technotut
