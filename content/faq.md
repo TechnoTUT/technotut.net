@@ -13,10 +13,6 @@ faqs:
   answer: 部室が光っているときは活動中です。虹色に光っているときは気軽にお入りください。<br/> When the club room is glowing, it is active. When it is glowing in rainbow colors, please feel free to come to our room.
 - title: 部室はどこですか？<br/> Where is the TechnoTUT room?
   answer: 豊橋技術科学大学 体育館付近のクラブハウス 2階にあります。詳細は[こちら](https://goo.gl/maps/pUKCNobbwnuHhd5G7)のGoogleマップをご覧ください。<br/> Located on the 2nd floor of the clubhouse near the Toyohashi University of Technology gym. For details, please see [this Google Map](https://goo.gl/maps/pUKCNobbwnuHhd5G7).
-- title: 部費はかかりますか？<br/> Is there a club fee?
-  answer: いいえ、一切かかりません。<br/> No, it does not cost anything.
-- title: レターパックで部費送れは詐欺ですか？<br/> Is the letter pack club fee a scam?
-  answer: はい、レターパックで部費送れはすべて詐欺です。音楽技術部では一切部費はかかりません。<br/> Yes, all letter pack club fees are scams. There is no club fee at all in TechnoTUT.
 - title: 必ずDJをしなければならないのですか？<br/> Do I have to be a DJ?
   answer: そんなことはありません! 音楽を楽しむことが目的なので、DJにこだわらずどんな形で参加してもOK! 各部員の興味関心に沿って活動できます。<br/> No, you don't. You can do activities that match your interests. 
 - title: おれはどうしたらいい<br/>What should I do?
