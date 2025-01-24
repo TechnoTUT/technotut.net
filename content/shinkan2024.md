@@ -108,10 +108,8 @@ The club room is on the 2nd floor of the club house. (No.4)
 ##### 入部方法
 ##### How to join
 1. 一度部室までお越しいただくか、新入生交流会・新入生歓迎会へお越しください。<br/> Please come to the club room or come to the new student exchange meeting and the new student welcome party.
-2. 部員名簿に署名と捺印をしていただきます。部費は一切かかりません。<br/> Please sign and stamp the member list. There is no membership fee.
+2. 部員名簿に署名と捺印をしていただきます。<br/> Please sign and stamp the member list. 
 3. 入部手続きが完了しました。<br/> The membership procedure is complete.
-
-> [レターパックで部費送れはすべて詐欺です。音楽技術部が部費を要求することはありません。<br/>All letter pack club fees are scams. There is no club fee at all in TechnoTUT.](/yosanoakiko)  
 
 ### 部室の場所について
 ##### Where is the club room?

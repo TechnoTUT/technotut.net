@@ -19,8 +19,8 @@
 	 }
 	},
 	// If you want to run on Podman, uncomment the next line.
-	// "remoteUser": "root",
-  	// "containerUser": "root",
+	// "runArgs": ["--security-opt", "label=disable"],
+	// "remoteUser": "",
 	
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	"forwardPorts": [3000],
