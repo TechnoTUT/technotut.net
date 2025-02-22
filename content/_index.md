@@ -92,6 +92,15 @@ services:
       label: Check!!
       link: /about/lj
 
+  - title: "MEDIA"
+    content: "フライヤーなどのデザイン制作、SNS上での広報活動、イベントの撮影などを行っています。| We create flyer designs, manage promotional activities on SNS, and handle event photos and videos."
+    images:
+      - "/images/index/MEDIA/media-1.png"
+    button:
+      enable: false
+      label: Check!!
+      link: /about/media
+
   - title: "DTM: 楽曲制作"
     content: "様々な音楽を作成しています。毎週土曜日にDiscordで活動を行い、製作技術の共有を行っています。M3やbandcampでのオリジナル楽曲の頒布も行っています。 | We create a variety of music. We meet Discord every Saturday to share our production skills and distribute our original music on M3 and bandcamp."
     images:
@@ -105,7 +114,7 @@ services:
       link: https://technotut.bandcamp.com/
 
   - title: "TECH & DIY"
-    content: "なんでもつくります。部員の興味関心に沿ってテクいものを触っています。現在は照明装置の開発・運用、ITインフラストラクチャの運用を行っています。 | We make anything. We touch tech stuff according to the interests of our club members. Currently, we develop and operate lighting equipment and IT infrastructure."
+    content: "なんでもつくります。部員の興味関心に沿ってテクいものを触っています。現在はITインフラストラクチャの運用を行っています。 | We make anything. We touch tech stuff according to the interests of our club members. Currently, we develop and operate lighting equipment and IT infrastructure."
     images:
       - "/images/index/tech/led.jpg"
       - "/images/index/tech/switch.jpg"
