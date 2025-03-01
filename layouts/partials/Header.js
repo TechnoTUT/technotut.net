@@ -20,43 +20,21 @@ const Header = () => {
   const { enable, label, link } = config.nav_button;
 
   return (
+
     <header className="header">
-      <nav className="navbar container">
-        {/* logo */}
+      <nav className="navbar container flex items-center justify-between">
+        {/* ロゴ */}
         <div className="order-0">
           <Logo src={logo} />
         </div>
 
-        {/* navbar toggler */}
-        <button
-          id="show-button"
-          className="order-2 flex cursor-pointer items-center md:hidden md:order-1"
-          onClick={() => setNavOpen(!navOpen)}
-        >
-          {navOpen ? (
-            <svg className="h-6 fill-current" viewBox="0 0 20 20">
-              <title>Menu Open</title>
-              <polygon
-                points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2"
-                transform="rotate(45 10 10)"
-              />
-            </svg>
-          ) : (
-            <svg className="h-6 fill-current" viewBox="0 0 20 20">
-              <title>Menu Close</title>
-              <path d="M0 3h20v2H0V3z m0 6h20v2H0V9z m0 6h20v2H0V0z" />
-            </svg>
-          )}
-        </button>
-
-        {/* Menu */}
+        {/* メニュー */}
         <div
           id="nav-menu"
-          className={`order-3 md:order-1 ${
-            navOpen ? "max-h-[1000px]" : "max-h-0"
-          }`}
+          className={`order-3 md:order-1 ${navOpen ? "max-h-screen" : "max-h-0"
+            } absolute left-0 top-full w-full flex-col bg-white shadow-lg md:relative md:flex md:w-auto md:bg-transparent md:shadow-none`}
         >
-          <ul className="navbar-nav block w-full md:flex md:w-auto lg:space-x-2">
+          <ul className="navbar-nav flex flex-col w-full md:flex-row md:w-auto lg:space-x-2">
             {main.map((menu, i) => (
               <React.Fragment key={`menu-${i}`}>
                 {menu.hasChildren ? (
@@ -85,9 +63,8 @@ const Header = () => {
                     <Link
                       href={menu.url}
                       onClick={() => setNavOpen(false)}
-                      className={`nav-link block ${
-                        router.asPath === menu.url ? "nav-link-active" : ""
-                      }`}
+                      className={`nav-link block ${router.asPath === menu.url ? "nav-link-active" : ""
+                        }`}
                     >
                       {menu.name}
                     </Link>
@@ -95,26 +72,47 @@ const Header = () => {
                 )}
               </React.Fragment>
             ))}
+            {/* ✅ モバイルメニュー内にもボタンを追加 */}
             {enable && (
-              <li className="md:hidden">
-                <Link
-                  className="btn btn-primary z-0 py-[14px]"
-                  href={link}
-                  rel=""
-                >
+              <li className="mt-4 flex justify-center md:hidden">
+                <Link className="btn btn-primary w-full text-center py-[14px]" href={link}>
                   {label}
                 </Link>
               </li>
             )}
           </ul>
         </div>
+
+        {/* nav-button（右端に配置） */}
         {enable && (
-          <div className="d-flex order-1 ml-auto hidden min-w-[200px] items-center justify-end md:ml-0 md:flex md:order-2">
-            <Link className="btn btn-primary z-0 py-[14px]" href={link} rel="">
+          <div className="order-2 ml-auto hidden md:flex">
+            <Link className="btn btn-primary py-[14px]" href={link}>
               {label}
             </Link>
           </div>
         )}
+
+        {/* ハンバーガーメニュー（モバイル用） */}
+        <button
+          id="show-button"
+          className="order-1 flex cursor-pointer items-center md:hidden"
+          onClick={() => setNavOpen(!navOpen)}
+        >
+          {navOpen ? (
+            <svg className="h-6 fill-current" viewBox="0 0 20 20">
+              <title>Menu Open</title>
+              <polygon
+                points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2"
+                transform="rotate(45 10 10)"
+              />
+            </svg>
+          ) : (
+            <svg className="h-6 fill-current" viewBox="0 0 20 20">
+              <title>Menu Close</title>
+              <path d="M0 3h20v2H0V3z m0 6h20v2H0V9z m0 6h20v2H0V0z" />
+            </svg>
+          )}
+        </button>
       </nav>
     </header>
   );

@@ -16,9 +16,9 @@
   },
 
   "nav_button": {
-    "enable": false,
-    "label": "制作楽曲(bandcamp)",
-    "link": "https://technotut.bandcamp.com/"
+    "enable": true,
+    "label": "Join Us",
+    "link": "/join-us"
   },
 
   "params": {
