@@ -9,10 +9,6 @@
       "url": "/activity"
     },
     {
-      "name": "News",
-      "url": "/news"
-    },
-    {
       "name":"Blog",
       "url":"https://blog.technotut.net/"
     },
