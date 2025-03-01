@@ -30,13 +30,11 @@ const Header = () => {
 
         {/* メニュー */}
         <div
-        id="nav-menu"
-        className={`order-3 md:order-1 ml-auto ${
-          navOpen ? "max-h-[1000px]" : "max-h-0"
-        }`}
-      >
-
-          <ul className="navbar-nav flex w-full md:flex md:w-auto lg:space-x-0">
+          id="nav-menu"
+          className={`order-3 md:order-1 ${navOpen ? "max-h-screen" : "max-h-0"
+            } absolute left-0 top-full w-full flex-col bg-white shadow-lg md:relative md:flex md:w-auto md:bg-transparent md:shadow-none`}
+        >
+          <ul className="navbar-nav flex flex-col w-full md:flex-row md:w-auto lg:space-x-2">
             {main.map((menu, i) => (
               <React.Fragment key={`menu-${i}`}>
                 {menu.hasChildren ? (
@@ -74,6 +72,14 @@ const Header = () => {
                 )}
               </React.Fragment>
             ))}
+            {/* ✅ モバイルメニュー内にもボタンを追加 */}
+            {enable && (
+              <li className="mt-4 flex justify-center md:hidden">
+                <Link className="btn btn-primary w-full text-center py-[14px]" href={link}>
+                  {label}
+                </Link>
+              </li>
+            )}
           </ul>
         </div>
 
@@ -87,7 +93,6 @@ const Header = () => {
         )}
 
         {/* ハンバーガーメニュー（モバイル用） */}
-        {/*
         <button
           id="show-button"
           className="order-1 flex cursor-pointer items-center md:hidden"
@@ -108,7 +113,6 @@ const Header = () => {
             </svg>
           )}
         </button>
-        */}
       </nav>
     </header>
   );
