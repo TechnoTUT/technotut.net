@@ -31,10 +31,10 @@ const Header = () => {
         {/* メニュー */}
         <div
           id="nav-menu"
-          className={`order-3 md:order-1 ${navOpen ? "max-h-screen" : "max-h-0"
-            } absolute left-0 top-full w-full flex-col bg-white shadow-lg md:relative md:flex md:w-auto md:bg-transparent md:shadow-none`}
-        >
-          <ul className="navbar-nav flex flex-col w-full md:flex-row md:w-auto lg:space-x-2">
+          className={`order-3 md:order-1 ml-auto ${navOpen ? "max-h-[1000px]" : "max-h-0"
+            }`}
+        > 
+        <ul className="navbar-nav flex flex-col w-full md:flex-row md:w-auto lg:space-x-0">
             {main.map((menu, i) => (
               <React.Fragment key={`menu-${i}`}>
                 {menu.hasChildren ? (
