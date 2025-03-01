@@ -87,6 +87,7 @@ const Header = () => {
         )}
 
         {/* ハンバーガーメニュー（モバイル用） */}
+        {/*
         <button
           id="show-button"
           className="order-1 flex cursor-pointer items-center md:hidden"
@@ -107,6 +108,7 @@ const Header = () => {
             </svg>
           )}
         </button>
+        */}
       </nav>
     </header>
   );
