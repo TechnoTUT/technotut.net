@@ -3,45 +3,60 @@ title: "活動情報<br/> Activity"
 draft: false
 ---
 
-### イベント情報
-##### Event information
-| 日程 | 内容 | 場所 |
-| ---- | --- | -- |
-| 2月15日(土) | The Utopia Tone Vol.2 | コモンズⅠ |
-| 3月8日(土) | TRi-Uni Vibes | MIRAI NAGOYA |
-| 3月18日(火) | 追いコン | コモンズⅠ |
-| 4月12日(土) | 新入生歓迎会 Day1 | コモンズⅠ |
-| 4月13日(日) | 新入生歓迎会 Day2 | コモンズⅠ |
-| 4月27日(日) | M3-2025春 | 東京流通センター N21-b |
+### 2024年度活動実績
+| 日程 | 活動名 | 場所 | 内容 |
+| ---- | ---- | ---- | ---- |
+| 4月2日(火) | 和室DJ | 福利厚生施設(和室) | 新入生交流会 |
+| 4月10日(水) | 総部会新歓 | A棟-205 | 総部会主催の新入生歓迎イベント |
+| 4月13日(土) | [コモンズ新歓](https://x.com/ToyohashiTechno/status/1778347317516734641) | コモンズⅠ | 学内DJイベント |
+| 4月25日(木) | 平日イベ新歓 | コモンズⅠ | 新入部員交流を目的としたコモンズDJイベント |
+| 4月28日(日) | [M3-2024春](https://x.com/ToyohashiTechno/status/1781660801587372064) | 東京流通センター | DTM班が制作した楽曲の頒布(え-28b 四ツ家) |
+| 5月2日(木) | 新入生練習会 | 部室 | 新入部員対象のDJ練習会 |
+| 5月18日(土) | [コモンズイベ](https://x.com/ToyohashiTechno/status/1790344280072225097) | コモンズⅠ | 学内DJイベント |
+| 6月15日(金) | 新入生歓迎会 | コモンズⅠ | 新入生歓迎コモンズイベント．イベント終了後は居酒屋にて新歓飲み会 |
+| 7月13日(土) | [コモンズイベ DJ DANCE](https://x.com/ToyohashiTechno/status/1811655053813645375) | コモンズⅠ | 学内DJイベント．技科大ダンス部 Gille Workers とのコラボ |
+| 9月2日(月) | 合宿 Day 1| 愛知県新城市 | 1泊2日の合宿(台風の影響により縮小開催) |
+| 9月3日(火) | 合宿 Day 2| | |
+| 9月23日(月) | [まちなか音楽広場](https://x.com/ToyohashiTechno/status/1836006165404406187) | 豊橋市まちなか広場 | 豊橋まちなか活性化センター主催の豊橋の音楽イベントに出展 |
+| 10月12日(土) | [The Utopia Tone -extended- Day 1](https://technotut.net/news/gikadaifes2024) | コモンズⅠ | 技科大祭にサークル出店．今回から学内DJイベントに新しく名称を決定 | 
+| 10月13日(日) | The Utopia Tone -extended- Day 2 |  | | 
+| 10月27日(日) | [M3-2024秋](https://x.com/ToyohashiTechno/status/1849772480388284815) | 東京流通センター | DTM班が制作した楽曲の頒布(え-41b ウタノカケラ / maximorphonicore / Fantasy Technology) |
+| 10月28日(月) | [初心者DJ講習会 Day 1](https://x.com/ToyohashiTechno/status/1850779991442883067) | 集会室1 | |
+| 10月29日(火) | 初心者DJ講習会 Day 2 | 集会室1 | |
+| 10月29日(火) | [ハロウィンイベント](https://x.com/ToyohashiTechno/status/1054310678935220224) | 売店前 | デイリーヤマザキ主催のハロウィンイベントに仮装して出展 |
+| 11月23日(土) | [The Utopia Tone vol.1](https://x.com/ToyohashiTechno/status/1854811191165829331) | コモンズⅠ | 学内DJイベント |
+| 12月18日(水) | [クリスマスイベント](https://x.com/ToyohashiTechno/status/1869261915442356500) | 売店前 | デイリーヤマザキ主催のクリスマスイベントに出展 |
+| 2月15日(土) | [The Utopia Tone Vol.2](https://x.com/ToyohashiTechno/status/1888516815334351129) | コモンズⅠ | 学内DJイベント |
+| 3月8日(土) | [TRi-Uni Vibes](https://x.com/ToyohashiTechno/status/1895671987483394503) | MIRAI NAGOYA | [名古屋大学作曲サークル(Anti-Aging Record)](https://aar.lolipop.jp/) / [愛知工業大学DTM部(A.I.Tech Records)](https://x.com/Aitdtmclub) との3大学合同DJイベント |
+| 3月18日(火) | 追いコン | コモンズⅠ | 卒業する部員が主役のDJイベント |
+| 3月19日(水) | 技科大×高専カンファレンスin豊橋 | 穂の国とよはし芸術劇場PLAT | 高専カンファレンスに出展 |
 
-### 活動日時・場所
-##### Activity place and time
-|   | 活動日 | 時刻 | 活動場所 |
-| --- | --- | --- | --- |
-| DJ・VJ・LJ | 火曜日・金曜日<br/> Tuesdays and Fridays | 18:00~ | 部室 ([Google Map](https://goo.gl/maps/pUKCNobbwnuHhd5G7)) |
-| DTM | 土曜日<br/>Saturdays | 21:00~ | オンライン<br/>On Line (Discord) |
-
-### 入部について
-##### 見学・体験入部
-##### Watch and try to join
-- 活動時間中に部室までお越しください。部室が虹色に光り輝いているときは活動時間中になります。部室の場所は[こちら](https://goo.gl/maps/pUKCNobbwnuHhd5G7)、クラブハウス2階 音楽技術部室となります。<br/> Please come to the club room during the activity time. When the club room is shining in rainbow colors, it is during the activity time. The location of the club room is [here](https://goo.gl/maps/pUKCNobbwnuHhd5G7), Club House 2F Music & Live Production Club Room.
-##### 入部方法
-##### How to join
-1. 一度部室にお越しください。<br/> Please come to the club room once.
-2. 部員名簿に署名と捺印をしていただきます。<br/> Please sign and stamp the member list.
-3. 入部手続きが完了しました。<br/> The membership procedure is complete.
-
-##### 連絡先
-##### Contact
-- 部室に来るのが不安です！という方は、[[こちら](/contact)]からお問い合わせください。<br/> If you are worried about coming to the club room, please contact us [[here](/contact)].
-
- Twitter: [@ToyohashiTechno](https://twitter.com/ToyohashiTechno)  
- Mail: contact@ ※末尾にtechnotut.netを補完してください  
-
-### 部室の場所について
-##### Where is the club room?
-　クラブハウス2階 音楽技術部室となります。ぜひお気軽にお越しください。部室が虹色に光り輝いていることを目印とすると便利です。  
-It is the 2nd floor of the club house. Please feel free to come. It is convenient to use the club room as a landmark when it is shining in rainbow colors.
-<dl>
-<iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3280.163613237997!2d137.406626!3d34.701053!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzTCsDQyJzAzLjgiTiAxMzfCsDI0JzIzLjkiRQ!5e0!3m2!1sja!2sjp!4v1678476006193!5m2!1sja!2sjp" width="100%" height="450" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-</dl>
+その他テーマを定めた部内向けイベント(通称平日イベ)を開催しました．
+| 日程 | テーマ名 | 内容 | 
+| ---- | ---- | ---- | 
+| 5月14日(火) | J-COREを、しよう！| J-COREだけを流すジャンル統一DJパーティー |
+| 6月11日(火) | BPM上げてる？ | BPM165以上だけを流す縛りDJパーティー |
+| 6月18日(火) | [Houseを、しよう！](https://x.com/ToyohashiTechno/status/1802990817633862137) | Houseだけを流すジャンル統一DJパーティー | 
+| 6月27日(木) | リクエストを、しよう！ | 新入部員リクエスト縛りDJパーティー |
+| 7月4日(木) | [もっとBPM上げてる？](https://x.com/ToyohashiTechno/status/1808782986097406042) | BPM180以上の曲だけを流す縛りDJパーティー |
+| 7月9日(火) | ボカロを、しよう！ | ボカロだけを流すジャンル統一DJパーティー |
+| 7月16日(火) | [夏、感じてる？](https://x.com/ToyohashiTechno/status/1813067276293447718) | 夏っぽい曲だけを流すジャンル統一DJパーティー |
+| 7月23日(火) | 4つ打ち禁止縛り | 4つ打ち禁止縛りDJパーティー |
+| 7月30日(火) | [布教を、しよう！](https://x.com/ToyohashiTechno/status/1818196085749526819) | 特定のアーティスト/コンポーザーだけを流すジャンル統一DJパーティー |
+| 9月10日(火) | [夏だ！祭りだ！フェスだ！EDMだ！！！](https://x.com/ToyohashiTechno/status/1833410016763846863) | フェスをイメージしたEDMパーティー |
+| 9月24日(火) | [みんなの「空」、教えてよ](https://x.com/ToyohashiTechno/status/1838428247920447747) | 「空」をテーマとするDJパーティー |
+| 10月3日(木) | シャンクス -- このUSBをお前に預ける、俺の大事なUSBだ。強いDJをして返しにこい。 | 指名してUSBを預けるDJパーティー |
+| 10月16日(水) | ぴっさん生誕祭 | 「ぴっさん」をテーマとするDJパーティー |
+| 10月17日(木) | [DJ・サークル体験会 Day 1](https://x.com/ToyohashiTechno/status/1846118160849846647) | |
+| 10月18日(金) | [DJ・サークル体験会 Day 2](https://x.com/ToyohashiTechno/status/1847188032765808920) | |
+| 10月24日(木) | [緊急クエスト](https://x.com/ToyohashiTechno/status/1849395443677233524) | ジェネリック赤福(じぇりっあく)が進むDJパーティー |
+| 11月6日(水) | アニメを、やろう！ | アニソン原曲オンリージャンル統一DJパーティー |
+| 11月13日(水) | 帰ってきた！布教を、しよう！ | 特定のアーティスト/コンポーザーだけを流すDJパーティー |
+| 11月18日(月) | ハーモニックミキシングを、しよう！ | ハーモニックミキシングのみが許されるDJパーティー |
+| 11月19日(火) | 人の好きって健康によくって…… | 自分の好きな曲だけを流すDJパーティー |
+| 12月10日(火) | [参議院B2B、復活](https://x.com/ToyohashiTechno/status/1866409846322729463) | 参議院B2BオンリーDJパーティー | 
+| 12月13日(金) | 冬、感じよう | 「冬」がテーマのDJパーティー | 
+| 12月16日(月) | 使えなかった曲や繋ぎ、成仏させませんか | 過去の学内イベントで使いたかった曲や繋ぎを供養するDJパーティー |
+| 12月19日(木) | 君に届け | 「誰かに届けたい思い」を流すパッション系DJパーティー |
+| 1月9日(木) | あけおめもちもちDJ2025 | 餅とか帰省お土産をみんなで食べようの会DJパーティー |
+| 1月16日(木) | 初心者DJ発表会 | 技科大祭後の新入部員に「セトリを組んで人前でDJする」経験をしてもらうDJパーティー | 
