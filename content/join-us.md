@@ -1,5 +1,5 @@
 ---
-title: "入部方法<br/> How to join"
+title: "入部方法 - How to join"
 draft: false
 ---
 
