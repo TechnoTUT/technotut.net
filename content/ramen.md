@@ -1,5 +1,5 @@
 ---
-title: "豊橋らーめんマップ <br/>Toyohashi Ramen Map"
+title: "豊橋らーめんマップ - Toyohashi Ramen Map"
 draft: false
 ---
 <dl>

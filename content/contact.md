@@ -1,5 +1,5 @@
 ---
-title: ""
+title: "お問い合わせ - Contact"
 layout: "contact"
 draft: false
 info: 

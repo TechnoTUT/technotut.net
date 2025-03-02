@@ -1,5 +1,5 @@
 ---
-title: "アクセス<br/> Access"
+title: "アクセス - Access"
 draft: false
 ---
 ### 大学へのアクセス

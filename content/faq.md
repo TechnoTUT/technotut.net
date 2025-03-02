@@ -1,5 +1,5 @@
 ---
-title: よくある質問</br> Frequently Asked Questions
+title: よくある質問 - Frequently Asked Questions
 layout: faq
 draft: false
 faqs:
