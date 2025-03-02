@@ -5,12 +5,17 @@ import shortcodes from "./shortcodes/all";
 const Default = ({ data }) => {
   const { frontmatter, mdxContent } = data;
   const { title } = frontmatter;
+  const customComponents = {
+    a: (props) => <a {...props} className="text-[#C7000A]" />,
+    ...shortcodes,
+  }
+
   return (
     <section className="section">
       <div className="container">
         {markdownify(title, "h1", "h2 mb-8 justyfy-center")}
         <div className="content justify-center">
-          <MDXRemote {...mdxContent} components={shortcodes} />
+          <MDXRemote {...mdxContent} components={customComponents} />
         </div>
       </div>
     </section>

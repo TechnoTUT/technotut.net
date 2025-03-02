@@ -4,23 +4,21 @@ draft: false
 ---
 ### 大学へのアクセス
 ##### Access to the University
-大学へのアクセスは <a href="https://www.tut.ac.jp/about/overview/access.html" style={{ color: "#c7000a" }}>
-豊橋技術科学大学 公式サイト</a>を参照してください。  
-Please refer to the <a href="https://www.tut.ac.jp/about/overview/access.html" style={{color: '#c7000a'}}>Toyohashi University of Technology Official Website</a>
-for access to the university.
+大学へのアクセスは [豊橋技術科学大学 公式サイト](https://www.tut.ac.jp/about/overview/access.html) を参照してください。  
+Please refer to the [Toyohashi University of Technology Official Website](https://www.tut.ac.jp/about/overview/access.html) for access to the university.
 
-名古屋方面からお越しになる場合は、JR東海<a href="https://railway.jr-central.co.jp/tickets/toyohashi-round/" style={{color: '#c7000a'}}>豊橋往復きっぷ</a>
-または 名古屋鉄道<a href="https://www.meitetsu.co.jp/plan/discount/1268869_8040.html" style={{color: '#c7000a'}}>なごや特割2平日・なごや特割2土休日</a>
+名古屋方面からお越しになる場合は、JR東海 [豊橋往復きっぷ](https://railway.jr-central.co.jp/tickets/toyohashi-round/)
+または 名古屋鉄道 [なごや特割2平日・なごや特割2土休日](https://www.meitetsu.co.jp/plan/discount/1268869_8040.html)
 をご利用いただくとお得に移動でき、浮いたお金で美味しいラーメンを食べることができます。  
-If you are coming from Nagoya, you can use the JR-Central <a href="https://railway.jr-central.co.jp/tickets/toyohashi-round/" style={{color: '#c7000a'}}>Toyohashi Round Trip Ticket</a>
- or the Nagoya Railroad <a href="https://www.meitetsu.co.jp/plan/discount/1268869_8040.html" style={{color: '#c7000a'}}>Nagoya Special Discount 2 Weekdays・Nagoya Special Discount 2 Saturdays and Holidays</a>
+If you are coming from Nagoya, you can use the JR-Central [Toyohashi Round Trip Ticket](https://railway.jr-central.co.jp/tickets/toyohashi-round/)
+ or the Nagoya Railroad [Nagoya Special Discount 2 Weekdays・Nagoya Special Discount 2 Saturdays and Holidays](https://www.meitetsu.co.jp/plan/discount/1268869_8040.html)
  to move at a reasonable price and eat delicious ramen with the saved money.
 
 また、豊橋駅から大学へのバス運賃は片道500円(**現金のみ**)となっております。  
-<a href="https://www.toyotetsu.jp/rosen/timetable.html" style={{color: '#c7000a'}}>豊鉄バス 時刻表</a>
+[豊鉄バス 時刻表](https://www.toyotetsu.jp/rosen/timetable.html)
 の豊橋技科大線をご確認の上、ご利用ください。  
 The bus fare from Toyohashi Station to the university is 500 yen one way (**cash only**).  
-Please check the <a href="https://www.toyotetsu.jp/rosen/timetable.html" style={{color: '#c7000a'}}>Toyotetsu Bus Timetable</a>
+Please check the [Toyotetsu Bus Timetable](https://www.toyotetsu.jp/rosen/timetable.html)
  for the Toyohashi University of Technology Line and use it.
 
 ### コモンズⅠへのアクセス
