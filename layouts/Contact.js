@@ -8,8 +8,8 @@ const Contact = ({ data }) => {
   return (
     <section className="section">
       <div className="container">
-        {markdownify(title, "h1", "text-center font-normal")}
-        <div className="flex justify-center">
+        {markdownify(title, "h1", "h2 mb-8 justyfy-center")}
+        <div className="justify-center">
           <div>
             {markdownify(info.title, "h4")}
             {markdownify(info.description, "p", "mt-4")}

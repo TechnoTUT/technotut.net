@@ -6,7 +6,7 @@ function Faq({ data }) {
   return (
     <section className="section">
       <div className="container">
-        {markdownify(title, "h1", "text-center font-normal")}
+        {markdownify(title, "h1", "h2 mb-8 justyfy-center")}
         <div className="section row  -mt-6">
           {faqs.map((faq, index) => (
             <div key={index} className="col-12 mt-6 md:col-6">
