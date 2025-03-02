@@ -8,26 +8,22 @@
     "logo_height": "48",
     "logo_text": "TechnoTUT logo"
   },
-
   "settings": {
     "pagination": 7,
     "summary_length": 200,
     "blog_folder": "news"
   },
-
   "nav_button": {
     "enable": true,
     "label": "Join Us",
     "link": "/join-us"
   },
-
   "params": {
     "contact_form_action": "",
     "tag_manager_id": "",
-    "footer_content": "豊橋技術科学大学 音楽技術部<br/> Music & Live production Club<br/> TechnoTUT: Official Club of Toyohashi University of Technology. We are interested in music and technology.",
+    "footer_content": "豊橋技術科学大学 音楽技術部<br/> Music & Live production Club - TechnoTUT: <br/> Official Club of Toyohashi University of Technology. We are interested in music and technology.",
     "copyright": "© Copyright 2014 - 2025 [TechnoTUT](https://technotut.net/)"
   },
-
   "metadata": {
     "meta_author": "TechnoTUT",
     "meta_image": "/images/index/top.jpg",

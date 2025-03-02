@@ -16,7 +16,7 @@ const Footer = () => {
         <div className="row">
           {footer.map((col) => {
             return (
-              <div className="mb-12 sm:col-6 lg:col-3" key={col.name}>
+              <div className="mb-12 col-6 lg:col-3" key={col.name}>
                 {markdownify(col.name, "h2", "h4")}
                 <ul className="mt-6">
                   {col?.menu.map((item) => (
@@ -30,8 +30,7 @@ const Footer = () => {
               </div>
             );
           })}
-          {/* social icons */}
-          <div className="md-12 sm:col-6 lg:col-3">
+          <div className="md-12 lg:col-6">
             <Link href="/" aria-label="Bigspring">
               <Image
                 src={config.site.logo}
@@ -40,12 +39,15 @@ const Footer = () => {
                 alt=""
               />
             </Link>
-            {markdownify(footer_content, "p", "mt-3 mb-6")}
-            <Social source={social} className="social-icons mb-8" />
+            {markdownify(footer_content, "p", "")}
           </div>
         </div>
+        {/* social icons */}
+        <div className="flex justify-center mt-12">
+          <Social source={social} className="social-icons bg-inherit" />
+        </div>
         {/* copyright */}
-        <div className="border-t border-border py-6">
+        <div className="border-border py-6">
           {markdownify(copyright, "p", "text-sm text-center")}
         </div>
       </div>
