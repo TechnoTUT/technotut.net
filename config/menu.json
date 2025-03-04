@@ -9,8 +9,8 @@
       "url": "/activity"
     },
     {
-      "name":"Blog",
-      "url":"https://blog.technotut.net/"
+      "name": "Blog",
+      "url": "https://blog.technotut.net/"
     },
     {
       "name": "Ramen",
@@ -52,19 +52,6 @@
         {
           "text": "クラブハウス ２階 音楽技術部室",
           "url": "https://goo.gl/maps/mpwf4SeMmTv4SUoN8"
-        }
-      ]
-    },
-    {
-      "name": "",
-      "menu": [
-        {
-          "text": "",
-          "url": ""
-        },
-        {
-          "text": "",
-          "url": ""
         }
       ]
     },
