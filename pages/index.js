@@ -16,12 +16,12 @@ const Home = ({ frontmatter }) => {
   return (
     <Base title={title}>
       {/* Banner */}
-      <section className="section pb-[350px]">
+      <section className="section pb-[500px] sm:pb-[600px] lg:pb-[650px]">
         <div className="container">
           <div className="row text-center">
             <div className="mx-auto lg:col-10">
               <Link href="/independent">
-              <h1 className="font-primary font-bold text-white">{banner.title}</h1>
+                <h1 className="font-primary font-bold text-white">{banner.title}</h1>
               </Link>
               <p className="mt-4 text-white">{markdownify(banner.content)}</p>
               {banner.button.enable && (
@@ -34,7 +34,7 @@ const Home = ({ frontmatter }) => {
                 </Link>
               )}
               <Image
-                className="mx-auto mt-12 z-[-100] object-cover"
+                className="mx-auto mt-12 z-[-1] object-cover"
                 src={banner.image}
                 fill
                 alt="banner image"
@@ -79,9 +79,8 @@ const Home = ({ frontmatter }) => {
 
                 {/* Content */}
                 <div
-                  className={`about-content mt-0 md:mt-0 ${
-                    !isEven && "md:order-1"
-                  }`}
+                  className={`about-content mt-0 md:mt-0 ${!isEven && "md:order-1"
+                    }`}
                 >
                   <h2 className="font-bold leading-[40px]">{about?.title}</h2>
                   <p className="mt-4 mb-2">{about?.content1}</p>
