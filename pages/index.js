@@ -10,7 +10,7 @@ import "swiper/swiper.min.css";
 import { getListPage } from "../lib/contentParser";
 
 const Home = ({ frontmatter }) => {
-  const { banner, feature, services, workflow, call_to_action } = frontmatter;
+  const { banner, about, detail, call_to_action } = frontmatter;
   const { title } = config.site;
 
   return (
@@ -34,7 +34,7 @@ const Home = ({ frontmatter }) => {
                 </Link>
               )}
               <Image
-                className="mx-auto mt-12 z-[-100] blur-sm object-cover"
+                className="mx-auto mt-12 z-[-100] object-cover"
                 src={banner.image}
                 fill
                 alt="banner image"
@@ -45,31 +45,31 @@ const Home = ({ frontmatter }) => {
         </div>
       </section>
 
-      {/* services */}
-      {services.map((service, index) => {
-        const isOdd = index % 2 > 0;
+      {/* abouts */}
+      {about.map((about, index) => {
+        const isEven = index % 2 == 0;
         return (
           <section
-            key={`service-${index}`}
-            className={`section ${isOdd && "bg-theme-light"}`}
+            key={`about-${index}`}
+            className={`section ${isEven && "bg-theme-light"}`}
           >
             <div className="container">
               <div className="items-center gap-8 md:grid md:grid-cols-2">
                 {/* Carousel */}
-                <div className={`service-carousel ${!isOdd && "md:order-2"}`}>
+                <div className={`about-carousel ${!isEven && "md:order-2"}`}>
                   <Swiper
                     modules={[Autoplay, Pagination]}
                     pagination={
-                      service.images.length > 1 ? { clickable: true } : false
+                      about.images.length > 1 ? { clickable: true } : false
                     }
                     autoplay={{
                       delay: 5000,
                       disableOnInteraction: false,
                     }}
-                    init={service?.images > 1 ? false : true}
+                    init={about?.images > 1 ? false : true}
                   >
                     {/* Slides */}
-                    {service?.images.map((slide, index) => (
+                    {about?.images.map((slide, index) => (
                       <SwiperSlide key={index}>
                         <Image src={slide} alt="" width={600} height={500} />
                       </SwiperSlide>
@@ -79,18 +79,19 @@ const Home = ({ frontmatter }) => {
 
                 {/* Content */}
                 <div
-                  className={`service-content mt-5 md:mt-0 ${
-                    !isOdd && "md:order-1"
+                  className={`about-content mt-0 md:mt-0 ${
+                    !isEven && "md:order-1"
                   }`}
                 >
-                  <h2 className="font-bold leading-[40px]">{service?.title}</h2>
-                  <p className="mt-4 mb-2">{service?.content}</p>
-                  {service.button.enable && (
+                  <h2 className="font-bold leading-[40px]">{about?.title}</h2>
+                  <p className="mt-4 mb-2">{about?.content1}</p>
+                  <p className="mt-4 mb-2">{about?.content2}</p>
+                  {about.button.enable && (
                     <Link
-                      href={service?.button.link}
+                      href={about?.button.link}
                       className="cta-link inline-flex items-center text-primary"
                     >
-                      {service?.button.label}
+                      {about?.button.label}
                       <Image
                         className="ml-1"
                         src="/images/arrow-right.svg"
