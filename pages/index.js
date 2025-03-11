@@ -1,6 +1,5 @@
 import config from "@config/config.json"
 import Base from "@layouts/Baseof"
-import Cta from "@layouts/components/Cta"
 import Image from "next/image"
 import Link from "next/link"
 import { getListPage } from "../lib/contentParser"
@@ -9,7 +8,7 @@ const BannerSection = () => (
   <section className="relative h-screen w-full overflow-hidden">
     <div className="absolute inset-0">
       <Image
-        src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/top.jpg-RzyFWR7MNp87eB5QQYYn2GX3CiFEbJ.jpeg"
+        src="/images/index/top.jpg"
         alt="DJ setup with colorful lighting"
         fill
         priority
@@ -186,26 +185,52 @@ const ActivityGroupSection = () => (
   </section>
 )
 
+const CallToActionSection = () => (
+  <section className="relative h-[500px] w-full overflow-hidden">
+
+    {/* background: z-index 0*/}
+    <div className="absolute inset-0 bg-black z-0"></div>
+    
+    {/* SVG-background: z-index 10*/}
+    <Image
+      src="/images/index/oooscillate.svg"
+      alt="DJ setup with colorful lighting"
+      fill
+      priority
+      className="object-cover blur-[1px] scale-110 z-10"
+    />
+
+    {/* text-contents: z-index 20*/}
+    <div className="inset-0 absolute z-20 container mx-auto h-full flex flex-col items-center justify-center text-center px-4">
+      <h2 className="font-primary font-bold text-white text-3xl md:text-4xl lg:text-5xl">
+        Read to Join?
+      </h2>
+      <div className="space-y-6 text-lg text-[#f5f5f7] leading-relaxed">
+        <p className="max-w-prose mx-auto my-[10px]">
+          わたしたちは、いつでも新しい仲間を歓迎しています。
+        </p>
+      </div>
+      <Link href="/join-us">
+        <button className="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-white rounded-lg group bg-gradient-to-br bg-transparent from-purple-500 to-pink-500">
+          <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-black rounded-md group-hover:bg-transparent group-hover:dark:bg-transparent font-bold">
+            Join Us
+          </span>
+        </button>
+      </Link>
+    </div>
+  </section>
+)
+
 const Home = ({ frontmatter }) => {
-  const { call_to_action } = frontmatter
   const { title } = config.site
   return (
     <Base title={title}>
       <BannerSection />
       <ActivityContentSection />
       <ActivityGroupSection />
-      <Cta cta={call_to_action} />
+      <CallToActionSection />
     </Base>
   )
-}
-
-export const getStaticProps = async () => {
-  const { frontmatter } = await getListPage("content/_index.md")
-  return {
-    props: {
-      frontmatter,
-    },
-  }
 }
 
 export default Home
