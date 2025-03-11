@@ -162,15 +162,32 @@ const ActivityGroupSection = () => (
             <p>
             イベントのフライヤー制作から、広報用SNSの運用、Webサイトの更新まで。映像制作やイラストレーションも手掛け、視覚と感覚に訴えるコンテンツを生み出しています。創造性と情熱をカタチにし、テクノ部の魅力を広く届けます。
             </p>
-            <div className="grid grid-cols-1 justify-items-center">
-              <Image
-                src="/images/index/media/media-1.png"
-                width={300}
-                height={300}
-                alt="テクノ部公式キャラクターテクノちゃん(みにまむてくのちゃんver.)"
-                className="mx-auto object-center"
-              />
-              <div className="text-xs text-gray-300">テクノ部公式キャラクター　テクノちゃん (みにまむてくのちゃん ver.)</div>
+            <div className="flex flex-wrap">
+              <div className="grid grid-cols-1 justify-items-center">
+                <Image
+                  src="/images/index/media/media-1.png"
+                  width={300}
+                  height={300}
+                  alt="テクノ部公式キャラクターテクノちゃん(みにまむてくのちゃんver.)"
+                  className="mx-auto object-center"
+                />
+                <div className="text-xs text-gray-300">テクノ部公式キャラクター　テクノちゃん (みにまむてくのちゃん ver.)</div>
+              </div>
+
+              <div className="relative h-[371px] w-[268px] my-8 mx-auto">
+                <div className="absolute inset-0 bg-ai-gradient ">
+                  <div className="h-full w-full">
+                    <Image
+                      src="/images/index/media/flyer_20240713.png"
+                      fill
+                      alt="dtm-image"
+                      className="object-cover p-[2px] aspect-2682/3709"
+                    />
+                  </div>
+                  <div className="absolute inset-0 bg-black opacity-0 z-30 m-[2px]"></div>
+                  <div className="text-xs text-gray-300 my-[21px]">Flyer  2024/7/13  Collaboration with GilleWorkers</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
