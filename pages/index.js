@@ -39,7 +39,7 @@ const ActivityGroupSection = () => (
     <div
       className="absolute inset-0 bg-black z-0"
     ></div>
-    <div className="absolute inset-0 bg-[url('/images/index/272.jpg')] bg-center z-10 opacity-10 blur-[2px]"></div>
+    <div className="absolute inset-0 bg-[url('/images/index/bg-texture-1.jpg')] bg-center z-10 opacity-10 blur-[2px]"></div>
     <div className="absolute inset-0 bg-[length:220px] bg-repeat opacity-45 bg-[url('/images/index/noise-light.png')] bg-center z-15"></div>
 
     <div className="container mx-auto px-4 relative z-20">
@@ -112,7 +112,7 @@ const ActivityGroupSection = () => (
             </p>
             <div className="grid grid-cols-1 justify-items-center">
               <Image
-                src="/images/index/MEDIA/media-1.png"
+                src="/images/index/media/media-1.png"
                 width={300}
                 height={300}
                 alt="テクノ部公式キャラクターテクノちゃん(みにまむてくのちゃんver.)"
@@ -129,7 +129,7 @@ const ActivityGroupSection = () => (
             DTM
           </h3>
           <div className="text-gray-200">
-            <strong className="block mb-2 text-rose-400">"好き"を形に</strong>
+            <strong className="block mb-2 text-rose-400">&quot;好き&quot;を形に</strong>
             <p>
               己の好きな音楽を求めて制作活動を行っています。毎週金曜日にDiscordにて活動を行い、情報とやる気を共有しています。
             </p>
@@ -153,6 +153,19 @@ const ActivityGroupSection = () => (
                 noc.technotut.net
               </Link>{" "}
               で確認できます。
+
+              <div className="relative h-[400px] w-full my-8">
+                <div className="absolute inset-0 p-[4px] bg-gradient-to-b from-fuchsia-400 to-orange-700">
+                  <div className="h-full w-full">
+                    <Image
+                      src="/images/index/tech/netshrine.jpg"
+                      fill
+                      alt="テクノ部公式キャラクター"
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+              </div>
             </p>
           </div>
         </div>
@@ -198,8 +211,8 @@ const CallToActionSection = () => (
         </p>
       </div>
       <Link href="/join-us">
-        <button className="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-white rounded-lg group bg-gradient-to-br bg-transparent from-purple-500 to-pink-500">
-          <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-black rounded-md group-hover:bg-transparent group-hover:dark:bg-transparent font-bold">
+        <button className="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-white rounded-[25px] group bg-gradient-to-br bg-transparent from-blue-500 to-pink-500">
+          <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-black rounded-[25px] group-hover:bg-transparent group-hover:dark:bg-transparent font-bold">
             Join Us
           </span>
         </button>
