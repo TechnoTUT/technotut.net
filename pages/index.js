@@ -74,6 +74,19 @@ const ActivityGroupSection = () => (
           <div className="text-gray-200">
             <strong className="block mb-2 text-rose-400"></strong>
             <p>イベント運営班では、多種多様なイベントの計画立案・運営に関する活動を行っています。部室での放課後イベントから、大部屋 (コモンズI) を貸し切っての大規模イベント、さらには技科大祭や実際のクラブでも！誰もが楽しめる遊び場を、誰かが全力で輝けるステージを、自分たちの手で作り上げています！</p>
+            <div className="relative h-[400px] w-full my-8">
+              <div className="absolute inset-0 bg-ai-gradient">
+                <div className="h-full w-full">
+                  <Image
+                    src="/images/index/event/camp.jpg"
+                    fill
+                    alt="camp"
+                    className="object-cover p-[2px]"
+                  />
+                  <div className="absolute inset-0 bg-black opacity-15 z-30 m-[2px]"></div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -85,6 +98,32 @@ const ActivityGroupSection = () => (
           <div className="text-gray-200">
             <strong className="block mb-2 text-rose-400">人と、音楽と、フロアを繋げる</strong>
             <p>弊サークル主催DJイベントである<span className="bg-gradient-to-r from-emerald-400 to-cyan-300 bg-clip-text text-transparent font-bold"> The Utopia Tone </span>をはじめ、技科大祭などの学内イベントでのDJプレイをモチベーションに練習・活動しています。通常の活動では、平日DJイベントを中心に、放課後や授業の空きコマでDJプレイをしています。一部の部員は愛知・静岡のクラブにてDJ出演や主催イベントを開催しており、学外にも活動の幅を広げています。</p>
+            <div className="relative h-[400px] w-full my-8">
+              <div className="absolute inset-0 bg-ai-gradient">
+                <div className="h-full w-full">
+                  <Image
+                    src="/images/index/dj/dj-jokka.JPG"
+                    fill
+                    alt="dj-Jokka"
+                    className="object-cover p-[2px]"
+                  />
+                  <div className="absolute inset-0 bg-black opacity-30 z-30 m-[2px]"></div>
+                </div>
+              </div>
+            </div>
+            <div className="relative h-[400px] w-full my-8">
+              <div className="absolute inset-0 bg-ai-gradient">
+                <div className="h-full w-full">
+                  <Image
+                    src="/images/index/dj/dj-image.jpg"
+                    fill
+                    alt="dj-image"
+                    className="object-cover p-[2px]"
+                  />
+                  <div className="absolute inset-0 bg-black opacity-30 z-30 m-[2px]"></div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -97,6 +136,19 @@ const ActivityGroupSection = () => (
             <strong className="block mb-2 text-rose-400">空間を掌握する演出のプロフェッショナル</strong>
             <p>映像パフォーマンス (VJ) と照明パフォーマンス (LJ) に関する活動を行っています。通常の活動では演出技術、さらにはその機材やソフトの開発などを行いながら、部室を明るく照らしています！イベントではそれらを駆使して、空間を最大限に盛り上げるパワーを生み出しています！
             </p>
+            <div className="relative h-[400px] w-full my-8">
+              <div className="absolute inset-0 bg-ai-gradient">
+                <div className="h-full w-full">
+                  <Image
+                    src="/images/index/vj/vj-image.jpg"
+                    fill
+                    alt="vj-image"
+                    className="object-cover p-[2px]"
+                  />
+                </div>
+                <div className="absolute inset-0 bg-black opacity-45 z-30 m-[2px]"></div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -136,6 +188,19 @@ const ActivityGroupSection = () => (
             <p>
               毎年春と秋に開かれるM3にて、オリジナル楽曲の頒布も行っております。
             </p>
+            <div className="relative h-[400px] w-full my-8">
+              <div className="absolute inset-0 bg-ai-gradient">
+                <div className="h-full w-full">
+                  <Image
+                    src="/images/index/dtm/dtm.jpg"
+                    fill
+                    alt="dtm-image"
+                    className="object-cover p-[2px]"
+                  />
+                </div>
+                <div className="absolute inset-0 bg-black opacity-45 z-30 m-[2px]"></div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -155,7 +220,7 @@ const ActivityGroupSection = () => (
               で確認できます。
             </p>
             <div className="relative h-[400px] w-full my-8">
-              <div className="absolute inset-0 bg-gradient-to-b from-cyan-700 to-pink-500">
+              <div className="absolute inset-0 bg-ai-gradient">
                 <div className="h-full w-full">
                   <Image
                     src="/images/index/tech/netshrine.jpg"
@@ -163,6 +228,7 @@ const ActivityGroupSection = () => (
                     alt="ネット神社"
                     className="object-cover p-[2px]"
                   />
+                  <div className="absolute inset-0 bg-black opacity-0 z-30 m-[2px]"></div>
                 </div>
               </div>
             </div>
