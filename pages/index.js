@@ -6,28 +6,20 @@ import { getListPage } from "../lib/contentParser"
 
 const BannerSection = () => (
   <section className="relative h-screen w-full overflow-hidden">
-    <div className="absolute inset-0">
-      <Image
-        src="/images/index/top.jpg"
-        alt="DJ setup with colorful lighting"
-        fill
-        priority
-        className="object-cover blur-[2px] scale-110"
-        style={{ zIndex: -1 }}
-      />
-    </div>
-    <div className="absolute inset-0 bg-black/40">
+    <div className="absolute inset-0 bg-cover bg-[url('/images/index/top.jpg')] bg-center blur-[1px] scale-110 z-10"></div>
+
+    <div className="absolute inset-0 bg-black/40 z-20">
       <div className="container mx-auto h-full flex flex-col items-center justify-center text-center px-4">
         <Link href="/independent" className="mb-4">
           <h1 className="font-primary font-bold text-[#f5f5f7] text-3xl md:text-4xl lg:text-5xl">
-            豊橋技術科学大学 音楽技術部
+            豊橋技術科学大学 <br className="block md:hidden" />音楽技術部
           </h1>
         </Link>
         <strong className="mt-4 text-white text-lg md:text-xl">Music & Live production Club - TechnoTUT</strong>
         <div className="max-w-screen-md mx-auto mt-16">
-          <h2 className="text-2xl md:text-3xl font-extrabold mb-6 text-center bg-gradient-to-r from-fuchsia-400 to-orange-700 bg-clip-text text-transparent">
-            音楽とテクノロジーの交差点へようこそ
-          </h2>
+        <h2 className="text-2xl md:text-3xl font-extrabold mb-6 text-center bg-ai-gradient bg-clip-text text-transparent">
+         音楽とテクノロジーの交差点へ<br className="block md:hidden" />ようこそ
+        </h2>
           <div className="space-y-6 text-lg text-[#f5f5f7] leading-relaxed">
             <p className="max-w-prose mx-auto text-left">
               わたしたちは、DJを主体とした音楽イベントを軸に、多彩なクリエイティブ活動を展開するサークルです。音楽、映像、照明、デザイン、テクノロジーなど部員ひとりひとりが興味のある分野で楽しみながら、音楽の持つ力を多角的に表現します。
@@ -42,14 +34,16 @@ const BannerSection = () => (
   </section>
 )
 
-const ActivityContentSection = () => (
+const ActivityGroupSection = () => (
   <section className="py-16 relative overflow-hidden">
     <div
-      className="absolute inset-0 bg-black"
-      style={{ backdropFilter: "blur(3px)" }}
+      className="absolute inset-0 bg-black z-0"
     ></div>
-    <div className="container mx-auto px-4 relative z-10">
-      <h2 className="mb-8 text-center text-3xl font-bold text-[#f5f5f7]">活動内容</h2>
+    <div className="absolute inset-0 bg-[url('/images/index/272.jpg')] bg-center z-10 opacity-10 blur-[2px]"></div>
+    <div className="absolute inset-0 bg-[length:220px] bg-repeat opacity-45 bg-[url('/images/index/noise-light.png')] bg-center z-15"></div>
+
+    <div className="container mx-auto px-4 relative z-20">
+      <h2 className="mt-8 mb-8 text-center text-3xl font-bold text-[#f5f5f7]">活動内容</h2>
       <div className="mx-auto max-w-4xl space-y-6 text-lg text-gray-200">
         <p>
           わたしたちは、学内DJイベント<span className="bg-gradient-to-r from-emerald-400 to-cyan-300 bg-clip-text text-transparent font-bold"> The Utopia Tone </span> 
@@ -65,18 +59,7 @@ const ActivityContentSection = () => (
           </Link>{" "}にて詳細をご確認いただけます。
         </p>
       </div>
-    </div>
-  </section>
-)
-
-const ActivityGroupSection = () => (
-  <section className="py-16 relative overflow-hidden">
-    <div
-      className="absolute inset-0 bg-black"
-      style={{ backdropFilter: "blur(3px)" }}
-    ></div>
-    <div className="container mx-auto px-4 relative z-10">
-      <h2 className="mb-12 text-center text-3xl font-bold text-[#f5f5f7]">活動班</h2>
+      <h2 className="mt-12 mb-8 text-center text-3xl font-bold text-[#f5f5f7]">活動班</h2>
       <div className="mx-auto max-w-4xl mb-16 text-lg text-gray-200">
         <p>
           わたしたちの部活には、イベント運営班、DJ班、DTM班などいくつかの活動班があります。自分の興味に合わせ、好きな活動班に自由に参加でき、複数のグループに関わることも可能です。制約や強制は一切なく、ただ自分のペースで、心が動くままに楽しめる場所です。
@@ -127,6 +110,16 @@ const ActivityGroupSection = () => (
             <p>
             イベントのフライヤー制作から、広報用SNSの運用、Webサイトの更新まで。映像制作やイラストレーションも手掛け、視覚と感覚に訴えるコンテンツを生み出しています。創造性と情熱をカタチにし、テクノ部の魅力を広く届けます。
             </p>
+            <div className="grid grid-cols-1 justify-items-center">
+              <Image
+                src="/images/index/MEDIA/media-1.png"
+                width={300}
+                height={300}
+                alt="テクノ部公式キャラクターテクノちゃん(みにまむてくのちゃんver.)"
+                className="mx-auto object-center"
+              />
+              <div className="text-xs text-gray-300">テクノ部公式キャラクター　テクノちゃん (みにまむてくのちゃん ver.)</div>
+            </div>
           </div>
         </div>
 
@@ -192,18 +185,12 @@ const CallToActionSection = () => (
     <div className="absolute inset-0 bg-black z-0"></div>
     
     {/* SVG-background: z-index 10*/}
-    <Image
-      src="/images/index/oooscillate.svg"
-      alt="DJ setup with colorful lighting"
-      fill
-      priority
-      className="object-cover blur-[1px] scale-110 z-10"
-    />
+    <div className="absolute inset-0 bg-cover bg-[url('/images/index/oooscillate.svg')] bg-center blur-[1px] scale-110 z-10"></div>
 
     {/* text-contents: z-index 20*/}
     <div className="inset-0 absolute z-20 container mx-auto h-full flex flex-col items-center justify-center text-center px-4">
       <h2 className="font-primary font-bold text-white text-3xl md:text-4xl lg:text-5xl">
-        Read to Join?
+        Ready to Join?
       </h2>
       <div className="space-y-6 text-lg text-[#f5f5f7] leading-relaxed">
         <p className="max-w-prose mx-auto my-[10px]">
@@ -226,7 +213,6 @@ const Home = ({ frontmatter }) => {
   return (
     <Base title={title}>
       <BannerSection />
-      <ActivityContentSection />
       <ActivityGroupSection />
       <CallToActionSection />
     </Base>
