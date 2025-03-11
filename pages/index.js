@@ -153,20 +153,19 @@ const ActivityGroupSection = () => (
                 noc.technotut.net
               </Link>{" "}
               で確認できます。
-
-              <div className="relative h-[400px] w-full my-8">
-                <div className="absolute inset-0 p-[4px] bg-gradient-to-b from-fuchsia-400 to-orange-700">
-                  <div className="h-full w-full">
-                    <Image
-                      src="/images/index/tech/netshrine.jpg"
-                      fill
-                      alt="テクノ部公式キャラクター"
-                      className="object-cover"
-                    />
-                  </div>
+            </p>
+            <div className="relative h-[400px] w-full my-8">
+              <div className="absolute inset-0 bg-gradient-to-b from-cyan-700 to-pink-500">
+                <div className="h-full w-full">
+                  <Image
+                    src="/images/index/tech/netshrine.jpg"
+                    fill
+                    alt="ネット神社"
+                    className="object-cover p-[2px]"
+                  />
                 </div>
               </div>
-            </p>
+            </div>
           </div>
         </div>
 
