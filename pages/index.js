@@ -171,7 +171,7 @@ const ActivityGroupSection = () => (
                   alt="テクノ部公式キャラクターテクノちゃん(みにまむてくのちゃんver.)"
                   className="mx-auto object-center"
                 />
-                <div className="text-xs text-gray-300 text-center">テクノ部公式キャラクター　テクノちゃん (みにまむてくのちゃん ver.)</div>
+                <div className="text-xs text-gray-300 text-center">テクノ部公式キャラクター　<br className="block md:hidden" />テクノちゃん (みにまむてくのちゃん ver.)</div>
               </div>
 
               <div className="grid grid-cols-1 justify-items-center mx-auto">
@@ -291,7 +291,7 @@ const CallToActionSection = () => (
       </h2>
       <div className="space-y-6 text-lg text-[#f5f5f7] leading-relaxed">
         <p className="max-w-prose mx-auto my-[10px]">
-          わたしたちは、いつでも新しい仲間を歓迎しています。
+          わたしたちは、いつでも新しい仲間を<br className="block md:hidden" />歓迎しています。
         </p>
       </div>
       <Link href="/join-us">
