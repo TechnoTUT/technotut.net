@@ -277,7 +277,7 @@ const CallToActionSection = () => (
       </div>
       <Link href="/join-us">
         <button className="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-white rounded-[25px] group bg-gradient-to-br bg-transparent from-blue-500 to-pink-500">
-          <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-black rounded-[25px] group-hover:bg-transparent group-hover:dark:bg-transparent font-bold">
+          <span className="relative px-5 py-2.5 transition-all ease-in bg-black rounded-[25px] duration-500 ease-in-out group-hover:bg-transparent font-bold">
             Join Us
           </span>
         </button>
