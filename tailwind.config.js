@@ -68,6 +68,10 @@ module.exports = {
         primary: [fontPrimary, fontPrimaryType],
         secondary: [fontSecondary, fontSecondaryType],
       },
+      backgroundImage: {
+        "ai-gradient":
+          "linear-gradient(97deg, #0096FF, #BB64FF 42%, #F2416B 74%, #EB7500)",
+      },
     },
   },
   plugins: [
