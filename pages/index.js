@@ -16,10 +16,11 @@ const BannerSection = () => (
           </h1>
         </Link>
         <strong className="mt-4 text-white text-lg md:text-xl">Music & Live production Club - TechnoTUT</strong>
+
         <div className="max-w-screen-md mx-auto mt-16">
-        <h2 className="text-2xl md:text-3xl font-extrabold mb-6 text-center bg-ai-gradient bg-clip-text text-transparent">
-         音楽とテクノロジーの交差点へ<br className="block md:hidden" />ようこそ
-        </h2>
+          <h2 className="text-2xl md:text-3xl font-extrabold mb-6 text-center bg-ai-gradient bg-clip-text text-transparent">
+          音楽とテクノロジーの交差点へ<br className="block md:hidden" />ようこそ
+          </h2>
           <div className="space-y-6 text-lg text-[#f5f5f7] leading-relaxed">
             <p className="max-w-prose mx-auto text-left">
               わたしたちは、DJを主体とした音楽イベントを軸に、多彩なクリエイティブ活動を展開するサークルです。音楽、映像、照明、デザイン、テクノロジーなど部員ひとりひとりが興味のある分野で楽しみながら、音楽の持つ力を多角的に表現します。
@@ -29,6 +30,11 @@ const BannerSection = () => (
             </p>
           </div>
         </div>
+
+        <Link href="/en" className="mt-8 bg-gradient-to-r from-amber-200 to-yellow-500 bg-clip-text text-transparent">
+          For English &gt;&gt; 
+        </Link>
+
       </div>
     </div>
   </section>

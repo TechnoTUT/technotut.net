@@ -17,9 +17,9 @@ const BannerSection = () => (
         </Link>
         <strong className="mt-4 text-white text-lg md:text-xl">Music & Live production Club - TechnoTUT</strong>
         <div className="max-w-screen-md mx-auto mt-16">
-        <h2 className="text-2xl md:text-3xl font-extrabold mb-6 text-center bg-ai-gradient bg-clip-text text-transparent">
-         Welcome to the Crossroads of Beats and Bytes!
-        </h2>
+          <h2 className="text-2xl md:text-3xl font-extrabold mb-6 text-center bg-ai-gradient bg-clip-text text-transparent">
+          Welcome to the Crossroads of Beats and Bytes!
+          </h2>
           <div className="space-y-6 text-lg text-[#f5f5f7] leading-relaxed">
             <p className="max-w-prose mx-auto text-left">
               We are a creative collective centered around DJ-driven music events. Through music, visual, lighting, design, and technology, each member explores their passions while expressing the power of music from multiple perspectives.
@@ -29,6 +29,10 @@ const BannerSection = () => (
             </p>
           </div>
         </div>
+
+        <Link href="/" className="mt-8 bg-gradient-to-r from-amber-200 to-yellow-500 bg-clip-text text-transparent">
+          For Japanese &gt;&gt; 
+        </Link>
       </div>
     </div>
   </section>
