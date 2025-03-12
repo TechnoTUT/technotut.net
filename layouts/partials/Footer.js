@@ -21,9 +21,7 @@ const Footer = () => {
                 <ul className="mt-6">
                   {col?.menu.map((item) => (
                     <li className="mb-1" key={item.text}>
-                      <Link href={item.url} rel="">
                         {item.text}
-                      </Link>
                     </li>
                   ))}
                 </ul>
