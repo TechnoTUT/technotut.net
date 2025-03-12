@@ -8,7 +8,6 @@ draft: false
 
 
 福利施設棟二階、食堂横にてDJイベントを開催します
-![2024washitu](/public/images/special/images_washitsu_2024.jpg)
 ### 入部について
 ##### 見学・体験入部
 ##### Watch and try to join
