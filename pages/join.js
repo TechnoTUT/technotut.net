@@ -73,7 +73,7 @@ const EntryProcedureSection = () => (
             From the second year onward, the annual fee is 2,000 yen, which will be collected when you rejoin the club.
             </p>
             <p>運営の都合上、毎年入部手続きを行う必要があります。再入部手続きをしなければ費用は一切発生しないため、少しでも興味がある方はまずは気軽に入部してみることをおすすめします。
-            For administrative reasons, you need to renew your membership each year. If you choose not to rejoin the following year, you won’t be charged anything. So if you're even slightly interested, we recommend signing up for now!
+            For administrative reasons, you need to renew your membership each year. If you choose not to rejoin the following year, you will not be charged anything. So if you are even slightly interested, we recommend signing up for now!
             </p>
           </div>
         </div>
