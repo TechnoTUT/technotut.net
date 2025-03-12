@@ -38,20 +38,16 @@
       "name": "Address",
       "menu": [
         {
-          "text": "愛知県豊橋市",
-          "url": "https://goo.gl/maps/mpwf4SeMmTv4SUoN8"
+          "text": "愛知県豊橋市"
         },
         {
-          "text": "天伯町雲雀ヶ丘１－１",
-          "url": "https://goo.gl/maps/mpwf4SeMmTv4SUoN8"
+          "text": "天伯町雲雀ヶ丘１－１"
         },
         {
-          "text": "豊橋技術科学大学",
-          "url": "https://goo.gl/maps/mpwf4SeMmTv4SUoN8"
+          "text": "豊橋技術科学大学"
         },
         {
-          "text": "クラブハウス ２階 音楽技術部室",
-          "url": "https://goo.gl/maps/mpwf4SeMmTv4SUoN8"
+          "text": "クラブハウス ２階 音楽技術部室"
         }
       ]
     },
@@ -59,12 +55,10 @@
       "name": "Contact",
       "menu": [
         {
-          "text": "contact@",
-          "url": "/contact"
+          "text": "contact@"
         },
         {
-          "text": "※末尾に「technotut.net」を補完してください",
-          "url": "/contact"
+          "text": "※末尾に「technotut.net」を補完してください"
         }
       ]
     }
