@@ -25,7 +25,7 @@ const BannerSection = () => (
               We are a creative collective centered around DJ-driven music events. Through music, visual, lighting, design, and technology, each member explores their passions while expressing the power of music from multiple perspectives.
             </p>
             <p className="max-w-prose mx-auto text-left">
-              We maximize the expression of each individual's passion, creating an experience where every participant feels truly special.
+              We maximize the expression of each individual&apos;s passion, creating an experience where every participant feels truly special.
             </p>
           </div>
         </div>
@@ -246,7 +246,7 @@ const ActivityGroupSection = () => (
           <div className="text-gray-200">
             <strong className="block mb-2 text-rose-400">Masters of Sound, Visuals, and Light <span className="tracking-[-0.2em]">------</span> The Magicians Behind the Stage.</strong>
             <p>
-              We explore and experiment with cutting-edge technology based on our members' interests. Our activities include maintaining the club's internal servers, managing video streaming at campus event venues, and developing lighting and stage production technologies to enhance live experiences.
+              We explore and experiment with cutting-edge technology based on our members&apos; interests. Our activities include maintaining the club&apos;s internal servers, managing video streaming at campus event venues, and developing lighting and stage production technologies to enhance live experiences.
               For more details, visit<Link href="https://noc.technotut.net/" className="relative bg-gradient-to-r from-fuchsia-400 to-orange-700 bg-clip-text text-transparent transition-all duration-500 ease-in-out hover:text-fuchsia-400"> noc.technotut.net </Link>.
             </p>
             <div className="relative h-[400px] w-full my-8">
@@ -275,7 +275,7 @@ const ActivityGroupSection = () => (
             <p>
             We travel in search of ramen and karaage <span className="tracking-[-0.2em]">------</span><span className="font-serif italic"> une des meilleures tables, vaut le voyage.</span> Through our food adventures, we aim to discover and share these culinary gems with the world.
             
-            Check out our members' top recommendations on the<Link href="/ramen" className="relative bg-gradient-to-r from-fuchsia-400 to-orange-700 bg-clip-text text-transparent transition-all duration-500 ease-in-out hover:text-fuchsia-400"> Toyohashi Ramen Map. </Link>
+            Check out our members&apos; top recommendations on the<Link href="/ramen" className="relative bg-gradient-to-r from-fuchsia-400 to-orange-700 bg-clip-text text-transparent transition-all duration-500 ease-in-out hover:text-fuchsia-400"> Toyohashi Ramen Map. </Link>
             </p>
           </div>
         </div>
