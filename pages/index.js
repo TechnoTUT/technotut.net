@@ -205,7 +205,10 @@ const ActivityGroupSection = () => (
               己の好きな音楽を求めて制作活動を行っています。毎週金曜日にDiscordにて活動を行い、情報とやる気を共有しています。
             </p>
             <p>
-              毎年春と秋に開かれるM3にて、オリジナル楽曲の頒布も行っております。
+              毎年春と秋に開かれるM3にて、オリジナル楽曲の頒布も行っております。ディスコグラフィーは{" "}<Link href="https://technotut.bandcamp.com/"
+                className="relative bg-gradient-to-r from-fuchsia-400 to-orange-700 bg-clip-text text-transparent transition-all duration-500 ease-in-out hover:text-fuchsia-400">
+                bandcamp
+              </Link>{" "}をご覧ください。
             </p>
             <div className="relative h-[400px] w-full my-8">
               <div className="absolute inset-0 bg-ai-gradient">
