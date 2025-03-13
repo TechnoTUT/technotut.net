@@ -19,9 +19,9 @@ export const EntryProcedureSection = ({ language }) => {
             ),
             join: "入部方法",
             joinSteps: [
-                "一度部室にお越しください。",
-                "部員名簿に署名と捺印をしていただきます。",
-                "入部手続きが完了しました。"
+                "1. 一度部室にお越しください。",
+                "2. 部員名簿に署名と捺印をしていただきます。",
+                "3. 入部手続きが完了しました。"
             ],
             contact: "連絡先",
             contactText: (
@@ -61,9 +61,9 @@ export const EntryProcedureSection = ({ language }) => {
             ),
             join: "How to join",
             joinSteps: [
-                "Please come to the club room once.",
-                "Please sign and stamp the member list.",
-                "The membership procedure is complete."
+                "1. Please come to the club room once.",
+                "2. Please sign and stamp the member list.",
+                "3. The membership procedure is complete."
             ],
             contact: "Contact",
             contactText: (
