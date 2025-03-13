@@ -1,6 +1,6 @@
 import Link from "next/link"
 
-export const BannerSection = () => {
+const BannerSection = () => {
   return <section className="relative h-[40vh] w-full overflow-hidden">
     <div className="absolute inset-0 bg-cover bg-[url('/images/special/join-us.jpg')] bg-center z-10"></div>
 
@@ -16,3 +16,5 @@ export const BannerSection = () => {
     </div>
   </section>
 };
+
+export default BannerSection
