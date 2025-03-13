@@ -8,6 +8,8 @@ import { getListPage } from "../lib/contentParser"
 import { BannerSection } from "@content/components/sections/join-us/BannerSection"
 import { EntryProcedureSection } from "@content/components/sections/join-us/EntryProcedureSection"
 
+import { Shinkan2025Section } from "@content/components/sections/join-us/Shinkan2025Section"
+
 
 const Home = ({ frontmatter }) => {
   const { title } = config.site;
@@ -18,10 +20,12 @@ const Home = ({ frontmatter }) => {
   return (
     <div>
       <Base title={title}>
-        <BannerSection />
+
+        {/* バナーの本来の位置はここ*/}
+        {/* < BannerSection /> */}
 
         {/* 言語切り替えタブ */}
-        <div className="flex justify-end space-x-4 bg-black">
+        < div className="flex justify-end space-x-4 bg-black">
           <button
             className={`px-4 py-2 border-b-2 ${language === "ja" ? "border-blue-500 font-bold text-white" : "border-transparent text-gray-300"
               }`}
@@ -38,18 +42,34 @@ const Home = ({ frontmatter }) => {
           </button>
         </div>
 
+        {/* 新歓シーズンのみこちらに*/}
         {/* 言語ごとのコンテンツ切り替え */}
         {language === "ja" ? (
           <>
-            <EntryProcedureSection language="ja" />
+            <Shinkan2025Section language="ja" />
           </>
         ) : (
           <>
-            <EntryProcedureSection language="en" />
+            <Shinkan2025Section language="en" />
           </>
-        )}
-      </Base>
-    </div>
+        )
+        }
+        < BannerSection />
+
+        {/* 言語ごとのコンテンツ切り替え */}
+        {
+          language === "ja" ? (
+            <>
+              <EntryProcedureSection language="ja" />
+            </>
+          ) : (
+            <>
+              <EntryProcedureSection language="en" />
+            </>
+          )
+        }
+      </Base >
+    </div >
   );
 };
 
