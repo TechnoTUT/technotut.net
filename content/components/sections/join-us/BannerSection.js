@@ -2,7 +2,7 @@ import Link from "next/link"
 
 const BannerSection = () => {
   return <section className="relative h-[40vh] w-full overflow-hidden">
-    <div className="absolute inset-0 bg-cover bg-[url('/images/special/join-us.jpg')] bg-center z-10"></div>
+    <div className="absolute inset-0 bg-cover bg-[url('/images/special/join-us.jpg')] bg-center blur-[1px] scale-110 z-10"></div>
 
     <div className="absolute inset-0 bg-black/30 z-20">
       <div className="container mx-auto h-full flex flex-col items-center justify-center text-center px-4">
