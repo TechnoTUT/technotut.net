@@ -18,19 +18,20 @@ const BannerSection = () => (
         <strong className="mt-4 text-white text-lg md:text-xl">Music & Live production Club - TechnoTUT</strong>
         <div className="max-w-screen-md mx-auto mt-16">
           <h2 className="text-2xl md:text-3xl font-extrabold mb-6 text-center bg-ai-gradient bg-clip-text text-transparent">
-          音楽とテクノロジーの交差点へ<br className="block md:hidden" />ようこそ
+          Welcome to the Crossroads of Musics and Technologies!
           </h2>
-            <div className="space-y-6 text-lg text-[#f5f5f7] leading-relaxed">
-              <p className="max-w-prose mx-auto text-left">
-                わたしたちは、DJを主体とした音楽イベントを軸に、多彩なクリエイティブ活動を展開するサークルです。音楽、映像、照明、デザイン、テクノロジーなど部員ひとりひとりが興味のある分野で楽しみながら、音楽の持つ力を多角的に表現します。
-              </p>
-              <p className="max-w-prose mx-auto text-left">
-                わたしたちは、個人の好きの対象物の魅力を最大限に表現し、イベントに参加者する人すべてが特別となる体験を提供しています。
-              </p>
-            </div>
+          <div className="space-y-6 text-lg text-[#f5f5f7] leading-relaxed">
+            <p className="max-w-prose mx-auto text-left">
+              We are the creative club centering on DJ-driven music events. Through music, visual & light performances, design, and various technology, each member is exploring his/her passions and expressing the power of music in various ways.
+            </p>
+            <p className="max-w-prose mx-auto text-left">
+              We are continuing to create special experiences for every participant, with the gathering of each individual&apos;s maximized passion. 
+            </p>
+          </div>
         </div>
-        <Link href="/en" className="mt-8 bg-gradient-to-r from-amber-200 to-yellow-500 bg-clip-text text-transparent">
-          For English &gt;&gt; 
+
+        <Link href="/" className="mt-8 bg-gradient-to-r from-amber-200 to-yellow-500 bg-clip-text text-transparent">
+          For Japanese &gt;&gt; 
         </Link>
       </div>
     </div>
@@ -46,37 +47,41 @@ const ActivityGroupSection = () => (
     <div className="absolute inset-0 bg-[length:220px] bg-repeat opacity-45 bg-[url('/images/index/noise-light.png')] bg-center z-15"></div>
 
     <div className="container mx-auto px-4 relative z-20">
-      <h2 className="mt-8 mb-8 text-center text-3xl font-bold text-[#f5f5f7]">活動内容</h2>
+      <h2 className="mt-8 mb-8 text-center text-3xl font-bold text-[#f5f5f7]">Discover What We Do</h2>
       <div className="mx-auto max-w-4xl space-y-6 text-lg text-gray-200">
         <p>
-          わたしたちは、学内DJイベント<span className="bg-gradient-to-r from-emerald-400 to-cyan-300 bg-clip-text text-transparent font-bold"> The Utopia Tone </span> 
-          の主催をはじめ、部内の交流を深める充実した合宿、他大学音楽サークルとのコラボレーションイベント、そしてM3などの外部イベントへの積極的な参加などを通じて、多彩な活動を展開しています。年間20回以上にわたる小規模なテーマ別DJパーティーも開催し、部員ひとりひとりが個性を発揮しています。
+          We actively organize a wide range of events, starting with our on-campus DJ event, <span className="bg-gradient-to-r from-emerald-400 to-cyan-300 bg-clip-text text-transparent font-bold">The Utopia Tone</span> . Our activities include training camps to strengthen our community, collaboration events with music circles from other universities, and participation in external events like M3.
         </p>
         <p>
-          さらに、学内ではDJ講習会や交流会を実施し、わたしたちの活動に興味を持つ方々が、気軽に新たな音楽の世界へ足を踏み入れられる環境づくりに取り組んでいます。
+          Additionally, we host over 20 small-scale, themed DJ parties throughout the year. Each member provides their unique style and creativity with these opportunity. 
         </p>
         <p>
-          昨年度の活動実績および今年度の活動予定は、{" "}
-          <Link href="/activity" className="relative bg-gradient-to-r from-fuchsia-400 to-orange-700 bg-clip-text text-transparent transition-all duration-500 ease-in-out hover:text-fuchsia-400">
-          活動情報 - Activity
-          </Link>{" "}にて詳細をご確認いただけます。
+          Furthermore, we host DJ workshops and networking events on campus. Tehse are our attempts to create an open and welcoming environment whitch anyone can be interested in us and get into the world of music easily. 
+        </p>
+        <p>
+          Our past achievements and upcoming events can be found in detail on the <Link href="/activity" className="relative bg-gradient-to-r from-fuchsia-400 to-orange-700 bg-clip-text text-transparent transition-all duration-500 ease-in-out hover:text-fuchsia-400"> Activity Information </Link>.
         </p>
       </div>
-      <h2 className="mt-12 mb-8 text-center text-3xl font-bold text-[#f5f5f7]">活動班</h2>
+      <h2 className="mt-12 mb-8 text-center text-3xl font-bold text-[#f5f5f7]">Meet the Units</h2>
       <div className="mx-auto max-w-4xl mb-16 text-lg text-gray-200">
         <p>
-          わたしたちの部活には、イベント運営班、DJ班、DTM班などいくつかの活動班があります。自分の興味に合わせ、好きな活動班に自由に参加でき、複数のグループに関わることも可能です。制約や強制は一切なく、ただ自分のペースで、心が動くままに楽しめる場所です。
+        Our club is home to several activity units such as Event Operations Unit, DJ Unit, and Music Production Unit.
+        Members are free to join any unit based on their interests, and of course can be involved in multiple groups.
+        There are no restrictions or obligations <span className="tracking-[-0.2em]">------</span> just a place where you can enjoy music and creativity at your own pace, following what moves your heart.
         </p>
       </div>
       <div className="max-w-4xl mx-auto space-y-16">
         <div className="space-y-4">
           <h3 className="relative text-2xl font-bold text-white pl-5">
             <span className="absolute left-0 top-0 h-full w-[2px] bg-gradient-to-b from-fuchsia-400 to-orange-700"></span>
-            イベント運営
+            Event Operations
           </h3>
           <div className="text-gray-200">
             <strong className="block mb-2 text-rose-400"></strong>
-            <p>イベント運営班では、多種多様なイベントの計画立案・運営に関する活動を行っています。部室での放課後イベントから、大部屋 (コモンズI) を貸し切っての大規模イベント、さらには技科大祭や実際のクラブでも！誰もが楽しめる遊び場を、誰かが全力で輝けるステージを、自分たちの手で作り上げています！</p>
+            <p>
+            The Event Operations Unite is planning and managing a wide variety of events: from casual after-school gatherings in our clubroom to <span className="bg-gradient-to-r from-emerald-400 to-cyan-300 bg-clip-text text-transparent font-bold">The Utopia Tone</span> in Commons I. Even more, performances at the Gikadai Festival and external clubs! 
+            <span className="tracking-[-0.2em]">------</span> We create spaces where everyone can have fun and stages where everyone can shine at their best, all with our own hands!
+            </p>
             <div className="relative h-[400px] w-full my-8">
               <div className="absolute inset-0 bg-ai-gradient">
                 <div className="h-full w-full">
@@ -99,8 +104,13 @@ const ActivityGroupSection = () => (
             DJ : Disc Jockey
           </h3>
           <div className="text-gray-200">
-            <strong className="block mb-2 text-rose-400">人と、音楽と、フロアを繋げる</strong>
-            <p>弊サークル主催DJイベントである<span className="bg-gradient-to-r from-emerald-400 to-cyan-300 bg-clip-text text-transparent font-bold"> The Utopia Tone </span>をはじめ、技科大祭などの学内イベントでのDJプレイをモチベーションに練習・活動しています。通常の活動では、平日DJイベントを中心に、放課後や授業の空きコマでDJプレイをしています。一部の部員は愛知・静岡のクラブにてDJ出演や主催イベントを開催しており、学外にも活動の幅を広げています。</p>
+            <strong className="block mb-2 text-rose-400">Unite People, Music, and the Dancefloor.</strong>
+            <p>
+              The DJ Crew hones their skills and performs with motivation driven by our signature event, <span className="bg-gradient-to-r from-emerald-400 to-cyan-300 bg-clip-text text-transparent font-bold">The Utopia Tone</span>, as well as DJ appearances at on-campus events like the Gikadai Festival.
+            </p>
+            <p>
+              Our regular activities revolve around weekday DJ events, whitch members practice and perform during after-school hours or between classes. Also some members extend their reach and presence beyond campus, as a DJ player or organizer in Aichi and Shizuoka.
+            </p>
             <div className="relative h-[400px] w-full my-8">
               <div className="absolute inset-0 bg-ai-gradient">
                 <div className="h-full w-full">
@@ -129,14 +139,18 @@ const ActivityGroupSection = () => (
             </div>
           </div>
         </div>
+
         <div className="space-y-4">
           <h3 className="relative text-2xl font-bold text-white pl-5">
             <span className="absolute left-0 top-0 h-full w-[2px] bg-gradient-to-b from-fuchsia-400 to-orange-700"></span>
             VJ & LJ : Video & Light Jockey
           </h3>
           <div className="text-gray-200">
-            <strong className="block mb-2 text-rose-400">空間を掌握する演出のプロフェッショナル</strong>
-            <p>映像パフォーマンス (VJ) と照明パフォーマンス (LJ) に関する活動を行っています。通常の活動では演出技術、さらにはその機材やソフトの開発などを行いながら、部室を明るく照らしています！イベントではそれらを駆使して、空間を最大限に盛り上げるパワーを生み出しています！
+            <strong className="block mb-2 text-rose-400">Professionals of Immersive Stage Production.</strong>
+            <p>
+              We specialize in visual (VJ) and lighting (LJ) performances. Our regular activities include mastering stage production techniques, developing equipment and software, and of course illuminating our clubroom brightly!
+
+              At events, we make inspiring spaces by harnessing our technology and performances.
             </p>
             <div className="relative h-[400px] w-full my-8">
               <div className="absolute inset-0 bg-ai-gradient">
@@ -160,9 +174,11 @@ const ActivityGroupSection = () => (
             Media
           </h3>
           <div className="text-gray-200">
-            <strong className="block mb-2 text-rose-400">テクノ部の魅力を伝える</strong>
+            <strong className="block mb-2 text-rose-400">Bringing the Essence of TechnoTUT to Life.</strong>
             <p>
-            イベントのフライヤー制作から、広報用SNSの運用、Webサイトの更新まで。映像制作やイラストレーションも手掛け、視覚と感覚に訴えるコンテンツを生み出しています。創造性と情熱をカタチにし、テクノ部の魅力を広く届けます。
+              Through event flyer design, social media management and website updates, we handle all aspects of communication. And also througn creation of video content and illustrations, we appeal our potential to audiences&apos; senses.
+
+              By transforming creativity and passion into tangible forms, we bring the essence of TechnoTUT to a wider audience.
             </p>
             <div className="flex flex-wrap mx-auto">
               <div className="grid grid-cols-1 justify-items-center mx-auto">
@@ -173,8 +189,9 @@ const ActivityGroupSection = () => (
                   alt="テクノ部公式キャラクターテクノちゃん(みにまむてくのちゃんver.)"
                   className="mx-auto object-center"
                 />
-                <div className="text-xs text-gray-300 text-center">テクノ部公式キャラクター　<br className="block md:hidden" />テクノちゃん (みにまむてくのちゃん ver.)</div>
+                <div className="text-xs text-gray-300 text-center">TechnoTUT Official Character <br className="block md:hidden" />Techno-chan (Minimal Techno-chan ver.)</div>
               </div>
+
               <div className="grid grid-cols-1 justify-items-center mx-auto">
                 <div className="relative h-[371px] w-[268px] my-8 mx-auto">
                   <div className="absolute inset-0 bg-ai-gradient ">
@@ -201,16 +218,11 @@ const ActivityGroupSection = () => (
             DTM
           </h3>
           <div className="text-gray-200">
-            <strong className="block mb-2 text-rose-400">&quot;好き&quot;を形に</strong>
+            <strong className="block mb-2 text-rose-400">Shape What You &quot;Love&quot;.</strong>
             <p>
-              己の好きな音楽を求めて制作活動を行っています。毎週金曜日にDiscordにて活動を行い、情報とやる気を共有しています。
+              Our unit creates various musics driven by our passion for the sounds we love. Every Friday, we gather on Discord to share and increase our insights, motivation, and creativity together. We also distribute our original tracks at M3, held every spring and autumn.
             </p>
-            <p>
-              毎年春と秋に開かれるM3にて、オリジナル楽曲の頒布も行っております。ディスコグラフィーは{" "}<Link href="https://technotut.bandcamp.com/"
-                className="relative bg-gradient-to-r from-fuchsia-400 to-orange-700 bg-clip-text text-transparent transition-all duration-500 ease-in-out hover:text-fuchsia-400">
-                bandcamp
-              </Link>{" "}をご覧ください。
-            </p>
+            <p><Link href="https://technotut.bandcamp.com/" className="relative bg-gradient-to-r from-fuchsia-400 to-orange-700 bg-clip-text text-transparent transition-all duration-500 ease-in-out hover:text-fuchsia-400">Check out our discography here. </Link></p>
             <div className="relative h-[400px] w-full my-8">
               <div className="absolute inset-0 bg-ai-gradient">
                 <div className="h-full w-full">
@@ -233,14 +245,10 @@ const ActivityGroupSection = () => (
             Tech & DIY
           </h3>
           <div className="text-gray-200">
-            <strong className="block mb-2 text-rose-400">音と映像と光を操る、舞台裏の魔術師</strong>
+            <strong className="block mb-2 text-rose-400">Masters of Sound, Visuals, and Light <span className="tracking-[-0.2em]">------</span> The Magicians Behind the Stage.</strong>
             <p>
-              部員の興味関心に沿ってテクいものを触っています。サークル内サーバーの保守管理、学内イベント会場内の映像配信、照明技術などイベントに役立つ技術開発を行っています。詳細は{" "}
-              <Link href="https://noc.technotut.net/"
-                className="relative bg-gradient-to-r from-fuchsia-400 to-orange-700 bg-clip-text text-transparent transition-all duration-500 ease-in-out hover:text-fuchsia-400">
-                noc.technotut.net
-              </Link>{" "}
-              で確認できます。
+              We explore and experiment with cutting-edge technology based on our members&apos; interests. Our activities include maintaining the club&apos;s internal servers, managing video streaming at campus event venues, and developing lighting and stage production technologies to enhance live experiences.
+              For more details, visit<Link href="https://noc.technotut.net/" className="relative bg-gradient-to-r from-fuchsia-400 to-orange-700 bg-clip-text text-transparent transition-all duration-500 ease-in-out hover:text-fuchsia-400"> noc.technotut.net </Link>.
             </p>
             <div className="relative h-[400px] w-full my-8">
               <div className="absolute inset-0 bg-ai-gradient">
@@ -257,19 +265,18 @@ const ActivityGroupSection = () => (
             </div>
           </div>
         </div>
+
         <div className="space-y-4">
           <h3 className="relative text-2xl font-bold text-white pl-5">
             <span className="absolute left-0 top-0 h-full w-[2px] bg-gradient-to-b from-fuchsia-400 to-orange-700"></span>
-            ら
+            Ramen
           </h3>
           <div className="text-gray-200">
             <strong className="block mb-2 text-rose-400"></strong>
             <p>
-              そのために旅行する価値のある卓越したラーメンと唐揚げを求めて食べ歩き、広く世に知らしめる活動を展開しています。部員おすすめのお店は{" "}
-              <Link href="/ramen" className="relative bg-gradient-to-r from-fuchsia-400 to-orange-700 bg-clip-text text-transparent transition-all duration-500 ease-in-out hover:text-fuchsia-400">
-              豊橋らーめんマップ - Toyohashi Ramen Map
-              </Link>{" "}
-              をご覧ください。
+            We travel in search of ramen and karaage <span className="tracking-[-0.2em]">------</span><span className="font-serif italic"> une des meilleures tables, vaut le voyage.</span> Through our food adventures, we aim to discover and share these culinary gems with the world.
+            
+            Check out our members&apos; top recommendations on the<Link href="/ramen" className="relative bg-gradient-to-r from-fuchsia-400 to-orange-700 bg-clip-text text-transparent transition-all duration-500 ease-in-out hover:text-fuchsia-400"> Toyohashi Ramen Map. </Link>
             </p>
           </div>
         </div>
@@ -294,7 +301,7 @@ const CallToActionSection = () => (
       </h2>
       <div className="space-y-6 text-lg text-[#f5f5f7] leading-relaxed">
         <p className="max-w-prose mx-auto my-[10px]">
-          わたしたちは、いつでも新しい仲間を<br className="block md:hidden" />歓迎しています。
+          We always welcome new members.
         </p>
       </div>
       <Link href="/join-us">
