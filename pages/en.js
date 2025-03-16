@@ -65,8 +65,8 @@ const ActivityGroupSection = () => (
       <h2 className="mt-12 mb-8 text-center text-3xl font-bold text-[#f5f5f7]">Meet the Units</h2>
       <div className="mx-auto max-w-4xl mb-16 text-lg text-gray-200">
         <p>
-        Our club is home to several activity units, including the Event Operations Team, DJ Unit, and Music Production Unit.
-        Members are free to join any unit that interests them and can be involved in multiple groups at the same time.
+        Our club is home to several activity units such as Event Operations Unit, DJ Unit, and Music Production Unit.
+        Members are free to join any unit based on their interests, and of course can be involved in multiple groups.
         There are no restrictions or obligations <span className="tracking-[-0.2em]">------</span> just a place where you can enjoy music and creativity at your own pace, following what moves your heart.
         </p>
       </div>
@@ -74,13 +74,14 @@ const ActivityGroupSection = () => (
         <div className="space-y-4">
           <h3 className="relative text-2xl font-bold text-white pl-5">
             <span className="absolute left-0 top-0 h-full w-[2px] bg-gradient-to-b from-fuchsia-400 to-orange-700"></span>
-            Event Operations Team
+            Event Operations
           </h3>
           <div className="text-gray-200">
             <strong className="block mb-2 text-rose-400"></strong>
-            <p>The Event Operations Team is responsible for planning and managing a wide variety of events. From casual after-school gatherings in our clubroom to large-scale events in Commons I, and even performances at the Gikadai Festival and real clubs—we bring experiences to life.
-
-            We create spaces where everyone can have fun and stages where someone can shine at their best, all with our own hands!</p>
+            <p>
+            The Event Operations Unite is planning and managing a wide variety of events: from casual after-school gatherings in our clubroom to <span className="bg-gradient-to-r from-emerald-400 to-cyan-300 bg-clip-text text-transparent font-bold">The Utopia Tone</span> in Commons I. Even more, performances at the Gikadai Festival and external clubs! 
+            <span className="tracking-[-0.2em]">------</span> We create spaces where everyone can have fun and stages where everyone can shine at their best, all with our own hands!
+            </p>
             <div className="relative h-[400px] w-full my-8">
               <div className="absolute inset-0 bg-ai-gradient">
                 <div className="h-full w-full">
