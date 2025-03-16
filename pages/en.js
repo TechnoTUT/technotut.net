@@ -18,14 +18,14 @@ const BannerSection = () => (
         <strong className="mt-4 text-white text-lg md:text-xl">Music & Live production Club - TechnoTUT</strong>
         <div className="max-w-screen-md mx-auto mt-16">
           <h2 className="text-2xl md:text-3xl font-extrabold mb-6 text-center bg-ai-gradient bg-clip-text text-transparent">
-          Welcome to the Crossroads of Beats and Bytes!
+          Welcome to the Crossroads of Musics and Technologies!
           </h2>
           <div className="space-y-6 text-lg text-[#f5f5f7] leading-relaxed">
             <p className="max-w-prose mx-auto text-left">
-              We are a creative collective centered around DJ-driven music events. Through music, visual, lighting, design, and technology, each member explores their passions while expressing the power of music from multiple perspectives.
+              We are the creative club centering on DJ-driven music events. Through music, visual & light performances, design, and various technology, each member is exploring his/her passions and expressing the power of music in various ways.
             </p>
             <p className="max-w-prose mx-auto text-left">
-              We maximize the expression of each individual&apos;s passion, creating an experience where every participant feels truly special.
+              We are continuing to create special experiences for every participant, with the gathering of each individual&apos;s maximized passion. 
             </p>
           </div>
         </div>
