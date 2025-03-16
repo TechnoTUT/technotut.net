@@ -109,7 +109,7 @@ const ActivityGroupSection = () => (
               The DJ Crew hones their skills and performs with motivation driven by our signature event, <span className="bg-gradient-to-r from-emerald-400 to-cyan-300 bg-clip-text text-transparent font-bold">The Utopia Tone</span>, as well as DJ appearances at on-campus events like the Gikadai Festival.
             </p>
             <p>
-              Our regular activities revolve around weekday DJ events, where members practice and perform during after-school hours or between classes. Some members extend their reach beyond campus, playing at clubs and organizing events in Aichi and Shizuoka, further expanding their presence in the music scene.
+              Our regular activities revolve around weekday DJ events, whitch members practice and perform during after-school hours or between classes. Also some members extend their reach and presence beyond campus, as a DJ player or organizer in Aichi and Shizuoka.
             </p>
             <div className="relative h-[400px] w-full my-8">
               <div className="absolute inset-0 bg-ai-gradient">
@@ -148,9 +148,9 @@ const ActivityGroupSection = () => (
           <div className="text-gray-200">
             <strong className="block mb-2 text-rose-400">Professionals of Immersive Stage Production.</strong>
             <p>
-              We specialize in visual (VJ) and lighting (LJ) performances. Our regular activities include mastering stage production techniques, developing equipment and software, and, of course, keeping our clubroom brightly lit!
+              We specialize in visual (VJ) and lighting (LJ) performances. Our regular activities include mastering stage production techniques, developing equipment and software, and of course illuminating our clubroom brightly!
 
-              At events, we bring spaces to life by harnessing our skills and technology to create an electrifying atmosphere.
+              At events, we make inspiring spaces by harnessing our technology and performances.
             </p>
             <div className="relative h-[400px] w-full my-8">
               <div className="absolute inset-0 bg-ai-gradient">
@@ -176,9 +176,9 @@ const ActivityGroupSection = () => (
           <div className="text-gray-200">
             <strong className="block mb-2 text-rose-400">Bringing the Essence of TechnoTUT to Life.</strong>
             <p>
-              From event flyer design and social media management to website updates, we handle all aspects of visual communication. We also create video content and illustrations, crafting compelling visuals that engage both the eyes and the senses.
+              Through event flyer design, social media management and website updates, we handle all aspects of communication. And also througn creation of video content and illustrations, we appeal our potential to audiences&apos; senses.
 
-              By transforming creativity and passion into tangible forms, we bring the essence of our club to a wider audience.
+              By transforming creativity and passion into tangible forms, we bring the essence of TechnoTUT to a wider audience.
             </p>
             <div className="flex flex-wrap mx-auto">
               <div className="grid grid-cols-1 justify-items-center mx-auto">
@@ -220,7 +220,7 @@ const ActivityGroupSection = () => (
           <div className="text-gray-200">
             <strong className="block mb-2 text-rose-400">Shape What You &quot;Love&quot;.</strong>
             <p>
-              We create music driven by our passion for the sounds we love. Every Friday, we gather on Discord to share insights and motivation, fueling our creativity together. We also distribute our original tracks at M3, held every spring and autumn.
+              Our unit creates various musics driven by our passion for the sounds we love. Every Friday, we gather on Discord to share and increase our insights, motivation, and creativity together. We also distribute our original tracks at M3, held every spring and autumn.
             </p>
             <p><Link href="https://technotut.bandcamp.com/" className="relative bg-gradient-to-r from-fuchsia-400 to-orange-700 bg-clip-text text-transparent transition-all duration-500 ease-in-out hover:text-fuchsia-400">Check out our discography here. </Link></p>
             <div className="relative h-[400px] w-full my-8">
