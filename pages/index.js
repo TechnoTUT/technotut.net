@@ -16,25 +16,22 @@ const BannerSection = () => (
           </h1>
         </Link>
         <strong className="mt-4 text-white text-lg md:text-xl">Music & Live production Club - TechnoTUT</strong>
-
         <div className="max-w-screen-md mx-auto mt-16">
           <h2 className="text-2xl md:text-3xl font-extrabold mb-6 text-center bg-ai-gradient bg-clip-text text-transparent">
           音楽とテクノロジーの交差点へ<br className="block md:hidden" />ようこそ
           </h2>
-          <div className="space-y-6 text-lg text-[#f5f5f7] leading-relaxed">
-            <p className="max-w-prose mx-auto text-left">
-              わたしたちは、DJを主体とした音楽イベントを軸に、多彩なクリエイティブ活動を展開するサークルです。音楽、映像、照明、デザイン、テクノロジーなど部員ひとりひとりが興味のある分野で楽しみながら、音楽の持つ力を多角的に表現します。
-            </p>
-            <p className="max-w-prose mx-auto text-left">
-              わたしたちは、個人の好きの対象物の魅力を最大限に表現し、イベントに参加者する人すべてが特別となる体験を提供しています。
-            </p>
-          </div>
+            <div className="space-y-6 text-lg text-[#f5f5f7] leading-relaxed">
+              <p className="max-w-prose mx-auto text-left">
+                わたしたちは、DJを主体とした音楽イベントを軸に、多彩なクリエイティブ活動を展開するサークルです。音楽、映像、照明、デザイン、テクノロジーなど部員ひとりひとりが興味のある分野で楽しみながら、音楽の持つ力を多角的に表現します。
+              </p>
+              <p className="max-w-prose mx-auto text-left">
+                わたしたちは、個人の好きの対象物の魅力を最大限に表現し、イベントに参加者する人すべてが特別となる体験を提供しています。
+              </p>
+            </div>
         </div>
-
         <Link href="/en" className="mt-8 bg-gradient-to-r from-amber-200 to-yellow-500 bg-clip-text text-transparent">
           For English &gt;&gt; 
         </Link>
-
       </div>
     </div>
   </section>
@@ -132,7 +129,6 @@ const ActivityGroupSection = () => (
             </div>
           </div>
         </div>
-
         <div className="space-y-4">
           <h3 className="relative text-2xl font-bold text-white pl-5">
             <span className="absolute left-0 top-0 h-full w-[2px] bg-gradient-to-b from-fuchsia-400 to-orange-700"></span>
@@ -179,7 +175,6 @@ const ActivityGroupSection = () => (
                 />
                 <div className="text-xs text-gray-300 text-center">テクノ部公式キャラクター　<br className="block md:hidden" />テクノちゃん (みにまむてくのちゃん ver.)</div>
               </div>
-
               <div className="grid grid-cols-1 justify-items-center mx-auto">
                 <div className="relative h-[371px] w-[268px] my-8 mx-auto">
                   <div className="absolute inset-0 bg-ai-gradient ">
@@ -259,7 +254,6 @@ const ActivityGroupSection = () => (
             </div>
           </div>
         </div>
-
         <div className="space-y-4">
           <h3 className="relative text-2xl font-bold text-white pl-5">
             <span className="absolute left-0 top-0 h-full w-[2px] bg-gradient-to-b from-fuchsia-400 to-orange-700"></span>
