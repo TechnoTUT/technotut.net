@@ -50,16 +50,16 @@ const ActivityGroupSection = () => (
       <h2 className="mt-8 mb-8 text-center text-3xl font-bold text-[#f5f5f7]">Discover What We Do</h2>
       <div className="mx-auto max-w-4xl space-y-6 text-lg text-gray-200">
         <p>
-          We actively organize a wide range of events, starting with our signature on-campus DJ event, <span className="bg-gradient-to-r from-emerald-400 to-cyan-300 bg-clip-text text-transparent font-bold">The Utopia Tone</span> . Our activities include immersive training camps to strengthen our community, collaboration events with music circles from other universities, and participation in external events like M3.
+          We actively organize a wide range of events, starting with our on-campus DJ event, <span className="bg-gradient-to-r from-emerald-400 to-cyan-300 bg-clip-text text-transparent font-bold">The Utopia Tone</span> . Our activities include training camps to strengthen our community, collaboration events with music circles from other universities, and participation in external events like M3.
         </p>
         <p>
-          Additionally, we host over 20 small-scale, themed DJ parties throughout the year, providing each member with the opportunity to showcase their unique style and creativity.
+          Additionally, we host over 20 small-scale, themed DJ parties throughout the year. Each member provides their unique style and creativity with these opportunity. 
         </p>
         <p>
-          Furthermore, we host DJ workshops and networking events on campus, creating an open and welcoming environment where anyone interested in our activities can easily step into the world of music. 
+          Furthermore, we host DJ workshops and networking events on campus. Tehse are our attempts to create an open and welcoming environment whitch anyone can be interested in us and get into the world of music easily. 
         </p>
         <p>
-        Our past achievements and upcoming events for this year can be found in detail on the <Link href="/activity" className="relative bg-gradient-to-r from-fuchsia-400 to-orange-700 bg-clip-text text-transparent transition-all duration-500 ease-in-out hover:text-fuchsia-400"> Activity Information </Link>.
+          Our past achievements and upcoming events can be found in detail on the <Link href="/activity" className="relative bg-gradient-to-r from-fuchsia-400 to-orange-700 bg-clip-text text-transparent transition-all duration-500 ease-in-out hover:text-fuchsia-400"> Activity Information </Link>.
         </p>
       </div>
       <h2 className="mt-12 mb-8 text-center text-3xl font-bold text-[#f5f5f7]">Meet the Units</h2>
