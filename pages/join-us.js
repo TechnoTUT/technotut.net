@@ -25,22 +25,27 @@ const Home = ({ frontmatter }) => {
         {/* < BannerSection /> */}
 
         {/* 言語切り替えタブ */}
-        < div className="flex justify-end space-x-4 bg-black">
-          <button
-            className={`px-4 py-2 border-b-2 ${language === "ja" ? "border-blue-500 font-bold text-white" : "border-transparent text-gray-300"
-              }`}
-            onClick={() => setLanguage("ja")}
-          >
-            日本語
-          </button>
-          <button
-            className={`px-4 py-2 border-b-2 ${language === "en" ? "border-blue-500 font-bold text-white" : "border-transparent text-gray-300"
-              }`}
-            onClick={() => setLanguage("en")}
-          >
-            English
-          </button>
+        <div className="w-full bg-black">
+          <div className="container mx-auto px-4 relative z-20">
+            <div className="flex justify-end space-x-4 mr-20 py-2">
+              <button
+                className={`px-4 py-2 border-b-2 ${language === "ja" ? "border-blue-500 font-bold text-white" : "border-transparent text-gray-300"
+                  }`}
+                onClick={() => setLanguage("ja")}
+              >
+                日本語
+              </button>
+              <button
+                className={`px-4 py-2 border-b-2 ${language === "en" ? "border-blue-500 font-bold text-white" : "border-transparent text-gray-300"
+                  }`}
+                onClick={() => setLanguage("en")}
+              >
+                English
+              </button>
+            </div>
+          </div>
         </div>
+
 
         {/* 新歓シーズンのみこちらに*/}
         {/* 言語ごとのコンテンツ切り替え */}
