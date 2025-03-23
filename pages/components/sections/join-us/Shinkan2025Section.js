@@ -79,7 +79,7 @@ export const Shinkan2025Section = ({ language }) => {
                         onClick={scrollToTarget}
                         className="text-blue-500 cursor-pointer"
                     >
-                        here
+                     &nbsp; here
                     </span>
                 </>
             ),
@@ -142,24 +142,23 @@ export const Shinkan2025Section = ({ language }) => {
             <div className="container mx-auto px-4 relative z-20">
                 <h1 className="text-2xl md:text-3xl font-extrabold mb-6 text-center bg-ai-gradient bg-clip-text text-transparent">
                     {content[language].title}<br className="block md:hidden" /> </h1>
-                <h3 className=" flex justify-end text-xl md:text-2xl font-bold text-gray-200">
+                <h3 className="text-center md:text-2xl font-bold text-gray-200">
                     {content[language].jumptoJoinUs}<br className="block md:hidden" />
                 </h3>
                 <div className="max-w-4xl mx-auto space-y-16">
                     <div className="space-y-4">
-                        <div className="container mx-auto px-4 relative z-20">
-                            <h2 className="text-xl md:text-2xl font-bold text-gray-200">
-                                {content[language].washitu}
-                            </h2>
-                            <p className="text-gray-200">
-                                {content[language].washituDateTime}
-                            </p>
-                            <p className="text-gray-200">
-                                {content[language].washituLocation}
-                            </p>
-                            <p className="text-gray-200">
-                                {content[language].washituText}
-                            </p>
+                        <h2 className="text-xl md:text-2xl font-bold text-gray-200">
+                            <span className="absolute left-0 top-0 h-full w-[2px] bg-gradient-to-b from-fuchsia-400 to-orange-700"></span>
+                            {content[language].washitu}
+                        </h2>
+                        <div className="text-gray-200">
+                            <p>{content[language].washituDateTime}</p>
+                        </div>
+                        <div className="text-gray-200">
+                            <p>{content[language].washituLocation}</p>
+                        </div>
+                        <div className="text-gray-200">
+                            <p>{content[language].washituText}</p>
                         </div>
                         <div className="relative h-[400px] w-full my-8">
                             <div className="absolute inset-0 bg-ai-gradient">

@@ -5,10 +5,10 @@ import Image from "next/image"
 import Link from "next/link"
 import { getListPage } from "../lib/contentParser"
 
-import BannerSection from "@content/components/sections/join-us/BannerSection"
-import { EntryProcedureSection } from "@content/components/sections/join-us/EntryProcedureSection"
+import BannerSection from "pages/components/sections/join-us/BannerSection"
+import { EntryProcedureSection } from "pages/components/sections/join-us/EntryProcedureSection"
 
-import { Shinkan2025Section } from "@content/components/sections/join-us/Shinkan2025Section"
+import { Shinkan2025Section } from "pages/components/sections/join-us/Shinkan2025Section"
 
 
 const Home = ({ frontmatter }) => {
