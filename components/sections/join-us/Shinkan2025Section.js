@@ -15,18 +15,18 @@ const Shinkan2025Section = ({ language }) => {
         ja: {
             title: "2025年度新入生歓迎イベント情報",
             jumptoJoinUs: (
-                <h3 className="text-center md:text-2xl font-bold">
+                <div>
                     <span className="text-gray-200">
                         入部方法は{' '}
                     </span>
                     <span
                         onClick={scrollToTarget}
-                        className="text-blue-500 cursor-pointer"
+                        className="!text-blue-500 cursor-pointer"
                     >
                         こちら
                     </span>
                     <br className="block md:hidden" />
-                </h3>
+                </div>
             ),
             washitu: "和室イベント",
             washituDateTime: "4/2(金) 10:00~19:00(入退場自由)",
@@ -80,18 +80,18 @@ const Shinkan2025Section = ({ language }) => {
         en: {
             title: "2025 Freshers' Welcome Event Information",
             jumptoJoinUs: (
-                <h3 className="text-center md:text-2xl font-bold">
+                <div>
                     <span className="text-gray-200">
                         For information on how to join, click{' '}
                     </span>
                     <span
                         onClick={scrollToTarget}
-                        className="text-blue-500 cursor-pointer"
+                        className="!text-blue-500 cursor-pointer"
                     >
                         &nbsp;here
                     </span>
                     <br className="block md:hidden" />
-                </h3>
+                </div>
             ),
             washitu: "Washitsu Event",
             washituDateTime: "April 2 (Fri) 10:00~19:00 (Free entry & exit)",
@@ -156,7 +156,9 @@ const Shinkan2025Section = ({ language }) => {
             <div className="container mx-auto px-4 relative z-20">
                 <h1 className="text-2xl md:text-3xl font-extrabold mb-6 text-center bg-ai-gradient bg-clip-text text-transparent">
                     {content[language].title}<br className="block md:hidden" /> </h1>
-                {content[language].jumptoJoinUs}
+                <h3 className="text-center md:text-2xl font-bold text-inherit">
+                    {content[language].jumptoJoinUs}
+                </h3>
 
                 <div className="max-w-4xl mx-auto space-y-16">
                     <div className="space-y-4">
