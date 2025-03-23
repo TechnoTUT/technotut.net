@@ -52,13 +52,17 @@ const Shinkan2025Section = ({ language }) => {
                     音楽技術部の活動に興味がある方は、是非お立ち寄りください。
                 </>
             ),
-            utone: "The Utopia Tone",
+            utone: (
+                <>
+                    <span className="bg-gradient-to-r from-emerald-400 to-cyan-300 bg-clip-text text-transparent font-bold"> The Utopia Tone </span>
+                </>
+            ),
             utoneLocation: "福利施設棟一階コモンズⅠ(コンビニ横)",
             utoneDateTime: (
                 <>
                     ※予定です。最終的な情報は各SNSでお知らせします。入退場自由です。<br />
-                    4/12(土) 09:00~18:00<br />
-                    4/13(日) 09:00~18:00
+                    4/12(土) 10:00~18:00<br />
+                    4/13(日) 10:00~18:00
                 </>
             ),
             utoneText: (
@@ -111,13 +115,17 @@ const Shinkan2025Section = ({ language }) => {
                     If you are interested, feel free to stop by!
                 </>
             ),
-            utone: "The Utopia Tone",
+            utone: (
+                <>
+                    <span className="bg-gradient-to-r from-emerald-400 to-cyan-300 bg-clip-text text-transparent font-bold"> The Utopia Tone </span>
+                </>
+            ),
             utoneLocation: "Commons I, First Floor of the Welfare Facility Building (next to the convenience store)",
             utoneDateTime: (
                 <>
                     ※ Tentative schedule. Final details will be announced on our social media.Free entry & exit.<br />
-                    April 12 (Sat) 09:00~18:00<br />
-                    April 13 (Sun) 09:00~18:00
+                    April 12 (Sat) 10:00~18:00<br />
+                    April 13 (Sun) 10:00~18:00
                 </>
             ),
             utoneText: (
@@ -147,7 +155,7 @@ const Shinkan2025Section = ({ language }) => {
                 </h3>
                 <div className="max-w-4xl mx-auto space-y-16">
                     <div className="space-y-4">
-                        <h2 className="text-xl md:text-2xl font-bold text-gray-200">
+                        <h2 className="relative text-2xl font-bold text-white pl-5">
                             <span className="absolute left-0 top-0 h-full w-[2px] bg-gradient-to-b from-fuchsia-400 to-orange-700"></span>
                             {content[language].washitu}
                         </h2>
@@ -175,19 +183,19 @@ const Shinkan2025Section = ({ language }) => {
                         </div>
                     </div>
                     <div className="space-y-4">
-                        <div className="container mx-auto px-4 relative z-20">
-                            <h2 className="text-xl md:text-2xl font-bold text-gray-200">
-                                {content[language].soubukai}
-                            </h2>
-                            <p className="text-gray-200">
-                                {content[language].soubukaiDateTime}
-                            </p>
-                            <p className="text-gray-200">
-                                {content[language].soubukaiLocation}
-                            </p>
-                            <p className="text-gray-200">
-                                {content[language].soubukaiText}
-                            </p>
+
+                        <h2 className="relative text-2xl font-bold text-white pl-5">
+                            <span className="absolute left-0 top-0 h-full w-[2px] bg-gradient-to-b from-fuchsia-400 to-orange-700"></span>
+                            {content[language].soubukai}
+                        </h2>
+                        <div className="text-gray-200">
+                            <p>{content[language].soubukaiDateTime}</p>
+                        </div>
+                        <div className="text-gray-200">
+                            <p>{content[language].soubukaiLocation}</p>
+                        </div>
+                        <div className="text-gray-200">
+                            <p>{content[language].soubukaiText}</p>
                         </div>
                         <div className="relative h-[400px] w-full my-8">
                             <div className="absolute inset-0 bg-ai-gradient">
@@ -204,20 +212,19 @@ const Shinkan2025Section = ({ language }) => {
                         </div>
                     </div>
                     <div className="space-y-4">
-                        <div className="container mx-auto px-4 relative z-20">
-                            <h2 className="text-xl md:text-2xl font-bold text-gray-200">
-                                {content[language].utone}
-                            </h2>
-                            <p className="text-gray-200">
-                                {content[language].utoneDateTime}
-                            </p>
-                            <p className="text-gray-200">
-                                {content[language].utoneLocation}
-                            </p>
-                            <p className="text-gray-200">
-                                {content[language].utoneText}
-                            </p>
-                        </div>
+                        <h2 className="relative text-2xl font-bold text-white pl-5">
+                            <span className="absolute left-0 top-0 h-full w-[2px] bg-gradient-to-b from-fuchsia-400 to-orange-700"></span>
+                            {content[language].utone}
+                        </h2>
+                        <p className="text-gray-200">
+                            {content[language].utoneDateTime}
+                        </p>
+                        <p className="text-gray-200">
+                            {content[language].utoneLocation}
+                        </p>
+                        <p className="text-gray-200">
+                            {content[language].utoneText}
+                        </p>
                         <div className="relative h-[400px] w-full my-8">
                             <div className="absolute inset-0 bg-ai-gradient">
                                 <div className="h-full w-full">
