@@ -1,9 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
+import React from 'react';
 
 const BannerSection = () => {
   return (
-    <section className="relative h-[40vh] w-full overflow-hidden">
+    <section id="target-section" className="relative h-[40vh] w-full overflow-hidden">
       {/* 背景画像 */}
       <div className="absolute inset-0 z-10">
         <Image
