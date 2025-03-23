@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 
-export const EntryProcedureSection = ({ language }) => {
+const EntryProcedureSection = ({ language }) => {
     // 日本語と英語のコンテンツをオブジェクトで管理
     const content = {
         ja: {
@@ -174,3 +174,5 @@ export const EntryProcedureSection = ({ language }) => {
         </section>
     );
 };
+
+export default EntryProcedureSection;

@@ -4,7 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 import React from "react"
 
-export const Shinkan2025Section = ({ language }) => {
+const Shinkan2025Section = ({ language }) => {
     const scrollToTarget = () => {
         const element = document.getElementById('target-section');
         if (element) {
@@ -238,3 +238,5 @@ export const Shinkan2025Section = ({ language }) => {
         </section >
     );
 }
+
+export default Shinkan2025Section;
