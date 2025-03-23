@@ -28,6 +28,7 @@ module.exports = {
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./layouts/**/*.{js,ts,jsx,tsx}",
     "./content/**/*.{md,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     screens: {
