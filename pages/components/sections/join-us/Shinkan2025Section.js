@@ -108,7 +108,7 @@ export const Shinkan2025Section = ({ language }) => {
                     This event brings together various extracurricular clubs to introduce their activities. <br />
                     The Music Technology Club will showcase live DJ, VJ, and LJ performances, along with hands-on experiences.<br />
                     We will also display original tracks produced by our DTM team and introduce the activities of our tech team.<br />
-                    If you're interested, feel free to stop by!
+                    If you are interested, feel free to stop by!
                 </>
             ),
             utone: "The Utopia Tone",
@@ -124,7 +124,7 @@ export const Shinkan2025Section = ({ language }) => {
                 <>The Music Technology Club proudly presents its regular DJ event,
                     <span className="bg-gradient-to-r from-emerald-400 to-cyan-300 bg-clip-text text-transparent font-bold"> The Utopia Tone </span> <br />
                     This April, it will be held as a special welcome event for new students over two days.<br />
-                    This event is the culmination of our club’s activities.<br />
+                    This event is the culmination of our club&apos;s activities.<br />
                     Whether you join for a day or both, feel free to drop by!
                 </>
             ),
