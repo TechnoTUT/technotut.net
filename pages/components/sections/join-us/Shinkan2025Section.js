@@ -79,7 +79,7 @@ export const Shinkan2025Section = ({ language }) => {
                         onClick={scrollToTarget}
                         className="text-blue-500 cursor-pointer"
                     >
-                     &nbsp; here
+                        &nbsp;here
                     </span>
                 </>
             ),
