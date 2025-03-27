@@ -157,6 +157,10 @@ const EntryProcedureSection = ({ language }) => {
                             <p>{content[language].clubroomLocationText}</p>
                         </div>
 
+                        <div className="w-full h-[600px]">
+                            <video src="/videos/PathtoBushitsu.mp4" width="320" height="240" autoPlay muted loop playsInline />
+                        </div>
+
                         {/* Google Map */}
                         <div id="map-container" className="w-full h-[450px]">
                             <iframe
