@@ -156,7 +156,25 @@ const EntryProcedureSection = ({ language }) => {
                         <div className="text-gray-200">
                             <p>{content[language].clubroomLocationText}</p>
                         </div>
+                        <section className="relative h-[60vh] w-full overflow-hidden">
+                            {/* 動画の背景 */}
+                            <video className="absolute inset-0 w-full h-full object-contain" autoPlay loop muted playsInline>
+                                <source src="/videos/PathtoBushitsu.webm" type="video/webm" />
+                                <source src="/videos/PathtoBushitsu.mp4" type="video/mp4" />
+                                <p>お使いのブラウザは動画タグをサポートしていません。</p>
+                            </video>
 
+
+                            {/* オーバーレイ
+                            <div className="absolute inset-0 bg-black/30 z-20">
+                                <div className="container mx-auto h-full flex flex-col items-center justify-center text-center px-4">
+                                    <h1 className="font-primary font-bold text-[#f5f5f7] text-3xl md:text-4xl lg:text-5xl">
+                                        入部方法について
+                                    </h1>
+                                    <strong className="mt-4 text-white text-lg md:text-xl">How to join</strong>
+                                </div>
+                            </div> */}
+                        </section>
                         {/* Google Map */}
                         <div id="map-container" className="w-full h-[450px]">
                             <iframe
@@ -171,7 +189,7 @@ const EntryProcedureSection = ({ language }) => {
                     </div>
                 </div>
             </div>
-        </section>
+        </section >
     );
 };
 
