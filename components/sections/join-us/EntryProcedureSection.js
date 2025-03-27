@@ -158,7 +158,7 @@ const EntryProcedureSection = ({ language }) => {
                         </div>
 
                         <div className="w-full h-[600px]">
-                            <video src="/videos/PathtoBushitsu.mp4" width="320" height="240" autoPlay muted loop playsInline />
+                            <video src="/videos/PathtoBushitsu.mp4" width="360" height="640" autoPlay muted loop playsInline />
                         </div>
 
                         {/* Google Map */}
