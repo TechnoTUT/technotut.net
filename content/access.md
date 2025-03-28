@@ -48,15 +48,15 @@ From the "Gikadai-mae" bus stop, proceed in the direction of "GO TO THE FUTURE",
 
 ![コモンズ1への行き方](/images/access/TheWayToCommons1.jpg)
 
-1 福利施設の左手は食堂となっています。そこから数メートルほど進んでいただきます。
-2 左手に下り階段があるので、階段を下り、自動ドアの中に入ります。
-3 正面にある「ニューデイリーヤマザキ」を右折し、一番奥まで進みます。
-4 一番奥まで来たら、左手にある自動ドアを入れば、コモンズ1に到着です！
+1.福利施設の左手は食堂となっています。そこから数メートルほど進んでいただきます。
+2.左手に下り階段があるので、階段を下り、自動ドアの中に入ります。
+3.正面にある「ニューデイリーヤマザキ」を右折し、一番奥まで進みます。
+4.一番奥まで来たら、左手にある自動ドアを入れば、コモンズ1に到着です！
 
-1 The dining room is to the left of the welfare facility. You will proceed a few meters from there.
-2 You will see a downstairs on your left, go down the stairs, and enter the automatic door.
-3 Turn right at the “New Daily Yamazaki” in front of you and go to the far end of the building. 
-4 When you reach the far end, enter the automatic door on your left, and you will arrive at Commons1!
+1.The dining room is to the left of the welfare facility. You will proceed a few meters from there.
+2.You will see a downstairs on your left, go down the stairs, and enter the automatic door.
+3.Turn right at the “New Daily Yamazaki” in front of you and go to the far end of the building. 
+4.When you reach the far end, enter the automatic door on your left, and you will arrive at Commons1!
 
 
 #### 部室へのアクセス
