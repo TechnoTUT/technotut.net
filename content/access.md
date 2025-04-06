@@ -32,8 +32,7 @@ About 2 minutes from the Nanane IC of the Route 23 Bypass
 About 1 hour from the Otowa Gamagori IC or Hamamatsu IC of the Tomei Expressway
 
 
-#### コモンズⅠへのアクセス
-##### Access to Student Commons Ⅰ
+#### コモンズⅠへのアクセス (Access to Student Commons Ⅰ)
 学内でイベントを行う際、コモンズⅠを利用します。  
 コモンズⅠは、学内売店「ニューヤマザキデイリーストア 豊橋技科大店」の隣に位置しています。  
 「技科大前」バス停から、「GO TO THE FUTURE」方面へ進み、附属図書館を超えた先、福利施設の1階にあります。
@@ -58,8 +57,7 @@ From the "Gikadai-mae" bus stop, proceed in the direction of "GO TO THE FUTURE",
 4.When you reach the far end, enter the automatic door on your left, and you will arrive at Commons1!
 
 
-#### 部室へのアクセス
-##### Access to the Club Room
+#### 部室へのアクセス (Access to the Club Room)
 　クラブハウス2階 音楽技術部室となります。ぜひお気軽にお越しください。部室が虹色に光り輝いていることを目印とすると便利です。  
 It is the 2nd floor of the club house. Please feel free to come. It is convenient to use the club room as a landmark when it is shining in rainbow colors.
 <dl>
