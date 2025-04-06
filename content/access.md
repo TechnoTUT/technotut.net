@@ -2,13 +2,12 @@
 title: "アクセス - Access"
 draft: false
 ---
-### 大学へのアクセス
-##### Access to the University
+### 大学へのアクセス (Access to the University)
 大学へのアクセスは [豊橋技術科学大学 公式サイト](https://www.tut.ac.jp/about/overview/access.html) を参照してください。
 Please refer to the [Toyohashi University of Technology Official Website](https://www.tut.ac.jp/about/overview/access.html) for access to the university.
 
 
-##### 公共交通機関でお越しになる場合(If coming by public transportation)
+##### 公共交通機関でお越しになる場合 (If coming by public transportation)
 
 名古屋からお越しになる場合は、JR東海 [豊橋往復きっぷ](https://railway.jr-central.co.jp/tickets/toyohashi-round/)
 (1往復あたり平日1,900円、土日祝1,560円)または 名古屋鉄道 [なごや特割2平日・なごや特割2土休日](https://www.meitetsu.co.jp/plan/discount/1268869_8040.html)(1往復あたり平日1,780円、土日祝1,560円)をご利用いただくとお得に移動できます。
@@ -26,7 +25,7 @@ There is a bus from Toyohashi Station to the university. After exiting the JR or
 Please check the [Toyotetsu Bus Timetable](https://www.toyotetsu.jp/rosen/timetable.html) for the Toyohashi University of Technology Line and use it.
 
 
- ##### お車でお越しになる場合(If coming by car)
+ ##### お車でお越しになる場合 (If coming by car)
 国道23号バイパス「七根IC」から約2分
 東名高速道路「音羽蒲郡IC」または「浜松IC」から約1時間
 About 2 minutes from the Nanane IC of the Route 23 Bypass 
