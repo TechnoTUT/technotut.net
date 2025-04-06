@@ -2,9 +2,9 @@
 title: "アクセス - Access"
 draft: false
 ---
-### 大学へのアクセス (Access to the University)
-大学へのアクセスは [豊橋技術科学大学 公式サイト](https://www.tut.ac.jp/about/overview/access.html) を参照してください。  
-Please refer to the [Toyohashi University of Technology Official Website](https://www.tut.ac.jp/about/overview/access.html) for access to the university.
+### 大学への行き方 (Access to the University)
+大学への行き方は [豊橋技術科学大学 公式サイト](https://www.tut.ac.jp/about/overview/access.html) にも記載されています。より詳しく知りたい方は、公式サイトをご覧ください。  
+You can also find directions to the university on [Toyohashi University of Technology's official website](https://www.tut.ac.jp/about/overview/access.html). For more information, please visit the official website.
 
 
 ##### 公共交通機関でお越しになる場合 (If coming by public transportation)
@@ -26,16 +26,16 @@ Please check the [Toyotetsu Bus Timetable](https://www.toyotetsu.jp/rosen/timeta
 
 
 ##### お車でお越しになる場合 (If coming by car)
-- 国道23号バイパス「七根IC」から約2分
-- 東名高速道路「音羽蒲郡IC」または「浜松IC」から約1時間  
-About 2 minutes from the Nanane IC of the Route 23 Bypass 
-About 1 hour from the Otowa Gamagori IC or Hamamatsu IC of the Tomei Expressway
+- 国道23号バイパス「七根IC」から約2分  
+  About 2 minutes from the Nanane IC of the Route 23 Bypass
+- 東名高速道路「音羽蒲郡IC」または「浜松IC」から約1時間   
+  About 1 hour from the Otowa Gamagori IC or Hamamatsu IC of the Tomei Expressway
 
 
-#### コモンズⅠへのアクセス (Access to Student Commons Ⅰ)
+#### コモンズⅠの行き方 (Access to Student Commons Ⅰ)
 学内でイベントを行う際、コモンズⅠを利用します。  
 コモンズⅠは、学内売店「ニューヤマザキデイリーストア 豊橋技科大店」の隣に位置しています。  
-「技科大前」バス停から、「GO TO THE FUTURE」方面へ進み、附属図書館を超えた先、福利施設の1階にあります。  
+大学正門から、「GO TO THE FUTURE」方面へ進み、附属図書館を超えた先、福利施設の1階にあります。  
 When holding an event on campus, we use Student Commons Ⅰ.  
 Student Commons Ⅰ is located next to the on-campus store "New Yamazaki Daily Store Toyohashi Institute of Technology Store".  
 From the "Gikadai-mae" bus stop, proceed in the direction of "GO TO THE FUTURE", past the attached library, and on the 1st floor of the welfare facility.  
@@ -57,7 +57,7 @@ From the "Gikadai-mae" bus stop, proceed in the direction of "GO TO THE FUTURE",
 4.When you reach the far end, enter the automatic door on your left, and you will arrive at Commons1!  
 
 
-#### 部室へのアクセス (Access to the Club Room)
+#### 部室への行き方 (Access to the Club Room)
 　クラブハウス2階 音楽技術部室となります。ぜひお気軽にお越しください。部室が虹色に光り輝いていることを目印とすると便利です。  
 It is the 2nd floor of the club house. Please feel free to come. It is convenient to use the club room as a landmark when it is shining in rainbow colors.
 <dl>
