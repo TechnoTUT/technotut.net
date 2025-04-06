@@ -61,5 +61,14 @@ From the "Gikadai-mae" bus stop, proceed in the direction of "GO TO THE FUTURE",
 　クラブハウス2階 音楽技術部室となります。ぜひお気軽にお越しください。部室が虹色に光り輝いていることを目印とすると便利です。  
 It is the 2nd floor of the club house. Please feel free to come. It is convenient to use the club room as a landmark when it is shining in rainbow colors.
 <dl>
-<iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3280.163613237997!2d137.406626!3d34.701053!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzTCsDQyJzAzLjgiTiAxMzfCsDI0JzIzLjkiRQ!5e0!3m2!1sja!2sjp!4v1678476006193!5m2!1sja!2sjp" width="100%" height="450" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <section className="relative h-[60vh] w-full overflow-hidden">
+        {/* 動画の背景 */}
+        <video className="absolute inset-0 w-full h-full object-contain" autoPlay loop muted playsInline>
+            <source src="/videos/PathtoBushitsu.webm" type="video/webm" />
+            <source src="/videos/PathtoBushitsu.mp4" type="video/mp4" />
+            <p>お使いのブラウザは動画タグをサポートしていません。</p>
+        </video>
+    </section>
+
+    <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3280.163613237997!2d137.406626!3d34.701053!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzTCsDQyJzAzLjgiTiAxMzfCsDI0JzIzLjkiRQ!5e0!3m2!1sja!2sjp!4v1678476006193!5m2!1sja!2sjp" width="100%" height="450" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </dl>
