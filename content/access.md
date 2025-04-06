@@ -3,7 +3,7 @@ title: "アクセス - Access"
 draft: false
 ---
 ### 大学へのアクセス (Access to the University)
-大学へのアクセスは [豊橋技術科学大学 公式サイト](https://www.tut.ac.jp/about/overview/access.html) を参照してください。
+大学へのアクセスは [豊橋技術科学大学 公式サイト](https://www.tut.ac.jp/about/overview/access.html) を参照してください。  
 Please refer to the [Toyohashi University of Technology Official Website](https://www.tut.ac.jp/about/overview/access.html) for access to the university.
 
 
