@@ -9,25 +9,25 @@ Please refer to the [Toyohashi University of Technology Official Website](https:
 
 ##### 公共交通機関でお越しになる場合 (If coming by public transportation)
 
-名古屋からお越しになる場合は、JR東海 [豊橋往復きっぷ](https://railway.jr-central.co.jp/tickets/toyohashi-round/)
-(1往復あたり平日1,900円、土日祝1,560円)または 名古屋鉄道 [なごや特割2平日・なごや特割2土休日](https://www.meitetsu.co.jp/plan/discount/1268869_8040.html)(1往復あたり平日1,780円、土日祝1,560円)をご利用いただくとお得に移動できます。
+- 名古屋からお越しになる場合は、JR東海 [豊橋往復きっぷ](https://railway.jr-central.co.jp/tickets/toyohashi-round/)
+(1往復あたり平日1,900円、土日祝1,560円)または 名古屋鉄道 [なごや特割2平日・なごや特割2土休日](https://www.meitetsu.co.jp/plan/discount/1268869_8040.html)(1往復あたり平日1,780円、土日祝1,560円)をご利用いただくとお得に移動できます。  
 If you are coming from Nagoya, you can use the JR-Central [Toyohashi Round Trip Ticket](https://railway.jr-central.co.jp/tickets/toyohashi-round/)(1,900 yen for a round trip on weekdays, 1,560 yen on weekends and holidays) 
  or the Nagoya Railroad [Nagoya Special Discount 2 Weekdays・Nagoya Special Discount 2 Saturdays and Holidays](https://www.meitetsu.co.jp/plan/discount/1268869_8040.html)(1,780 yen for a round trip on weekdays, 1,560 yen on weekends and holidays) to travel at a reasonable price.
 
 ![名古屋から豊橋駅までのお得なきっぷ](/images/access/NagoyaToToyohashi.png)
 
-浜松方面からお越しになる場合は、浜松駅から豊橋駅までの所要時間約30分で、運賃は680円となります。
+- 浜松方面からお越しになる場合は、浜松駅から豊橋駅までの所要時間約30分で、運賃は680円となります。  
 If you are coming from Hamamatsu direction, it takes about 30 minutes from Hamamatsu Station to Toyohashi Station, and the fare is 680 yen.
 
-また、豊橋駅から大学へはバスが出ています。JR、名鉄の改札を出て右手に進み、豊橋駅前2番乗り場から発車しています。運賃は片道500円(現金もしくは交通系ICカード)となっております。  
-[豊鉄バス 時刻表](https://www.toyotetsu.jp/rosen/timetable.html)の豊橋技科大線をご確認の上、ご利用ください。 
+- また、豊橋駅から大学へはバスが出ています。JR、名鉄の改札を出て右手に進み、豊橋駅前2番乗り場から発車しています。運賃は片道500円(現金もしくは交通系ICカード)となっております。  
+[豊鉄バス 時刻表](https://www.toyotetsu.jp/rosen/timetable.html)の豊橋技科大線をご確認の上、ご利用ください。  
 There is a bus from Toyohashi Station to the university. After exiting the JR or Meitetsu ticket gate, proceed to the right, and the bus departs from Toyohashi Station Front Bus Stop No. 2. The fare is 500 yen one way (cash or transportation IC card).  
 Please check the [Toyotetsu Bus Timetable](https://www.toyotetsu.jp/rosen/timetable.html) for the Toyohashi University of Technology Line and use it.
 
 
- ##### お車でお越しになる場合 (If coming by car)
-国道23号バイパス「七根IC」から約2分
-東名高速道路「音羽蒲郡IC」または「浜松IC」から約1時間
+##### お車でお越しになる場合 (If coming by car)
+- 国道23号バイパス「七根IC」から約2分
+- 東名高速道路「音羽蒲郡IC」または「浜松IC」から約1時間  
 About 2 minutes from the Nanane IC of the Route 23 Bypass 
 About 1 hour from the Otowa Gamagori IC or Hamamatsu IC of the Tomei Expressway
 
@@ -35,7 +35,7 @@ About 1 hour from the Otowa Gamagori IC or Hamamatsu IC of the Tomei Expressway
 #### コモンズⅠへのアクセス (Access to Student Commons Ⅰ)
 学内でイベントを行う際、コモンズⅠを利用します。  
 コモンズⅠは、学内売店「ニューヤマザキデイリーストア 豊橋技科大店」の隣に位置しています。  
-「技科大前」バス停から、「GO TO THE FUTURE」方面へ進み、附属図書館を超えた先、福利施設の1階にあります。
+「技科大前」バス停から、「GO TO THE FUTURE」方面へ進み、附属図書館を超えた先、福利施設の1階にあります。  
 When holding an event on campus, we use Student Commons Ⅰ.  
 Student Commons Ⅰ is located next to the on-campus store "New Yamazaki Daily Store Toyohashi Institute of Technology Store".  
 From the "Gikadai-mae" bus stop, proceed in the direction of "GO TO THE FUTURE", past the attached library, and on the 1st floor of the welfare facility.  
@@ -46,15 +46,15 @@ From the "Gikadai-mae" bus stop, proceed in the direction of "GO TO THE FUTURE",
 
 ![コモンズ1への行き方](/images/access/TheWayToCommons1.jpg)
 
-1.福利施設の左手は食堂となっています。そこから数メートルほど進んでいただきます。
-2.左手に下り階段があるので、階段を下り、自動ドアの中に入ります。
-3.正面にある「ニューデイリーヤマザキ」を右折し、一番奥まで進みます。
-4.一番奥まで来たら、左手にある自動ドアを入れば、コモンズ1に到着です！
+1.福利施設の左手は食堂となっています。そこから数メートルほど進んでいただきます。  
+2.左手に下り階段があるので、階段を下り、自動ドアの中に入ります。  
+3.正面にある「ニューデイリーヤマザキ」を右折し、一番奥まで進みます。  
+4.一番奥まで来たら、左手にある自動ドアを入れば、コモンズ1に到着です！  
 
-1.The dining room is to the left of the welfare facility. You will proceed a few meters from there.
-2.You will see a downstairs on your left, go down the stairs, and enter the automatic door.
-3.Turn right at the “New Daily Yamazaki” in front of you and go to the far end of the building. 
-4.When you reach the far end, enter the automatic door on your left, and you will arrive at Commons1!
+1.The dining room is to the left of the welfare facility. You will proceed a few meters from there.  
+2.You will see a downstairs on your left, go down the stairs, and enter the automatic door.  
+3.Turn right at the “New Daily Yamazaki” in front of you and go to the far end of the building.  
+4.When you reach the far end, enter the automatic door on your left, and you will arrive at Commons1!  
 
 
 #### 部室へのアクセス (Access to the Club Room)
