@@ -38,13 +38,13 @@ Please check the [Toyotetsu Bus Timetable](https://www.toyotetsu.jp/rosen/timeta
 大学正門から、「GO TO THE FUTURE」方面へ進み、附属図書館を超えた先、福利施設の1階にあります。  
 When holding an event on campus, we use Student Commons Ⅰ.  
 Student Commons Ⅰ is located next to the on-campus store "New Yamazaki Daily Store Toyohashi Institute of Technology Store".  
-From the "Gikadai-mae" bus stop, proceed in the direction of "GO TO THE FUTURE", past the attached library, and on the 1st floor of the welfare facility.  
+From main entrance of the University, proceed in the direction of "GO TO THE FUTURE", past the attached library, and on the 1st floor of the welfare facility.  
 
 <dl>
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d205.0109729953307!2d137.40903233412234!3d34.70075144100054!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6004d47d93aee9a3%3A0x242ff489f3ec5ac5!2z44OL44Ol44O844Ok44Oe44K244Kt44OH44Kk44Oq44O844K544OI44KiIOixiuapi-aKgOenkeWkp-W6lw!5e0!3m2!1sja!2sjp!4v1720352219393!5m2!1sja!2sjp" width="100%" height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </dl>
 
-![コモンズ1への行き方](/images/access/TheWayToCommons1.jpg)
+![コモンズ1への行き方](/images/access/TheWayToCommons1_2.jpg)
 
 1.福利施設の左手は食堂となっています。そこから数メートルほど進んでいただきます。  
 2.左手に下り階段があるので、階段を下り、自動ドアの中に入ります。  
