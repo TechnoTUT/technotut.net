@@ -1,7 +1,7 @@
 ---
 title: "[イベント告知] 2025 技科大祭"
 description: "イベント告知"
-image: 
+image: "/images/blogs/2025-10-12_gikadaifes/6Flyer.png" 
 date: 2025-09-16T00:00:00Z
 draft: false
 ---
@@ -15,15 +15,19 @@ draft: false
 </dl>
 技科大祭のステージでは、様々なゲストを交えて最高の音楽をお届けいたします！  
 最高の音楽で、最高に盛り上がりましょう！
+開催場所である、コモンズⅠへのアクセスは<a href="/access" style={{color: '#c7000a'}}>こちら</a>からどうぞ！
 <dl> 
 <center>
-<font size="5">～ゲストのご紹介～</font>
+<font size="5">～ゲストのご紹介～</font>  
+Coming Soon…
 </center>
 </dl>
 
 <dl> 
 <center>
-<font size="5">～タイムテーブル～</font>
+<font size="5">～タイムテーブル～</font>  
+Coming Soon…
 </center>
-</dl>
+</dl>  
+
 みなさまのご来場、お待ちしております！！
