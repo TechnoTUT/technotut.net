@@ -2,7 +2,7 @@
 title: "[イベント告知] 2025 技科大祭"
 description: "イベント告知"
 image: 
-date: 2024-10-08T00:00:00Z
+date: 2025-09-16T00:00:00Z
 draft: false
 ---
 お待たせいたしました！！  
