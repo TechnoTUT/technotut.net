@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-    name: Check export
+    name: CI
     steps:
       - name: Checkout
         uses: actions/checkout@v4
