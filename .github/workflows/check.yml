@@ -1,12 +1,10 @@
 on: [push]
 
 jobs:
-  publish:
+  ci:
     runs-on: ubuntu-latest
-    if: ${{ contains(github.actor, '[bot]') || github.repository != 'TechnoTUT/technotut.net' }}
     permissions:
       contents: read
-      deployments: write
     name: Check export
     steps:
       - name: Checkout
