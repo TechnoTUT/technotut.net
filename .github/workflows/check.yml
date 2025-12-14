@@ -3,7 +3,7 @@ on: [push]
 jobs:
   publish:
     runs-on: ubuntu-latest
-    if: github.repository != 'TechnoTUT/technotut.net'
+    if: ${{ contains(github.actor, '[bot]') || github.repository != 'TechnoTUT/technotut.net' }}
     permissions:
       contents: read
       deployments: write
