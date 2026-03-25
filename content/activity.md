@@ -30,23 +30,19 @@ draft: false
 | 6/18 (水) | コモンズイベ withダンスサークル | コモンズⅠ | ダンス部との交流イベント |
 | 6/21 (土) | 新入生練習会 | 部室 | 新入部員対象のDJ練習会 |
 | 7/5 (土) | [The Utopia Tone vol.4 withダンスサークル ](https://x.com/ToyohashiTechno/status/1811655053813645375) | コモンズⅠ | 学内DJイベント．技科大ダンス部 Gille Workers とのコラボ |
-| 7/6 (日) | 新入生歓迎会 | コモンズⅠ | 新入生歓迎コモンズイベント |
-
-| 9/2 (月) | 合宿 Day 1| 愛知県新城市 | 1泊2日の合宿(台風の影響により縮小開催) |
-| 9/3 (火) | 合宿 Day 2| | |
-| 9/23 (月) | [まちなか音楽広場](https://x.com/ToyohashiTechno/status/1836006165404406187) | 豊橋市まちなか広場 | 豊橋まちなか活性化センター主催の豊橋の音楽イベントに出展 |
-| 10/12 (土) | [The Utopia Tone -extended- Day 1](https://technotut.net/news/gikadaifes2024) | コモンズⅠ | 技科大祭にサークル出店．今回から学内DJイベントに新しく名称を決定 | 
-| 10/13 (日) | The Utopia Tone -extended- Day 2 |  | | 
-| 10/27 (日) | [M3-2024秋](https://x.com/ToyohashiTechno/status/1849772480388284815) | 東京流通センター | DTM班が制作した楽曲の頒布<br/>(え-41b ウタノカケラ / maximorphonicore / Fantasy Technology) |
-| 10/28 (月) | [初心者DJ講習会 Day 1](https://x.com/ToyohashiTechno/status/1850779991442883067) | 集会室1 | |
-| 10/29 (火) | 初心者DJ講習会 Day 2 | 集会室1 | |
-| 10/29 (火) | [ハロウィンイベント](https://x.com/ToyohashiTechno/status/1054310678935220224) | 売店前 | デイリーヤマザキ主催のハロウィンイベントに仮装して出展 |
-| 11/23 (土) | [The Utopia Tone vol.1](https://x.com/ToyohashiTechno/status/1854811191165829331) | コモンズⅠ | 学内DJイベント |
-| 12/18 (水) | [クリスマスイベント](https://x.com/ToyohashiTechno/status/1869261915442356500) | 売店前 | デイリーヤマザキ主催のクリスマスイベントに出展 |
-| 2/15 (土) | [The Utopia Tone Vol.2](https://x.com/ToyohashiTechno/status/1888516815334351129) | コモンズⅠ | 学内DJイベント |
-| 3/8 (土) | [TRi-Uni Vibes](https://x.com/ToyohashiTechno/status/1895671987483394503) | MIRAI NAGOYA | [名古屋大学作曲サークル(Anti-Aging Record)](https://aar.lolipop.jp/) / [愛知工業大学DTM部(A.I.Tech Records)](https://x.com/Aitdtmclub) との<br/>3大学合同DJイベント |
-| 3/18 (火) | 追いコン | コモンズⅠ | 卒業する部員が主役のDJイベント |
-| 3/19 (水) | 技科大×高専カンファレンスin豊橋 | 穂の国とよはし芸術劇場PLAT | 高専カンファレンスに出展 |
+| 7/6 (日) | 新入生歓迎会 | コモンズⅠ | 新入生歓迎を目的としたコモンズでの飲食DJパーティ |
+| 8/9 (土) | The Utopia Tone vol.5 | コモンズⅠ | 学内DJイベント |
+| 9/2 (火) | 合宿 Day 1| 愛知県新城市 | 2泊3日の合宿 |
+| 9/3 (水) | 合宿 Day 2| | |
+| 9/4 (木) | 合宿 Day 3| | |
+| 10/11 (土) | [The Utopia Tone -vol.6 extended- Day 1](https://technotut.net/news/gikadaifes2024) | コモンズⅠ | 技科大祭にサークル出店 | 
+| 10/12 (日) | The Utopia Tone -vol.6 extended- Day 2 |  | | 
+| 10/26 (日) | [M3-2025秋](https://x.com/ToyohashiTechno/status/1849772480388284815) | 東京流通センター | DTM班が制作した楽曲の頒布<br/>(え-41b ウタノカケラ / maximorphonicore / Fantasy Technology) |
+| 11/15 (土) | The Unitary Tone -dance edition- | コモンズⅠ | ダンスミュージックに焦点を置いた学内DJイベント |
+| 2/21 (土) | [The Utopia Tone Vol.7](https://x.com/ToyohashiTechno/status/1888516815334351129) | コモンズⅠ | 学内DJイベント |
+| 3/11 (火) | 追いコンDay1 | コモンズⅠ | 卒業する部員が主役のDJイベント |
+| 3/12 (火) | 追いコンDay2 | | |
+| 3/15 (土) | [TRi-Uni Vibes online](https://x.com/ToyohashiTechno/status/1895671987483394503) | MIRAI NAGOYA | [名古屋大学作曲サークル(Anti-Aging Record)](https://aar.lolipop.jp/) / [愛知工業大学DTM部(A.I.Tech Records)](https://x.com/Aitdtmclub) との<br/>3大学合同オンラインDJイベント |
 
 ### 2025年度活動実績(部内向けイベント)
 その他テーマを定めた部内向けイベント(通称平日イベ)等を開催しました．(部室での開催)
