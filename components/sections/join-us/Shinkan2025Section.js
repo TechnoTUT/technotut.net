@@ -13,7 +13,7 @@ const Shinkan2025Section = ({ language }) => {
     };
     const content = {
         ja: {
-            title: "2026年度新入生歓迎イベント情報",
+            title: "2025年度新入生歓迎イベント情報",
             jumptoJoinUs: (
                 <div>
                     <span className="text-gray-200">
@@ -29,7 +29,7 @@ const Shinkan2025Section = ({ language }) => {
                 </div>
             ),
             washitu: "和室イベント",
-            washituDateTime: "4/2(木) 10:00~19:00(入退場自由)",
+            washituDateTime: "4/2(金) 10:00~19:00(入退場自由)",
             washituLocation: "福利施設棟二階和室(食堂横)",
             washituText: (
                 <>
@@ -43,9 +43,9 @@ const Shinkan2025Section = ({ language }) => {
             soubukaiLocation: "A2-201教室,A棟前ステージ",
             soubukaiDateTime: (
                 <>
-                    4/9(木) <br />
+                    4/9(金) <br />
                     部活動展示& :12:25~16:30 <br />
-                    ステージパフォーマンス:14:20~14:55
+                    ステージパフォーマンス:12:25~12:50
                 </>
             ),
             soubukaiText: (
@@ -64,8 +64,8 @@ const Shinkan2025Section = ({ language }) => {
             utoneDateTime: (
                 <>
                     ※予定です。最終的な情報は各SNSでお知らせします。入退場自由です。<br />
-                    4/11(土) 10:30~16:45<br />
-                    4/12(日) 10:30~16:45
+                    4/12(土) 10:00~18:00<br />
+                    4/13(日) 10:00~18:00
                 </>
             ),
             utoneText: (
