@@ -24,7 +24,7 @@ draft: false
 | 4/18 (金) | 部室新歓 Day3 | 部室 | |
 | 4/12 (土) | [The Utopia Tone Vol.3 Day1](https://x.com/ToyohashiTechno/status/1909203303977914548?s=20) | コモンズⅠ | 学内DJイベント |
 | 4/13 (日) | [The Utopia Tone Vol.3 Day2](https://x.com/ToyohashiTechno/status/1909203303977914548?s=20) | コモンズⅠ |  |
-| 4/27 (日) | [M3-2025春](https://x.com/ToyohashiTechno/status/1916298554684985791?s=20) | 東京流通センター | DTM班が制作した楽曲の頒布<br/>() |
+| 4/27 (日) | [M3-2025春](https://x.com/ToyohashiTechno/status/1916298554684985791?s=20) | 東京流通センター | DTM班が制作した楽曲の頒布<br/>(N-21b,  X_disTrUcTion・YOTU-UTIⅡ) |
 | 5/12-5/30  | テクノ部体験ツアー | 部室 | 部の主な活動を実際に体験 |
 | 6/7,8 (土,日) | [Mix The Music](https://x.com/AntiAgingRecord/status/1923317501943050384?s=20) | 名古屋大学 | 名大祭の名古屋大学作曲サークル主催DJイベントにゲストDJとして出演 |
 | 6/18 (水) | コモンズイベ withダンスサークル | コモンズⅠ | ダンス部との交流イベント |
@@ -37,7 +37,7 @@ draft: false
 | 9/4 (木) | 合宿 Day 3| 愛知県新城市 | |
 | 10/11 (土) | [The Utopia Tone -vol.6 extended- Day 1](https://x.com/ToyohashiTechno/status/1976797071442428185?s=20) | コモンズⅠ | 技科大祭にサークル出店 年内最大規模の学内DJイベント | 
 | 10/12 (日) | [The Utopia Tone -vol.6 extended- Day 2](https://x.com/ToyohashiTechno/status/1977170408458928548?s=20) |  | | 
-| 10/26 (日) | [M3-2025秋](https://x.com/ToyohashiTechno/status/1982257112542527695?s=20) | 東京流通センター | DTM班が制作した楽曲の頒布<br/>() |
+| 10/26 (日) | [M3-2025秋](https://x.com/ToyohashiTechno/status/1982257112542527695?s=20) | 東京流通センター | DTM班が制作した楽曲の頒布<br/>(え-26a,  OmniBass・TechnoTUT Collection vol.1) |
 | 11/15 (土) | [The Unitary Tone -Dance Edition-](https://x.com/ToyohashiTechno/status/1987086249325437100?s=20) | コモンズⅠ | ダンスミュージックに焦点を置いた学内DJイベント |
 | 2/21 (土) | [The Utopia Tone Vol.7](https://x.com/ToyohashiTechno/status/2022597000483483977?s=20) | コモンズⅠ | 学内DJイベント |
 | 3/11 (火) | 追いコンDay1 | コモンズⅠ | 卒業する部員が主役のDJイベント |
