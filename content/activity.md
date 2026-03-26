@@ -10,8 +10,8 @@ draft: false
 | 4/9 (水) | 部室新歓 Day1 | 部室 |部の主な活動を紹介 |
 | 4/14 (火) | 部室新歓 Day2 | 部室 | |
 | 4/17 (金) | 部室新歓 Day3 | 部室 | |
-| 4/11 (土) | The Utopia Tone Vol.8 Day 1 | コモンズⅠ | 新入生歓迎学内DJイベント|
-| 4/12 (日) | The Utopia Tone Vol.8 Day 2 | コモンズⅠ | |
+| 4/11 (土) | [The Utopia Tone Vol.8 Day1] (https://x.com/ToyohashiTechno/status/2031708454805795031?s=20)| コモンズⅠ | 新入生歓迎学内DJイベント|
+| 4/12 (日) | The Utopia Tone Vol.8 Day2 | コモンズⅠ | |
 | 4/26 (日) | M3-2026春 | 東京流通センター | DTM班が制作した楽曲の頒布 |
 
 ### 2025年度活動実績(メインイベント)
@@ -26,7 +26,7 @@ draft: false
 | 4/13 (日) | The Utopia Tone vol.3 Day2 | コモンズⅠ | 学内DJイベント |
 | 4/27 (日) | M3-2025春 | 東京流通センター | DTM班が制作した楽曲の頒布(え-28b 四ツ家) |
 | 5/12-5/30  | テクノ部体験ツアー | 部室 | 部の主な活動を実際に体験 |
-| 6/7,8 (土,日) | [Mix The Music day1](https://x.com/ToyohashiTechno/status/1794675974665355476) | 名古屋大学 | 名大祭の名古屋大学作曲サークル主催DJイベントにゲストDJとして出演 |
+| 6/7,8 (土,日) | [Mix The Music](https://x.com/ToyohashiTechno/status/1794675974665355476) | 名古屋大学 | 名大祭の名古屋大学作曲サークル主催DJイベントにゲストDJとして出演 |
 | 6/18 (水) | コモンズイベ withダンスサークル | コモンズⅠ | ダンス部との交流イベント |
 | 6/21 (土) | 新入生練習会 | 部室 | 新入部員対象のDJ練習会 |
 | 7/5 (土) | [The Utopia Tone vol.4 withダンスサークル ](https://x.com/ToyohashiTechno/status/1811655053813645375) | コモンズⅠ | 学内DJイベント．技科大ダンス部 Gille Workers とのコラボ |
