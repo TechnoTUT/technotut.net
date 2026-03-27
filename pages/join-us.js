@@ -50,11 +50,11 @@ const Home = ({ frontmatter }) => {
         {/* 言語ごとのコンテンツ切り替え */}
         {language === "ja" ? (
           <>
-            <Shinkan2025Section language="ja" />
+            <Shinkan2026Section language="ja" />
           </>
         ) : (
           <>
-            <Shinkan2025Section language="en" />
+            <Shinkan2026Section language="en" />
           </>
         )
         }
