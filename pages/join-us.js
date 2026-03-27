@@ -7,7 +7,7 @@ import { getListPage } from "../lib/contentParser"
 
 import BannerSection from "components/sections/join-us/BannerSection"
 import EntryProcedureSection from "components/sections/join-us/EntryProcedureSection"
-import Shinkan2025Section from "components/sections/join-us/Shinkan2026Section"
+import Shinkan2026Section from "components/sections/join-us/Shinkan2026Section"
 
 
 const Home = ({ frontmatter }) => {
