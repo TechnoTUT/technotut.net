@@ -11,7 +11,7 @@ const EntryProcedureSection = ({ language }) => {
             clubFeeText: (
                 <>
                     初年度の部費は
-                    無料
+                    1000円
                     です。<br />
                     二年目以降は年間2,000円が必要となり、再入部手続きの際にお支払いいただきます。<br />
                     運営の都合上、毎年入部手続きを行う必要があります。再入部手続きをしなければ費用は一切発生しないため、
@@ -21,7 +21,7 @@ const EntryProcedureSection = ({ language }) => {
             join: "入部方法",
             joinSteps: [
                 "1. 一度部室にお越しください。",
-                "2. 部員名簿に署名と捺印をしていただきます。シャチハタは使用不可です。",
+                "2. 部員名簿に署名と捺印、部費の支払いをしていただきます。シャチハタは使用不可です。",
                 "3. 入部手続きが完了しました。"
             ],
             contact: "連絡先",
@@ -54,7 +54,7 @@ const EntryProcedureSection = ({ language }) => {
             clubFee: "Club Fee",
             clubFeeText: (
                 <>
-                    The first year is FREE.<br />
+                    The club fee for the first year is 1000 yen.<br />
                     From the second year onward, the annual fee is 2,000 yen, which will be collected when you rejoin the club.<br />
                     For administrative reasons, you need to renew your membership each year. If you choose not to rejoin the following year,
                     you will not be charged anything. So if you are even slightly interested, we recommend signing up for now!
