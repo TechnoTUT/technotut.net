@@ -7,7 +7,7 @@ import { getListPage } from "../lib/contentParser"
 
 import BannerSection from "components/sections/join-us/BannerSection"
 import EntryProcedureSection from "components/sections/join-us/EntryProcedureSection"
-import Shinkan2025Section from "components/sections/join-us/Shinkan2025Section"
+import Shinkan2026Section from "components/sections/join-us/Shinkan2026Section"
 
 
 const Home = ({ frontmatter }) => {
@@ -50,11 +50,11 @@ const Home = ({ frontmatter }) => {
         {/* 言語ごとのコンテンツ切り替え */}
         {language === "ja" ? (
           <>
-            <Shinkan2025Section language="ja" />
+            <Shinkan2026Section language="ja" />
           </>
         ) : (
           <>
-            <Shinkan2025Section language="en" />
+            <Shinkan2026Section language="en" />
           </>
         )
         }

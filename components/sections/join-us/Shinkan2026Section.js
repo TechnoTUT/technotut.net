@@ -4,7 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 import React from "react"
 
-const Shinkan2025Section = ({ language }) => {
+const Shinkan2026Section = ({ language }) => {
     const scrollToTarget = () => {
         const element = document.getElementById('target-section');
         if (element) {
@@ -13,7 +13,7 @@ const Shinkan2025Section = ({ language }) => {
     };
     const content = {
         ja: {
-            title: "2025年度新入生歓迎イベント情報",
+            title: "2026年度新入生歓迎イベント情報",
             jumptoJoinUs: (
                 <div>
                     <span className="text-gray-200">
@@ -29,7 +29,7 @@ const Shinkan2025Section = ({ language }) => {
                 </div>
             ),
             washitu: "和室イベント",
-            washituDateTime: "4/2(金) 10:00~19:00(入退場自由)",
+            washituDateTime: "4/2(木) 10:00~19:00(入退場自由)",
             washituLocation: "福利施設棟二階和室(食堂横)",
             washituText: (
                 <>
@@ -40,12 +40,12 @@ const Shinkan2025Section = ({ language }) => {
                 </>
             ),
             soubukai: "総部会新歓",
-            soubukaiLocation: "A209教室,A棟前ステージ",
+            soubukaiLocation: "A2-201教室,A棟前ステージ",
             soubukaiDateTime: (
                 <>
-                    4/9(金) <br />
+                    4/9(木) <br />
                     部活動展示& :12:25~16:30 <br />
-                    ステージパフォーマンス:12:25~12:50
+                    ステージパフォーマンス:14:20~14:55
                 </>
             ),
             soubukaiText: (
@@ -64,8 +64,8 @@ const Shinkan2025Section = ({ language }) => {
             utoneDateTime: (
                 <>
                     ※予定です。最終的な情報は各SNSでお知らせします。入退場自由です。<br />
-                    4/12(土) 10:00~18:00<br />
-                    4/13(日) 10:00~18:00
+                    4/11(土) 10:00~16:45<br />
+                    4/12(日) 10:00~16:30
                 </>
             ),
             utoneText: (
@@ -78,7 +78,7 @@ const Shinkan2025Section = ({ language }) => {
             ),
         },
         en: {
-            title: "2025 Freshers' Welcome Event Information",
+            title: "2026 Freshers' Welcome Event Information",
             jumptoJoinUs: (
                 <div>
                     <span className="text-gray-200">
@@ -94,7 +94,7 @@ const Shinkan2025Section = ({ language }) => {
                 </div>
             ),
             washitu: "Washitsu Event",
-            washituDateTime: "April 2 (Fri) 10:00~19:00 (Free entry & exit)",
+            washituDateTime: "April 2 (Thu) 10:00~19:00 (Free entry & exit)",
             washituLocation: "Second floor of the Welfare Facility Building (next to the cafeteria)",
             washituText: (
                 <>
@@ -105,12 +105,12 @@ const Shinkan2025Section = ({ language }) => {
                 </>
             ),
             soubukai: "Club Orientation Event",
-            soubukaiLocation: "Classroom A209 & A Building Front Stage",
+            soubukaiLocation: "Classroom A2-201 & A Building Front Stage",
             soubukaiDateTime: (
                 <>
-                    April 9 (Fri) <br />
+                    April 9 (Thu) <br />
                     Club Booths: 12:25~16:30 <br />
-                    Stage Performance: 12:25~12:50
+                    Stage Performance: 14:20~14:55
                 </>
             ),
             soubukaiText: (
@@ -130,8 +130,8 @@ const Shinkan2025Section = ({ language }) => {
             utoneDateTime: (
                 <>
                     ※ Tentative schedule. Final details will be announced on our social media.Free entry & exit.<br />
-                    April 12 (Sat) 10:00~18:00<br />
-                    April 13 (Sun) 10:00~18:00
+                    April 11 (Sat) 10:00~16:45<br />
+                    April 12 (Sun) 10:00~18:30
                 </>
             ),
             utoneText: (
@@ -253,4 +253,4 @@ const Shinkan2025Section = ({ language }) => {
     );
 }
 
-export default Shinkan2025Section;
+export default Shinkan2026Section;
