@@ -9,12 +9,9 @@ You can also find directions to the university on [Toyohashi University of Techn
 
 ##### 公共交通機関でお越しになる場合 (If coming by public transportation)
 
-- 名古屋からお越しになる場合は、JR東海 [豊橋往復きっぷ](https://railway.jr-central.co.jp/tickets/toyohashi-round/)
-(1往復あたり平日1,900円、土日祝1,560円)または 名古屋鉄道 [なごや特割2平日・なごや特割2土休日](https://www.meitetsu.co.jp/plan/discount/1268869_8040.html)(1往復あたり平日1,780円、土日祝1,560円)をご利用いただくとお得に移動できます。  
-If you are coming from Nagoya, you can use the JR-Central [Toyohashi Round Trip Ticket](https://railway.jr-central.co.jp/tickets/toyohashi-round/)(1,900 yen for a round trip on weekdays, 1,560 yen on weekends and holidays) 
- or the Nagoya Railroad [Nagoya Special Discount 2 Weekdays・Nagoya Special Discount 2 Saturdays and Holidays](https://www.meitetsu.co.jp/plan/discount/1268869_8040.html)(1,780 yen for a round trip on weekdays, 1,560 yen on weekends and holidays) to travel at a reasonable price.
+- 名古屋からお越しになる場合は、名古屋鉄道 [なごや特割2平日・なごや特割2土休日](https://www.meitetsu.co.jp/plan/discount/1268869_8040.html)(1往復あたり平日1,780円、土日祝1,560円)をご利用いただくとお得に移動できます。  
+If you are coming from Nagoya, you can use the Nagoya Railroad [Nagoya Special Discount 2 Weekdays・Nagoya Special Discount 2 Saturdays and Holidays](https://www.meitetsu.co.jp/plan/discount/1268869_8040.html)(1,780 yen for a round trip on weekdays, 1,560 yen on weekends and holidays) to travel at a reasonable price.
 
-![名古屋から豊橋駅までのお得なきっぷ](/images/access/NagoyaToToyohashi.png)
 
 - 浜松方面からお越しになる場合は、浜松駅から豊橋駅までの所要時間約30分で、運賃は680円となります。  
 If you are coming from Hamamatsu direction, it takes about 30 minutes from Hamamatsu Station to Toyohashi Station, and the fare is 680 yen.
