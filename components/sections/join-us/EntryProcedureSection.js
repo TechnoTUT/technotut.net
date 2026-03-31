@@ -14,8 +14,7 @@ const EntryProcedureSection = ({ language }) => {
                     1000円
                     です。<br />
                     二年目以降は年間2,000円が必要となり、再入部手続きの際にお支払いいただきます。<br />
-                    運営の都合上、毎年入部手続きを行う必要があります。再入部手続きをしなければ費用は一切発生しないため、
-                    少しでも興味がある方はまずは気軽に入部してみることをおすすめします。
+                    なお、初年度の4月は仮入部期間として、部費不要で音楽技術部の活動を体験いただけます。
                 </>
             ),
             join: "入部方法",
@@ -56,8 +55,7 @@ const EntryProcedureSection = ({ language }) => {
                 <>
                     The club fee for the first year is 1000 yen.<br />
                     From the second year onward, the annual fee is 2,000 yen, which will be collected when you rejoin the club.<br />
-                    For administrative reasons, you need to renew your membership each year. If you choose not to rejoin the following year,
-                    you will not be charged anything. So if you are even slightly interested, we recommend signing up for now!
+                    In your first year, April is a trial period, so you can take part in Music & Live Production Club’s activities without paying any fee.
                 </>
             ),
             join: "How to join",
