@@ -4,6 +4,73 @@ import Footer from "@partials/Footer";
 import Header from "@partials/Header";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+
+const MouseFollower = () => {
+  const [position, setPosition] = useState({ x: -100, y: -100 });
+  const [visible, setVisible] = useState(false);
+  const [isHovering, setIsHovering] = useState(false);
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      setPosition({ x: e.clientX, y: e.clientY });
+      if (!visible) setVisible(true);
+    };
+
+    const handleMouseLeave = () => {
+      setVisible(false);
+    };
+
+    const handleMouseOver = (e) => {
+      const target = e.target;
+      if (
+        target.tagName === "A" ||
+        target.tagName === "BUTTON" ||
+        target.closest("a") ||
+        target.closest("button") ||
+        target.getAttribute("role") === "button"
+      ) {
+        setIsHovering(true);
+      } else {
+        setIsHovering(false);
+      }
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("mouseleave", handleMouseLeave);
+    window.addEventListener("mouseover", handleMouseOver);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mouseleave", handleMouseLeave);
+      window.removeEventListener("mouseover", handleMouseOver);
+    };
+  }, [visible]);
+
+  if (!visible) return null;
+
+  return (
+    <>
+      <style>{`
+        html, body, a, button, select, input, textarea, [role="button"] {
+          cursor: none !important;
+        }
+      `}</style>
+      {/* Outer blurred circle */}
+      <div
+        className="pointer-events-none fixed rounded-full bg-[#C7000A]/70 blur-[3px] z-[9999] transition-transform duration-200 ease-out hidden md:block"
+        style={{
+          left: `${position.x}px`,
+          top: `${position.y}px`,
+          transform: `translate(-50%, -50%) scale(${isHovering ? 1.5 : 1})`,
+          width: "36px",
+          height: "36px",
+        }}
+      />
+    </>
+  );
+};
+
 
 const Base = ({
   title,
@@ -83,6 +150,7 @@ const Base = ({
         />
       </Head>
       <Header />
+      <MouseFollower />
       {/* main site */}
       <main>{children}</main>
       <Footer />
