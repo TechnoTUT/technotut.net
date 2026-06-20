@@ -197,6 +197,7 @@ const ActivityGroupSection = () => {
             alt="dtm-image"
             className="object-cover p-[2px]"
             sizes="(max-width: 1024px) 100vw, 60vw"
+            priority
           />
           <div className="absolute inset-0 bg-black opacity-45"></div>
         </div>
