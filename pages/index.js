@@ -2,7 +2,6 @@ import config from "@config/config.json"
 import Base from "@layouts/Baseof"
 import Image from "next/image"
 import Link from "next/link"
-import { getListPage } from "../lib/contentParser"
 
 const BannerSection = () => (
   <section className="relative h-screen w-full overflow-hidden">

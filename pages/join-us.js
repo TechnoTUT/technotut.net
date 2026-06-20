@@ -3,8 +3,6 @@ import config from "@config/config.json"
 import Base from "@layouts/Baseof"
 import Image from "next/image"
 import Link from "next/link"
-import { getListPage } from "../lib/contentParser"
-
 import BannerSection from "components/sections/join-us/BannerSection"
 import EntryProcedureSection from "components/sections/join-us/EntryProcedureSection"
 import Shinkan2026Section from "components/sections/join-us/Shinkan2026Section"
