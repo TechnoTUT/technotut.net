@@ -78,7 +78,7 @@ const ActivityGroupSection = () => (
             <p>イベント運営班では、多種多様なイベントの計画立案・運営に関する活動を行っています。部室での放課後イベントから、大部屋 (コモンズI) を貸し切っての大規模イベント、さらには技科大祭や実際のクラブでも！誰もが楽しめる遊び場を、誰かが全力で輝けるステージを、自分たちの手で作り上げています！</p>
             <div className="relative h-[400px] w-full my-8">
               <div className="absolute inset-0 bg-ai-gradient">
-                <div className="h-full w-full">
+                <div className="relative h-full w-full">
                   <Image
                     src="/images/index/event/camp.jpg"
                     fill
@@ -102,7 +102,7 @@ const ActivityGroupSection = () => (
             <p>弊サークル主催DJイベントである<span className="bg-gradient-to-r from-emerald-400 to-cyan-300 bg-clip-text text-transparent font-bold"> The Utopia Tone </span>をはじめ、技科大祭などの学内イベントでのDJプレイをモチベーションに練習・活動しています。通常の活動では、平日DJイベントを中心に、放課後や授業の空きコマでDJプレイをしています。一部の部員は愛知・静岡のクラブにてDJ出演や主催イベントを開催しており、学外にも活動の幅を広げています。</p>
             <div className="relative h-[400px] w-full my-8">
               <div className="absolute inset-0 bg-ai-gradient">
-                <div className="h-full w-full">
+                <div className="relative h-full w-full">
                   <Image
                     src="/images/index/dj/dj-jokka.JPG"
                     fill
@@ -115,7 +115,7 @@ const ActivityGroupSection = () => (
             </div>
             <div className="relative h-[400px] w-full my-8">
               <div className="absolute inset-0 bg-ai-gradient">
-                <div className="h-full w-full">
+                <div className="relative h-full w-full">
                   <Image
                     src="/images/index/dj/dj-image.jpg"
                     fill
@@ -139,7 +139,7 @@ const ActivityGroupSection = () => (
             </p>
             <div className="relative h-[400px] w-full my-8">
               <div className="absolute inset-0 bg-ai-gradient">
-                <div className="h-full w-full">
+                <div className="relative h-full w-full">
                   <Image
                     src="/images/index/vj/vj-image.jpg"
                     fill
@@ -177,7 +177,7 @@ const ActivityGroupSection = () => (
               <div className="grid grid-cols-1 justify-items-center mx-auto">
                 <div className="relative h-[371px] w-[268px] my-8 mx-auto">
                   <div className="absolute inset-0 bg-ai-gradient ">
-                    <div className="h-full w-full">
+                    <div className="relative h-full w-full">
                       <Image
                         src="/images/index/media/flyer_20240713.png"
                         fill
@@ -212,7 +212,7 @@ const ActivityGroupSection = () => (
             </p>
             <div className="relative h-[400px] w-full my-8">
               <div className="absolute inset-0 bg-ai-gradient">
-                <div className="h-full w-full">
+                <div className="relative h-full w-full">
                   <Image
                     src="/images/index/dtm/dtm.jpg"
                     fill
@@ -243,7 +243,7 @@ const ActivityGroupSection = () => (
             </p>
             <div className="relative h-[400px] w-full my-8">
               <div className="absolute inset-0 bg-ai-gradient">
-                <div className="h-full w-full">
+                <div className="relative h-full w-full">
                   <Image
                     src="/images/index/tech/netshrine.jpg"
                     fill

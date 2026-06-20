@@ -83,7 +83,7 @@ const ActivityGroupSection = () => (
             </p>
             <div className="relative h-[400px] w-full my-8">
               <div className="absolute inset-0 bg-ai-gradient">
-                <div className="h-full w-full">
+                <div className="relative h-full w-full">
                   <Image
                     src="/images/index/event/camp.jpg"
                     fill
@@ -112,7 +112,7 @@ const ActivityGroupSection = () => (
             </p>
             <div className="relative h-[400px] w-full my-8">
               <div className="absolute inset-0 bg-ai-gradient">
-                <div className="h-full w-full">
+                <div className="relative h-full w-full">
                   <Image
                     src="/images/index/dj/dj-jokka.JPG"
                     fill
@@ -125,7 +125,7 @@ const ActivityGroupSection = () => (
             </div>
             <div className="relative h-[400px] w-full my-8">
               <div className="absolute inset-0 bg-ai-gradient">
-                <div className="h-full w-full">
+                <div className="relative h-full w-full">
                   <Image
                     src="/images/index/dj/dj-image.jpg"
                     fill
@@ -153,7 +153,7 @@ const ActivityGroupSection = () => (
             </p>
             <div className="relative h-[400px] w-full my-8">
               <div className="absolute inset-0 bg-ai-gradient">
-                <div className="h-full w-full">
+                <div className="relative h-full w-full">
                   <Image
                     src="/images/index/vj/vj-image.jpg"
                     fill
@@ -194,7 +194,7 @@ const ActivityGroupSection = () => (
               <div className="grid grid-cols-1 justify-items-center mx-auto">
                 <div className="relative h-[371px] w-[268px] my-8 mx-auto">
                   <div className="absolute inset-0 bg-ai-gradient ">
-                    <div className="h-full w-full">
+                    <div className="relative h-full w-full">
                       <Image
                         src="/images/index/media/flyer_20240713.png"
                         fill
@@ -224,7 +224,7 @@ const ActivityGroupSection = () => (
             <p><Link href="https://technotut.bandcamp.com/" className="relative bg-gradient-to-r from-fuchsia-400 to-orange-700 bg-clip-text text-transparent transition-all duration-500 ease-in-out hover:text-fuchsia-400">Check out our discography here. </Link></p>
             <div className="relative h-[400px] w-full my-8">
               <div className="absolute inset-0 bg-ai-gradient">
-                <div className="h-full w-full">
+                <div className="relative h-full w-full">
                   <Image
                     src="/images/index/dtm/dtm.jpg"
                     fill
@@ -251,7 +251,7 @@ const ActivityGroupSection = () => (
             </p>
             <div className="relative h-[400px] w-full my-8">
               <div className="absolute inset-0 bg-ai-gradient">
-                <div className="h-full w-full">
+                <div className="relative h-full w-full">
                   <Image
                     src="/images/index/tech/netshrine.jpg"
                     fill
