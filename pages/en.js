@@ -275,7 +275,7 @@ const ActivityGroupSection = () => {
             There are no restrictions or obligations <span className="tracking-[-0.2em]">------</span> just a place where you can enjoy music and creativity at your own pace, following what moves your heart.
             </p>
             <div className="flex flex-col items-center justify-center mt-28 lg:mt-40 animate-bounce opacity-70 group cursor-default">
-              <span className="text-[10px] text-gray-500 font-medium tracking-[0.2em] mb-1">Scroll to view the details of our 7 units</span>
+              <span className="text-[10px] text-gray-500 font-medium tracking-[0.2em] mb-1">Scroll to view the details of our units</span>
               <span className="text-xs text-rose-400 font-bold tracking-widest uppercase mb-3">Scroll to explore</span>
               <svg className="w-5 h-5 text-rose-500 drop-shadow-[0_0_8px_rgba(244,63,94,0.5)]" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
