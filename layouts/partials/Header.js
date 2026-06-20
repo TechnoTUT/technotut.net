@@ -21,7 +21,7 @@ const Header = () => {
 
   return (
 
-    <header className="header">
+    <header className="header sticky top-0 z-50 shadow-sm">
       <nav className="navbar container flex items-center justify-between">
         {/* ロゴ */}
         <div className="order-0">
