@@ -35,7 +35,7 @@ const Footer = () => {
                 width={config.site.logo_width}
                 height={config.site.logo_height}
                 alt=""
-                style={{ width: 'auto', height: 'auto' }}
+                className="w-auto h-auto"
               />
             </Link>
             {markdownify(footer_content, "p", "")}
