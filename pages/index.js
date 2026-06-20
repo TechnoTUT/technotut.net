@@ -88,6 +88,7 @@ const ActivityGroupSection = () => {
             fill
             alt="camp"
             className="object-cover p-[2px]"
+            sizes="(max-width: 1024px) 100vw, 60vw"
           />
           <div className="absolute inset-0 bg-black opacity-15"></div>
         </div>
@@ -110,6 +111,7 @@ const ActivityGroupSection = () => {
               fill
               alt="dj-Jokka"
               className="object-cover p-[2px]"
+              sizes="(max-width: 1024px) 100vw, 30vw"
             />
             <div className="absolute inset-0 bg-black opacity-20"></div>
           </div>
@@ -120,6 +122,7 @@ const ActivityGroupSection = () => {
               fill
               alt="dj-image"
               className="object-cover p-[2px]"
+              sizes="(max-width: 1024px) 100vw, 30vw"
             />
             <div className="absolute inset-0 bg-black opacity-25"></div>
           </div>
@@ -137,6 +140,7 @@ const ActivityGroupSection = () => {
             fill
             alt="vj-image"
             className="object-cover p-[2px]"
+            sizes="(max-width: 1024px) 100vw, 60vw"
           />
           <div className="absolute inset-0 bg-black opacity-45"></div>
         </div>
@@ -155,6 +159,7 @@ const ActivityGroupSection = () => {
                 fill
                 alt="テクノ部公式キャラクターテクノちゃん(みにまむてくのちゃんver.)"
                 className="object-contain"
+                sizes="(max-width: 1024px) 100vw, 20vw"
               />
             </div>
             <div className="text-[10px] text-gray-400 text-center mt-2">テクノちゃん (みにまむ ver.)</div>
@@ -165,6 +170,7 @@ const ActivityGroupSection = () => {
               fill
               alt="dtm-image"
               className="object-cover p-[2px] aspect-2682/3709"
+              sizes="(max-width: 1024px) 100vw, 30vw"
             />
             <div className="absolute inset-x-0 bottom-0 bg-black/60 p-1 text-[8px] text-gray-300 text-center">Flyer 2024/7/13</div>
           </div>
@@ -192,6 +198,7 @@ const ActivityGroupSection = () => {
             fill
             alt="dtm-image"
             className="object-cover p-[2px]"
+            sizes="(max-width: 1024px) 100vw, 60vw"
           />
           <div className="absolute inset-0 bg-black opacity-45"></div>
         </div>
@@ -217,6 +224,7 @@ const ActivityGroupSection = () => {
             fill
             alt="ネット神社"
             className="object-cover p-[2px]"
+            sizes="(max-width: 1024px) 100vw, 60vw"
           />
         </div>
       )
