@@ -1,0 +1,121 @@
+@layer components {
+  .loading-screen-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #0b0b0d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                visibility 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+
+    &.fade-out {
+      opacity: 0;
+      visibility: hidden;
+
+      .loading-content {
+        transform: scale(1.05);
+        filter: blur(5px);
+        transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                    filter 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+    }
+  }
+
+  .loading-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: scale(1);
+    filter: blur(0);
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .logo-container {
+    position: relative;
+    width: 280px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .loading-logo {
+    width: 100%;
+    height: auto;
+    z-index: 2;
+
+    .logo-white {
+      fill: #ffffff;
+      opacity: 0;
+      animation: logo-part-fade-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .logo-red {
+      fill: #c7000a;
+      opacity: 0;
+      animation: logo-part-fade-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation-delay: 0.2s;
+    }
+  }
+
+  .logo-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(199, 0, 10, 0.25) 0%, rgba(199, 0, 10, 0) 70%);
+    filter: blur(15px);
+    z-index: 1;
+    pointer-events: none;
+    animation: glow-pulse 2s infinite alternate ease-in-out;
+  }
+
+  .progress-container {
+    width: 180px;
+    height: 3px;
+    background-color: rgba(255, 255, 255, 0.08);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 24px;
+    position: relative;
+  }
+
+  .progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #c7000a 0%, #ff3b46 100%);
+    box-shadow: 0 0 8px rgba(199, 0, 10, 0.6);
+    border-radius: 4px;
+    transition: width 0.1s ease-out;
+  }
+}
+
+@keyframes logo-part-fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(6px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes glow-pulse {
+  0% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.15);
+  }
+}
