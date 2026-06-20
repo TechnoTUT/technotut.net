@@ -169,7 +169,7 @@ const EntryProcedureSection = ({ language }) => {
                                 width="100%"
                                 height="450"
                                 loading="lazy"
-                                referrerpolicy="no-referrer-when-downgrade"
+                                referrerPolicy="no-referrer-when-downgrade"
                                 className="border-0"
                             ></iframe>
                         </div>
