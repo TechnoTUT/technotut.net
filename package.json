@@ -8,7 +8,7 @@
     "dev": "next dev --webpack",
     "build": "next build --webpack",
     "export": "next build --webpack && next-export-optimize-images",
-    "lint": "next lint",
+    "lint": "eslint .",
     "start": "next start",
     "postinstall": "node scripts/patch-js-yaml.js"
   },

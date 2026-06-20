@@ -7,5 +7,4 @@ const nextConfig = {
       turbopack: {},
     }
 
-module.exports = nextConfig
 module.exports = withExportImages(nextConfig)
