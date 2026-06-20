@@ -17,15 +17,15 @@
   }
 
   .navbar-nav {
-    @apply text-center md:text-left;
+    @apply text-center lg:text-left;
   }
 
   #nav-menu {
-    @apply w-full overflow-hidden md:max-h-full md:w-auto;
+    @apply w-full overflow-hidden lg:max-h-full lg:w-auto;
   }
 
   .nav-item {
-    @apply lg:mx-3;
+    @apply lg:mx-2 xl:mx-3;
 
     select:focus {
       box-shadow: none;
@@ -33,7 +33,7 @@
   }
 
   .nav-link {
-    @apply py-3 px-2 font-primary text-base font-bold text-dark transition hover:text-primary md:py-4 lg:px-3;
+    @apply py-3 px-1.5 font-primary text-base font-bold text-dark transition hover:text-primary lg:py-4 lg:px-2 xl:px-3;
 
     &-active {
       @apply text-primary;

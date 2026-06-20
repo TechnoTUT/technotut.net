@@ -31,10 +31,10 @@ const Header = () => {
         {/* メニュー */}
         <div
           id="nav-menu"
-          className={`order-3 md:order-1 ml-auto ${navOpen ? "max-h-[1000px]" : "max-h-0"
+          className={`order-3 lg:order-1 ml-auto ${navOpen ? "max-h-[1000px]" : "max-h-0"
             }`}
         > 
-        <ul className="navbar-nav flex flex-col w-full md:flex-row md:w-auto lg:space-x-0">
+        <ul className="navbar-nav flex flex-col w-full lg:flex-row lg:w-auto lg:space-x-0">
             {main.map((menu, i) => (
               <React.Fragment key={`menu-${i}`}>
                 {menu.hasChildren ? (
@@ -45,7 +45,7 @@ const Header = () => {
                         <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
                       </svg>
                     </span>
-                    <ul className="nav-dropdown-list hidden group-hover:block md:invisible md:absolute md:block md:opacity-0 md:group-hover:visible md:group-hover:opacity-100">
+                    <ul className="nav-dropdown-list hidden group-hover:block lg:invisible lg:absolute lg:block lg:opacity-0 lg:group-hover:visible lg:group-hover:opacity-100">
                       {menu.children.map((child, i) => (
                         <li className="nav-dropdown-item" key={`children-${i}`}>
                           <Link
@@ -74,7 +74,7 @@ const Header = () => {
             ))}
             {/* ✅ モバイルメニュー内にもボタンを追加 */}
             {enable && (
-              <li className="mt-4 flex justify-center md:hidden">
+              <li className="mt-4 flex justify-center lg:hidden">
                 <Link className="btn btn-primary w-full text-center py-[14px]" href={link}>
                   {label}
                 </Link>
@@ -85,7 +85,7 @@ const Header = () => {
 
         {/* nav-button（右端に配置） */}
         {enable && (
-          <div className="order-2 ml-auto hidden md:flex">
+          <div className="order-2 ml-auto hidden lg:flex">
             <Link className="btn btn-primary py-[14px]" href={link}>
               {label}
             </Link>
@@ -95,7 +95,7 @@ const Header = () => {
         {/* ハンバーガーメニュー（モバイル用） */}
         <button
           id="show-button"
-          className="order-1 flex cursor-pointer items-center md:hidden"
+          className="order-1 flex cursor-pointer items-center lg:hidden"
           onClick={() => setNavOpen(!navOpen)}
         >
           {navOpen ? (
