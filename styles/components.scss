@@ -113,4 +113,28 @@
       @apply font-semibold text-dark;
     }
   }
+
+  // footer
+  .footer {
+    background-color: #121316;
+    border-top: 2px solid #c7000a;
+    color: #e4e4e7;
+
+    h1, h2, h3, h4, h5, h6 {
+      color: #ffffff !important;
+    }
+
+    li {
+      color: #e4e4e7;
+    }
+
+    p {
+      color: #e4e4e7;
+    }
+
+    .border-border {
+      border-color: rgba(255, 255, 255, 0.08) !important;
+      color: #a1a1aa;
+    }
+  }
 }

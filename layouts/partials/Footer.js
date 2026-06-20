@@ -10,7 +10,7 @@ const Footer = () => {
   const { copyright, footer_content } = config.params;
   const { footer } = menu;
   return (
-    <footer className="section bg-theme-light pb-0">
+    <footer className="footer section pb-0">
       <div className="container">
         {/* footer menu */}
         <div className="row">
@@ -31,7 +31,7 @@ const Footer = () => {
           <div className="md-12 lg:col-6">
             <Link href="/" aria-label="TechnoTUT">
               <Image
-                src={config.site.logo}
+                src="/images/logo/Logo_Bblack.png"
                 width={config.site.logo_width}
                 height={config.site.logo_height}
                 alt=""
