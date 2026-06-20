@@ -177,7 +177,7 @@ const Shinkan2026Section = ({ language }) => {
                         </div>
                         <div className="relative h-[400px] w-full my-8">
                             <div className="absolute inset-0 bg-ai-gradient">
-                                <div className="h-full w-full">
+                                <div className="relative h-full w-full">
                                     <Image
                                         src="/images/special/images_washitsu_2024.jpg"
                                         fill
@@ -206,7 +206,7 @@ const Shinkan2026Section = ({ language }) => {
                         </div>
                         <div className="relative h-[400px] w-full my-8">
                             <div className="absolute inset-0 bg-ai-gradient">
-                                <div className="h-full w-full">
+                                <div className="relative h-full w-full">
                                     <Image
                                         src="/images/special/images_shinkan_2024.jpg"
                                         fill
@@ -234,7 +234,7 @@ const Shinkan2026Section = ({ language }) => {
                         </p>
                         <div className="relative h-[400px] w-full my-8">
                             <div className="absolute inset-0 bg-ai-gradient">
-                                <div className="h-full w-full">
+                                <div className="relative h-full w-full">
                                     <Image
                                         src="/images/special/images_komonzu2404.jpg"
                                         fill

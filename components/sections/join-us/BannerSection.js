@@ -10,8 +10,8 @@ const BannerSection = () => {
         <Image
           src="/images/special/join-us.jpg"
           alt="Join Us"
-          layout="fill"
-          objectFit="cover"
+          fill
+          className="object-cover"
           priority
         />
       </div>
