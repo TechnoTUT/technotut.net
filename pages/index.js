@@ -200,6 +200,7 @@ const ActivityGroupSection = () => {
             className="object-cover p-[2px]"
             sizes="(max-width: 1024px) 100vw, 60vw"
             priority
+            loading="eager"
           />
           <div className="absolute inset-0 bg-black opacity-45"></div>
         </div>
@@ -226,6 +227,8 @@ const ActivityGroupSection = () => {
             alt="ネット神社"
             className="object-cover p-[2px]"
             sizes="(max-width: 1024px) 100vw, 60vw"
+            priority
+            loading="eager"
           />
         </div>
       )
