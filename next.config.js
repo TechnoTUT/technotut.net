@@ -4,6 +4,7 @@ const withExportImages = require('next-export-optimize-images')
 const nextConfig = {
       /* config options here */
       output: 'export',
+      turbopack: {},
     }
 
 module.exports = nextConfig
