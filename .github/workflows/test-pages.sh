@@ -29,17 +29,6 @@ while read -r file; do
 
   url="${BASE_URL}${url_path}"
 
-  # Handle news page (deprecated, 404 is expected and normal)
-  if [[ "$url_path" == "/news" ]]; then
-    status_code=$(curl -o /dev/null -s -L -w "%{http_code}" "$url")
-    if [ "$status_code" -eq 404 ]; then
-      echo "✅ 404 OK (Expected for deprecated page): $url_path ($rel_path)"
-    else
-      echo "❌ $status_code (Expected 404 for deprecated page): $url_path ($rel_path)"
-      has_error=1
-    fi
-    continue
-  fi
 
   # Handle gikadaifes page (due to directory naming conflict in http-server, 302/404 is allowed locally)
   if [[ "$url_path" == "/gikadaifes" ]]; then
