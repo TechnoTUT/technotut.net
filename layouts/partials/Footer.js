@@ -29,7 +29,7 @@ const Footer = () => {
             );
           })}
           <div className="md-12 lg:col-6">
-            <Link href="/" aria-label="Bigspring">
+            <Link href="/" aria-label="TechnoTUT">
               <Image
                 src={config.site.logo}
                 width={config.site.logo_width}
