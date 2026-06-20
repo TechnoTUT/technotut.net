@@ -210,7 +210,7 @@ const ActivityGroupSection = () => {
         <>
           We explore and experiment with cutting-edge technology based on our members' interests. Our activities include maintaining the club's internal servers, managing video streaming at campus event venues, and developing lighting and stage production technologies to enhance live experiences.
           <br /><br />
-          For more details, visit <Link href="https://noc.technotut.net/" className="relative bg-gradient-to-r from-fuchsia-400 to-orange-700 bg-clip-text text-transparent font-bold font-primary transition-all duration-500 ease-in-out hover:text-fuchsia-400">noc.technotut.net</Link>.
+          For more details, visit <Link href="https://network.technotut.net/" className="relative bg-gradient-to-r from-fuchsia-400 to-orange-700 bg-clip-text text-transparent font-bold font-primary transition-all duration-500 ease-in-out hover:text-fuchsia-400">network.technotut.net</Link>.
         </>
       ),
       right: (

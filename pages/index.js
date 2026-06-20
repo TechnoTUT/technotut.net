@@ -211,9 +211,9 @@ const ActivityGroupSection = () => {
       desc: (
         <>
           部員の興味関心に沿ってテクいものを触っています。サークル内サーバーの保守管理、学内イベント会場内の映像配信、照明技術などイベントに役立つ技術開発を行っています。詳細は{" "}
-          <Link href="https://noc.technotut.net/"
+          <Link href="https://network.technotut.net/"
             className="relative bg-gradient-to-r from-fuchsia-400 to-orange-700 bg-clip-text text-transparent font-bold font-primary transition-all duration-500 ease-in-out hover:text-fuchsia-400">
-            noc.technotut.net
+            network.technotut.net
           </Link>{" "}
           で確認できます。
         </>
