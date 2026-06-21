@@ -141,6 +141,7 @@ const ActivityGroupSection = () => {
             alt="vj-image"
             className="object-cover p-[2px]"
             sizes="(max-width: 1024px) 100vw, 60vw"
+            priority
           />
           <div className="absolute inset-0 bg-black opacity-45"></div>
         </div>
@@ -151,25 +152,27 @@ const ActivityGroupSection = () => {
       subtitle: "テクノ部の魅力を伝える",
       desc: "イベントのフライヤー制作から、広報用SNS of 運用、Webサイトの更新まで。映像制作やイラストレーションも手掛け、視覚と感覚に訴えるコンテンツを生み出しています。創造性と情熱をカタチにし、テクノ部の魅力を広く届けます。",
       right: (
-        <div className="flex flex-col sm:flex-row items-center justify-center w-full gap-8 lg:gap-12 xl:gap-16 mx-auto">
+        <div className="flex flex-row items-center justify-center w-full gap-2 sm:gap-8 lg:gap-12 xl:gap-16 mx-auto">
           <div className="flex flex-col items-center">
-            <div className="relative w-32 h-32 sm:w-36 sm:h-36 lg:w-48 lg:h-48 xl:w-56 xl:h-56 2xl:w-64 2xl:h-64">
+            <div className="relative w-28 h-28 sm:w-40 sm:h-40 lg:w-48 lg:h-48 xl:w-56 xl:h-56 2xl:w-64 2xl:h-64 -mr-8 sm:mr-0">
               <Image
                 src="/images/index/media/media-1.png"
                 fill
                 alt="テクノ部公式キャラクターテクノちゃん(みにまむてくのちゃんver.)"
-                className="object-contain"
+                className="object-contain pointer-events-none"
+                draggable={false}
                 sizes="(max-width: 1024px) 100vw, 20vw"
               />
             </div>
             <div className="text-[10px] text-gray-400 text-center mt-2">テクノちゃん (みにまむ ver.)</div>
           </div>
-          <div className="relative h-[200px] w-[144px] lg:h-[260px] lg:w-[187px] xl:h-[350px] xl:w-[252px] 2xl:h-[410px] 2xl:w-[295px] bg-ai-gradient rounded-2xl overflow-hidden flex-shrink-0">
+          <div className="relative h-[220px] w-[158px] sm:h-[200px] sm:w-[144px] lg:h-[260px] lg:w-[187px] xl:h-[350px] xl:w-[252px] 2xl:h-[410px] 2xl:w-[295px] bg-ai-gradient rounded-2xl overflow-hidden flex-shrink-0">
             <Image
               src="/images/index/media/flyer_20240713.png"
               fill
               alt="dtm-image"
-              className="object-cover p-[2px] aspect-2682/3709"
+              className="object-cover p-[2px] aspect-2682/3709 pointer-events-none"
+              draggable={false}
               sizes="(max-width: 1024px) 100vw, 30vw"
             />
             <div className="absolute inset-x-0 bottom-0 bg-black/60 p-1 text-[8px] text-gray-300 text-center">Flyer 2024/7/13</div>
@@ -293,8 +296,8 @@ const ActivityGroupSection = () => {
 
       {/* Scrollytelling container for the units */}
       <div ref={containerRef} className="relative h-[650vh] w-full z-20">
-        <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
-          <div className="w-full max-w-[95%] xl:max-w-[90%] 2xl:max-w-[1600px] px-4 mx-auto relative flex items-center justify-center min-h-[500px]">
+        <div className="sticky top-[62px] lg:top-[72px] h-[calc(100vh-62px)] lg:h-[calc(100vh-72px)] w-full flex items-center justify-center overflow-hidden">
+          <div className="w-full lg:max-w-[95%] xl:max-w-[90%] 2xl:max-w-[1600px] lg:px-4 mx-auto relative flex items-center justify-center min-h-[calc(100vh-62px)] lg:min-h-[500px]">
             {steps.map((step, index) => {
               const center = (index + 0.5) * W
               const d = Math.abs(progress - center)
@@ -321,9 +324,9 @@ const ActivityGroupSection = () => {
                     visibility: opacity > 0 ? 'visible' : 'hidden',
                   }}
                 >
-                  <div className={`grid grid-cols-1 ${step.right ? 'lg:grid-cols-[4fr_6fr] gap-12 lg:gap-20 xl:gap-28 2xl:gap-36' : 'max-w-2xl xl:max-w-3xl mx-auto'} items-center w-full bg-black/40 p-8 sm:p-12 lg:p-16 xl:p-20 2xl:p-24 rounded-[32px] border border-white/10 backdrop-blur-xl max-h-[85vh] lg:max-h-[90vh] overflow-y-auto lg:overflow-visible shadow-2xl`}>
+                  <div className={`${step.right ? 'flex flex-col lg:grid lg:grid-cols-[4fr_6fr] gap-6 lg:gap-20 xl:gap-28 2xl:gap-36' : 'flex flex-col max-w-2xl xl:max-w-3xl mx-auto justify-center'} items-center w-full h-auto bg-black/85 lg:bg-black/40 p-6 sm:p-12 lg:p-16 xl:p-20 2xl:p-24 rounded-2xl lg:rounded-[32px] border border-white/10 backdrop-blur-xl max-h-[calc(100vh-100px)] lg:max-h-[90vh] overflow-hidden lg:overflow-visible shadow-2xl`}>
                     {/* Left: Text Content */}
-                    <div className={`text-left space-y-6 lg:space-y-8 ${step.right ? '' : 'text-center'}`}>
+                    <div className={`text-left space-y-4 lg:space-y-8 w-full ${step.right ? '' : 'text-center'}`}>
                       <h3 className={`text-2xl lg:text-3xl xl:text-4xl font-extrabold text-white font-primary relative ${step.right ? 'pl-6 lg:pl-8' : 'text-center inline-block'}`}>
                         {step.right && (
                           <span className="absolute left-0 top-0 h-full w-[4px] lg:w-[6px] bg-gradient-to-b from-fuchsia-400 to-orange-700"></span>
