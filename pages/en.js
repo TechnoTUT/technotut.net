@@ -76,7 +76,6 @@ const ActivityGroupSection = () => {
   const containerRef = useRef(null)
   const progress = useScrollProgress(containerRef)
   const [progressAtBottom, setProgressAtBottom] = useState(0.88)
-  const [cardHeight, setCardHeight] = useState('390px')
   const [isMobile, setIsMobile] = useState(true)
 
   useEffect(() => {
@@ -99,15 +98,6 @@ const ActivityGroupSection = () => {
         setProgressAtBottom(Math.max(0.75, Math.min(0.95, val)))
       }
 
-      // iPhone SE vs iPhone XR vs iPad Portrait height optimization
-      if (windowHeight < 700) {
-        setCardHeight('430px') // iPhone SE
-      } else if (windowHeight >= 700 && windowHeight < 1100 && windowWidth >= 768 && windowWidth < 1024) {
-        setCardHeight('460px') // iPad Portrait (Width 768px - 1024px, Height ~1024px)
-      } else {
-        setCardHeight('420px') // iPhone XR/11/12/13/14 etc.
-      }
-
       setIsMobile(windowWidth < 1024)
     }
 
@@ -127,45 +117,6 @@ const ActivityGroupSection = () => {
   }, [])
 
   const activeProgress = Math.min(1.0, progress / progressAtBottom)
-  const touchStartRef = useRef({ x: 0, y: 0 })
-
-  const handleTouchStart = (e) => {
-    const touch = e.touches[0]
-    touchStartRef.current = {
-      x: touch.clientX,
-      y: touch.clientY
-    }
-  }
-
-  const handleTouchMove = (e) => {
-    if (!containerRef.current) return
-    const touch = e.touches[0]
-    
-    // Calculate difference since last touchmove event
-    const diffX = touch.clientX - touchStartRef.current.x
-    const diffY = touch.clientY - touchStartRef.current.y
-
-    // Update reference coordinates for the next move event
-    touchStartRef.current = {
-      x: touch.clientX,
-      y: touch.clientY
-    }
-
-    const viewportHeight = window.innerHeight
-    const maxScrollY = Math.max(0, document.documentElement.scrollHeight - viewportHeight)
-
-    const scrollSensitivityX = 1.5
-    const scrollSensitivityY = 1.0
-    const deltaScrollY = -(diffX * scrollSensitivityX) - (diffY * scrollSensitivityY)
-    
-    // Adjust current scroll position by the touch difference
-    const currentScrollY = window.scrollY
-    const targetScrollY = currentScrollY + deltaScrollY
-
-    window.scrollTo(0, Math.max(0, Math.min(maxScrollY, targetScrollY)))
-
-    if (e.cancelable) e.preventDefault()
-  }
 
   const steps = [
     {
