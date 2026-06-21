@@ -38,7 +38,7 @@ Student Commons Ⅰ is located next to the on-campus store "New Yamazaki Daily S
 From main entrance of the University, proceed in the direction of "GO TO THE FUTURE", past the attached library, and on the 1st floor of the welfare facility.  
 
 <dl>
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d205.0109729953307!2d137.40903233412234!3d34.70075144100054!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6004d47d93aee9a3%3A0x242ff489f3ec5ac5!2z44OL44Ol44O844Ok44Oe44K244Kt44OH44Kk44Oq44O844K544OI44KiIOixiuapi-aKgOenkeWkp-W6lw!5e0!3m2!1sja!2sjp!4v1720352219393!5m2!1sja!2sjp" width="100%" height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d205.0109729953307!2d137.40903233412234!3d34.70075144100054!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6004d47d93aee9a3%3A0x242ff489f3ec5ac5!2z44OL44Ol44O844Ok44Oe44K244Kt44OH44Kk44Oq44O844K544OI44KiIOixiuapi-aKgOenkeWkp-W6lw!5e0!3m2!1sja!2sjp!4v1720352219393!5m2!1sja!2sjp" width="100%" height="450" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
 </dl>
 
 ![コモンズ1への行き方](/images/access/TheWayToCommons1_2.jpg)
@@ -67,5 +67,5 @@ It is the 2nd floor of the club house. Please feel free to come. It is convenien
         </video>
     </section>
 
-    <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3280.163613237997!2d137.406626!3d34.701053!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzTCsDQyJzAzLjgiTiAxMzfCsDI0JzIzLjkiRQ!5e0!3m2!1sja!2sjp!4v1678476006193!5m2!1sja!2sjp" width="100%" height="450" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3280.163613237997!2d137.406626!3d34.701053!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzTCsDQyJzAzLjgiTiAxMzfCsDI0JzIzLjkiRQ!5e0!3m2!1sja!2sjp!4v1678476006193!5m2!1sja!2sjp" width="100%" height="450" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
 </dl>

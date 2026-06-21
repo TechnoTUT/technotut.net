@@ -22,6 +22,7 @@ const Logo = ({ src }) => {
           height={logo_height.replace("px", "") * 2}
           src={src ? src : logo}
           alt={title}
+          className="w-auto h-auto"
           priority
         />
       ) : logo_text ? (

@@ -3,20 +3,19 @@ import config from "@config/config.json";
 import menu from "@config/menu.json";
 import social from "@config/social.json";
 import { markdownify } from "@lib/utils/textConverter";
-import Image from "next/image";
-import Link from "next/link";
+import Logo from "@components/Logo";
 
 const Footer = () => {
   const { copyright, footer_content } = config.params;
   const { footer } = menu;
   return (
-    <footer className="section bg-theme-light pb-0">
+    <footer className="footer section pb-0">
       <div className="container">
         {/* footer menu */}
         <div className="row">
           {footer.map((col) => {
             return (
-              <div className="mb-12 col-6 lg:col-3" key={col.name}>
+              <div className="mb-12 col-12 sm:col-6 lg:col-3" key={col.name}>
                 {markdownify(col.name, "h2", "h4")}
                 <ul className="mt-6">
                   {col?.menu.map((item) => (
@@ -28,15 +27,8 @@ const Footer = () => {
               </div>
             );
           })}
-          <div className="md-12 lg:col-6">
-            <Link href="/" aria-label="Bigspring">
-              <Image
-                src={config.site.logo}
-                width={config.site.logo_width}
-                height={config.site.logo_height}
-                alt=""
-              />
-            </Link>
+          <div className="col-12 lg:col-6">
+            <Logo src="/images/logo/Logo_Bblack.svg" />
             {markdownify(footer_content, "p", "")}
           </div>
         </div>
