@@ -131,7 +131,7 @@ const ActivityGroupSection = () => {
     },
     {
       title: "VJ & LJ : Video & Light Jockey",
-      subtitle: "空間を掌握する演出 of プロフェッショナル",
+      subtitle: "空間を掌握する演出のプロフェッショナル",
       desc: "映像パフォーマンス (VJ) と照明パフォーマンス (LJ) に関する活動を行っています。通常の活動では演出技術、さらにはその機材やソフトの開発などを行いながら、部室を明るく照らしています！イベントではそれらを駆使して、空間を最大限に盛り上げるパワーを生み出しています！",
       right: (
         <div className="relative w-full aspect-video bg-ai-gradient rounded-2xl overflow-hidden">
