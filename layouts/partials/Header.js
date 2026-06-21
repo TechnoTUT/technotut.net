@@ -83,7 +83,7 @@ const Header = () => {
               {/* Mega Menu Dropdown (Slide B: 3D Floating Drawer) */}
               <div className="absolute top-full right-0 w-[580px] pt-3 z-50 perspective-1000">
                 <div 
-                  className={`megamenu-3d-card bg-[#0a0a0c]/60 border border-white/10 backdrop-blur-2xl rounded-2xl shadow-2xl p-6 ${
+                  className={`megamenu-3d-card bg-[#0a0a0c]/90 border border-white/10 backdrop-blur-2xl rounded-2xl shadow-2xl p-6 ${
                     exploreHovered ? "pointer-events-auto" : "pointer-events-none"
                   }`}
                   style={{
