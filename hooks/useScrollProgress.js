@@ -22,11 +22,14 @@ export const useScrollProgress = (ref) => {
       setProgress(currentProgress);
     };
 
+    // Calculate initial progress
+    handleScroll();
+
     window.addEventListener('scroll', handleScroll, { passive: true });
     window.addEventListener('resize', handleScroll);
     
-    // Trigger initially
-    handleScroll();
+    // Recalculate once images are fully loaded
+    window.addEventListener('load', handleScroll);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);

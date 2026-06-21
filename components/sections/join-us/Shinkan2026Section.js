@@ -183,6 +183,7 @@ const Shinkan2026Section = ({ language }) => {
                                         fill
                                         alt="dj-image"
                                         className="object-cover p-[2px]"
+                                        sizes="(max-width: 1024px) 100vw, 896px"
                                     />
                                     <div className="absolute inset-0 bg-black opacity-30 z-30 m-[2px]"></div>
                                 </div>
@@ -212,6 +213,7 @@ const Shinkan2026Section = ({ language }) => {
                                         fill
                                         alt="dj-image"
                                         className="object-cover p-[2px]"
+                                        sizes="(max-width: 1024px) 100vw, 896px"
                                     />
                                     <div className="absolute inset-0 bg-black opacity-30 z-30 m-[2px]"></div>
                                 </div>
@@ -240,6 +242,7 @@ const Shinkan2026Section = ({ language }) => {
                                         fill
                                         alt="dj-image"
                                         className="object-cover p-[2px]"
+                                        sizes="(max-width: 1024px) 100vw, 896px"
                                     />
                                     <div className="absolute inset-0 bg-black opacity-30 z-30 m-[2px]"></div>
                                 </div>

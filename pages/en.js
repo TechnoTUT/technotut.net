@@ -2,7 +2,7 @@ import config from "@config/config.json"
 import Base from "@layouts/Baseof"
 import Image from "next/image"
 import Link from "next/link"
-import { useRef } from "react"
+import { useRef, useState, useEffect } from "react"
 import { useScrollProgress } from "@hooks/useScrollProgress"
 import { useIntersectionObserver } from "@hooks/useIntersectionObserver"
 
@@ -75,6 +75,95 @@ const RevealWrapper = ({ children, className = "" }) => {
 const ActivityGroupSection = () => {
   const containerRef = useRef(null)
   const progress = useScrollProgress(containerRef)
+  const [progressAtBottom, setProgressAtBottom] = useState(0.88)
+  const [cardHeight, setCardHeight] = useState('390px')
+  const [isMobile, setIsMobile] = useState(true)
+
+  useEffect(() => {
+    const calculateProgressLimit = () => {
+      if (!containerRef.current) return
+      const rect = containerRef.current.getBoundingClientRect()
+      const scrollTop = window.scrollY || document.documentElement.scrollTop
+      const offsetTop = rect.top + scrollTop
+      const windowHeight = window.innerHeight
+      const windowWidth = window.innerWidth
+      const containerHeight = rect.height
+      
+      const scrollable = containerHeight - windowHeight
+      const maxPageScroll = document.documentElement.scrollHeight - windowHeight
+      const scrolledAtBottom = maxPageScroll - offsetTop
+      
+      if (scrollable > 0 && scrolledAtBottom > 0) {
+        const val = scrolledAtBottom / scrollable
+        // Bound value safety range
+        setProgressAtBottom(Math.max(0.75, Math.min(0.95, val)))
+      }
+
+      // iPhone SE vs iPhone XR height optimization
+      if (windowHeight < 700) {
+        setCardHeight('430px')
+      } else {
+        setCardHeight('420px')
+      }
+
+      setIsMobile(windowWidth < 1024)
+    }
+
+    calculateProgressLimit()
+    window.addEventListener('resize', calculateProgressLimit)
+    window.addEventListener('scroll', calculateProgressLimit, { passive: true })
+    window.addEventListener('load', calculateProgressLimit)
+    
+    // Fallback timer for potential layout delays
+    const timer = setTimeout(calculateProgressLimit, 500)
+
+    return () => {
+      window.removeEventListener('resize', calculateProgressLimit)
+      window.removeEventListener('scroll', calculateProgressLimit)
+      clearTimeout(timer)
+    }
+  }, [])
+
+  const activeProgress = Math.min(1.0, progress / progressAtBottom)
+  const touchStartRef = useRef({ x: 0, y: 0 })
+
+  const handleTouchStart = (e) => {
+    const touch = e.touches[0]
+    touchStartRef.current = {
+      x: touch.clientX,
+      y: touch.clientY
+    }
+  }
+
+  const handleTouchMove = (e) => {
+    if (!containerRef.current) return
+    const touch = e.touches[0]
+    
+    // Calculate difference since last touchmove event
+    const diffX = touch.clientX - touchStartRef.current.x
+    const diffY = touch.clientY - touchStartRef.current.y
+
+    // Update reference coordinates for the next move event
+    touchStartRef.current = {
+      x: touch.clientX,
+      y: touch.clientY
+    }
+
+    const viewportHeight = window.innerHeight
+    const maxScrollY = Math.max(0, document.documentElement.scrollHeight - viewportHeight)
+
+    const scrollSensitivityX = 1.5
+    const scrollSensitivityY = 1.0
+    const deltaScrollY = -(diffX * scrollSensitivityX) - (diffY * scrollSensitivityY)
+    
+    // Adjust current scroll position by the touch difference
+    const currentScrollY = window.scrollY
+    const targetScrollY = currentScrollY + deltaScrollY
+
+    window.scrollTo(0, Math.max(0, Math.min(maxScrollY, targetScrollY)))
+
+    if (e.cancelable) e.preventDefault()
+  }
 
   const steps = [
     {
@@ -87,7 +176,8 @@ const ActivityGroupSection = () => {
             src="/images/index/event/camp.jpg"
             fill
             alt="camp"
-            className="object-cover p-[2px]"
+            className="object-cover p-[2px] pointer-events-none"
+            draggable={false}
             sizes="(max-width: 1024px) 100vw, 60vw"
           />
           <div className="absolute inset-0 bg-black opacity-15"></div>
@@ -103,14 +193,15 @@ const ActivityGroupSection = () => {
         </>
       ),
       right: (
-        <div className="relative w-full aspect-[4/3] xl:aspect-[4/3] 2xl:aspect-[4/3]">
+        <div className="relative w-[85%] sm:w-full mx-auto aspect-[16/10] sm:aspect-[4/3]">
           {/* Front image (Left-Top) */}
           <div className="absolute top-0 left-0 w-[72%] aspect-video bg-ai-gradient rounded-2xl overflow-hidden shadow-2xl z-20 border border-white/10 hover:z-30 hover:scale-[1.03] transition-all duration-500 ease-out">
             <Image
               src="/images/index/dj/dj-jokka.JPG"
               fill
               alt="dj-Jokka"
-              className="object-cover p-[2px]"
+              className="object-cover p-[2px] pointer-events-none"
+              draggable={false}
               sizes="(max-width: 1024px) 100vw, 30vw"
             />
             <div className="absolute inset-0 bg-black opacity-20"></div>
@@ -121,7 +212,8 @@ const ActivityGroupSection = () => {
               src="/images/index/dj/dj-image.jpg"
               fill
               alt="dj-image"
-              className="object-cover p-[2px]"
+              className="object-cover p-[2px] pointer-events-none"
+              draggable={false}
               sizes="(max-width: 1024px) 100vw, 30vw"
             />
             <div className="absolute inset-0 bg-black opacity-25"></div>
@@ -139,7 +231,8 @@ const ActivityGroupSection = () => {
             src="/images/index/vj/vj-image.jpg"
             fill
             alt="vj-image"
-            className="object-cover p-[2px]"
+            className="object-cover p-[2px] pointer-events-none"
+            draggable={false}
             sizes="(max-width: 1024px) 100vw, 60vw"
             priority
           />
@@ -198,7 +291,8 @@ const ActivityGroupSection = () => {
             src="/images/index/dtm/dtm.jpg"
             fill
             alt="dtm-image"
-            className="object-cover p-[2px]"
+            className="object-cover p-[2px] pointer-events-none"
+            draggable={false}
             sizes="(max-width: 1024px) 100vw, 60vw"
             priority
             loading="eager"
@@ -223,7 +317,8 @@ const ActivityGroupSection = () => {
             src="/images/index/tech/netshrine.jpg"
             fill
             alt="ネット神社"
-            className="object-cover p-[2px]"
+            className="object-cover p-[2px] pointer-events-none"
+            draggable={false}
             sizes="(max-width: 1024px) 100vw, 60vw"
             priority
             loading="eager"
@@ -245,12 +340,11 @@ const ActivityGroupSection = () => {
   ]
 
   const N = steps.length
-  const W = 1 / N
 
   return (
     <section className="relative bg-[#0a0a0c]">
       {/* Normal scrolling intro blocks */}
-      <div className="container mx-auto px-4 relative z-20 py-20">
+      <div className="container mx-auto px-4 relative z-20 pt-20 pb-4">
         <RevealWrapper>
           <h2 className="mt-8 mb-8 text-center text-3xl font-bold text-[#f5f5f7]">Discover What We Do</h2>
           <div className="mx-auto max-w-4xl space-y-6 text-lg text-gray-200">
@@ -270,80 +364,89 @@ const ActivityGroupSection = () => {
         </RevealWrapper>
 
         <RevealWrapper>
-          <h2 className="mt-20 mb-8 text-center text-3xl font-bold text-[#f5f5f7]">Meet the Units</h2>
+          <h2 className="mt-12 mb-6 text-center text-3xl font-bold text-[#f5f5f7]">Meet the Units</h2>
           <div className="mx-auto max-w-4xl text-lg text-gray-200">
             <p>
             Our club is home to several activity units such as Event Operations Unit, DJ Unit, and Music Production Unit.
             Members are free to join any unit based on their interests, and of course can be involved in multiple groups.
             There are no restrictions or obligations <span className="tracking-[-0.2em]">------</span> just a place where you can enjoy music and creativity at your own pace, following what moves your heart.
             </p>
-            <div className="flex flex-col items-center justify-center mt-28 lg:mt-40 animate-bounce opacity-70 group cursor-default">
-              <span className="text-[10px] text-gray-500 font-medium tracking-[0.2em] mb-1">Scroll to view the details of our units</span>
-              <span className="text-xs text-rose-400 font-bold tracking-widest uppercase mb-3">Scroll to explore</span>
-              <svg className="w-5 h-5 text-rose-500 drop-shadow-[0_0_8px_rgba(244,63,94,0.5)]" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-              </svg>
-            </div>
           </div>
         </RevealWrapper>
       </div>
 
-      {/* Scrollytelling container for the units */}
-      <div ref={containerRef} className="relative h-[650vh] w-full z-20">
-        <div className="sticky top-[62px] lg:top-[72px] h-[calc(100vh-62px)] lg:h-[calc(100vh-72px)] w-full flex items-center justify-center overflow-hidden">
-          <div className="w-full lg:max-w-[95%] xl:max-w-[90%] 2xl:max-w-[1600px] lg:px-4 mx-auto relative flex items-center justify-center min-h-[calc(100vh-62px)] lg:min-h-[500px]">
-            {steps.map((step, index) => {
-              const center = (index + 0.5) * W
-              const d = Math.abs(progress - center)
-              let opacity = 0
-              
-              if (d < 0.15 * W) {
-                opacity = 1
-              } else if (d > 0.45 * W) {
-                opacity = 0
-              } else {
-                opacity = 1 - (d - 0.15 * W) / (0.3 * W)
-              }
-
-              const translateY = (1 - opacity) * 32
-
-              return (
-                <div
-                  key={index}
-                  className="absolute inset-x-0 flex items-center justify-center transition-all duration-75 ease-out"
-                  style={{
-                    opacity,
-                    transform: `translateY(${translateY}px)`,
-                    pointerEvents: opacity > 0.5 ? 'auto' : 'none',
-                    visibility: opacity > 0 ? 'visible' : 'hidden',
-                  }}
+      {/* Horizontal Scrollytelling & Swipe Container */}
+      <div 
+        ref={containerRef} 
+        className="relative w-full z-20 touch-pan-y"
+        style={{ height: '650vh' }}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+      >
+        <div className="sticky top-[62px] lg:top-[72px] h-[calc(100vh-62px)] lg:h-[calc(100vh-72px)] w-full flex items-center overflow-hidden">
+          <div 
+            className="flex flex-row items-center transition-transform duration-100 ease-out h-full px-0"
+            style={{
+              transform: `translateX(-${activeProgress * (N - 1) * 100 / N}%)`,
+              width: `${N * 100}%`
+            }}
+          >
+            {steps.map((step, index) => (
+              <div 
+                key={index} 
+                className="w-full flex-shrink-0 flex items-center justify-center px-4"
+                style={{
+                  width: `${100 / N}%`
+                }}
+              >
+                <div 
+                  className={`${step.right ? 'flex flex-col justify-between lg:grid lg:grid-cols-[4.5fr_5.5fr] gap-2 lg:gap-12 xl:gap-16' : 'flex flex-col max-w-2xl xl:max-w-3xl mx-auto justify-center'} items-center w-[88vw] lg:w-[82vw] xl:w-[80vw] 2xl:w-[78vw] max-w-[1400px] lg:h-[560px] xl:h-[600px] bg-black/85 lg:bg-black/40 px-4 pt-3 pb-3 sm:p-8 lg:p-10 xl:p-12 rounded-2xl lg:rounded-[32px] border border-white/10 backdrop-blur-xl overflow-y-auto shadow-2xl`}
+                  style={{ height: isMobile ? cardHeight : undefined }}
                 >
-                  <div className={`${step.right ? 'flex flex-col lg:grid lg:grid-cols-[4fr_6fr] gap-6 lg:gap-20 xl:gap-28 2xl:gap-36' : 'flex flex-col max-w-2xl xl:max-w-3xl mx-auto justify-center'} items-center w-full h-auto bg-black/85 lg:bg-black/40 p-6 sm:p-12 lg:p-16 xl:p-20 2xl:p-24 rounded-2xl lg:rounded-[32px] border border-white/10 backdrop-blur-xl max-h-[calc(100vh-100px)] lg:max-h-[90vh] overflow-hidden lg:overflow-visible shadow-2xl`}>
-                    {/* Left: Text Content */}
-                    <div className={`text-left space-y-4 lg:space-y-8 w-full ${step.right ? '' : 'text-center'}`}>
-                      <h3 className={`text-2xl lg:text-3xl xl:text-4xl font-extrabold text-white font-primary relative ${step.right ? 'pl-6 lg:pl-8' : 'text-center inline-block'}`}>
-                        {step.right && (
-                          <span className="absolute left-0 top-0 h-full w-[4px] lg:w-[6px] bg-gradient-to-b from-fuchsia-400 to-orange-700"></span>
-                        )}
+                  {/* Title Block: Fixed height and top-aligned on mobile to align starting positions */}
+                  <div className="h-[45px] sm:h-[75px] lg:h-auto text-left w-full flex-shrink-0 lg:contents">
+                    {/* We duplicate the title block for grid structure layout cleanly on desktop vs flex on mobile */}
+                    <div className="lg:hidden text-left w-full">
+                      <h3 className="text-xl font-extrabold text-white font-primary relative pl-5">
+                        <span className="absolute left-0 top-0 h-full w-[4px] bg-gradient-to-b from-fuchsia-400 to-orange-700"></span>
                         {step.title}
                       </h3>
                       {step.subtitle && (
-                        <strong className="block text-rose-400 text-base lg:text-lg xl:text-xl font-semibold tracking-wide">{step.subtitle}</strong>
+                        <strong className="block text-rose-400 text-xs font-semibold tracking-wide mt-0.5 leading-none">{step.subtitle}</strong>
                       )}
-                      <div className="text-gray-300 text-sm md:text-base lg:text-lg xl:text-[1.05rem] leading-relaxed space-y-4">
+                    </div>
+                  </div>
+
+                  {/* Left Column wrapper (Desktop) / Centralized content flow (Mobile) */}
+                  <div className="flex-grow flex flex-col justify-center w-full lg:contents">
+                    {/* Left: Text Content (For desktop grid, hidden on mobile for structure or flows normally) */}
+                    <div className="text-left space-y-2 lg:space-y-6 w-full lg:block">
+                      {/* Desktop Title Block */}
+                      <div className="hidden lg:block text-left w-full">
+                        <h3 className="text-xl lg:text-3xl xl:text-4xl font-extrabold text-white font-primary relative pl-5 lg:pl-8">
+                          <span className="absolute left-0 top-0 h-full w-[4px] lg:w-[6px] bg-gradient-to-b from-fuchsia-400 to-orange-700"></span>
+                          {step.title}
+                        </h3>
+                        {step.subtitle && (
+                          <strong className="block text-rose-400 text-xs lg:text-lg xl:text-xl font-semibold tracking-wide mt-1 lg:mt-2">{step.subtitle}</strong>
+                        )}
+                      </div>
+                      {/* Body Text */}
+                      <div className="text-gray-300 text-[13px] sm:text-sm md:text-base lg:text-lg xl:text-[1.05rem] leading-snug sm:leading-relaxed space-y-2 sm:space-y-4 pt-1 lg:pt-0">
                         {typeof step.desc === 'string' ? <p>{step.desc}</p> : step.desc}
                       </div>
                     </div>
-                    {/* Right: Media Content */}
-                    {step.right && (
-                      <div className="w-full flex justify-center">
-                        {step.right}
-                      </div>
-                    )}
                   </div>
+
+                  {/* Right: Media Content */}
+                  {step.right && (
+                    <div className="w-full flex justify-center max-h-[190px] sm:max-h-[30vh] lg:max-h-[45vh] flex-shrink-0 lg:mt-0 mt-2">
+                      {step.right}
+                    </div>
+                  )}
                 </div>
-              )
-            })}
+              </div>
+            ))}
           </div>
         </div>
       </div>
