@@ -31,7 +31,7 @@ const Footer = () => {
           <div className="md-12 lg:col-6">
             <Link href="/" aria-label="TechnoTUT">
               <Image
-                src="/images/logo/Logo_Bblack.png"
+                src="/images/logo/Logo_Bblack.svg"
                 width={config.site.logo_width}
                 height={config.site.logo_height}
                 alt=""
