@@ -99,11 +99,13 @@ const ActivityGroupSection = () => {
         setProgressAtBottom(Math.max(0.75, Math.min(0.95, val)))
       }
 
-      // iPhone SE vs iPhone XR height optimization
+      // iPhone SE vs iPhone XR vs iPad Portrait height optimization
       if (windowHeight < 700) {
-        setCardHeight('430px')
+        setCardHeight('430px') // iPhone SE
+      } else if (windowHeight >= 700 && windowHeight < 1100 && windowWidth >= 768 && windowWidth < 1024) {
+        setCardHeight('460px') // iPad Portrait (Width 768px - 1024px, Height ~1024px)
       } else {
-        setCardHeight('420px')
+        setCardHeight('420px') // iPhone XR/11/12/13/14 etc.
       }
 
       setIsMobile(windowWidth < 1024)
@@ -245,9 +247,9 @@ const ActivityGroupSection = () => {
       subtitle: "Bringing the Essence of TechnoTUT to Life.",
       desc: "Through event flyer design, social media management and website updates, we handle all aspects of communication. And also througn creation of video content and illustrations, we appeal our potential to audiences' senses. By transforming creativity and passion into tangible forms, we bring the essence of TechnoTUT to a wider audience.",
       right: (
-        <div className="flex flex-row items-center justify-center w-full gap-2 sm:gap-8 lg:gap-12 xl:gap-16 mx-auto">
+        <div className="flex flex-row items-center justify-center w-full gap-4 sm:gap-8 lg:gap-12 xl:gap-16 mx-auto">
           <div className="flex flex-col items-center">
-            <div className="relative w-28 h-28 sm:w-40 sm:h-40 lg:w-48 lg:h-48 xl:w-56 xl:h-56 2xl:w-64 2xl:h-64 -mr-8 sm:mr-0">
+            <div className="relative w-28 h-28 sm:w-36 sm:h-36 md:w-48 md:h-48 lg:w-48 lg:h-48 xl:w-56 xl:h-56 2xl:w-64 2xl:h-64 -mr-4 sm:mr-0">
               <Image
                 src="/images/index/media/media-1.png"
                 fill
@@ -259,7 +261,7 @@ const ActivityGroupSection = () => {
             </div>
             <div className="text-[10px] text-gray-400 text-center mt-2">Techno-chan (Minimal Techno-chan ver.)</div>
           </div>
-          <div className="relative h-[180px] w-[130px] sm:h-[200px] sm:w-[144px] lg:h-[260px] lg:w-[187px] xl:h-[350px] xl:w-[252px] 2xl:h-[410px] 2xl:w-[295px] bg-ai-gradient rounded-2xl overflow-hidden flex-shrink-0">
+          <div className="relative h-[180px] w-[130px] sm:h-[240px] sm:w-[173px] md:h-[310px] md:w-[223px] lg:h-[260px] lg:w-[187px] xl:h-[350px] xl:w-[252px] 2xl:h-[410px] 2xl:w-[295px] bg-ai-gradient rounded-2xl overflow-hidden flex-shrink-0">
             <Image
               src="/images/index/media/flyer_20240713.png"
               fill
@@ -343,111 +345,148 @@ const ActivityGroupSection = () => {
 
   return (
     <section className="relative bg-[#0a0a0c]">
-      {/* Normal scrolling intro blocks */}
-      <div className="container mx-auto px-4 relative z-20 pt-20 pb-4">
-        <RevealWrapper>
-          <h2 className="mt-8 mb-8 text-center text-3xl font-bold text-[#f5f5f7]">Discover What We Do</h2>
-          <div className="mx-auto max-w-4xl space-y-6 text-lg text-gray-200">
-            <p>
-              We actively organize a wide range of events, starting with our on-campus DJ event, <span className="bg-gradient-to-r from-emerald-400 to-cyan-300 bg-clip-text text-transparent font-bold font-primary">The Utopia Tone</span> . Our activities include training camps to strengthen our community, collaboration events with music circles from other universities, and participation in external events like M3.
-            </p>
-            <p>
-              Additionally, we host over 20 small-scale, themed DJ parties throughout the year. Each member provides their unique style and creativity with these opportunity. 
-            </p>
-            <p>
-              Furthermore, we host DJ workshops and networking events on campus. Tehse are our attempts to create an open and welcoming environment whitch anyone can be interested in us and get into the world of music easily. 
-            </p>
-            <p>
-              Our past achievements and upcoming events can be found in detail on the <Link href="/activity" className="relative bg-gradient-to-r from-fuchsia-400 to-orange-700 bg-clip-text text-transparent transition-all duration-500 ease-in-out hover:text-fuchsia-400 font-bold font-primary font-bold"> Activity Information </Link>.
-            </p>
-          </div>
-        </RevealWrapper>
-
-        <RevealWrapper>
-          <h2 className="mt-12 mb-6 text-center text-3xl font-bold text-[#f5f5f7]">Meet the Units</h2>
-          <div className="mx-auto max-w-4xl text-lg text-gray-200">
-            <p>
-            Our club is home to several activity units such as Event Operations Unit, DJ Unit, and Music Production Unit.
-            Members are free to join any unit based on their interests, and of course can be involved in multiple groups.
-            There are no restrictions or obligations <span className="tracking-[-0.2em]">------</span> just a place where you can enjoy music and creativity at your own pace, following what moves your heart.
-            </p>
-          </div>
-        </RevealWrapper>
-      </div>
-
-      {/* Horizontal Scrollytelling & Swipe Container */}
+      {/* Vertical Scrollytelling & Stacked Containers */}
       <div 
         ref={containerRef} 
-        className="relative w-full z-20 touch-pan-y"
-        style={{ height: '650vh' }}
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
+        className="relative w-full z-20"
+        style={{ height: `${N * 130}vh` }}
       >
-        <div className="sticky top-[62px] lg:top-[72px] h-[calc(100vh-62px)] lg:h-[calc(100vh-72px)] w-full flex items-center overflow-hidden">
-          <div 
-            className="flex flex-row items-center transition-transform duration-100 ease-out h-full px-0"
-            style={{
-              transform: `translateX(-${activeProgress * (N - 1) * 100 / N}%)`,
-              width: `${N * 100}%`
-            }}
-          >
-            {steps.map((step, index) => (
+        <div className="sticky top-[62px] lg:top-[72px] h-[calc(100vh-62px)] lg:h-[calc(100vh-72px)] w-full overflow-hidden flex items-center justify-center">
+          {steps.map((step, index) => {
+            // Target progress for this slide (0.0 to 1.0)
+            const slideStart = index / N
+            const slideEnd = (index + 1) / N
+            
+            // Calculate relative progress inside this slide
+            let relProgress = (activeProgress - slideStart) / (slideEnd - slideStart)
+            relProgress = Math.max(0, Math.min(1, relProgress))
+
+            // We want the slide to be fully visible in the middle part of its scroll range.
+            // Active window: entry from relProgress 0.0 to 0.2, active up to 0.8, exit from 0.8 to 1.0.
+            let opacity = 0
+            let isEntry = false
+            let isExit = false
+            let localProgress = 0
+
+            if (relProgress < 0.25) {
+              // Entering slide
+              opacity = relProgress / 0.25
+              localProgress = relProgress / 0.25 // 0.0 to 1.0
+              isEntry = true
+            } else if (relProgress > 0.75) {
+              // Exiting slide
+              opacity = (1.0 - relProgress) / 0.25
+              localProgress = (relProgress - 0.75) / 0.25 // 0.0 to 1.0
+              isExit = true
+            } else {
+              // Stable slide
+              opacity = 1
+              localProgress = 0.5
+            }
+
+            // Stagger animations for elements based on local entry/exit progress
+            // Apple-like transition:
+            // When ENTERING (scrolling down): Title animates first, then description, then image.
+            // When EXITING (scrolling down further): Description and Image start disappearing first, then Title.
+            
+            // Helper function to calculate element opacity and translateY based on local transition progress
+            const getTransitionStyle = (staggerOrder) => {
+              if (opacity === 0) return { opacity: 0, transform: 'translateY(30px)' }
+              if (opacity === 1) return { opacity: 1, transform: 'translateY(0px)', transition: 'opacity 0.4s ease-out, transform 0.4s ease-out' }
+
+              let elemOpacity = 0
+              let translateY = 20
+
+              if (isEntry) {
+                // Stagger points for entry (0.0 to 1.0)
+                const start = staggerOrder * 0.2
+                const end = start + 0.5
+                const factor = Math.max(0, Math.min(1, (localProgress - start) / (end - start)))
+                
+                elemOpacity = factor
+                translateY = (1 - factor) * 25
+              } else if (isExit) {
+                // When exiting (scrolling down further), we hide descriptions/images first, then titles.
+                // staggerOrder: 0 = Title, 1 = Desc, 2 = Image
+                // We want: 2 (Image) and 1 (Desc) to disappear first, so they exit at lower localProgress.
+                // Exit stagger: Title exits last (staggerOrder 0), so it fades out later.
+                const start = (2 - staggerOrder) * 0.15
+                const end = start + 0.6
+                const factor = Math.max(0, Math.min(1, (localProgress - start) / (end - start)))
+                
+                elemOpacity = 1 - factor
+                translateY = -factor * 25
+              }
+
+              return {
+                opacity: elemOpacity,
+                transform: `translateY(${translateY}px)`,
+                transition: 'opacity 0.1s ease-out, transform 0.1s ease-out'
+              }
+            }
+
+            const titleStyle = getTransitionStyle(0)
+            const descStyle = getTransitionStyle(1)
+            const rightStyle = getTransitionStyle(2)
+
+            const isVisible = relProgress > 0 && relProgress < 1
+
+            return (
               <div 
                 key={index} 
-                className="w-full flex-shrink-0 flex items-center justify-center px-4"
+                className="absolute inset-0 w-full h-full flex-shrink-0 flex items-center justify-center px-4"
                 style={{
-                  width: `${100 / N}%`
+                  opacity: opacity,
+                  pointerEvents: isVisible && opacity > 0.3 ? 'auto' : 'none',
+                  visibility: isVisible ? 'visible' : 'hidden',
+                  zIndex: isVisible ? 10 + index : 0
                 }}
               >
                 <div 
-                  className={`${step.right ? 'flex flex-col justify-between lg:grid lg:grid-cols-[4.5fr_5.5fr] gap-2 lg:gap-12 xl:gap-16' : 'flex flex-col max-w-2xl xl:max-w-3xl mx-auto justify-center'} items-center w-[88vw] lg:w-[82vw] xl:w-[80vw] 2xl:w-[78vw] max-w-[1400px] lg:h-[560px] xl:h-[600px] bg-black/85 lg:bg-black/40 px-4 pt-3 pb-3 sm:p-8 lg:p-10 xl:p-12 rounded-2xl lg:rounded-[32px] border border-white/10 backdrop-blur-xl overflow-y-auto shadow-2xl`}
-                  style={{ height: isMobile ? cardHeight : undefined }}
+                  className="flex flex-col justify-center items-center w-full h-full max-w-7xl px-6 md:px-12 py-8 overflow-y-auto"
                 >
-                  {/* Title Block: Fixed height and top-aligned on mobile to align starting positions */}
-                  <div className="h-[45px] sm:h-[75px] lg:h-auto text-left w-full flex-shrink-0 lg:contents">
-                    {/* We duplicate the title block for grid structure layout cleanly on desktop vs flex on mobile */}
-                    <div className="lg:hidden text-left w-full">
-                      <h3 className="text-xl font-extrabold text-white font-primary relative pl-5">
-                        <span className="absolute left-0 top-0 h-full w-[4px] bg-gradient-to-b from-fuchsia-400 to-orange-700"></span>
-                        {step.title}
-                      </h3>
-                      {step.subtitle && (
-                        <strong className="block text-rose-400 text-xs font-semibold tracking-wide mt-0.5 leading-none">{step.subtitle}</strong>
-                      )}
-                    </div>
-                  </div>
+                  <div className="flex flex-col w-full lg:grid lg:grid-cols-[4.5fr_5.5fr] gap-4 md:gap-6 lg:gap-12 xl:gap-20 justify-center">
+                    {/* Left/Content Column */}
+                    <div className="flex flex-col space-y-3 md:space-y-4 lg:space-y-6 text-left w-full">
+                      {/* Mobile Title Block */}
+                      <div className="lg:hidden text-left w-full" style={titleStyle}>
+                        <h3 className="text-2xl md:text-3xl font-extrabold text-white font-primary relative pl-5">
+                          <span className="absolute left-0 top-0 h-full w-[4px] bg-gradient-to-b from-fuchsia-400 to-orange-700"></span>
+                          {step.title}
+                        </h3>
+                        {step.subtitle && (
+                          <strong className="block text-rose-400 text-xs md:text-sm font-semibold tracking-wide mt-1 leading-none">{step.subtitle}</strong>
+                        )}
+                      </div>
 
-                  {/* Left Column wrapper (Desktop) / Centralized content flow (Mobile) */}
-                  <div className="flex-grow flex flex-col justify-center w-full lg:contents">
-                    {/* Left: Text Content (For desktop grid, hidden on mobile for structure or flows normally) */}
-                    <div className="text-left space-y-2 lg:space-y-6 w-full lg:block">
                       {/* Desktop Title Block */}
-                      <div className="hidden lg:block text-left w-full">
-                        <h3 className="text-xl lg:text-3xl xl:text-4xl font-extrabold text-white font-primary relative pl-5 lg:pl-8">
+                      <div className="hidden lg:block text-left w-full" style={titleStyle}>
+                        <h3 className="text-3xl xl:text-4xl 2xl:text-5xl font-extrabold text-white font-primary relative pl-6 lg:pl-8">
                           <span className="absolute left-0 top-0 h-full w-[4px] lg:w-[6px] bg-gradient-to-b from-fuchsia-400 to-orange-700"></span>
                           {step.title}
                         </h3>
                         {step.subtitle && (
-                          <strong className="block text-rose-400 text-xs lg:text-lg xl:text-xl font-semibold tracking-wide mt-1 lg:mt-2">{step.subtitle}</strong>
+                          <strong className="block text-rose-400 text-sm lg:text-lg xl:text-xl font-semibold tracking-wide mt-2 lg:mt-3">{step.subtitle}</strong>
                         )}
                       </div>
+
                       {/* Body Text */}
-                      <div className="text-gray-300 text-[13px] sm:text-sm md:text-base lg:text-lg xl:text-[1.05rem] leading-snug sm:leading-relaxed space-y-2 sm:space-y-4 pt-1 lg:pt-0">
+                      <div className="text-gray-300 text-sm sm:text-base md:text-lg xl:text-xl leading-relaxed space-y-3 sm:space-y-4" style={descStyle}>
                         {typeof step.desc === 'string' ? <p>{step.desc}</p> : step.desc}
                       </div>
                     </div>
-                  </div>
 
-                  {/* Right: Media Content */}
-                  {step.right && (
-                    <div className="w-full flex justify-center max-h-[190px] sm:max-h-[30vh] lg:max-h-[45vh] flex-shrink-0 lg:mt-0 mt-2">
-                      {step.right}
-                    </div>
-                  )}
+                    {/* Right/Media Column */}
+                    {step.right && (
+                      <div className="w-full flex justify-center flex-shrink-0 mt-3 lg:mt-0" style={rightStyle}>
+                        {step.right}
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
-            ))}
-          </div>
+            )
+          })}
         </div>
       </div>
     </section>
