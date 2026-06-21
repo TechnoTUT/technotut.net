@@ -39,4 +39,34 @@
       @apply text-rose-500;
     }
   }
+
+  // Mega Menu custom styles (Slide B: 3D Floating Drawer)
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .megamenu-3d-card {
+    transform-style: preserve-3d;
+    transform-origin: top center;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+  }
+
+  .futuristic-item {
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border: 1px solid transparent;
+    
+    &:hover {
+      background: rgba(255, 255, 255, 0.04);
+      border-color: rgba(244, 63, 94, 0.25); // rose-500/25
+      box-shadow: 0 0 20px rgba(244, 63, 94, 0.1), inset 0 0 8px rgba(255, 255, 255, 0.02);
+      transform: translateY(-2px);
+
+      span svg {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  }
 }
+
+

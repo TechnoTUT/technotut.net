@@ -10,31 +10,38 @@
     },
     {
       "name": "Blog",
-      "url": "https://blog.technotut.net/"
+      "url": "https://blog.technotut.net/",
+      "description": "日々の活動記録や技術的な備忘録"
     },
     {
       "name":"GikadaiFes",
-      "url":"/gikadaifes"
+      "url":"/gikadaifes",
+      "description": "技科大祭特設サイト"
     },
     {
       "name": "Ramen",
-      "url": "/ramen"
+      "url": "/ramen",
+      "description": "豊橋ラーメンマップ"
     },
     {
       "name": "FAQ",
-      "url": "/faq"
+      "url": "/faq",
+      "description": "よくあるお問い合わせ"
     },
     {
       "name": "Contact",
-      "url": "/contact"
+      "url": "/contact",
+      "description": "出演依頼等の窓口"
     },
     {
       "name": "Access",
-      "url": "/access"
+      "url": "/access",
+      "description": "アクセス"
     },
     {
       "name": "Discography",
-      "url": "https://technotut.bandcamp.com/"
+      "url": "https://technotut.bandcamp.com/",
+      "description": "頒布中の音源はこちらから"
     }
   ],
   "footer": [
