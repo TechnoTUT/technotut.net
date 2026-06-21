@@ -48,7 +48,7 @@ const IntroSection = () => {
             </p>
           </div>
           <div className="mt-12">
-            <Link href="/" className="bg-gradient-to-r from-amber-200 to-yellow-500 bg-clip-text text-transparent hover:opacity-80 transition-opacity">
+            <Link href="/" scroll={false} className="bg-gradient-to-r from-amber-200 to-yellow-500 bg-clip-text text-transparent hover:opacity-80 transition-opacity">
               For Japanese &gt;&gt; 
             </Link>
           </div>
