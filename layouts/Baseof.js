@@ -10,9 +10,22 @@ const MouseFollower = () => {
   const [position, setPosition] = useState({ x: -100, y: -100 });
   const [visible, setVisible] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
 
   useEffect(() => {
+    // Detect touch device (has touch capability AND doesn't support fine pointer e.g. mouse)
+    const checkTouchDevice = () => {
+      const hasTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+      const hasCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
+      setIsTouchDevice(hasTouch && hasCoarsePointer);
+    };
+
+    checkTouchDevice();
+
     const handleMouseMove = (e) => {
+      // If a touch event just fired or it's a touch device, ignore mouse move emulations
+      if ('ontouchstart' in window && e.sourceCapabilities?.firesTouchEvents) return;
+      
       setPosition({ x: e.clientX, y: e.clientY });
       if (!visible) setVisible(true);
     };
@@ -47,7 +60,8 @@ const MouseFollower = () => {
     };
   }, [visible]);
 
-  if (!visible) return null;
+  // Don't render mouse follower or apply cursor style on touch devices
+  if (isTouchDevice || !visible) return null;
 
   return (
     <>
