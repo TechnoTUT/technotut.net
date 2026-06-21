@@ -21,7 +21,8 @@ const PostSingle = ({ frontmatter, content, mdxContent }) => {
                   width="1000"
                   alt={title}
                   priority={true}
-                  layout="responsive"
+                  sizes="100vw"
+                  style={{ width: "100%", height: "auto" }}
                   className="rounded-lg"
                 />
               )}
