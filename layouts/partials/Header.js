@@ -21,17 +21,17 @@ const Header = () => {
 
   return (
 
-    <header className="header sticky top-0 z-50 shadow-sm">
+    <header className="header sticky top-0 z-50 bg-[#0a0a0c]/80 text-[#f5f5f7] border-b border-white/10 backdrop-blur-md">
       <nav className="navbar container flex items-center justify-between">
         {/* ロゴ */}
         <div className="order-0">
-          <Logo src={logo} />
+          <Logo src="/images/logo/Logo_Bblack.svg" />
         </div>
 
         {/* メニュー */}
         <div
           id="nav-menu"
-          className={`order-3 lg:order-1 ml-auto ${navOpen ? "max-h-[1000px]" : "max-h-0"
+          className={`order-3 lg:order-1 ml-auto ${navOpen ? "max-h-[1000px] bg-[#0a0a0c]/95" : "max-h-0"
             }`}
         > 
         <ul className="navbar-nav flex flex-col w-full lg:flex-row lg:w-auto lg:space-x-0">
@@ -39,18 +39,18 @@ const Header = () => {
               <React.Fragment key={`menu-${i}`}>
                 {menu.hasChildren ? (
                   <li className="nav-item nav-dropdown group relative">
-                    <span className="nav-link inline-flex items-center">
+                    <span className="nav-link inline-flex items-center text-gray-300 hover:text-white cursor-pointer">
                       {menu.name}
-                      <svg className="h-4 w-4 fill-current" viewBox="0 0 20 20">
+                      <svg className="h-4 w-4 fill-current ml-1" viewBox="0 0 20 20">
                         <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
                       </svg>
                     </span>
-                    <ul className="nav-dropdown-list hidden group-hover:block lg:invisible lg:absolute lg:block lg:opacity-0 lg:group-hover:visible lg:group-hover:opacity-100">
+                    <ul className="nav-dropdown-list hidden group-hover:block lg:invisible lg:absolute lg:block lg:opacity-0 lg:group-hover:visible lg:group-hover:opacity-100 bg-[#0a0a0c] border border-white/10 rounded-lg shadow-xl p-2 min-w-[150px]">
                       {menu.children.map((child, i) => (
                         <li className="nav-dropdown-item" key={`children-${i}`}>
                           <Link
                             href={child.url}
-                            className="nav-dropdown-link block"
+                            className="nav-dropdown-link block text-gray-300 hover:text-white px-3 py-2 rounded transition"
                           >
                             {child.name}
                           </Link>
@@ -63,7 +63,7 @@ const Header = () => {
                     <Link
                       href={menu.url}
                       onClick={() => setNavOpen(false)}
-                      className={`nav-link block ${router.asPath === menu.url ? "nav-link-active" : ""
+                      className={`nav-link block ${router.asPath === menu.url ? "text-rose-500 font-extrabold" : "text-gray-300 hover:text-white"
                         }`}
                     >
                       {menu.name}
@@ -75,7 +75,7 @@ const Header = () => {
             {/* ✅ モバイルメニュー内にもボタンを追加 */}
             {enable && (
               <li className="mt-4 flex justify-center lg:hidden">
-                <Link className="btn btn-primary w-full text-center py-[14px]" href={link}>
+                <Link className="w-full text-center py-[10px] px-6 text-sm font-semibold text-white rounded-[25px] bg-gradient-to-br from-blue-500 to-pink-500 hover:opacity-90 transition-all duration-300" href={link}>
                   {label}
                 </Link>
               </li>
@@ -86,7 +86,7 @@ const Header = () => {
         {/* nav-button（右端に配置） */}
         {enable && (
           <div className="order-2 ml-auto hidden lg:flex">
-            <Link className="btn btn-primary py-[14px]" href={link}>
+            <Link className="py-[10px] px-6 text-sm font-semibold text-white rounded-[25px] bg-gradient-to-br from-blue-500 to-pink-500 hover:opacity-90 transition-all duration-300" href={link}>
               {label}
             </Link>
           </div>
@@ -95,7 +95,7 @@ const Header = () => {
         {/* ハンバーガーメニュー（モバイル用） */}
         <button
           id="show-button"
-          className="order-1 flex cursor-pointer items-center lg:hidden"
+          className="order-1 flex cursor-pointer items-center lg:hidden text-gray-300 hover:text-white"
           onClick={() => setNavOpen(!navOpen)}
         >
           {navOpen ? (
