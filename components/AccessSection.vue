@@ -81,7 +81,7 @@
               </button>
             </div>
             <p class="font-noto text-sm sm:text-base text-gray-dim font-[350] leading-relaxed mb-4">
-              福利施設1階にあるオープンスペース。平日昼休みや放課後のDJ練習、イベント配信、機材チェックなどを行っており、どなたでも気軽にお立ち寄りいただけます。
+              学内イベント "The Utopia Tone" の開催場所です。
             </p>
 
             <!-- Compact Photo Viewer -->
@@ -134,7 +134,7 @@
               </button>
             </div>
             <p class="font-noto text-sm sm:text-base text-gray-dim font-[350] leading-relaxed">
-              クラブハウス2階奥。音響PA、DJブース、DTM制作機材、照明演出機器、サーバーラック等が常設された制作拠点です。見学等はSNSのDMよりお気軽にお問い合わせください。
+              クラブハウス2階奥。DJブースが常設され日常的な活動拠点です。
             </p>
             <div class="pt-5">
               <NuxtLink to="/access" class="common-btn text-xs py-2 px-6">

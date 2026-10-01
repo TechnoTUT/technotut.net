@@ -86,7 +86,7 @@ const locations: LocationItem[] = [
     center: [34.70075, 137.40903],
     zoom: 18,
     title: 'コモンズ1 (福利施設1階)',
-    description: '平日昼休みや放課後のDJ練習、イベント配信、機材チェックなどを行っているオープンスペース。',
+    description: '学内イベント "The Utopia Tone" の開催場所',
     badge: 'COMMONS 1',
   },
   {
@@ -95,7 +95,7 @@ const locations: LocationItem[] = [
     center: [34.70105, 137.40663],
     zoom: 18,
     title: '音楽技術部 部室 (クラブハウス2階)',
-    description: '音響PA、DJブース、DTM制作機材、照明演出機器等が常設された部員専用の制作拠点。',
+    description: '日常的な活動場所',
     badge: 'CLUB ROOM',
   },
   {
