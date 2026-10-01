@@ -3,13 +3,23 @@
     <div class="max-w-7xl mx-auto">
       <!-- Section Header (Aligned with UtopiaToneSection & AccessSection) -->
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-6">
-        <div>
-          <p class="font-quicksand text-xs sm:text-sm tracking-widest text-gray-400 mb-2">
+        <div ref="headerRef">
+          <p
+            class="font-quicksand text-xs sm:text-sm tracking-widest text-gray-400 mb-2 transition-all duration-500 ease-out"
+            :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'"
+          >
             TechnoTUT Presents - School Festival
           </p>
-          <h2 class="font-quicksand font-light text-4xl sm:text-6xl md:text-7xl text-white tracking-tight">
-            技科大祭
-          </h2>
+          <div class="relative inline-block overflow-hidden">
+            <h2 class="font-quicksand font-light text-4xl sm:text-6xl md:text-7xl text-white tracking-tight pb-1 sm:pb-2">
+              技科大祭
+            </h2>
+            <div
+              aria-hidden="true"
+              class="block-reveal-mask"
+              :class="isVisible ? 'block-reveal-active' : ''"
+            />
+          </div>
         </div>
 
         <div class="self-start md:self-end">
@@ -23,10 +33,10 @@
       <!-- Main Showcase (Frameless Layout with subtle hover & clean typography) -->
       <div v-if="latestPost" class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
         <!-- Left: Flyer / Visual (Consistent rounded-2xl & smooth hover) -->
-        <div class="lg:col-span-5">
+        <div class="lg:col-span-5 xl:col-span-4 flex justify-center">
           <NuxtLink
             :to="latestPost._path"
-            class="group block relative rounded-2xl overflow-hidden aspect-[4/3] sm:aspect-[16/10] lg:aspect-[4/3] bg-dark border border-white/10 transition-all duration-300 hover:border-white/30 hover:-translate-y-1 hover:shadow-2xl"
+            class="group block relative rounded-2xl overflow-hidden aspect-[1/1.414] w-full max-w-xs sm:max-w-sm lg:max-w-md bg-dark border border-white/10 transition-all duration-300 hover:border-white/30 hover:-translate-y-1 hover:shadow-2xl"
           >
             <img
               v-if="latestPost.image"
@@ -42,7 +52,7 @@
         </div>
 
         <!-- Right: Event Highlights & Content -->
-        <div class="lg:col-span-7 space-y-8">
+        <div class="lg:col-span-7 xl:col-span-8 space-y-8">
           <div>
             <div class="flex flex-wrap items-center gap-2 mb-3">
               <span v-if="latestPost.date" class="text-xs font-quicksand text-gray-400 tracking-wider">
@@ -51,12 +61,12 @@
               <span v-if="latestPost.date" class="text-white/20">•</span>
               <span class="text-xs font-quicksand text-gray-400 tracking-wider uppercase">Stage &amp; Commons</span>
             </div>
-            <h3 class="font-zen text-2xl sm:text-3xl font-light text-white leading-snug">
+            <h3 class="font-noto text-2xl sm:text-3xl font-light text-white leading-snug">
               <NuxtLink :to="latestPost._path" class="hover:text-gray-200 transition-colors">
                 {{ latestPost.title }}
               </NuxtLink>
             </h3>
-            <p v-if="latestPost.description" class="font-zen text-sm sm:text-base text-gray-dim font-light mt-3 leading-relaxed">
+            <p v-if="latestPost.description" class="font-noto text-sm sm:text-base text-gray-dim font-[350] mt-3 leading-relaxed">
               {{ latestPost.description }}
             </p>
           </div>
@@ -65,15 +75,15 @@
           <div class="space-y-3.5 pt-2">
             <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6">
               <span class="font-quicksand text-xs tracking-widest text-gray-400 uppercase w-28 shrink-0">LOCATION</span>
-              <span class="font-zen text-sm sm:text-base text-white font-light">福利施設 コモンズⅠ &amp; 野外特設ステージ</span>
+              <span class="font-noto text-sm sm:text-base text-white font-light">福利施設 コモンズⅠ &amp; 図書館前特設ステージ</span>
             </div>
             <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6">
               <span class="font-quicksand text-xs tracking-widest text-gray-400 uppercase w-28 shrink-0">STYLE</span>
-              <span class="font-zen text-sm sm:text-base text-white font-light">Club Music / Subculture / VJ Show</span>
+              <span class="font-noto text-sm sm:text-base text-white font-light">Club Music / Subculture / VJ Show</span>
             </div>
             <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6">
               <span class="font-quicksand text-xs tracking-widest text-gray-400 uppercase w-28 shrink-0">ADMISSION</span>
-              <span class="font-zen text-sm sm:text-base text-white font-light">入場無料（学外・一般参加歓迎）</span>
+              <span class="font-noto text-sm sm:text-base text-white font-light">入場無料</span>
             </div>
           </div>
 
@@ -96,12 +106,12 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
 
-const descRef = ref<HTMLElement | null>(null)
+const headerRef = ref<HTMLElement | null>(null)
 const isVisible = ref(false)
 let observer: IntersectionObserver | null = null
 
 onMounted(() => {
-  if (descRef.value) {
+  if (headerRef.value) {
     observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -109,9 +119,9 @@ onMounted(() => {
           observer?.disconnect()
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.15 }
     )
-    observer.observe(descRef.value)
+    observer.observe(headerRef.value)
   }
 })
 

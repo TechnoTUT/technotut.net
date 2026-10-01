@@ -11,10 +11,18 @@
     </div>
     <nav aria-label="Homepage main links" class="relative z-10 px-6 sm:px-12 lg:px-16 pb-12 sm:pb-16">
       <ul class="hero-choices font-quicksand">
-        <li v-for="link in links" :key="link.label">
+        <li v-for="(link, idx) in links" :key="link.label">
           <NuxtLink :to="link.to" class="hero-choice">
             <svg class="hero-arrow" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16M13 5l7 7-7 7" /></svg>
-            <span class="menu-label">{{ link.label }}</span>
+            <span class="relative inline-block overflow-hidden pb-0.5">
+              <span class="menu-label">{{ link.label }}</span>
+              <span
+                aria-hidden="true"
+                class="block-reveal-mask"
+                :class="isMounted ? 'block-reveal-active' : ''"
+                :style="{ animationDelay: `${idx * 80}ms` }"
+              />
+            </span>
           </NuxtLink>
         </li>
       </ul>
@@ -25,6 +33,13 @@
   </section>
 </template>
 <script setup lang="ts">
+import { ref, onMounted } from 'vue'
+
+const isMounted = ref(false)
+onMounted(() => {
+  isMounted.value = true
+})
+
 const links = [
   { label: 'SCHEDULE', to: '/activity' },
   { label: 'ACTIVITY', to: '/activity' },

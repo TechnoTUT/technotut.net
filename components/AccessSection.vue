@@ -3,17 +3,26 @@
     <div class="max-w-7xl mx-auto">
       <!-- Section Header (Aligned with UtopiaToneSection & GikadaifesSection) -->
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-6">
-        <div>
-          <p class="font-quicksand text-xs sm:text-sm tracking-widest text-gray-400 mb-2">
+        <div ref="headerRef">
+          <p
+            class="font-quicksand text-xs sm:text-sm tracking-widest text-gray-400 mb-2 transition-all duration-500 ease-out"
+            :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'"
+          >
             LOCATION &amp; ACCESS
           </p>
-          <h2 class="font-quicksand font-light text-4xl sm:text-6xl md:text-7xl text-white tracking-tight">
-            Access
-          </h2>
+          <div class="relative inline-block overflow-hidden">
+            <h2 class="font-quicksand font-light text-4xl sm:text-6xl md:text-7xl text-white tracking-tight pb-1 sm:pb-2">
+              Access
+            </h2>
+            <div
+              aria-hidden="true"
+              class="block-reveal-mask"
+              :class="isVisible ? 'block-reveal-active' : ''"
+            />
+          </div>
           <p
-            ref="descRef"
-            class="font-zen text-sm sm:text-base text-gray-dim font-light mt-4 max-w-2xl leading-relaxed tracking-wide transition-all duration-1000 ease-out"
-            :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'"
+            class="font-noto text-sm sm:text-base text-gray-dim font-light mt-4 max-w-2xl leading-relaxed tracking-wide transition-all duration-700 ease-out delay-300"
+            :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'"
           >
             豊橋技術科学大学へのアクセス、および学内活動拠点のご案内
           </p>
@@ -38,7 +47,7 @@
               class="w-full h-full max-h-[560px] object-contain transition-transform duration-700 ease-out group-hover:scale-[1.02]"
             >
           </div>
-          <div class="mt-4 flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 text-xs font-zen text-gray-400 font-light shrink-0">
+          <div class="mt-4 flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 text-xs font-noto text-gray-400 font-light shrink-0">
             <div>
               <span>豊橋技術科学大学</span>
               <span class="mx-2 text-white/20">•</span>
@@ -53,9 +62,9 @@
           <!-- Place 1: Commons 1 -->
           <div>
             <div class="title-with-line mb-3">
-              <h3 class="font-zen text-xl sm:text-2xl font-light text-white">コモンズ1</h3>
+              <h3 class="font-noto text-xl sm:text-2xl font-light text-white">コモンズ1</h3>
             </div>
-            <p class="font-zen text-sm sm:text-base text-gray-dim font-light leading-relaxed mb-4">
+            <p class="font-noto text-sm sm:text-base text-gray-dim font-[350] leading-relaxed mb-4">
               福利施設1階にあるオープンスペース。平日昼休みや放課後のDJ練習、イベント配信、機材チェックなどを行っており、どなたでも気軽にお立ち寄りいただけます。
             </p>
 
@@ -96,9 +105,9 @@
           <!-- Place 2: TechnoTUT Clubroom -->
           <div class="pt-8 lg:pt-10">
             <div class="title-with-line mb-3">
-              <h3 class="font-zen text-xl sm:text-2xl font-light text-white">音楽技術部 部室</h3>
+              <h3 class="font-noto text-xl sm:text-2xl font-light text-white">音楽技術部 部室</h3>
             </div>
-            <p class="font-zen text-sm sm:text-base text-gray-dim font-light leading-relaxed">
+            <p class="font-noto text-sm sm:text-base text-gray-dim font-[350] leading-relaxed">
               クラブハウス2階奥。音響PA、DJブース、DTM制作機材、照明演出機器、サーバーラック等が常設された制作拠点です。見学等はSNSのDMよりお気軽にお問い合わせください。
             </p>
             <div class="pt-5">
@@ -117,12 +126,12 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
 
-const descRef = ref<HTMLElement | null>(null)
+const headerRef = ref<HTMLElement | null>(null)
 const isVisible = ref(false)
 let observer: IntersectionObserver | null = null
 
 onMounted(() => {
-  if (descRef.value) {
+  if (headerRef.value) {
     observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -130,9 +139,9 @@ onMounted(() => {
           observer?.disconnect()
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.15 }
     )
-    observer.observe(descRef.value)
+    observer.observe(headerRef.value)
   }
 })
 

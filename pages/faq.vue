@@ -8,14 +8,14 @@
       <h1 class="font-quicksand font-light text-4xl sm:text-6xl text-white tracking-tight">
         よくある質問 (FAQ)
       </h1>
-      <p class="mt-4 text-sm font-zen text-gray-300 font-light max-w-2xl leading-relaxed">
+      <p class="mt-4 text-sm font-noto text-gray-dim font-[350] max-w-2xl leading-relaxed">
         新入生や入部をご検討中の方からよくいただく質問と回答をまとめました。
       </p>
     </div>
 
     <ContentDoc v-slot="{ doc }" path="/faq">
       <article
-        class="prose prose-invert prose-lg max-w-none font-zen prose-headings:font-zen prose-headings:font-light prose-headings:text-white prose-a:text-brand"
+        class="prose prose-invert prose-lg max-w-none font-noto prose-p:font-[350] prose-p:text-gray-dim prose-headings:font-noto prose-headings:font-light prose-headings:text-white prose-a:text-brand"
       >
         <ContentRenderer :value="doc" />
       </article>

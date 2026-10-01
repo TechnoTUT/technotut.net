@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply bg-dark text-white font-zen antialiased selection:bg-white/20 selection:text-white;
+    @apply bg-dark text-white font-noto antialiased selection:bg-white/20 selection:text-white;
   }
 }
 
@@ -14,8 +14,8 @@
   font-optical-sizing: auto;
 }
 
-.font-zen {
-  font-family: 'Zen Kaku Gothic Antique', sans-serif;
+.font-noto {
+  font-family: 'Noto Sans JP', sans-serif;
 }
 
 .title-with-line {
@@ -83,6 +83,48 @@ html { color-scheme: dark; }
 [id] { scroll-margin-top: 136px; }
 a:focus-visible, button:focus-visible { outline: 2px solid white; outline-offset: 5px; }
 a, button { touch-action: manipulation; }
+
+/* Block Reveal Animation (White Mask Flicker & Slide) */
+.block-reveal-mask {
+  position: absolute;
+  inset: 0;
+  background-color: #ffffff;
+  pointer-events: none;
+}
+
+.block-reveal-active {
+  animation: blockFlickerAndSlide 1.05s linear forwards;
+}
+
+@keyframes blockFlickerAndSlide {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  8% {
+    opacity: 0.15;
+    transform: translateX(0);
+  }
+  16% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  24% {
+    opacity: 0.4;
+    transform: translateX(0);
+  }
+  32% {
+    opacity: 1;
+    transform: translateX(0);
+    animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(101%);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  .block-reveal-mask { display: none !important; }
 }

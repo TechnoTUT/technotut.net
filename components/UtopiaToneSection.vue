@@ -3,17 +3,26 @@
     <div class="max-w-7xl mx-auto">
       <!-- Section Header -->
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-6">
-        <div>
-          <p class="font-quicksand text-xs sm:text-sm tracking-widest text-gray-400 mb-2">
+        <div ref="headerRef">
+          <p
+            class="font-quicksand text-xs sm:text-sm tracking-widest text-gray-400 mb-2 transition-all duration-500 ease-out"
+            :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'"
+          >
             TechnoTUT Presents - Regular Party
           </p>
-          <h2 class="font-quicksand font-light text-4xl sm:text-6xl md:text-7xl text-white tracking-tight">
-            The Utopia Tone
-          </h2>
+          <div class="relative inline-block overflow-hidden">
+            <h2 class="font-quicksand font-light text-4xl sm:text-6xl md:text-7xl text-white tracking-tight pb-1 sm:pb-2">
+              The Utopia Tone
+            </h2>
+            <div
+              aria-hidden="true"
+              class="block-reveal-mask"
+              :class="isVisible ? 'block-reveal-active' : ''"
+            />
+          </div>
           <p
-            ref="descRef"
-            class="font-zen text-sm sm:text-base text-gray-dim font-light mt-4 max-w-2xl leading-relaxed tracking-wide transition-all duration-1000 ease-out"
-            :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'"
+            class="font-noto text-sm sm:text-base text-gray-dim font-light mt-4 max-w-2xl leading-relaxed tracking-wide transition-all duration-700 ease-out delay-300"
+            :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'"
           >
             TechnoTUTが定期主催する学内DJ＆ライブイベント。オールジャンルのエレクトロニックミュージックからサブカルチャーまで、部員やゲストDJが独自のフロアを創り上げます。
           </p>
@@ -51,7 +60,7 @@
         <!-- Scrollable Track (Elegant Gallery Slider with Autoplay) -->
         <div
           ref="sliderContainer"
-          class="flex gap-6 overflow-x-auto scrollbar-none scroll-smooth pb-6 pt-2"
+          class="flex overflow-x-auto scrollbar-none scroll-smooth pb-6 pt-2"
           style="scrollbar-width: none; -ms-overflow-style: none;"
           @mouseenter="pauseAutoplay"
           @mouseleave="resumeAutoplay"
@@ -59,15 +68,15 @@
           <div
             v-for="(item, idx) in archives"
             :key="idx"
-            class="flex-shrink-0 w-64 sm:w-72 group relative rounded-2xl overflow-hidden border border-white/10 bg-dark-panel transition-all duration-300 hover:border-white/30 hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer"
+            class="flex-shrink-0 w-64 sm:w-72 group relative overflow-hidden border border-white/10 bg-dark-panel transition-all duration-300 hover:border-white/30 hover:shadow-2xl hover:z-10 cursor-pointer -mr-px"
             @click="openModal(idx)"
           >
-            <div class="aspect-[3/4] relative overflow-hidden bg-neutral-900">
+            <div class="aspect-[210/297] relative overflow-hidden bg-neutral-900">
               <img
                 :src="item.image"
                 :alt="item.title"
                 loading="lazy"
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                class="w-full h-full object-cover"
               >
               <!-- Gradient Overlay & Info on Hover -->
               <div
@@ -164,7 +173,7 @@
             <img
               :src="archives[selectedIdx].image"
               :alt="archives[selectedIdx].title"
-              class="max-h-[75vh] w-auto max-w-full object-contain rounded-xl shadow-2xl border border-white/15"
+              class="max-h-[75vh] w-auto max-w-full object-contain shadow-2xl border border-white/15"
             >
             <div class="mt-4 text-center">
               <p class="font-quicksand text-lg text-white font-medium tracking-wide">
@@ -185,7 +194,7 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 
 const sliderContainer = ref<HTMLElement | null>(null)
-const descRef = ref<HTMLElement | null>(null)
+const headerRef = ref<HTMLElement | null>(null)
 const isVisible = ref(false)
 const selectedIdx = ref<number | null>(null)
 
@@ -220,7 +229,7 @@ let observer: IntersectionObserver | null = null
 
 onMounted(() => {
   window.addEventListener('keydown', handleKeydown)
-  if (descRef.value) {
+  if (headerRef.value) {
     observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -228,9 +237,9 @@ onMounted(() => {
           observer?.disconnect()
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.15 }
     )
-    observer.observe(descRef.value)
+    observer.observe(headerRef.value)
   }
 })
 
@@ -260,7 +269,7 @@ const archives = Object.keys(eventImages)
 
 const scrollPrev = () => {
   if (sliderContainer.value) {
-    sliderContainer.value.scrollBy({ left: -320, behavior: 'smooth' })
+    sliderContainer.value.scrollBy({ left: -288, behavior: 'smooth' })
   }
 }
 
@@ -271,7 +280,7 @@ const scrollNext = () => {
     if (el.scrollLeft + el.clientWidth >= el.scrollWidth - 10) {
       el.scrollTo({ left: 0, behavior: 'smooth' })
     } else {
-      el.scrollBy({ left: 320, behavior: 'smooth' })
+      el.scrollBy({ left: 288, behavior: 'smooth' })
     }
   }
 }
