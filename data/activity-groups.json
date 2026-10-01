@@ -1,0 +1,133 @@
+[
+  {
+    "id": "event",
+    "label": "EVENT",
+    "title": "イベント運営",
+    "tagline": "",
+    "paragraphs": [
+      "イベント運営班では、多種多様なイベントの計画立案・運営に関する活動を行っています。部室での放課後イベントから、大部屋 (コモンズI) を貸し切っての大規模イベント、さらには技科大祭や実際のクラブでも！誰もが楽しめる遊び場を、誰かが全力で輝けるステージを、自分たちの手で作り上げています！"
+    ],
+    "links": [],
+    "images": [
+      {
+        "src": "/images/index/event/camp.jpg",
+        "alt": "部員の合宿での集合写真"
+      }
+    ]
+  },
+  {
+    "id": "dj",
+    "label": "DJ",
+    "title": "DJ : Disc Jockey",
+    "tagline": "人と、音楽と、フロアを繋げる",
+    "paragraphs": [
+      "弊サークル主催DJイベントである The Utopia Tone をはじめ、技科大祭などの学内イベントでのDJプレイをモチベーションに練習・活動しています。通常の活動では、平日DJイベントを中心に、放課後や授業の空きコマでDJプレイをしています。一部の部員は愛知・静岡のクラブにてDJ出演や主催イベントを開催しており、学外にも活動の幅を広げています。"
+    ],
+    "links": [],
+    "images": [
+      {
+        "src": "/images/concept/dj.jpg",
+        "alt": "DJ Jokka のプレイ風景"
+      },
+      {
+        "src": "/images/home/panel-bg.jpg",
+        "alt": "DJイベントのフロア"
+      }
+    ]
+  },
+  {
+    "id": "vj-lj",
+    "label": "VJ & LJ",
+    "title": "VJ & LJ : Video & Light Jockey",
+    "tagline": "空間を掌握する演出のプロフェッショナル",
+    "paragraphs": [
+      "映像パフォーマンス (VJ) と照明パフォーマンス (LJ) に関する活動を行っています。通常の活動では演出技術、さらにはその機材やソフトの開発などを行いながら、部室を明るく照らしています！イベントではそれらを駆使して、空間を最大限に盛り上げるパワーを生み出しています！"
+    ],
+    "links": [],
+    "images": [
+      {
+        "src": "/images/concept/vj.jpg",
+        "alt": "イベントの映像・照明演出"
+      }
+    ]
+  },
+  {
+    "id": "media",
+    "label": "MEDIA",
+    "title": "Media",
+    "tagline": "テクノ部の魅力を伝える",
+    "paragraphs": [
+      "イベントのフライヤー制作から、広報用SNSの運用、Webサイトの更新まで。映像制作やイラストレーションも手掛け、視覚と感覚に訴えるコンテンツを生み出しています。創造性と情熱をカタチにし、テクノ部の魅力を広く届けます。"
+    ],
+    "links": [],
+    "images": [
+      {
+        "src": "/images/index/media/media-1.png",
+        "alt": "テクノ部公式キャラクター テクノちゃん（みにまむてくのちゃん ver.）"
+      },
+      {
+        "src": "/images/index/media/flyer_20240713.png",
+        "alt": "2024年7月13日 GilleWorkers コラボイベントのフライヤー"
+      }
+    ]
+  },
+  {
+    "id": "dtm",
+    "label": "DTM",
+    "title": "DTM",
+    "tagline": "\"好き\"を形に",
+    "paragraphs": [
+      "己の好きな音楽を求めて制作活動を行っています。毎週金曜日にDiscordにて活動を行い、情報とやる気を共有しています。",
+      "毎年春と秋に開かれるM3にて、オリジナル楽曲の頒布も行っております。ディスコグラフィーは bandcamp をご覧ください。"
+    ],
+    "links": [
+      {
+        "href": "https://technotut.bandcamp.com/",
+        "label": "bandcamp"
+      }
+    ],
+    "images": [
+      {
+        "src": "/images/index/dtm/dtm.jpg",
+        "alt": "DTM班の楽曲制作の様子"
+      }
+    ]
+  },
+  {
+    "id": "tech-diy",
+    "label": "TECH & DIY",
+    "title": "Tech & DIY",
+    "tagline": "音と映像と光を操る、舞台裏の魔術師",
+    "paragraphs": [
+      "部員の興味関心に沿ってテクいものを触っています。サークル内サーバーの保守管理、学内イベント会場内の映像配信、照明技術などイベントに役立つ技術開発を行っています。詳細は noc.technotut.net で確認できます。"
+    ],
+    "links": [
+      {
+        "href": "https://noc.technotut.net/",
+        "label": "noc.technotut.net"
+      }
+    ],
+    "images": [
+      {
+        "src": "/images/concept/tech.jpg",
+        "alt": "ネット神社"
+      }
+    ]
+  },
+  {
+    "id": "ramen",
+    "label": "ら",
+    "title": "ら",
+    "tagline": "",
+    "paragraphs": [
+      "そのために旅行する価値のある卓越したラーメンと唐揚げを求めて食べ歩き、広く世に知らしめる活動を展開しています。部員おすすめのお店は 豊橋らーめんマップ - Toyohashi Ramen Map をご覧ください。"
+    ],
+    "links": [
+      {
+        "href": "/ramen",
+        "label": "豊橋らーめんマップ - Toyohashi Ramen Map"
+      }
+    ],
+    "images": []
+  }
+]
