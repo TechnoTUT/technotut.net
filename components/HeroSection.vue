@@ -6,8 +6,8 @@
         src="/images/home/hero-bg.png"
         alt="TechnoTUT Hero Background"
         class="w-full h-full object-cover object-center opacity-70 animate-fadein filter contrast-125"
-      />
-      <div class="absolute inset-0 bg-gradient-to-b from-dark/60 via-transparent to-dark"></div>
+      >
+      <div class="absolute inset-0 bg-gradient-to-b from-dark/60 via-transparent to-dark"/>
     </div>
 
     <!-- Giant Interactive Typography Nav (Positioned at bottom-left) -->
@@ -46,7 +46,7 @@
         src="/images/home/scroll.svg"
         alt="Scroll down"
         class="w-48 sm:w-60 md:w-72 opacity-80"
-      />
+      >
     </div>
   </section>
 </template>

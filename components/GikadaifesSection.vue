@@ -34,7 +34,7 @@
               :alt="latestPost.title"
               loading="lazy"
               class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
-            />
+            >
             <div v-else class="w-full h-full flex items-center justify-center text-gray-600 font-quicksand text-2xl">
               TechnoTUT
             </div>

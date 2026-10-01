@@ -18,6 +18,7 @@
 ## 2. 開発・実行コマンド
 
 - **開発サーバー起動**: `npm run dev` (デフォルトポート: 3000)
+- **コード静的検証 (Lint)**: `npm run lint` (自動修正: `npm run lint:fix`)
 - **静的ビルド / SSG生成**: `npm run generate` (`dist` / `out` ディレクトリへ出力)
 - **型チェック / Nuxt準備**: `npx nuxi prepare`
 - **注意**: ユーザーが `npm run dev` でローカル監視している場合は、都度の静的ビルドは不要です。

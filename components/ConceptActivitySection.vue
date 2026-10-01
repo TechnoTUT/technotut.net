@@ -15,12 +15,12 @@
           transform: activeItem?.title === item.title ? 'scale(1.03)' : 'scale(1.0)',
           filter: 'grayscale(100%) contrast(110%) brightness(55%)',
         }"
-      ></div>
+      />
       <!-- Vignette / dark overlay gradient for readability -->
       <div
         class="absolute inset-0 bg-gradient-radial from-dark/60 via-dark/85 to-dark transition-opacity duration-500"
         :class="activeItem ? 'opacity-90' : 'opacity-0'"
-      ></div>
+      />
     </div>
 
     <div
@@ -32,7 +32,7 @@
         ref="canvasRef"
         class="absolute inset-0 w-full h-full pointer-events-none z-0 transition-opacity duration-1000 ease-out"
         :class="isVisible ? 'opacity-100' : 'opacity-0'"
-      ></canvas>
+      />
 
       <!-- Center: CONCEPT (Centered in container, text left-aligned) -->
       <div
@@ -43,8 +43,8 @@
           CONCEPT
         </p>
         <h2 class="font-quicksand font-light text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-none tracking-tight text-white whitespace-nowrap">
-          Music,<br />
-          Technology,<br />
+          Music,<br >
+          Technology,<br >
           In Sync.
         </h2>
         <div class="mt-6 sm:mt-8">
@@ -82,7 +82,7 @@
             <!-- Expanding elegant underline on hover -->
             <span
               class="block w-0 group-hover:w-full h-[1.5px] bg-white transition-all duration-200 opacity-0 group-hover:opacity-100 mt-1"
-            ></span>
+            />
           </div>
         </div>
       </div>

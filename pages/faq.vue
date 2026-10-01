@@ -13,7 +13,7 @@
       </p>
     </div>
 
-    <ContentDoc path="/faq" v-slot="{ doc }">
+    <ContentDoc v-slot="{ doc }" path="/faq">
       <article
         class="prose prose-invert prose-lg max-w-none font-zen prose-headings:font-zen prose-headings:font-light prose-headings:text-white prose-a:text-brand"
       >

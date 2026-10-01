@@ -36,7 +36,7 @@
               src="/images/access/map.png"
               alt="TechnoTUT Campus Map"
               class="w-full h-full max-h-[560px] object-contain transition-transform duration-700 ease-out group-hover:scale-[1.02]"
-            />
+            >
           </div>
           <div class="mt-4 flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 text-xs font-zen text-gray-400 font-light shrink-0">
             <div>
@@ -65,7 +65,7 @@
                 :src="commonsPhotos[currentPhotoIndex]"
                 alt="Commons 1 Photo"
                 class="w-full h-full object-cover transition-opacity duration-300"
-              />
+              >
               <!-- Floating photo count & controls -->
               <div class="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-dark/90 via-dark/40 to-transparent flex items-center justify-between">
                 <span class="text-[11px] font-quicksand text-gray-300">
@@ -73,16 +73,16 @@
                 </span>
                 <div class="flex items-center gap-1.5">
                   <button
-                    @click="prevPhoto"
                     class="w-7 h-7 rounded-full bg-dark/80 border border-white/20 flex items-center justify-center text-xs text-white hover:border-white transition-colors cursor-pointer"
                     aria-label="Previous Photo"
+                    @click="prevPhoto"
                   >
                     &larr;
                   </button>
                   <button
-                    @click="nextPhoto"
                     class="w-7 h-7 rounded-full bg-dark/80 border border-white/20 flex items-center justify-center text-xs text-white hover:border-white transition-colors cursor-pointer"
                     aria-label="Next Photo"
+                    @click="nextPhoto"
                   >
                     &rarr;
                   </button>

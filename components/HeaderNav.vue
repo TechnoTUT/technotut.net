@@ -9,7 +9,7 @@
           src="/images/logo/logo.svg"
           alt="TechnoTUT logo"
           class="h-10 sm:h-12 md:h-14 w-auto object-contain"
-        />
+        >
         <p class="hidden sm:block text-xs sm:text-sm lg:text-base font-quicksand tracking-wider text-white/90">
           Music &amp; Live production Club - TechnoTUT
         </p>

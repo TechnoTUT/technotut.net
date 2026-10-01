@@ -17,7 +17,7 @@
     <div class="mb-16 p-6 rounded-2xl bg-dark-panel border border-white/10">
       <h2 class="font-zen text-2xl font-light text-white mb-4">学内マップ</h2>
       <div class="overflow-hidden rounded-xl border border-white/10 bg-neutral-900 mb-4">
-        <img src="/images/access/map.png" alt="Campus Map" class="w-full h-auto object-contain" />
+        <img src="/images/access/map.png" alt="Campus Map" class="w-full h-auto object-contain" >
       </div>
       <p class="text-xs text-gray-400 font-zen">
         コモンズ1（福利施設1階）および音楽技術部室（クラブハウス2階）
@@ -25,7 +25,7 @@
     </div>
 
     <!-- Access Markdown Content -->
-    <ContentDoc path="/access" v-slot="{ doc }">
+    <ContentDoc v-slot="{ doc }" path="/access">
       <article
         class="prose prose-invert prose-lg max-w-none font-zen prose-headings:font-zen prose-headings:font-light prose-headings:text-white prose-a:text-brand"
       >
