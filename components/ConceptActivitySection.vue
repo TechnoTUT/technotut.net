@@ -1,5 +1,8 @@
 <template>
-  <section class="relative min-h-screen py-24 sm:py-32 px-4 sm:px-8 bg-dark border-t border-white/10 flex items-center justify-center overflow-hidden">
+  <section
+    ref="sectionRef"
+    class="relative min-h-screen py-24 sm:py-32 px-4 sm:px-8 bg-dark flex items-center justify-center overflow-hidden"
+  >
     <!-- Ambient Background Image Overlay (Crossfade on hover) -->
     <div class="absolute inset-0 pointer-events-none z-0 overflow-hidden">
       <div
@@ -27,11 +30,15 @@
       <!-- Interactive Mesh & Flying Orbs Canvas -->
       <canvas
         ref="canvasRef"
-        class="absolute inset-0 w-full h-full pointer-events-none z-0"
+        class="absolute inset-0 w-full h-full pointer-events-none z-0 transition-opacity duration-1000 ease-out"
+        :class="isVisible ? 'opacity-100' : 'opacity-0'"
       ></canvas>
 
       <!-- Center: CONCEPT (Centered in container, text left-aligned) -->
-      <div class="relative z-10 text-left px-4 sm:px-6 pointer-events-auto select-none max-w-xs sm:max-w-sm">
+      <div
+        class="relative z-10 text-left px-4 sm:px-6 pointer-events-auto select-none max-w-xs sm:max-w-sm transition-all duration-1000 ease-out"
+        :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
+      >
         <p class="font-quicksand text-xs tracking-[0.25em] text-gray-400 uppercase mb-3">
           CONCEPT
         </p>
@@ -53,10 +60,12 @@
         v-for="(item, idx) in activities"
         :key="item.title"
         class="orbit-item group z-20 cursor-pointer"
+        :class="isVisible ? 'orbit-item--visible' : 'orbit-item--hidden'"
         :style="{
           '--angle': `${idx * 60 - 120}deg`,
           '--float-delay': `${item.delay}s`,
           '--float-duration': `${item.duration}s`,
+          '--enter-delay': `${400 + idx * 120}ms`,
         }"
         @mouseenter="activeItem = item"
         @mouseleave="activeItem = null"
@@ -102,8 +111,11 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
 
+const sectionRef = ref<HTMLElement | null>(null)
 const containerRef = ref<HTMLElement | null>(null)
 const canvasRef = ref<HTMLCanvasElement | null>(null)
+const isVisible = ref(false)
+let sectionObserver: IntersectionObserver | null = null
 
 interface Activity {
   title: string
@@ -377,6 +389,19 @@ onMounted(() => {
   }
 
   draw()
+
+  if (sectionRef.value) {
+    sectionObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          isVisible.value = true
+          sectionObserver?.disconnect()
+        }
+      },
+      { threshold: 0.15 }
+    )
+    sectionObserver.observe(sectionRef.value)
+  }
 })
 
 onUnmounted(() => {
@@ -385,6 +410,9 @@ onUnmounted(() => {
   }
   if (resizeObserver) {
     resizeObserver.disconnect()
+  }
+  if (sectionObserver) {
+    sectionObserver.disconnect()
   }
 })
 </script>
@@ -398,7 +426,24 @@ onUnmounted(() => {
   position: absolute;
   left: calc(50% + cos(var(--angle)) * var(--orbit-radius));
   top: calc(50% + sin(var(--angle)) * var(--orbit-radius));
-  transform: translate(-50%, -50%);
+  transition:
+    opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1) var(--enter-delay, 0ms),
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1) var(--enter-delay, 0ms);
+}
+
+.orbit-item--hidden {
+  opacity: 0;
+  /* 中心方向（逆方向）へオフセットさせ、少し縮小させる */
+  transform: translate(-50%, -50%)
+    translate(calc(cos(var(--angle)) * -50px), calc(sin(var(--angle)) * -50px))
+    scale(0.65);
+  pointer-events: none;
+}
+
+.orbit-item--visible {
+  opacity: 1;
+  transform: translate(-50%, -50%) translate(0, 0) scale(1);
+  pointer-events: auto;
 }
 
 .floating-wrapper {
