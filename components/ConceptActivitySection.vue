@@ -28,7 +28,7 @@
 
     <div
       ref="containerRef"
-      class="relative w-full max-w-5xl aspect-square max-h-[800px] landscape:max-h-[min(800px,calc(100vh-100px))] flex items-center justify-center z-10"
+      class="concept-container relative w-full aspect-square flex items-center justify-center z-10"
     >
       <!-- Interactive Mesh & Flying Orbs Canvas -->
       <canvas
@@ -39,19 +39,19 @@
 
       <!-- Center: CONCEPT (Centered in container, text left-aligned) -->
       <div
-        class="relative z-10 text-left px-4 sm:px-6 pointer-events-auto select-none max-w-xs sm:max-w-sm transition-all duration-1000 ease-out"
+        class="relative z-10 text-left px-4 sm:px-6 pointer-events-auto select-none max-w-xs sm:max-w-sm 2xl:max-w-md [@media(min-width:2560px)]:max-w-xl transition-all duration-1000 ease-out"
         :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
       >
-        <p class="font-quicksand text-[11px] sm:text-xs tracking-[0.25em] text-gray-400 uppercase mb-2 sm:mb-3">
+        <p class="font-quicksand text-[11px] sm:text-xs 2xl:text-sm [@media(min-width:2560px)]:text-base tracking-[0.25em] text-gray-400 uppercase mb-2 sm:mb-3 2xl:mb-4">
           CONCEPT
         </p>
-        <h2 class="font-quicksand font-light text-2xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.05] sm:leading-none tracking-tight text-white whitespace-nowrap">
+        <h2 class="font-quicksand font-light text-2xl sm:text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl [@media(min-width:2560px)]:text-8xl leading-[1.05] sm:leading-none tracking-tight text-white whitespace-nowrap">
           Music,<br >
           Technology,<br >
           In Sync.
         </h2>
-        <div class="mt-4 sm:mt-8">
-          <NuxtLink to="/activity" class="common-btn text-xs py-1.5 px-5 sm:py-2 sm:px-6">
+        <div class="mt-4 sm:mt-8 2xl:mt-10 [@media(min-width:2560px)]:mt-12">
+          <NuxtLink to="/activity" class="common-btn text-xs sm:text-sm 2xl:text-base py-1.5 px-5 sm:py-2 sm:px-6 2xl:py-3 2xl:px-8 [@media(min-width:2560px)]:py-4 [@media(min-width:2560px)]:px-10">
             <span>EXPLORE ALL</span>
             <span>&rarr;</span>
           </NuxtLink>
@@ -85,14 +85,14 @@
           <!-- Pure minimal title with hover/active glow and expanding underline -->
           <div class="relative py-1 flex flex-col items-center">
             <span
-              class="font-quicksand text-base sm:text-2xl md:text-3xl tracking-widest text-white/85 group-hover:text-white group-hover:font-normal transition-all duration-200 select-none whitespace-nowrap group-hover:scale-105 drop-shadow-[0_0_12px_rgba(255,255,255,0.2)] group-hover:drop-shadow-[0_0_24px_rgba(255,255,255,0.9)]"
+              class="font-quicksand text-base sm:text-2xl md:text-3xl 2xl:text-4xl [@media(min-width:2560px)]:text-5xl tracking-widest text-white/85 group-hover:text-white group-hover:font-normal transition-all duration-200 select-none whitespace-nowrap group-hover:scale-105 drop-shadow-[0_0_12px_rgba(255,255,255,0.2)] group-hover:drop-shadow-[0_0_24px_rgba(255,255,255,0.9)]"
               :class="{ 'text-white font-normal scale-105 drop-shadow-[0_0_24px_rgba(255,255,255,0.9)]': activeItem?.id === item.id }"
             >
               {{ item.title }}
             </span>
             <!-- Expanding elegant underline on hover or active -->
             <span
-              class="block w-0 group-hover:w-full h-[1.5px] bg-white transition-all duration-200 opacity-0 group-hover:opacity-100 mt-1"
+              class="block w-0 group-hover:w-full h-[1.5px] 2xl:h-[2px] bg-white transition-all duration-200 opacity-0 group-hover:opacity-100 mt-1"
               :class="{ '!w-full !opacity-100': activeItem?.id === item.id }"
             />
           </div>
@@ -108,20 +108,20 @@
           ? 'opacity-100 translate-y-0 landscape:translate-y-0 landscape:translate-x-0'
           : 'opacity-0 translate-y-4 landscape:translate-y-0 ' + (activeItem?.side === 'left' ? 'landscape:-translate-x-4' : 'landscape:translate-x-4'),
         'bottom-6 inset-x-6 sm:max-w-lg sm:mx-auto',
-        'landscape:bottom-24 landscape:top-auto landscape:translate-y-0 landscape:inset-x-auto landscape:mx-0 landscape:max-w-[240px] md:landscape:max-w-[260px] xl:landscape:top-1/2 xl:landscape:bottom-auto xl:landscape:-translate-y-1/2 xl:landscape:max-w-sm',
+        'landscape:bottom-24 landscape:top-auto landscape:translate-y-0 landscape:inset-x-auto landscape:mx-0 landscape:max-w-[240px] md:landscape:max-w-[260px] xl:landscape:top-1/2 xl:landscape:bottom-auto xl:landscape:-translate-y-1/2 xl:landscape:max-w-sm 2xl:landscape:max-w-md [@media(min-width:2560px)]:landscape:max-w-lg',
         activeItem?.side === 'left'
-          ? 'landscape:left-6 md:landscape:left-10 2xl:landscape:left-16 text-left'
-          : 'landscape:right-6 md:landscape:right-10 2xl:landscape:right-16 text-left landscape:text-right'
+          ? 'landscape:left-6 md:landscape:left-10 lg:landscape:left-12 2xl:landscape:left-16 [@media(min-width:2560px)]:landscape:left-24 text-left'
+          : 'landscape:right-6 md:landscape:right-10 lg:landscape:right-12 2xl:landscape:right-16 [@media(min-width:2560px)]:landscape:right-24 text-left landscape:text-right'
       ]"
       @mouseenter="onCardMouseEnter"
       @mouseleave="onCardMouseLeave"
     >
       <div
         v-if="activeItem"
-        class="p-4 sm:p-5 landscape:p-0 rounded-2xl landscape:rounded-none bg-dark/95 landscape:bg-transparent backdrop-blur-md landscape:backdrop-blur-none border border-white/15 landscape:border-0 shadow-2xl landscape:shadow-none space-y-2 pointer-events-auto"
+        class="p-4 sm:p-5 2xl:p-6 landscape:p-0 rounded-2xl landscape:rounded-none bg-dark/95 landscape:bg-transparent backdrop-blur-md landscape:backdrop-blur-none border border-white/15 landscape:border-0 shadow-2xl landscape:shadow-none space-y-2 2xl:space-y-3 pointer-events-auto"
       >
         <div class="flex items-center justify-between">
-          <p class="font-quicksand text-xs sm:text-sm tracking-[0.2em] text-white/60 uppercase">
+          <p class="font-quicksand text-xs sm:text-sm 2xl:text-base [@media(min-width:2560px)]:text-lg tracking-[0.2em] text-white/60 uppercase">
             ACTIVITY // {{ activeItem.title }}
           </p>
           <button
@@ -133,13 +133,13 @@
             ✕
           </button>
         </div>
-        <p class="font-noto text-xs sm:text-sm text-white/95 font-normal leading-relaxed tracking-wide drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">
+        <p class="font-noto text-xs sm:text-sm 2xl:text-base [@media(min-width:2560px)]:text-lg text-white/95 font-normal leading-relaxed tracking-wide drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">
           {{ activeItem.description }}
         </p>
-        <div class="pt-1">
+        <div class="pt-1 2xl:pt-2">
           <NuxtLink
             :to="`/activity#${activeItem.id}`"
-            class="inline-flex items-center min-h-11 gap-2 text-xs sm:text-sm text-brand hover:text-white landscape:text-white landscape:underline underline-offset-4 font-medium transition-colors"
+            class="inline-flex items-center min-h-11 gap-2 text-xs sm:text-sm 2xl:text-base [@media(min-width:2560px)]:text-lg text-brand hover:text-white landscape:text-white landscape:underline underline-offset-4 font-medium transition-colors"
           >
             活動を詳しく見る <span aria-hidden="true">&rarr;</span>
           </NuxtLink>
@@ -364,9 +364,15 @@ onMounted(() => {
     centerX = width / 2
     centerY = height / 2
 
-    // Read or compute radius matching CSS
-    const vw = window.innerWidth
-    orbitRadius = vw < 640 ? Math.max(130, Math.min(vw * 0.38, 160)) : Math.max(160, Math.min(vw * 0.26, 320))
+    // Read actual evaluated radius from CSS variable for 100% exact alignment on all resolutions
+    const computedStyle = window.getComputedStyle(container)
+    const cssRadius = parseFloat(computedStyle.getPropertyValue('--orbit-radius'))
+    if (!isNaN(cssRadius) && cssRadius > 0) {
+      orbitRadius = cssRadius
+    } else {
+      const vw = window.innerWidth
+      orbitRadius = vw < 640 ? Math.max(130, Math.min(vw * 0.38, 160)) : Math.max(160, Math.min(vw * 0.26, 320))
+    }
   }
 
   updateSize()
@@ -388,6 +394,8 @@ onMounted(() => {
   // Create faint orbiting particles revolving around center
   const orbCount = 20
   const orbs: Orb[] = []
+  const scale = Math.max(1, Math.min(orbitRadius / 280, 2.2))
+
   for (let i = 0; i < orbCount; i++) {
     // Distributed radial distance from center
     const rFactor = 0.65 + (i / orbCount) * 0.7 + (Math.random() - 0.5) * 0.15
@@ -396,7 +404,7 @@ onMounted(() => {
 
     // Orbital speed in tangential direction for stable circular/elliptical orbit: v = sqrt(G/r)
     // Central gravity constant
-    const G_center = 120
+    const G_center = 120 * scale
     const orbitalSpeed = Math.sqrt(G_center / (r * 0.05)) * 0.35 * (0.85 + Math.random() * 0.3)
 
     // Tangential velocity (clockwise)
@@ -409,7 +417,7 @@ onMounted(() => {
       vx,
       vy,
       targetRadius: r,
-      size: 1.2 + Math.random() * 1.5, // Delicate stardust particles
+      size: (1.2 + Math.random() * 1.5) * scale, // Delicate stardust particles scaled for 2K/4K
       alpha: 0.25 + Math.random() * 0.35, // Clear, vibrant opacity
       hue: (i / orbCount) * 360, // Rainbow spectrum distributed
       hueSpeed: 0.4 + Math.random() * 0.4, // Continuous gentle hue shift
@@ -423,8 +431,11 @@ onMounted(() => {
     // Nodes positions for subtle gravity perturbations
     const nodes = [0, 1, 2, 3, 4, 5].map((i) => getNodePos(i))
 
+    // Dynamic scale factor for resolution adaptation
+    const currentScale = Math.max(1, Math.min(orbitRadius / 280, 2.2))
+
     // Central gravity constant
-    const G_center = 85
+    const G_center = 85 * currentScale
 
     for (const orb of orbs) {
       // 1. Central Gravity (Pulling toward centerX, centerY)
@@ -442,14 +453,15 @@ onMounted(() => {
       orb.vx += (cdx / cdist) * (radiusDiff * 0.0006)
       orb.vy += (cdy / cdist) * (radiusDiff * 0.0006)
 
-    // 2. Subtle gravity perturbation from activity nodes as orbs pass nearby
+      // 2. Subtle gravity perturbation from activity nodes as orbs pass nearby
+      const nodeDist = Math.max(90, orbitRadius * 0.28)
       for (let i = 0; i < 6; i++) {
         const n = nodes[i]
         const ndx = n.x - orb.x
         const ndy = n.y - orb.y
         const ndist = Math.hypot(ndx, ndy)
-        if (ndist < 90 && ndist > 10) {
-          const nodePull = 0.035 / (ndist * 0.5)
+        if (ndist < nodeDist && ndist > 10) {
+          const nodePull = (0.035 * currentScale) / (ndist * 0.5)
           orb.vx += (ndx / ndist) * nodePull
           orb.vy += (ndy / ndist) * nodePull
         }
@@ -460,11 +472,11 @@ onMounted(() => {
         const mdx = mouseX - orb.x
         const mdy = mouseY - orb.y
         const mdist = Math.hypot(mdx, mdy)
-        const interactionRadius = 180
+        const interactionRadius = Math.max(180, orbitRadius * 0.45)
 
         if (mdist < interactionRadius && mdist > 8) {
           // Combination of gentle gravitational pull toward cursor + subtle swirling deflection
-          const forceFactor = (1 - mdist / interactionRadius) * 0.35
+          const forceFactor = (1 - mdist / interactionRadius) * 0.35 * currentScale
           // Subtle attraction towards cursor
           orb.vx += (mdx / mdist) * forceFactor * 0.5
           orb.vy += (mdy / mdist) * forceFactor * 0.5
@@ -474,14 +486,16 @@ onMounted(() => {
         }
       }
 
-      // 3. Subtle velocity damping for silky smooth motion
+      // 3. Velocity damping proportional to scale
+      const maxSpeed = 2.4 * Math.sqrt(currentScale)
+      const minSpeed = 0.8 * Math.sqrt(currentScale)
       const currentSpeed = Math.hypot(orb.vx, orb.vy)
-      if (currentSpeed > 2.4) {
-        orb.vx = (orb.vx / currentSpeed) * 2.4
-        orb.vy = (orb.vy / currentSpeed) * 2.4
-      } else if (currentSpeed < 0.8) {
-        orb.vx = (orb.vx / currentSpeed) * 0.8
-        orb.vy = (orb.vy / currentSpeed) * 0.8
+      if (currentSpeed > maxSpeed) {
+        orb.vx = (orb.vx / currentSpeed) * maxSpeed
+        orb.vy = (orb.vy / currentSpeed) * maxSpeed
+      } else if (currentSpeed < minSpeed) {
+        orb.vx = (orb.vx / currentSpeed) * minSpeed
+        orb.vy = (orb.vy / currentSpeed) * minSpeed
       }
 
       // Update position & hue
@@ -537,7 +551,7 @@ onMounted(() => {
 
       // Draw rainbow head orb with neon glow
       ctx.save()
-      ctx.shadowBlur = 8
+      ctx.shadowBlur = 8 * currentScale
       ctx.shadowColor = `hsla(${orb.hue}, 90%, 60%, ${displayAlpha * 0.9})`
       ctx.beginPath()
       ctx.arc(orb.x, orb.y, orb.size, 0, Math.PI * 2)
@@ -605,13 +619,58 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+.concept-container {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  max-width: 64rem;
+  max-height: 800px;
+}
+
+@media (orientation: landscape) {
+  .concept-container {
+    max-height: min(800px, calc(100vh - 100px));
+  }
+}
+
+@media (min-width: 1536px) {
+  .concept-container {
+    max-width: 74rem;
+    max-height: min(920px, calc(100vh - 120px));
+  }
+}
+
+@media (min-width: 2560px) {
+  .concept-container {
+    max-width: 90rem;
+    max-height: min(1200px, calc(100vh - 160px));
+  }
+}
+
 .aspect-square {
-  --orbit-radius: clamp(140px, 38vw, 320px);
+  --orbit-radius: clamp(140px, 38vw, 160px);
 }
 
 @media (min-width: 640px) {
   .aspect-square {
-    --orbit-radius: clamp(160px, 26vw, 320px);
+    --orbit-radius: clamp(160px, min(26vw, 34vh), 300px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .aspect-square {
+    --orbit-radius: clamp(220px, min(22vw, 34vh), 340px);
+  }
+}
+
+@media (min-width: 1536px) {
+  .aspect-square {
+    --orbit-radius: clamp(300px, min(19vw, 32vh), 400px);
+  }
+}
+
+@media (min-width: 2560px) {
+  .aspect-square {
+    --orbit-radius: clamp(380px, min(17vw, 30vh), 520px);
   }
 }
 
