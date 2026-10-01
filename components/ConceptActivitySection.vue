@@ -2,6 +2,8 @@
   <section
     ref="sectionRef"
     class="relative min-h-screen py-24 sm:py-32 px-4 sm:px-8 bg-dark flex items-center justify-center overflow-hidden"
+    @mouseleave="activeItem = null"
+    @focusout="onFocusOut"
   >
     <!-- Ambient Background Image Overlay (Crossfade on hover) -->
     <div class="absolute inset-0 pointer-events-none z-0 overflow-hidden">
@@ -56,9 +58,11 @@
       </div>
 
       <!-- Surrounding Activities placed circularly with floating gentle drift -->
-      <div
+      <NuxtLink
         v-for="(item, idx) in activities"
         :key="item.title"
+        :to="`/activity#${item.id}`"
+        :aria-label="`${item.title} の活動紹介を見る`"
         class="orbit-item group z-20 cursor-pointer"
         :class="isVisible ? 'orbit-item--visible' : 'orbit-item--hidden'"
         :style="{
@@ -68,7 +72,7 @@
           '--enter-delay': `${400 + idx * 120}ms`,
         }"
         @mouseenter="activeItem = item"
-        @mouseleave="activeItem = null"
+        @focus="activeItem = item"
       >
         <!-- Floating container (Paused on hover) -->
         <div class="floating-wrapper flex flex-col items-center">
@@ -85,14 +89,14 @@
             />
           </div>
         </div>
-      </div>
+      </NuxtLink>
     </div>
 
     <!-- Detail text area positioned at screen edges, vertically aligned with section / CONCEPT center -->
     <div
-      class="absolute top-1/2 -translate-y-1/2 z-30 max-w-[260px] sm:max-w-xs md:max-w-sm pointer-events-none transition-all duration-300"
+      class="absolute bottom-6 inset-x-6 sm:inset-x-auto sm:bottom-auto sm:top-1/2 sm:-translate-y-1/2 z-30 sm:max-w-xs md:max-w-sm pointer-events-none transition-all duration-300"
       :class="[
-        activeItem?.side === 'left' ? 'left-6 sm:left-12 lg:left-16 text-left' : 'right-6 sm:right-12 lg:right-16 text-right',
+        activeItem?.side === 'left' ? 'sm:left-12 lg:left-16 text-left' : 'sm:right-12 lg:right-16 text-left sm:text-right',
         activeItem ? 'opacity-100 translate-x-0' : 'opacity-0 ' + (activeItem?.side === 'left' ? '-translate-x-4' : 'translate-x-4')
       ]"
     >
@@ -100,9 +104,12 @@
         <p class="font-quicksand text-xs sm:text-sm tracking-[0.2em] text-white/60 uppercase">
           ACTIVITY // {{ activeItem.title }}
         </p>
-        <p class="font-noto text-xs sm:text-sm text-gray-dim font-[350] leading-relaxed tracking-wide drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">
+        <p class="font-noto text-sm text-white/95 font-normal leading-relaxed tracking-wide drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">
           {{ activeItem.description }}
         </p>
+        <NuxtLink :to="`/activity#${activeItem.id}`" class="inline-flex items-center min-h-11 gap-3 text-sm text-white underline underline-offset-4 pointer-events-auto">
+          活動を詳しく見る <span aria-hidden="true">→</span>
+        </NuxtLink>
       </div>
     </div>
   </section>
@@ -118,6 +125,7 @@ const isVisible = ref(false)
 let sectionObserver: IntersectionObserver | null = null
 
 interface Activity {
+  id: string
   title: string
   side: 'left' | 'right'
   image: string
@@ -128,8 +136,15 @@ interface Activity {
 
 const activeItem = ref<Activity | null>(null)
 
+const onFocusOut = (event: FocusEvent) => {
+  if (!(event.currentTarget as HTMLElement).contains(event.relatedTarget as Node | null)) {
+    activeItem.value = null
+  }
+}
+
 const activities: Activity[] = [
   {
+    id: 'dj',
     title: 'DJ',
     side: 'left',
     image: '/images/concept/dj.jpg',
@@ -139,6 +154,7 @@ const activities: Activity[] = [
       '主催イベント「The Utopia Tone」や技科大祭でのプレイを中心に活動。学外クラブでの出演や主催イベントも展開しています。',
   },
   {
+    id: 'vj-lj',
     title: 'VJ & LJ',
     side: 'right',
     image: '/images/concept/vj.jpg',
@@ -148,6 +164,7 @@ const activities: Activity[] = [
       '映像演出 (VJ) と照明演出 (LJ) を担当。機材開発を行い、空間を最大限に盛り上げる光と映像の演出を手掛けます。',
   },
   {
+    id: 'media',
     title: 'Media',
     side: 'right',
     image: '/images/concept/media.jpg',
@@ -157,6 +174,7 @@ const activities: Activity[] = [
       'フライヤー制作、広報SNS運用、Webサイト更新、映像制作やイラストレーションなど視覚と感覚に訴えるコンテンツを創出します。',
   },
   {
+    id: 'dtm',
     title: 'DTM',
     side: 'right',
     image: '/images/concept/dtm.png',
@@ -166,6 +184,7 @@ const activities: Activity[] = [
       '各自の好む音楽を求めて楽曲制作。春・秋のM3でのオリジナル作品頒布やBandcampでの音源リリースを行っています。',
   },
   {
+    id: 'tech-diy',
     title: 'Tech & DIY',
     side: 'left',
     image: '/images/concept/tech.jpg',
@@ -175,6 +194,7 @@ const activities: Activity[] = [
       'サーバー保守管理、イベント会場のリアルタイム映像配信、照明プログラミングなど、音楽とライブを支える技術開発を行います。',
   },
   {
+    id: 'ramen',
     title: 'ら',
     side: 'left',
     image: '/images/concept/ra.jpg',
@@ -423,6 +443,11 @@ onUnmounted(() => {
 }
 
 .orbit-item {
+  min-height: 44px;
+  min-width: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: absolute;
   left: calc(50% + cos(var(--angle)) * var(--orbit-radius));
   top: calc(50% + sin(var(--angle)) * var(--orbit-radius));
@@ -455,7 +480,8 @@ onUnmounted(() => {
   z-index: 30;
 }
 
-.orbit-item:hover .floating-wrapper {
+.orbit-item:hover .floating-wrapper,
+.orbit-item:focus-visible .floating-wrapper {
   animation-play-state: paused;
 }
 
