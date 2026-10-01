@@ -76,6 +76,7 @@
           '--enter-delay': `${400 + idx * 120}ms`,
         }"
         @mouseenter="onMouseEnter(item)"
+        @mouseleave="onMouseLeave"
         @focus="onFocus(item)"
         @click.prevent.stop="handleItemClick(item)"
       >
@@ -112,6 +113,8 @@
           ? 'landscape:left-6 md:landscape:left-10 2xl:landscape:left-16 text-left'
           : 'landscape:right-6 md:landscape:right-10 2xl:landscape:right-16 text-left landscape:text-right'
       ]"
+      @mouseenter="onCardMouseEnter"
+      @mouseleave="onCardMouseLeave"
     >
       <div
         v-if="activeItem"
@@ -178,27 +181,57 @@ const isTouchDevice = () => {
   )
 }
 
+let leaveTimer: ReturnType<typeof setTimeout> | null = null
+
+const clearLeaveTimer = () => {
+  if (leaveTimer) {
+    clearTimeout(leaveTimer)
+    leaveTimer = null
+  }
+}
+
 const onMouseEnter = (item: Activity) => {
   if (typeof window !== 'undefined' && window.matchMedia('(hover: hover)').matches) {
+    clearLeaveTimer()
     activeItem.value = item
   }
 }
 
 const onFocus = (item: Activity) => {
   if (typeof window !== 'undefined' && window.matchMedia('(hover: hover)').matches) {
+    clearLeaveTimer()
     activeItem.value = item
   }
 }
 
 const onMouseLeave = () => {
   if (typeof window !== 'undefined' && window.matchMedia('(hover: hover)').matches) {
-    activeItem.value = null
+    clearLeaveTimer()
+    leaveTimer = setTimeout(() => {
+      activeItem.value = null
+    }, 250)
+  }
+}
+
+const onCardMouseEnter = () => {
+  if (typeof window !== 'undefined' && window.matchMedia('(hover: hover)').matches) {
+    clearLeaveTimer()
+  }
+}
+
+const onCardMouseLeave = () => {
+  if (typeof window !== 'undefined' && window.matchMedia('(hover: hover)').matches) {
+    clearLeaveTimer()
+    leaveTimer = setTimeout(() => {
+      activeItem.value = null
+    }, 200)
   }
 }
 
 const onFocusOut = (event: FocusEvent) => {
   if (typeof window !== 'undefined' && window.matchMedia('(hover: hover)').matches) {
     if (!(event.currentTarget as HTMLElement).contains(event.relatedTarget as Node | null)) {
+      clearLeaveTimer()
       activeItem.value = null
     }
   }
@@ -287,6 +320,11 @@ const activities: Activity[] = [
 // Canvas animation logic
 let animationFrameId: number | null = null
 let resizeObserver: ResizeObserver | null = null
+let mouseX = 0
+let mouseY = 0
+let isMouseActive = false
+let onCanvasMouseMove: ((e: MouseEvent) => void) | null = null
+let onCanvasMouseLeave: (() => void) | null = null
 
 interface Orb {
   x: number
@@ -295,8 +333,10 @@ interface Orb {
   vy: number
   size: number
   alpha: number
+  hue: number
+  hueSpeed: number
   targetRadius: number
-  trail: { x: number; y: number }[]
+  trail: { x: number; y: number; hue: number }[]
 }
 
 onMounted(() => {
@@ -369,8 +409,10 @@ onMounted(() => {
       vx,
       vy,
       targetRadius: r,
-      size: 1.0 + Math.random() * 1.2, // Delicate stardust particles
-      alpha: 0.12 + Math.random() * 0.22, // Soft and faint (12% - 34% opacity)
+      size: 1.2 + Math.random() * 1.5, // Delicate stardust particles
+      alpha: 0.25 + Math.random() * 0.35, // Clear, vibrant opacity
+      hue: (i / orbCount) * 360, // Rainbow spectrum distributed
+      hueSpeed: 0.4 + Math.random() * 0.4, // Continuous gentle hue shift
       trail: [],
     })
   }
@@ -400,7 +442,7 @@ onMounted(() => {
       orb.vx += (cdx / cdist) * (radiusDiff * 0.0006)
       orb.vy += (cdy / cdist) * (radiusDiff * 0.0006)
 
-      // 2. Subtle gravity perturbation from activity nodes as orbs pass nearby
+    // 2. Subtle gravity perturbation from activity nodes as orbs pass nearby
       for (let i = 0; i < 6; i++) {
         const n = nodes[i]
         const ndx = n.x - orb.x
@@ -410,6 +452,25 @@ onMounted(() => {
           const nodePull = 0.035 / (ndist * 0.5)
           orb.vx += (ndx / ndist) * nodePull
           orb.vy += (ndy / ndist) * nodePull
+        }
+      }
+
+      // 2.5. Interactive mouse interaction (Desktop only, excluded on mobile/tablet)
+      if (isMouseActive && !isTouchDevice()) {
+        const mdx = mouseX - orb.x
+        const mdy = mouseY - orb.y
+        const mdist = Math.hypot(mdx, mdy)
+        const interactionRadius = 180
+
+        if (mdist < interactionRadius && mdist > 8) {
+          // Combination of gentle gravitational pull toward cursor + subtle swirling deflection
+          const forceFactor = (1 - mdist / interactionRadius) * 0.35
+          // Subtle attraction towards cursor
+          orb.vx += (mdx / mdist) * forceFactor * 0.5
+          orb.vy += (mdy / mdist) * forceFactor * 0.5
+          // Subtle swirl (perpendicular vector)
+          orb.vx += (-mdy / mdist) * forceFactor * 0.3
+          orb.vy += (mdx / mdist) * forceFactor * 0.3
         }
       }
 
@@ -423,12 +484,13 @@ onMounted(() => {
         orb.vy = (orb.vy / currentSpeed) * 0.8
       }
 
-      // Update position
+      // Update position & hue
       orb.x += orb.vx
       orb.y += orb.vy
+      orb.hue = (orb.hue + orb.hueSpeed) % 360
 
-      // Record trail
-      orb.trail.push({ x: orb.x, y: orb.y })
+      // Record trail with current hue
+      orb.trail.push({ x: orb.x, y: orb.y, hue: orb.hue })
       if (orb.trail.length > 16) {
         orb.trail.shift()
       }
@@ -458,28 +520,28 @@ onMounted(() => {
         continue
       }
 
-      // Draw very faint glowing trail
+      // Draw rainbow glowing trail
       if (orb.trail.length > 1) {
         ctx.save()
         for (let j = 0; j < orb.trail.length - 1; j++) {
-          const tAlpha = (j / orb.trail.length) * (displayAlpha * 0.5)
+          const tAlpha = (j / orb.trail.length) * (displayAlpha * 0.6)
           ctx.beginPath()
           ctx.moveTo(orb.trail[j].x, orb.trail[j].y)
           ctx.lineTo(orb.trail[j + 1].x, orb.trail[j + 1].y)
-          ctx.strokeStyle = `rgba(255, 255, 255, ${tAlpha})`
-          ctx.lineWidth = orb.size * 0.7
+          ctx.strokeStyle = `hsla(${orb.trail[j].hue}, 85%, 65%, ${tAlpha})`
+          ctx.lineWidth = orb.size * 0.8
           ctx.stroke()
         }
         ctx.restore()
       }
 
-      // Draw faint, delicate head orb
+      // Draw rainbow head orb with neon glow
       ctx.save()
-      ctx.shadowBlur = 6
-      ctx.shadowColor = `rgba(255, 255, 255, ${displayAlpha * 0.6})`
+      ctx.shadowBlur = 8
+      ctx.shadowColor = `hsla(${orb.hue}, 90%, 60%, ${displayAlpha * 0.9})`
       ctx.beginPath()
       ctx.arc(orb.x, orb.y, orb.size, 0, Math.PI * 2)
-      ctx.fillStyle = `rgba(255, 255, 255, ${displayAlpha})`
+      ctx.fillStyle = `hsla(${orb.hue}, 85%, 70%, ${displayAlpha})`
       ctx.fill()
       ctx.restore()
     }
@@ -488,6 +550,27 @@ onMounted(() => {
   }
 
   draw()
+
+  // Track mouse position over the section/container (Desktop only, excluded on mobile/tablet)
+  if (!isTouchDevice()) {
+    onCanvasMouseMove = (e: MouseEvent) => {
+      if (!isTouchDevice()) {
+        const rect = container.getBoundingClientRect()
+        mouseX = e.clientX - rect.left
+        mouseY = e.clientY - rect.top
+        isMouseActive = true
+      }
+    }
+
+    onCanvasMouseLeave = () => {
+      isMouseActive = false
+    }
+
+    if (sectionRef.value) {
+      sectionRef.value.addEventListener('mousemove', onCanvasMouseMove, { passive: true })
+      sectionRef.value.addEventListener('mouseleave', onCanvasMouseLeave, { passive: true })
+    }
+  }
 
   if (sectionRef.value) {
     sectionObserver = new IntersectionObserver(
@@ -513,6 +596,11 @@ onUnmounted(() => {
   if (sectionObserver) {
     sectionObserver.disconnect()
   }
+  if (sectionRef.value && onCanvasMouseMove && onCanvasMouseLeave) {
+    sectionRef.value.removeEventListener('mousemove', onCanvasMouseMove)
+    sectionRef.value.removeEventListener('mouseleave', onCanvasMouseLeave)
+  }
+  clearLeaveTimer()
 })
 </script>
 
