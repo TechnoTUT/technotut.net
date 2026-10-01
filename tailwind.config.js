@@ -13,13 +13,13 @@ module.exports = {
         dark: '#050505',
         'dark-panel': '#0c0c0c',
         'dark-border': 'rgba(255, 255, 255, 0.12)',
-        'gray-dim': '#D0D0D0',
+        'gray-dim': '#c2c2c2',
         brand: '#C7000A',
         'brand-light': '#E0202A',
       },
       fontFamily: {
         quicksand: ['"Quicksand"', 'sans-serif'],
-        zen: ['"Zen Kaku Gothic Antique"', 'sans-serif'],
+        noto: ['"Noto Sans JP"', 'sans-serif'],
       },
       keyframes: {
         fadein: {

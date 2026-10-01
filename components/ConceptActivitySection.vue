@@ -100,7 +100,7 @@
         <p class="font-quicksand text-xs sm:text-sm tracking-[0.2em] text-white/60 uppercase">
           ACTIVITY // {{ activeItem.title }}
         </p>
-        <p class="font-zen text-xs sm:text-sm text-white/95 font-normal leading-relaxed tracking-wide drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">
+        <p class="font-noto text-xs sm:text-sm text-gray-dim font-[350] leading-relaxed tracking-wide drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">
           {{ activeItem.description }}
         </p>
       </div>
