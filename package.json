@@ -29,5 +29,10 @@
     "postcss": "^8.5.3",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.7.3"
+  },
+  "overrides": {
+    "@nuxtjs/mdc": "^0.22.2",
+    "@unhead/vue": "^2.1.17",
+    "unhead": "^2.1.17"
   }
 }
