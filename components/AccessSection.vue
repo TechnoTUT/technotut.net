@@ -73,15 +73,18 @@
                 </span>
                 <div class="flex items-center gap-1.5">
                   <button
-                    @click="prevPhoto"
+                    type="button"
                     class="w-11 h-11 rounded-full bg-dark/80 border border-white/20 flex items-center justify-center text-xs text-white hover:border-white transition-colors cursor-pointer"
-                    type="button" aria-label="prevPhoto"
+                    aria-label="Previous photo"
+                    @click="prevPhoto"
+                  >
                     &larr;
                   </button>
                   <button
-                    @click="nextPhoto"
+                    type="button"
                     class="w-11 h-11 rounded-full bg-dark/80 border border-white/20 flex items-center justify-center text-xs text-white hover:border-white transition-colors cursor-pointer"
-                    type="button" aria-label="nextPhoto"
+                    aria-label="Next photo"
+                    @click="nextPhoto"
                   >
                     &rarr;
                   </button>

@@ -9,7 +9,7 @@
       >
       <div class="absolute inset-0 bg-gradient-to-b from-dark/60 via-transparent to-dark"/>
     </div>
-    <nav aria-label="トップページのメインリンク" class="relative z-10 px-6 sm:px-12 lg:px-16 pb-12 sm:pb-16">
+    <nav aria-label="Homepage main links" class="relative z-10 px-6 sm:px-12 lg:px-16 pb-12 sm:pb-16">
       <ul class="hero-choices font-quicksand">
         <li v-for="link in links" :key="link.label">
           <NuxtLink :to="link.to" class="hero-choice">
@@ -20,7 +20,7 @@
       </ul>
     </nav>
     <a href="#activity" class="relative z-10 self-center p-3">
-      <img src="/images/home/scroll.svg" alt="" class="w-40 sm:w-48 opacity-80" />
+      <img src="/images/home/scroll.svg" alt="" class="w-40 sm:w-48 opacity-80" >
     </a>
   </section>
 </template>

@@ -57,9 +57,9 @@
 
       <!-- Activity controls support pointer, touch and keyboard -->
       <button
-        type="button"
         v-for="(item, idx) in activities"
         :key="item.title"
+        type="button"
         class="orbit-item group z-20 cursor-pointer"
         :class="isVisible ? 'orbit-item--visible' : 'orbit-item--hidden'"
         :style="{
@@ -68,12 +68,12 @@
           '--float-duration': `${item.duration}s`,
           '--enter-delay': `${400 + idx * 120}ms`,
         }"
+        :aria-pressed="activeItem?.title === item.title"
+        aria-controls="activity-description"
         @mouseenter="activeItem = item"
         @mouseleave="clearHover"
         @focus="activeItem = item"
         @click="activeItem = item"
-        :aria-pressed="activeItem?.title === item.title"
-        aria-controls="activity-description"
       >
         <!-- Floating container (Paused on hover) -->
         <div class="floating-wrapper flex flex-col items-center">
@@ -133,7 +133,7 @@ interface Activity {
 }
 
 const activeItem = ref<Activity | null>(null)
-let cleanupMotion = () => {}
+let cleanupMotion: (() => void) | null = null
 const clearHover = (event: MouseEvent) => {
   const control = event.currentTarget as HTMLElement
   if (window.matchMedia('(hover: hover)').matches && !control.contains(document.activeElement)) activeItem.value = null
@@ -403,24 +403,48 @@ onMounted(() => {
     animationFrameId = requestAnimationFrame(draw)
   }
 
-  draw()
+  const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
+  let inView = false
+  const canAnimate = () => inView && !document.hidden && !motionQuery.matches && window.innerWidth >= 768
+
+  const syncAnimation = () => {
+    if (canAnimate()) {
+      if (animationFrameId === null) {
+        animationFrameId = requestAnimationFrame(draw)
+      }
+    } else if (animationFrameId !== null) {
+      cancelAnimationFrame(animationFrameId)
+      animationFrameId = null
+    }
+  }
 
   if (sectionRef.value) {
     sectionObserver = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        inView = entry.isIntersecting
+        if (entry.isIntersecting && !isVisible.value) {
           isVisible.value = true
-          sectionObserver?.disconnect()
         }
+        syncAnimation()
       },
       { threshold: 0.15 }
     )
     sectionObserver.observe(sectionRef.value)
   }
+
+  motionQuery.addEventListener('change', syncAnimation)
+  document.addEventListener('visibilitychange', syncAnimation)
+  window.addEventListener('resize', syncAnimation, { passive: true })
+
+  cleanupMotion = () => {
+    motionQuery.removeEventListener('change', syncAnimation)
+    document.removeEventListener('visibilitychange', syncAnimation)
+    window.removeEventListener('resize', syncAnimation)
+  }
 })
 
 onUnmounted(() => {
-  cleanupMotion()
+  cleanupMotion?.()
   if (animationFrameId) {
     cancelAnimationFrame(animationFrameId)
   }

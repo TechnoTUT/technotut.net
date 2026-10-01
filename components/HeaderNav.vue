@@ -1,13 +1,13 @@
 <template>
   <header class="site-header fixed inset-x-0 top-0 z-50" :class="{ 'is-compact': showLinks }">
     <div class="header-row">
-      <NuxtLink to="/" class="shrink-0" aria-label="TechnoTUT ホーム">
-        <img src="/images/logo/logo.svg" alt="TechnoTUT" class="h-10 sm:h-12 md:h-14 w-auto" />
+      <NuxtLink to="/" class="shrink-0" aria-label="TechnoTUT Home">
+        <img src="/images/logo/logo.svg" alt="TechnoTUT" class="h-10 sm:h-12 md:h-14 w-auto" >
       </NuxtLink>
       <div class="header-content">
         <Transition name="header-switch" mode="out-in">
           <p v-if="!showLinks" key="subtitle" class="header-subtitle font-quicksand">Music &amp; Live production Club - TechnoTUT</p>
-          <nav v-else key="links" class="header-links font-quicksand" aria-label="メインナビゲーション">
+          <nav v-else key="links" class="header-links font-quicksand" aria-label="Main Navigation">
             <NuxtLink to="/">HOME</NuxtLink>
             <NuxtLink to="/activity">ACTIVITY</NuxtLink>
             <NuxtLink to="/gikadaifes">GIKADAIFES</NuxtLink>
