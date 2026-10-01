@@ -40,12 +40,18 @@
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-stretch">
         <!-- Map visual (Larger: 7 cols on lg screen, fills full height) -->
         <div class="lg:col-span-7 flex flex-col justify-between">
-          <div class="rounded-2xl overflow-hidden bg-dark group shadow-2xl flex-grow flex items-center justify-center">
-            <img
-              src="/images/access/map.png"
-              alt="TechnoTUT Campus Map"
-              class="w-full h-full max-h-[560px] object-contain transition-transform duration-700 ease-out group-hover:scale-[1.02]"
-            >
+          <div class="flex-grow flex flex-col min-h-[460px] w-full">
+            <ClientOnly>
+              <InteractiveCampusMap ref="campusMapRef" class="w-full h-full flex-grow" />
+              <template #fallback>
+                <div class="w-full h-full flex-grow min-h-[460px] bg-dark flex flex-col items-center justify-center gap-3 border border-white/10">
+                  <div class="w-8 h-8 rounded-full border-2 border-brand border-t-transparent animate-spin" />
+                  <p class="font-quicksand text-xs tracking-widest text-gray-400 uppercase">
+                    Loading Campus Map...
+                  </p>
+                </div>
+              </template>
+            </ClientOnly>
           </div>
           <div class="mt-4 flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 text-xs font-noto text-gray-400 font-light shrink-0">
             <div>
@@ -61,15 +67,25 @@
         <div class="lg:col-span-5 flex flex-col justify-between space-y-12 lg:space-y-0 lg:pl-4">
           <!-- Place 1: Commons 1 -->
           <div>
-            <div class="title-with-line mb-3">
-              <h3 class="font-noto text-xl sm:text-2xl font-light text-white">コモンズ1</h3>
+            <div class="flex items-center justify-between mb-3">
+              <div class="title-with-line">
+                <h3 class="font-noto text-xl sm:text-2xl font-light text-white">コモンズ1</h3>
+              </div>
+              <button
+                type="button"
+                class="text-xs text-gray-400 hover:text-white border border-white/15 hover:border-white/40 px-2.5 py-1 rounded transition-colors inline-flex items-center gap-1 font-quicksand cursor-pointer"
+                @click="focusLocation('commons')"
+              >
+                <span>VIEW ON MAP</span>
+                <span>&rarr;</span>
+              </button>
             </div>
             <p class="font-noto text-sm sm:text-base text-gray-dim font-[350] leading-relaxed mb-4">
               福利施設1階にあるオープンスペース。平日昼休みや放課後のDJ練習、イベント配信、機材チェックなどを行っており、どなたでも気軽にお立ち寄りいただけます。
             </p>
 
             <!-- Compact Photo Viewer -->
-            <div class="relative rounded-2xl overflow-hidden aspect-[16/10] bg-dark group shadow-lg">
+            <div class="relative overflow-hidden aspect-[16/10] bg-dark group shadow-lg">
               <img
                 :src="commonsPhotos[currentPhotoIndex]"
                 alt="Commons 1 Photo"
@@ -104,8 +120,18 @@
 
           <!-- Place 2: TechnoTUT Clubroom -->
           <div class="pt-8 lg:pt-10">
-            <div class="title-with-line mb-3">
-              <h3 class="font-noto text-xl sm:text-2xl font-light text-white">音楽技術部 部室</h3>
+            <div class="flex items-center justify-between mb-3">
+              <div class="title-with-line">
+                <h3 class="font-noto text-xl sm:text-2xl font-light text-white">音楽技術部 部室</h3>
+              </div>
+              <button
+                type="button"
+                class="text-xs text-gray-400 hover:text-white border border-white/15 hover:border-white/40 px-2.5 py-1 rounded transition-colors inline-flex items-center gap-1 font-quicksand cursor-pointer"
+                @click="focusLocation('clubroom')"
+              >
+                <span>VIEW ON MAP</span>
+                <span>&rarr;</span>
+              </button>
             </div>
             <p class="font-noto text-sm sm:text-base text-gray-dim font-[350] leading-relaxed">
               クラブハウス2階奥。音響PA、DJブース、DTM制作機材、照明演出機器、サーバーラック等が常設された制作拠点です。見学等はSNSのDMよりお気軽にお問い合わせください。
@@ -126,9 +152,18 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
 
+interface CampusMapInstance {
+  flyTo: (id: 'all' | 'commons' | 'clubroom' | 'bus') => void
+}
+
 const headerRef = ref<HTMLElement | null>(null)
 const isVisible = ref(false)
+const campusMapRef = ref<CampusMapInstance | null>(null)
 let observer: IntersectionObserver | null = null
+
+const focusLocation = (id: 'all' | 'commons' | 'clubroom' | 'bus') => {
+  campusMapRef.value?.flyTo(id)
+}
 
 onMounted(() => {
   if (headerRef.value) {
