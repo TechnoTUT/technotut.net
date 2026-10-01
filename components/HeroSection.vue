@@ -26,8 +26,8 @@
 </template>
 <script setup lang="ts">
 const links = [
-  { label: 'SCHEDULE', to: '/activity#schedule' },
-  { label: 'ACTIVITY', to: '/#activity' },
+  { label: 'SCHEDULE', to: '/activity' },
+  { label: 'ACTIVITY', to: '/activity' },
   { label: 'ACCESS', to: '/access' },
 ]
 </script>
