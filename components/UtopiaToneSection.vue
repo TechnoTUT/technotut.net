@@ -38,7 +38,7 @@
       </div>
 
       <!-- Slider Area with Direct Flyer Navigation Controls -->
-      <div class="relative group/track">
+      <div class="relative group/track -mx-6 sm:mx-0">
         <!-- Floating Prev Button (Left edge of track) -->
         <button
           class="hidden md:flex absolute -left-5 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full border border-white/20 bg-dark/90 backdrop-blur-md text-white shadow-2xl items-center justify-center hover:border-white hover:bg-white/15 hover:scale-110 active:scale-95 transition-all z-20 cursor-pointer"
@@ -60,15 +60,17 @@
         <!-- Scrollable Track (Elegant Gallery Slider with Autoplay) -->
         <div
           ref="sliderContainer"
-          class="flex overflow-x-auto scrollbar-none scroll-smooth pb-6 pt-2"
+          class="slider-container flex overflow-x-auto scrollbar-none scroll-smooth pb-6 pt-2"
           style="scrollbar-width: none; -ms-overflow-style: none;"
           @mouseenter="pauseAutoplay"
           @mouseleave="resumeAutoplay"
+          @touchstart.passive="pauseAutoplay"
+          @touchend.passive="resumeAutoplay"
         >
           <div
             v-for="(item, idx) in archives"
             :key="idx"
-            class="flex-shrink-0 w-64 sm:w-72 group relative overflow-hidden border border-white/10 bg-dark-panel transition-all duration-300 hover:border-white/30 hover:shadow-2xl hover:z-10 cursor-pointer -mr-px"
+            class="slider-card flex-shrink-0 w-64 sm:w-72 group relative overflow-hidden border border-white/10 bg-dark-panel transition-all duration-300 hover:border-white/30 hover:shadow-2xl hover:z-10 cursor-pointer -mr-px"
             @click="openModal(idx)"
           >
             <div class="aspect-[210/297] relative overflow-hidden bg-neutral-900">
@@ -267,9 +269,16 @@ const archives = Object.keys(eventImages)
   })
   .sort((a, b) => b.vol - a.vol) // 最新のvolから降順に自動ソート
 
+const getScrollStep = () => {
+  if (typeof window !== 'undefined' && window.innerWidth < 640) {
+    return 256
+  }
+  return 288
+}
+
 const scrollPrev = () => {
   if (sliderContainer.value) {
-    sliderContainer.value.scrollBy({ left: -288, behavior: 'smooth' })
+    sliderContainer.value.scrollBy({ left: -getScrollStep(), behavior: 'smooth' })
   }
 }
 
@@ -280,7 +289,7 @@ const scrollNext = () => {
     if (el.scrollLeft + el.clientWidth >= el.scrollWidth - 10) {
       el.scrollTo({ left: 0, behavior: 'smooth' })
     } else {
-      el.scrollBy({ left: 288, behavior: 'smooth' })
+      el.scrollBy({ left: getScrollStep(), behavior: 'smooth' })
     }
   }
 }
@@ -322,3 +331,17 @@ onUnmounted(() => {
   stopAutoplay()
 })
 </script>
+
+<style scoped>
+@media (max-width: 639px) {
+  .slider-container {
+    padding-inline: calc(50% - 128px);
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: calc(50% - 128px);
+  }
+  .slider-card {
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+  }
+}
+</style>

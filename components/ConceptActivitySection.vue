@@ -1,9 +1,10 @@
 <template>
   <section
     ref="sectionRef"
-    class="relative min-h-screen py-24 sm:py-32 px-4 sm:px-8 bg-dark flex items-center justify-center overflow-hidden"
-    @mouseleave="activeItem = null"
+    class="relative min-h-screen py-20 sm:py-32 landscape:py-8 sm:landscape:py-12 px-4 sm:px-8 bg-dark flex items-center justify-center overflow-hidden"
+    @mouseleave="onMouseLeave"
     @focusout="onFocusOut"
+    @click="handleSectionClick"
   >
     <!-- Ambient Background Image Overlay (Crossfade on hover) -->
     <div class="absolute inset-0 pointer-events-none z-0 overflow-hidden">
@@ -27,7 +28,7 @@
 
     <div
       ref="containerRef"
-      class="relative w-full max-w-5xl aspect-square max-h-[800px] flex items-center justify-center z-10"
+      class="relative w-full max-w-5xl aspect-square max-h-[800px] landscape:max-h-[min(800px,calc(100vh-100px))] flex items-center justify-center z-10"
     >
       <!-- Interactive Mesh & Flying Orbs Canvas -->
       <canvas
@@ -41,16 +42,16 @@
         class="relative z-10 text-left px-4 sm:px-6 pointer-events-auto select-none max-w-xs sm:max-w-sm transition-all duration-1000 ease-out"
         :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
       >
-        <p class="font-quicksand text-xs tracking-[0.25em] text-gray-400 uppercase mb-3">
+        <p class="font-quicksand text-[11px] sm:text-xs tracking-[0.25em] text-gray-400 uppercase mb-2 sm:mb-3">
           CONCEPT
         </p>
-        <h2 class="font-quicksand font-light text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-none tracking-tight text-white whitespace-nowrap">
+        <h2 class="font-quicksand font-light text-2xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.05] sm:leading-none tracking-tight text-white whitespace-nowrap">
           Music,<br >
           Technology,<br >
           In Sync.
         </h2>
-        <div class="mt-6 sm:mt-8">
-          <NuxtLink to="/activity" class="common-btn text-xs py-2 px-6">
+        <div class="mt-4 sm:mt-8">
+          <NuxtLink to="/activity" class="common-btn text-xs py-1.5 px-5 sm:py-2 sm:px-6">
             <span>EXPLORE ALL</span>
             <span>&rarr;</span>
           </NuxtLink>
@@ -58,58 +59,88 @@
       </div>
 
       <!-- Surrounding Activities placed circularly with floating gentle drift -->
-      <NuxtLink
+      <a
         v-for="(item, idx) in activities"
         :key="item.title"
-        :to="`/activity#${item.id}`"
+        :href="`/activity#${item.id}`"
         :aria-label="`${item.title} の活動紹介を見る`"
         class="orbit-item group z-20 cursor-pointer"
-        :class="isVisible ? 'orbit-item--visible' : 'orbit-item--hidden'"
+        :class="[
+          isVisible ? 'orbit-item--visible' : 'orbit-item--hidden',
+          activeItem?.id === item.id ? 'orbit-item--active' : ''
+        ]"
         :style="{
           '--angle': `${idx * 60 - 120}deg`,
           '--float-delay': `${item.delay}s`,
           '--float-duration': `${item.duration}s`,
           '--enter-delay': `${400 + idx * 120}ms`,
         }"
-        @mouseenter="activeItem = item"
-        @focus="activeItem = item"
+        @mouseenter="onMouseEnter(item)"
+        @focus="onFocus(item)"
+        @click.prevent.stop="handleItemClick(item)"
       >
-        <!-- Floating container (Paused on hover) -->
+        <!-- Floating container (Paused on hover or active) -->
         <div class="floating-wrapper flex flex-col items-center">
-          <!-- Pure minimal title with hover glow and expanding underline -->
+          <!-- Pure minimal title with hover/active glow and expanding underline -->
           <div class="relative py-1 flex flex-col items-center">
             <span
-              class="font-quicksand text-xl sm:text-2xl md:text-3xl tracking-widest text-white/85 group-hover:text-white group-hover:font-normal transition-all duration-200 select-none whitespace-nowrap group-hover:scale-105 drop-shadow-[0_0_12px_rgba(255,255,255,0.2)] group-hover:drop-shadow-[0_0_24px_rgba(255,255,255,0.9)]"
+              class="font-quicksand text-base sm:text-2xl md:text-3xl tracking-widest text-white/85 group-hover:text-white group-hover:font-normal transition-all duration-200 select-none whitespace-nowrap group-hover:scale-105 drop-shadow-[0_0_12px_rgba(255,255,255,0.2)] group-hover:drop-shadow-[0_0_24px_rgba(255,255,255,0.9)]"
+              :class="{ 'text-white font-normal scale-105 drop-shadow-[0_0_24px_rgba(255,255,255,0.9)]': activeItem?.id === item.id }"
             >
               {{ item.title }}
             </span>
-            <!-- Expanding elegant underline on hover -->
+            <!-- Expanding elegant underline on hover or active -->
             <span
               class="block w-0 group-hover:w-full h-[1.5px] bg-white transition-all duration-200 opacity-0 group-hover:opacity-100 mt-1"
+              :class="{ '!w-full !opacity-100': activeItem?.id === item.id }"
             />
           </div>
         </div>
-      </NuxtLink>
+      </a>
     </div>
 
-    <!-- Detail text area positioned at screen edges, vertically aligned with section / CONCEPT center -->
+    <!-- Detail text area: Bottom card in portrait, side text in landscape/desktop -->
     <div
-      class="absolute bottom-6 inset-x-6 sm:inset-x-auto sm:bottom-auto sm:top-1/2 sm:-translate-y-1/2 z-30 sm:max-w-xs md:max-w-sm pointer-events-none transition-all duration-300"
+      class="activity-detail-card absolute z-30 transition-all duration-300 pointer-events-none"
       :class="[
-        activeItem?.side === 'left' ? 'sm:left-12 lg:left-16 text-left' : 'sm:right-12 lg:right-16 text-left sm:text-right',
-        activeItem ? 'opacity-100 translate-x-0' : 'opacity-0 ' + (activeItem?.side === 'left' ? '-translate-x-4' : 'translate-x-4')
+        activeItem
+          ? 'opacity-100 translate-y-0 landscape:translate-y-0 landscape:translate-x-0'
+          : 'opacity-0 translate-y-4 landscape:translate-y-0 ' + (activeItem?.side === 'left' ? 'landscape:-translate-x-4' : 'landscape:translate-x-4'),
+        'bottom-6 inset-x-6 sm:max-w-lg sm:mx-auto',
+        'landscape:bottom-24 landscape:top-auto landscape:translate-y-0 landscape:inset-x-auto landscape:mx-0 landscape:max-w-[240px] md:landscape:max-w-[260px] xl:landscape:top-1/2 xl:landscape:bottom-auto xl:landscape:-translate-y-1/2 xl:landscape:max-w-sm',
+        activeItem?.side === 'left'
+          ? 'landscape:left-6 md:landscape:left-10 2xl:landscape:left-16 text-left'
+          : 'landscape:right-6 md:landscape:right-10 2xl:landscape:right-16 text-left landscape:text-right'
       ]"
     >
-      <div v-if="activeItem" class="space-y-2">
-        <p class="font-quicksand text-xs sm:text-sm tracking-[0.2em] text-white/60 uppercase">
-          ACTIVITY // {{ activeItem.title }}
-        </p>
-        <p class="font-noto text-sm text-white/95 font-normal leading-relaxed tracking-wide drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">
+      <div
+        v-if="activeItem"
+        class="p-4 sm:p-5 landscape:p-0 rounded-2xl landscape:rounded-none bg-dark/95 landscape:bg-transparent backdrop-blur-md landscape:backdrop-blur-none border border-white/15 landscape:border-0 shadow-2xl landscape:shadow-none space-y-2 pointer-events-auto"
+      >
+        <div class="flex items-center justify-between">
+          <p class="font-quicksand text-xs sm:text-sm tracking-[0.2em] text-white/60 uppercase">
+            ACTIVITY // {{ activeItem.title }}
+          </p>
+          <button
+            type="button"
+            class="landscape:hidden w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-xs text-white/70 hover:text-white cursor-pointer"
+            aria-label="閉じる"
+            @click.stop="activeItem = null"
+          >
+            ✕
+          </button>
+        </div>
+        <p class="font-noto text-xs sm:text-sm text-white/95 font-normal leading-relaxed tracking-wide drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">
           {{ activeItem.description }}
         </p>
-        <NuxtLink :to="`/activity#${activeItem.id}`" class="inline-flex items-center min-h-11 gap-3 text-sm text-white underline underline-offset-4 pointer-events-auto">
-          活動を詳しく見る <span aria-hidden="true">→</span>
-        </NuxtLink>
+        <div class="pt-1">
+          <NuxtLink
+            :to="`/activity#${activeItem.id}`"
+            class="inline-flex items-center min-h-11 gap-2 text-xs sm:text-sm text-brand hover:text-white landscape:text-white landscape:underline underline-offset-4 font-medium transition-colors"
+          >
+            活動を詳しく見る <span aria-hidden="true">&rarr;</span>
+          </NuxtLink>
+        </div>
       </div>
     </div>
   </section>
@@ -135,9 +166,57 @@ interface Activity {
 }
 
 const activeItem = ref<Activity | null>(null)
+const router = useRouter()
+
+const isTouchDevice = () => {
+  if (typeof window === 'undefined') return false
+  return (
+    'ontouchstart' in window ||
+    navigator.maxTouchPoints > 0 ||
+    window.innerWidth < 768 ||
+    !window.matchMedia('(hover: hover)').matches
+  )
+}
+
+const onMouseEnter = (item: Activity) => {
+  if (typeof window !== 'undefined' && window.matchMedia('(hover: hover)').matches) {
+    activeItem.value = item
+  }
+}
+
+const onFocus = (item: Activity) => {
+  if (typeof window !== 'undefined' && window.matchMedia('(hover: hover)').matches) {
+    activeItem.value = item
+  }
+}
+
+const onMouseLeave = () => {
+  if (typeof window !== 'undefined' && window.matchMedia('(hover: hover)').matches) {
+    activeItem.value = null
+  }
+}
 
 const onFocusOut = (event: FocusEvent) => {
-  if (!(event.currentTarget as HTMLElement).contains(event.relatedTarget as Node | null)) {
+  if (typeof window !== 'undefined' && window.matchMedia('(hover: hover)').matches) {
+    if (!(event.currentTarget as HTMLElement).contains(event.relatedTarget as Node | null)) {
+      activeItem.value = null
+    }
+  }
+}
+
+const handleItemClick = (item: Activity) => {
+  if (isTouchDevice()) {
+    if (activeItem.value?.id !== item.id) {
+      activeItem.value = item
+      return
+    }
+  }
+  router.push(`/activity#${item.id}`)
+}
+
+const handleSectionClick = (e: MouseEvent) => {
+  const target = e.target as HTMLElement | null
+  if (target && !target.closest('.orbit-item') && !target.closest('.activity-detail-card')) {
     activeItem.value = null
   }
 }
@@ -245,9 +324,9 @@ onMounted(() => {
     centerX = width / 2
     centerY = height / 2
 
-    // Read or compute radius matching CSS clamp(160px, 26vw, 320px)
+    // Read or compute radius matching CSS
     const vw = window.innerWidth
-    orbitRadius = Math.max(160, Math.min(vw * 0.26, 320))
+    orbitRadius = vw < 640 ? Math.max(130, Math.min(vw * 0.38, 160)) : Math.max(160, Math.min(vw * 0.26, 320))
   }
 
   updateSize()
@@ -439,7 +518,13 @@ onUnmounted(() => {
 
 <style scoped>
 .aspect-square {
-  --orbit-radius: clamp(160px, 26vw, 320px);
+  --orbit-radius: clamp(140px, 38vw, 320px);
+}
+
+@media (min-width: 640px) {
+  .aspect-square {
+    --orbit-radius: clamp(160px, 26vw, 320px);
+  }
 }
 
 .orbit-item {
@@ -476,12 +561,14 @@ onUnmounted(() => {
   animation-delay: var(--float-delay, 0s);
 }
 
-.orbit-item:hover {
+.orbit-item:hover,
+.orbit-item--active {
   z-index: 30;
 }
 
 .orbit-item:hover .floating-wrapper,
-.orbit-item:focus-visible .floating-wrapper {
+.orbit-item:focus-visible .floating-wrapper,
+.orbit-item--active .floating-wrapper {
   animation-play-state: paused;
 }
 
