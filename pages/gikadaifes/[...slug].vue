@@ -21,7 +21,7 @@
           {{ doc.description }}
         </p>
         <div v-if="doc.image" class="mt-8 rounded-2xl overflow-hidden border border-white/10 bg-neutral-900">
-          <img :src="doc.image" :alt="doc.title" class="w-full h-auto object-cover" />
+          <img :src="doc.image" :alt="doc.title" class="w-full h-auto object-cover" >
         </div>
       </header>
 

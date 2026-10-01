@@ -1,5 +1,5 @@
 <template>
-  <section class="py-24 sm:py-32 px-6 sm:px-12 lg:px-16 bg-dark border-t border-white/10 relative overflow-hidden">
+  <section class="py-24 sm:py-32 px-6 sm:px-12 lg:px-16 bg-dark relative overflow-hidden">
     <div class="max-w-7xl mx-auto">
       <!-- Section Header -->
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-6">
@@ -32,18 +32,18 @@
       <div class="relative group/track">
         <!-- Floating Prev Button (Left edge of track) -->
         <button
-          @click="scrollPrev"
           class="hidden md:flex absolute -left-5 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full border border-white/20 bg-dark/90 backdrop-blur-md text-white shadow-2xl items-center justify-center hover:border-white hover:bg-white/15 hover:scale-110 active:scale-95 transition-all z-20 cursor-pointer"
           aria-label="Scroll flyers left"
+          @click="scrollPrev"
         >
           &larr;
         </button>
 
         <!-- Floating Next Button (Right edge of track) -->
         <button
-          @click="scrollNext"
           class="hidden md:flex absolute -right-5 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full border border-white/20 bg-dark/90 backdrop-blur-md text-white shadow-2xl items-center justify-center hover:border-white hover:bg-white/15 hover:scale-110 active:scale-95 transition-all z-20 cursor-pointer"
           aria-label="Scroll flyers right"
+          @click="scrollNext"
         >
           &rarr;
         </button>
@@ -51,16 +51,16 @@
         <!-- Scrollable Track (Elegant Gallery Slider with Autoplay) -->
         <div
           ref="sliderContainer"
-          @mouseenter="pauseAutoplay"
-          @mouseleave="resumeAutoplay"
           class="flex gap-6 overflow-x-auto scrollbar-none scroll-smooth pb-6 pt-2"
           style="scrollbar-width: none; -ms-overflow-style: none;"
+          @mouseenter="pauseAutoplay"
+          @mouseleave="resumeAutoplay"
         >
           <div
             v-for="(item, idx) in archives"
             :key="idx"
-            @click="openModal(idx)"
             class="flex-shrink-0 w-64 sm:w-72 group relative rounded-2xl overflow-hidden border border-white/10 bg-dark-panel transition-all duration-300 hover:border-white/30 hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer"
+            @click="openModal(idx)"
           >
             <div class="aspect-[3/4] relative overflow-hidden bg-neutral-900">
               <img
@@ -68,7 +68,7 @@
                 :alt="item.title"
                 loading="lazy"
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-              />
+              >
               <!-- Gradient Overlay & Info on Hover -->
               <div
                 class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5"
@@ -92,9 +92,9 @@
         <!-- Mobile Scroll Indicator / Small Arrows -->
         <div class="flex md:hidden items-center justify-center gap-3 pt-2">
           <button
-            @click="scrollPrev"
             class="w-9 h-9 rounded-full border border-white/20 bg-dark/60 text-white flex items-center justify-center text-sm"
             aria-label="Previous"
+            @click="scrollPrev"
           >
             &larr;
           </button>
@@ -102,9 +102,9 @@
             SCROLL FLYERS
           </span>
           <button
-            @click="scrollNext"
             class="w-9 h-9 rounded-full border border-white/20 bg-dark/60 text-white flex items-center justify-center text-sm"
             aria-label="Next"
+            @click="scrollNext"
           >
             &rarr;
           </button>
@@ -130,31 +130,31 @@
           <!-- Close Button -->
           <button
             type="button"
-            @click.stop="closeModal"
             class="absolute top-6 right-6 w-11 h-11 rounded-full border border-white/20 bg-dark/80 text-white hover:border-white hover:bg-white/20 flex items-center justify-center transition-colors z-[110] cursor-pointer"
             aria-label="Close"
+            @click.stop="closeModal"
           >
             ✕
           </button>
 
           <!-- Prev Button -->
           <button
-            type="button"
             v-if="archives.length > 1"
-            @click.stop="prevImage"
+            type="button"
             class="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full border border-white/20 bg-dark/80 text-white hover:border-white hover:bg-white/20 flex items-center justify-center transition-colors z-[110] cursor-pointer"
             aria-label="Previous image"
+            @click.stop="prevImage"
           >
             &larr;
           </button>
 
           <!-- Next Button -->
           <button
-            type="button"
             v-if="archives.length > 1"
-            @click.stop="nextImage"
+            type="button"
             class="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full border border-white/20 bg-dark/80 text-white hover:border-white hover:bg-white/20 flex items-center justify-center transition-colors z-[110] cursor-pointer"
             aria-label="Next image"
+            @click.stop="nextImage"
           >
             &rarr;
           </button>
@@ -165,7 +165,7 @@
               :src="archives[selectedIdx].image"
               :alt="archives[selectedIdx].title"
               class="max-h-[75vh] w-auto max-w-full object-contain rounded-xl shadow-2xl border border-white/15"
-            />
+            >
             <div class="mt-4 text-center">
               <p class="font-quicksand text-lg text-white font-medium tracking-wide">
                 {{ archives[selectedIdx].title }}

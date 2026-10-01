@@ -1,5 +1,5 @@
 <template>
-  <section class="py-24 sm:py-32 px-6 sm:px-12 lg:px-16 bg-dark border-t border-white/10 relative overflow-hidden">
+  <section class="py-24 sm:py-32 px-6 sm:px-12 lg:px-16 bg-dark relative overflow-hidden">
     <div class="max-w-7xl mx-auto">
       <!-- Section Header (Aligned with UtopiaToneSection & AccessSection) -->
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-6">
@@ -34,7 +34,7 @@
               :alt="latestPost.title"
               loading="lazy"
               class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
-            />
+            >
             <div v-else class="w-full h-full flex items-center justify-center text-gray-600 font-quicksand text-2xl">
               TechnoTUT
             </div>

@@ -1,9 +1,13 @@
 <template>
-  <section class="hero-section relative w-full overflow-hidden bg-dark flex flex-col justify-end pb-8">
-    <h1 class="sr-only">TechnoTUT — 豊橋技術科学大学 音楽技術部</h1>
-    <div class="absolute inset-0 pointer-events-none z-0">
-      <img src="/images/home/hero-bg.png" alt="" fetchpriority="high" class="w-full h-full object-cover object-center opacity-70 animate-fadein contrast-125" />
-      <div class="absolute inset-0 bg-gradient-to-b from-dark/60 via-transparent to-dark"></div>
+  <section class="relative min-h-screen w-full overflow-hidden bg-dark flex flex-col justify-end pb-8">
+    <!-- Background visual layer -->
+    <div class="absolute inset-0 pointer-events-none z-0 flex items-center justify-center">
+      <img
+        src="/images/home/hero-bg.png"
+        alt="TechnoTUT Hero Background"
+        class="w-full h-full object-cover object-center opacity-70 animate-fadein filter contrast-125"
+      >
+      <div class="absolute inset-0 bg-gradient-to-b from-dark/60 via-transparent to-dark"/>
     </div>
     <nav aria-label="トップページのメインリンク" class="relative z-10 px-6 sm:px-12 lg:px-16 pb-12 sm:pb-16">
       <ul class="hero-choices font-quicksand">
@@ -15,7 +19,7 @@
         </li>
       </ul>
     </nav>
-    <a href="#activity" class="relative z-10 self-center p-3" aria-label="活動紹介へスクロール">
+    <a href="#activity" class="relative z-10 self-center p-3">
       <img src="/images/home/scroll.svg" alt="" class="w-40 sm:w-48 opacity-80" />
     </a>
   </section>

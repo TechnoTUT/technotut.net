@@ -9,11 +9,15 @@
     "generate": "nuxt generate",
     "export": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
     "@nuxt/content": "^2.13.4",
+    "@nuxt/eslint": "^1.17.0",
     "@nuxtjs/tailwindcss": "^6.13.1",
+    "eslint": "^10.11.0",
     "nuxt": "^3.15.4",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0"
@@ -25,5 +29,10 @@
     "postcss": "^8.5.3",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.7.3"
+  },
+  "overrides": {
+    "@nuxtjs/mdc": "^0.22.2",
+    "@unhead/vue": "^2.1.17",
+    "unhead": "^2.1.17"
   }
 }

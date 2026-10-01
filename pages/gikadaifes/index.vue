@@ -26,7 +26,7 @@
             :src="post.image"
             :alt="post.title"
             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-          />
+          >
           <div v-else class="w-full h-full flex items-center justify-center text-gray-600 font-quicksand text-xl">
             TechnoTUT
           </div>

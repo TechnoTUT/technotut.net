@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-dark border-t border-white/10 text-white font-zen pt-16 pb-12">
+  <footer class="bg-dark text-white font-zen pt-16 pb-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
         <!-- Brand column -->
@@ -9,11 +9,11 @@
               src="/images/logo/logo.svg"
               alt="TechnoTUT logo"
               class="h-10 sm:h-12 w-auto object-contain transition-opacity group-hover:opacity-80"
-            />
+            >
           </NuxtLink>
           <p class="text-sm text-gray-400 leading-relaxed font-zen">
-            豊橋技術科学大学 音楽技術部<br />
-            Music &amp; Live production Club - TechnoTUT<br />
+            豊橋技術科学大学 音楽技術部<br >
+            Music &amp; Live production Club - TechnoTUT<br >
             Official Club of Toyohashi University of Technology. We are interested in music and technology.
           </p>
           <div class="flex items-center gap-4 pt-2">
@@ -91,8 +91,8 @@
         <div class="space-y-3 text-sm text-gray-400 font-zen">
           <p class="text-xs uppercase text-gray-500 font-quicksand font-semibold mb-4">Address</p>
           <p class="leading-relaxed">
-            愛知県豊橋市天伯町雲雀ヶ丘1-1<br />
-            豊橋技術科学大学 クラブハウス2階<br />
+            愛知県豊橋市天伯町雲雀ヶ丘1-1<br >
+            豊橋技術科学大学 クラブハウス2階<br >
             音楽技術部室
           </p>
 

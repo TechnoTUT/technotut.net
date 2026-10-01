@@ -1,5 +1,8 @@
 <template>
-  <section id="activity" class="activity-section relative min-h-screen py-24 sm:py-32 px-4 sm:px-8 bg-dark border-t border-white/10 flex items-center justify-center overflow-hidden">
+  <section
+    ref="sectionRef"
+    class="relative min-h-screen py-24 sm:py-32 px-4 sm:px-8 bg-dark flex items-center justify-center overflow-hidden"
+  >
     <!-- Ambient Background Image Overlay (Crossfade on hover) -->
     <div class="absolute inset-0 pointer-events-none z-0 overflow-hidden">
       <div
@@ -12,12 +15,12 @@
           transform: activeItem?.title === item.title ? 'scale(1.03)' : 'scale(1.0)',
           filter: 'grayscale(100%) contrast(110%) brightness(55%)',
         }"
-      ></div>
+      />
       <!-- Vignette / dark overlay gradient for readability -->
       <div
         class="absolute inset-0 bg-gradient-radial from-dark/60 via-dark/85 to-dark transition-opacity duration-500"
         :class="activeItem ? 'opacity-90' : 'opacity-0'"
-      ></div>
+      />
     </div>
 
     <div
@@ -27,18 +30,21 @@
       <!-- Interactive Mesh & Flying Orbs Canvas -->
       <canvas
         ref="canvasRef"
-        aria-hidden="true"
-        class="absolute inset-0 w-full h-full pointer-events-none z-0"
-      ></canvas>
+        class="absolute inset-0 w-full h-full pointer-events-none z-0 transition-opacity duration-1000 ease-out"
+        :class="isVisible ? 'opacity-100' : 'opacity-0'"
+      />
 
       <!-- Center: CONCEPT (Centered in container, text left-aligned) -->
-      <div class="relative z-10 text-left px-4 sm:px-6 pointer-events-auto select-none max-w-xs sm:max-w-sm">
+      <div
+        class="relative z-10 text-left px-4 sm:px-6 pointer-events-auto select-none max-w-xs sm:max-w-sm transition-all duration-1000 ease-out"
+        :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
+      >
         <p class="font-quicksand text-xs tracking-[0.25em] text-gray-400 uppercase mb-3">
           CONCEPT
         </p>
         <h2 class="font-quicksand font-light text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-none tracking-tight text-white whitespace-nowrap">
-          Music,<br />
-          Technology,<br />
+          Music,<br >
+          Technology,<br >
           In Sync.
         </h2>
         <div class="mt-6 sm:mt-8">
@@ -55,10 +61,12 @@
         v-for="(item, idx) in activities"
         :key="item.title"
         class="orbit-item group z-20 cursor-pointer"
+        :class="isVisible ? 'orbit-item--visible' : 'orbit-item--hidden'"
         :style="{
           '--angle': `${idx * 60 - 120}deg`,
           '--float-delay': `${item.delay}s`,
           '--float-duration': `${item.duration}s`,
+          '--enter-delay': `${400 + idx * 120}ms`,
         }"
         @mouseenter="activeItem = item"
         @mouseleave="clearHover"
@@ -79,7 +87,7 @@
             <!-- Expanding elegant underline on hover -->
             <span
               class="block w-0 group-hover:w-full h-[1.5px] bg-white transition-all duration-200 opacity-0 group-hover:opacity-100 mt-1"
-            ></span>
+            />
           </div>
         </div>
       </button>
@@ -109,8 +117,11 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
 
+const sectionRef = ref<HTMLElement | null>(null)
 const containerRef = ref<HTMLElement | null>(null)
 const canvasRef = ref<HTMLCanvasElement | null>(null)
+const isVisible = ref(false)
+let sectionObserver: IntersectionObserver | null = null
 
 interface Activity {
   title: string
@@ -392,30 +403,19 @@ onMounted(() => {
     animationFrameId = requestAnimationFrame(draw)
   }
 
-  const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
-  let inView = false
-  const canAnimate = () => inView && !document.hidden && !motionQuery.matches && window.innerWidth >= 768
-  const syncAnimation = () => {
-    if (canAnimate()) {
-      if (animationFrameId === null) animationFrameId = requestAnimationFrame(draw)
-    } else if (animationFrameId !== null) {
-      cancelAnimationFrame(animationFrameId)
-      animationFrameId = null
-    }
-  }
-  const observer = new IntersectionObserver(([entry]) => {
-    inView = entry.isIntersecting
-    syncAnimation()
-  })
-  observer.observe(container)
-  motionQuery.addEventListener('change', syncAnimation)
-  document.addEventListener('visibilitychange', syncAnimation)
-  window.addEventListener('resize', syncAnimation, { passive: true })
-  cleanupMotion = () => {
-    observer.disconnect()
-    motionQuery.removeEventListener('change', syncAnimation)
-    document.removeEventListener('visibilitychange', syncAnimation)
-    window.removeEventListener('resize', syncAnimation)
+  draw()
+
+  if (sectionRef.value) {
+    sectionObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          isVisible.value = true
+          sectionObserver?.disconnect()
+        }
+      },
+      { threshold: 0.15 }
+    )
+    sectionObserver.observe(sectionRef.value)
   }
 })
 
@@ -426,6 +426,9 @@ onUnmounted(() => {
   }
   if (resizeObserver) {
     resizeObserver.disconnect()
+  }
+  if (sectionObserver) {
+    sectionObserver.disconnect()
   }
 })
 </script>
@@ -439,7 +442,24 @@ onUnmounted(() => {
   position: absolute;
   left: calc(50% + cos(var(--angle)) * var(--orbit-radius));
   top: calc(50% + sin(var(--angle)) * var(--orbit-radius));
-  transform: translate(-50%, -50%);
+  transition:
+    opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1) var(--enter-delay, 0ms),
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1) var(--enter-delay, 0ms);
+}
+
+.orbit-item--hidden {
+  opacity: 0;
+  /* 中心方向（逆方向）へオフセットさせ、少し縮小させる */
+  transform: translate(-50%, -50%)
+    translate(calc(cos(var(--angle)) * -50px), calc(sin(var(--angle)) * -50px))
+    scale(0.65);
+  pointer-events: none;
+}
+
+.orbit-item--visible {
+  opacity: 1;
+  transform: translate(-50%, -50%) translate(0, 0) scale(1);
+  pointer-events: auto;
 }
 
 .floating-wrapper {
