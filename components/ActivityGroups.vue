@@ -5,7 +5,7 @@
     </p>
 
     <nav aria-label="活動班とスケジュールの目次" class="mt-10 mb-10 sm:mb-12">
-      <p class="font-noto text-xs tracking-widest text-gray-400 mb-4">このページの目次</p>
+      <p class="font-noto text-xs tracking-widest text-gray-400 mb-4">目次</p>
       <ol class="grid grid-cols-2 sm:grid-cols-4 gap-x-5 gap-y-2 list-none p-0 m-0">
         <li v-for="(group, index) in groups" :key="group.id" class="min-w-0">
           <NuxtLink :to="`/activity#${group.id}`" class="activity-index-link">
