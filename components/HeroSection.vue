@@ -41,7 +41,6 @@ onMounted(() => {
 })
 
 const links = [
-  { label: 'SCHEDULE', to: '/activity' },
   { label: 'ACTIVITY', to: '/activity' },
   { label: 'ACCESS', to: '/access' },
 ]
