@@ -33,10 +33,10 @@
       <!-- Main Showcase (Frameless Layout with subtle hover & clean typography) -->
       <div v-if="latestPost" class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
         <!-- Left: Flyer / Visual (Consistent rounded-2xl & smooth hover) -->
-        <div class="lg:col-span-5">
+        <div class="lg:col-span-5 xl:col-span-4 flex justify-center">
           <NuxtLink
             :to="latestPost._path"
-            class="group block relative rounded-2xl overflow-hidden aspect-[4/3] sm:aspect-[16/10] lg:aspect-[4/3] bg-dark border border-white/10 transition-all duration-300 hover:border-white/30 hover:-translate-y-1 hover:shadow-2xl"
+            class="group block relative rounded-2xl overflow-hidden aspect-[1/1.414] w-full max-w-xs sm:max-w-sm lg:max-w-md bg-dark border border-white/10 transition-all duration-300 hover:border-white/30 hover:-translate-y-1 hover:shadow-2xl"
           >
             <img
               v-if="latestPost.image"
@@ -52,7 +52,7 @@
         </div>
 
         <!-- Right: Event Highlights & Content -->
-        <div class="lg:col-span-7 space-y-8">
+        <div class="lg:col-span-7 xl:col-span-8 space-y-8">
           <div>
             <div class="flex flex-wrap items-center gap-2 mb-3">
               <span v-if="latestPost.date" class="text-xs font-quicksand text-gray-400 tracking-wider">
@@ -75,7 +75,7 @@
           <div class="space-y-3.5 pt-2">
             <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6">
               <span class="font-quicksand text-xs tracking-widest text-gray-400 uppercase w-28 shrink-0">LOCATION</span>
-              <span class="font-noto text-sm sm:text-base text-white font-light">福利施設 コモンズⅠ &amp; 野外特設ステージ</span>
+              <span class="font-noto text-sm sm:text-base text-white font-light">福利施設 コモンズⅠ &amp; 図書館前特設ステージ</span>
             </div>
             <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6">
               <span class="font-quicksand text-xs tracking-widest text-gray-400 uppercase w-28 shrink-0">STYLE</span>
@@ -83,7 +83,7 @@
             </div>
             <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6">
               <span class="font-quicksand text-xs tracking-widest text-gray-400 uppercase w-28 shrink-0">ADMISSION</span>
-              <span class="font-noto text-sm sm:text-base text-white font-light">入場無料（学外・一般参加歓迎）</span>
+              <span class="font-noto text-sm sm:text-base text-white font-light">入場無料</span>
             </div>
           </div>
 
