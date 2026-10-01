@@ -36,6 +36,52 @@ const BannerSection = () => (
   </section>
 )
 
+const GikadaifesBanner = () => (
+  <section className="relative overflow-hidden bg-black px-2 py-2 sm:px-4 sm:py-3">
+    <div className="absolute inset-0 bg-[url('/images/blogs/2026-10-10_gikadaifes/2026flyer.png')] bg-cover bg-center opacity-15 blur-xl scale-110"></div>
+    <Link
+      href="/gikadaifes/2026"
+      className="group relative z-10 mx-auto flex max-w-5xl flex-col overflow-hidden rounded-xl border border-cyan-300/30 bg-black/80 shadow-xl shadow-cyan-500/10 transition duration-500 hover:border-cyan-300/70 md:flex-row"
+      aria-label="2026年技科大祭特設ページを見る"
+    >
+      <div className="relative h-36 w-full overflow-hidden sm:h-44 md:h-auto md:w-2/5">
+        <Image
+          src="/images/blogs/2026-10-10_gikadaifes/2026flyer.png"
+          fill
+          sizes="(min-width: 768px) 40vw, 100vw"
+          alt="The Utopia Tone vol.11 Extended フライヤー"
+          className="object-cover object-center transition duration-700 group-hover:scale-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent md:bg-gradient-to-r md:from-transparent md:to-black/80"></div>
+      </div>
+
+      <div className="flex flex-1 flex-col justify-center px-4 py-4 text-white sm:px-6 sm:py-5 md:px-8 md:py-6">
+        <p className="mb-1 text-xs font-bold tracking-[0.2em] text-cyan-300 sm:text-sm">
+          2026 技科大祭
+        </p>
+        <h2 className="bg-gradient-to-r from-white via-cyan-100 to-cyan-300 bg-clip-text font-primary text-2xl font-bold leading-tight text-transparent drop-shadow-[0_0_14px_rgba(103,232,249,0.35)] sm:text-3xl">
+          The Utopia Tone
+          <span className="block text-base font-semibold text-cyan-200 sm:mt-0.5 sm:text-lg">
+            vol.11 Extended
+          </span>
+        </h2>
+        <p className="mt-3 text-sm leading-relaxed text-gray-100 sm:text-base">
+          10月10日（土）・11日（日） 10:00–17:00
+          <br />
+          豊橋技術科学大学 福利施設1F コモンズⅠ
+        </p>
+        <div className="mt-2 flex flex-wrap gap-2 text-xs font-bold sm:text-sm">
+          <span className="rounded bg-cyan-300 px-2 py-1 text-black">入場無料</span>
+          <span className="rounded border border-white/50 px-2 py-1 text-white">学外の方も参加できます</span>
+        </div>
+        <span className="mt-3 inline-flex w-fit items-center rounded-full border border-cyan-300/60 px-4 py-1.5 text-sm font-bold text-cyan-200 transition duration-300 group-hover:bg-cyan-300 group-hover:text-black sm:mt-4">
+          特設ページを見る <span className="ml-2">→</span>
+        </span>
+      </div>
+    </Link>
+  </section>
+)
+
 const ActivityGroupSection = () => (
   <section className="py-16 relative overflow-hidden">
     <div
@@ -311,6 +357,7 @@ const Home = ({ frontmatter }) => {
   const { title } = config.site
   return (
     <Base title={title}>
+      <GikadaifesBanner />
       <BannerSection />
       <ActivityGroupSection />
       <CallToActionSection />
