@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-dark text-white font-zen antialiased selection:bg-white/20 selection:text-white;
+  }
+}
+
+/* Custom Styles aligned with MOK */
+.font-quicksand {
+  font-family: 'Quicksand', sans-serif;
+  font-optical-sizing: auto;
+}
+
+.font-zen {
+  font-family: 'Zen Kaku Gothic Antique', sans-serif;
+}
+
+.title-with-line {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  opacity: 0.8;
+}
+
+.title-with-line::after {
+  content: "";
+  flex-grow: 1;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.4);
+  margin-left: 1.5rem;
+}
+
+.common-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: transparent;
+  color: #FFFFFF;
+  padding: 0.85rem 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 9999px;
+  transition: all 0.3s ease;
+  font-family: 'Quicksand', sans-serif;
+  letter-spacing: 0.05em;
+}
+
+.common-btn:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: #FFFFFF;
+  transform: translateY(-1px);
+}
+
+.rounded-outline-text {
+  display: inline-block;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 8px;
+  padding: 0.25rem 0.85rem;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+}
+
+.hero-choice {
+  text-decoration: none;
+  overflow: hidden;
+  white-space: nowrap;
+  letter-spacing: 0.08em;
+  transition: all 0.4s ease;
+}
+
+.hero-choice:hover {
+  opacity: 0.75;
+  letter-spacing: 0.14em;
+}

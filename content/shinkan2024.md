@@ -41,7 +41,7 @@ PCソフトを使って楽曲制作を行っています！
 自分の好きな曲やRemixなどを作りたい方は是非！<br/>
 We are making music with PC software!
 If you want to make your favorite songs, remixes and so on, let's try with us!
-![](/images/special/images_m3_2023.jpg)
+![](/images/contents/m3/images_m3_2023.jpg)
 ##### DTM班 作品紹介 | Works of DTM team (CrossFade)
 <dl>
 <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1488128650&color=%23c7000a&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
@@ -53,21 +53,21 @@ If you want to make your favorite songs, remixes and so on, let's try with us!
 ステージパフォーマンスに使う演出機材・アプリの工作・プログラムを行っています！<br/>
 We make and program production equipment and apps used for stage performances!  
 [![TechnoTUT/TechnoTUT - GitHub](https://gh-card.dev/repos/TechnoTUT/TechnoTUT.svg?fullname=)](https://github.com/TechnoTUT)
-![](/images/special/images_tech_2023.jpg)
+![](/images/contents/shinkan/images_tech_2023.jpg)
 
 #### デザイン
 デザインの分野でも部員を募集しています！  
 イラスト、画像、映像の製作やフライヤーデザインなど、様々なことに取り組んでいます！ <br/>
 We are looking for members who are even interested in design!
 Working on various things such as creating illustrations, images, videos, and flyer designs!
-![](/images/special/gikadaifes_flyer2023.jpg)
-![](/images/special/images_design_2023.jpg)
+![](/images/contents/shinkan/gikadaifes_flyer2023.jpg)
+![](/images/contents/shinkan/images_design_2023.jpg)
 
 #### ら
 ラーメンと唐揚げを美味しく食べる活動を行っています。<br/>
 We enjoy eating ramen and fried chicken.  
-![](/images/special/images_ramen_1.jpg)  
-![](/images/special/images_ramen_2.webp)
+![](/images/contents/ramen/images_ramen_1.jpg)  
+![](/images/contents/ramen/images_ramen_2.webp)
 
 ### 活動日時・場所
 ##### Activity place and time

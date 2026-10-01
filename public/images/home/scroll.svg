@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_レイヤー_2" data-name="レイヤー 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 298.46 55.32">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #e6e6e6;
+        font-family: ShreeDev0714, 'Shree Devanagari 714';
+        font-size: 20px;
+        letter-spacing: .59em;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g id="_レイヤー_1-2" data-name="レイヤー 1">
+    <g>
+      <text class="cls-1" transform="translate(80.68 17.37)"><tspan x="0" y="0">SCROLL</tspan></text>
+      <path class="cls-2" d="M149.23,31.6c-6.55,0-11.86,5.31-11.86,11.86s5.31,11.86,11.86,11.86,11.86-5.31,11.86-11.86-5.31-11.86-11.86-11.86ZM149.23,48.55l-6.19-6.19,2.04-2.04,4.15,4.14,4.14-4.14,2.04,2.04-6.19,6.19Z"/>
+      <rect class="cls-2" y="8.21" width="64" height="1"/>
+      <rect class="cls-2" x="234.46" y="8.71" width="64" height="1"/>
+    </g>
+  </g>
+</svg>

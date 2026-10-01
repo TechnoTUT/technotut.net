@@ -5,4 +5,4 @@ draft: false
 > 独立記念日は2月7日です。
 > Independence Day is February 7th.
 
-![Independence Day](/images/special/independent.jpg)
+![Independence Day](/images/contents/other/independent.jpg)
