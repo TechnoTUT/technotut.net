@@ -25,7 +25,7 @@
 
     <div
       ref="containerRef"
-      class="activity-container relative w-full max-w-5xl aspect-square max-h-[800px] flex items-center justify-center z-10"
+      class="relative w-full max-w-5xl aspect-square max-h-[800px] flex items-center justify-center z-10"
     >
       <!-- Interactive Mesh & Flying Orbs Canvas -->
       <canvas
@@ -55,11 +55,10 @@
         </div>
       </div>
 
-      <!-- Activity controls support pointer, touch and keyboard -->
-      <button
+      <!-- Surrounding Activities placed circularly with floating gentle drift -->
+      <div
         v-for="(item, idx) in activities"
         :key="item.title"
-        type="button"
         class="orbit-item group z-20 cursor-pointer"
         :class="isVisible ? 'orbit-item--visible' : 'orbit-item--hidden'"
         :style="{
@@ -68,12 +67,8 @@
           '--float-duration': `${item.duration}s`,
           '--enter-delay': `${400 + idx * 120}ms`,
         }"
-        :aria-pressed="activeItem?.title === item.title"
-        aria-controls="activity-description"
         @mouseenter="activeItem = item"
-        @mouseleave="clearHover"
-        @focus="activeItem = item"
-        @click="activeItem = item"
+        @mouseleave="activeItem = null"
       >
         <!-- Floating container (Paused on hover) -->
         <div class="floating-wrapper flex flex-col items-center">
@@ -90,13 +85,12 @@
             />
           </div>
         </div>
-      </button>
+      </div>
     </div>
 
     <!-- Detail text area positioned at screen edges, vertically aligned with section / CONCEPT center -->
     <div
-      id="activity-description" aria-live="polite" aria-atomic="true"
-      class="activity-description absolute top-1/2 -translate-y-1/2 z-30 max-w-[260px] sm:max-w-xs md:max-w-sm pointer-events-none transition-all duration-300"
+      class="absolute top-1/2 -translate-y-1/2 z-30 max-w-[260px] sm:max-w-xs md:max-w-sm pointer-events-none transition-all duration-300"
       :class="[
         activeItem?.side === 'left' ? 'left-6 sm:left-12 lg:left-16 text-left' : 'right-6 sm:right-12 lg:right-16 text-right',
         activeItem ? 'opacity-100 translate-x-0' : 'opacity-0 ' + (activeItem?.side === 'left' ? '-translate-x-4' : 'translate-x-4')
@@ -133,11 +127,6 @@ interface Activity {
 }
 
 const activeItem = ref<Activity | null>(null)
-let cleanupMotion: (() => void) | null = null
-const clearHover = (event: MouseEvent) => {
-  const control = event.currentTarget as HTMLElement
-  if (window.matchMedia('(hover: hover)').matches && !control.contains(document.activeElement)) activeItem.value = null
-}
 
 const activities: Activity[] = [
   {
@@ -195,8 +184,6 @@ const activities: Activity[] = [
       '旅行する価値のある卓越したラーメンと唐揚げを求めて食べ歩く部内文化。部員厳選のおすすめ店舗はラーメンマップで公開中です。',
   },
 ]
-
-activeItem.value = activities[0]
 
 // Canvas animation logic
 let animationFrameId: number | null = null
@@ -290,8 +277,6 @@ onMounted(() => {
   }
 
   const draw = () => {
-    animationFrameId = null
-    if (!canAnimate()) return
     ctx.clearRect(0, 0, width, height)
 
     // Nodes positions for subtle gravity perturbations
@@ -403,48 +388,23 @@ onMounted(() => {
     animationFrameId = requestAnimationFrame(draw)
   }
 
-  const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
-  let inView = false
-  const canAnimate = () => inView && !document.hidden && !motionQuery.matches && window.innerWidth >= 768
-
-  const syncAnimation = () => {
-    if (canAnimate()) {
-      if (animationFrameId === null) {
-        animationFrameId = requestAnimationFrame(draw)
-      }
-    } else if (animationFrameId !== null) {
-      cancelAnimationFrame(animationFrameId)
-      animationFrameId = null
-    }
-  }
+  draw()
 
   if (sectionRef.value) {
     sectionObserver = new IntersectionObserver(
       ([entry]) => {
-        inView = entry.isIntersecting
-        if (entry.isIntersecting && !isVisible.value) {
+        if (entry.isIntersecting) {
           isVisible.value = true
+          sectionObserver?.disconnect()
         }
-        syncAnimation()
       },
       { threshold: 0.15 }
     )
     sectionObserver.observe(sectionRef.value)
   }
-
-  motionQuery.addEventListener('change', syncAnimation)
-  document.addEventListener('visibilitychange', syncAnimation)
-  window.addEventListener('resize', syncAnimation, { passive: true })
-
-  cleanupMotion = () => {
-    motionQuery.removeEventListener('change', syncAnimation)
-    document.removeEventListener('visibilitychange', syncAnimation)
-    window.removeEventListener('resize', syncAnimation)
-  }
 })
 
 onUnmounted(() => {
-  cleanupMotion?.()
   if (animationFrameId) {
     cancelAnimationFrame(animationFrameId)
   }
@@ -495,7 +455,7 @@ onUnmounted(() => {
   z-index: 30;
 }
 
-.orbit-item:hover .floating-wrapper, .orbit-item:focus-within .floating-wrapper {
+.orbit-item:hover .floating-wrapper {
   animation-play-state: paused;
 }
 
@@ -509,16 +469,5 @@ onUnmounted(() => {
   100% {
     transform: translate(-4px, 4px);
   }
-}
-.orbit-item { border: 0; background: transparent; color: white; min-height: 44px; padding: 8px; }
-@media (max-width: 767px) {
-  .activity-section { display: block; padding: 64px 24px; }
-  .activity-container { aspect-ratio: auto; max-height: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
-  .activity-container > div.relative { grid-column: 1 / -1; padding: 0 0 24px; }
-  .activity-container canvas { display: none; }
-  .orbit-item { position: static; transform: none; text-align: left; border-bottom: 1px solid rgba(255,255,255,.2); }
-  .orbit-item[aria-pressed="true"] { border-color: white; }
-  .floating-wrapper { animation: none; align-items: flex-start; }
-  .activity-description { position: static; transform: none; max-width: none; text-align: left; margin-top: 28px; min-height: 140px; }
 }
 </style>
