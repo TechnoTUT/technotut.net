@@ -8,7 +8,7 @@
       <h1 class="font-quicksand font-light text-4xl sm:text-6xl text-white tracking-tight">
         技科大祭 (Gikadaifes)
       </h1>
-      <p class="mt-4 text-sm font-zen text-gray-300 font-light max-w-2xl leading-relaxed">
+      <p class="mt-4 text-sm font-noto text-gray-dim font-[350] max-w-2xl leading-relaxed">
         毎年秋に開催される豊橋技術科学大学の学園祭「技科大祭」での TechnoTUT 主催DJイベントやステージパフォーマンスの特設情報です。
       </p>
     </div>
@@ -37,10 +37,10 @@
             <p v-if="post.date" class="text-xs font-quicksand text-gray-400 mb-2">
               {{ formatDate(post.date) }}
             </p>
-            <h2 class="font-zen text-lg font-normal text-white group-hover:text-gray-200 transition-colors">
+            <h2 class="font-noto text-lg font-normal text-white group-hover:text-gray-200 transition-colors">
               <NuxtLink :to="post._path">{{ post.title }}</NuxtLink>
             </h2>
-            <p v-if="post.description" class="mt-2 text-xs text-gray-400 font-zen font-light line-clamp-3 leading-relaxed">
+            <p v-if="post.description" class="mt-2 text-xs text-gray-400 font-noto font-[350] line-clamp-3 leading-relaxed">
               {{ post.description }}
             </p>
           </div>

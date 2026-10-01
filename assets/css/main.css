@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply bg-dark text-white font-zen antialiased selection:bg-white/20 selection:text-white;
+    @apply bg-dark text-white font-noto antialiased selection:bg-white/20 selection:text-white;
   }
 }
 
@@ -14,8 +14,8 @@
   font-optical-sizing: auto;
 }
 
-.font-zen {
-  font-family: 'Zen Kaku Gothic Antique', sans-serif;
+.font-noto {
+  font-family: 'Noto Sans JP', sans-serif;
 }
 
 .title-with-line {

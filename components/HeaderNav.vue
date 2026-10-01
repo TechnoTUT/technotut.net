@@ -17,7 +17,7 @@
           </nav>
         </Transition>
       </div>
-      <p class="header-university font-zen" :class="{ 'compact-university': showLinks }">豊橋技術科学大学 音楽技術部</p>
+      <p class="header-university font-noto" :class="{ 'compact-university': showLinks }">豊橋技術科学大学 音楽技術部</p>
     </div>
   </header>
 </template>

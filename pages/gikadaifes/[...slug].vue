@@ -14,10 +14,10 @@
         <p v-if="doc.date" class="font-quicksand text-xs sm:text-sm tracking-widest text-brand uppercase mb-3">
           {{ formatDate(doc.date) }}
         </p>
-        <h1 class="font-zen text-3xl sm:text-4xl md:text-5xl font-light text-white leading-tight">
+        <h1 class="font-noto text-3xl sm:text-4xl md:text-5xl font-light text-white leading-tight">
           {{ doc.title }}
         </h1>
-        <p v-if="doc.description" class="mt-4 text-base font-zen text-gray-300 font-light leading-relaxed">
+        <p v-if="doc.description" class="mt-4 text-base font-noto text-gray-dim font-[350] leading-relaxed">
           {{ doc.description }}
         </p>
         <div v-if="doc.image" class="mt-8 rounded-2xl overflow-hidden border border-white/10 bg-neutral-900">
@@ -27,7 +27,7 @@
 
       <!-- Markdown Content -->
       <article
-        class="prose prose-invert prose-lg max-w-none font-zen prose-headings:font-zen prose-headings:font-light prose-a:text-brand prose-a:no-underline hover:prose-a:underline prose-img:rounded-xl prose-img:border prose-img:border-white/10"
+        class="prose prose-invert prose-lg max-w-none font-noto prose-p:font-[350] prose-p:text-gray-dim prose-headings:font-noto prose-headings:font-light prose-a:text-brand prose-a:no-underline hover:prose-a:underline prose-img:rounded-xl prose-img:border prose-img:border-white/10"
       >
         <ContentRenderer :value="doc" />
       </article>

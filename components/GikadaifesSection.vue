@@ -61,12 +61,12 @@
               <span v-if="latestPost.date" class="text-white/20">•</span>
               <span class="text-xs font-quicksand text-gray-400 tracking-wider uppercase">Stage &amp; Commons</span>
             </div>
-            <h3 class="font-zen text-2xl sm:text-3xl font-light text-white leading-snug">
+            <h3 class="font-noto text-2xl sm:text-3xl font-light text-white leading-snug">
               <NuxtLink :to="latestPost._path" class="hover:text-gray-200 transition-colors">
                 {{ latestPost.title }}
               </NuxtLink>
             </h3>
-            <p v-if="latestPost.description" class="font-zen text-sm sm:text-base text-gray-dim font-light mt-3 leading-relaxed">
+            <p v-if="latestPost.description" class="font-noto text-sm sm:text-base text-gray-dim font-[350] mt-3 leading-relaxed">
               {{ latestPost.description }}
             </p>
           </div>
@@ -75,15 +75,15 @@
           <div class="space-y-3.5 pt-2">
             <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6">
               <span class="font-quicksand text-xs tracking-widest text-gray-400 uppercase w-28 shrink-0">LOCATION</span>
-              <span class="font-zen text-sm sm:text-base text-white font-light">福利施設 コモンズⅠ &amp; 野外特設ステージ</span>
+              <span class="font-noto text-sm sm:text-base text-white font-light">福利施設 コモンズⅠ &amp; 野外特設ステージ</span>
             </div>
             <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6">
               <span class="font-quicksand text-xs tracking-widest text-gray-400 uppercase w-28 shrink-0">STYLE</span>
-              <span class="font-zen text-sm sm:text-base text-white font-light">Club Music / Subculture / VJ Show</span>
+              <span class="font-noto text-sm sm:text-base text-white font-light">Club Music / Subculture / VJ Show</span>
             </div>
             <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6">
               <span class="font-quicksand text-xs tracking-widest text-gray-400 uppercase w-28 shrink-0">ADMISSION</span>
-              <span class="font-zen text-sm sm:text-base text-white font-light">入場無料（学外・一般参加歓迎）</span>
+              <span class="font-noto text-sm sm:text-base text-white font-light">入場無料（学外・一般参加歓迎）</span>
             </div>
           </div>
 

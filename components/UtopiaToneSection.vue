@@ -21,7 +21,7 @@
             />
           </div>
           <p
-            class="font-zen text-sm sm:text-base text-gray-dim font-light mt-4 max-w-2xl leading-relaxed tracking-wide transition-all duration-700 ease-out delay-300"
+            class="font-noto text-sm sm:text-base text-gray-dim font-light mt-4 max-w-2xl leading-relaxed tracking-wide transition-all duration-700 ease-out delay-300"
             :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'"
           >
             TechnoTUTが定期主催する学内DJ＆ライブイベント。オールジャンルのエレクトロニックミュージックからサブカルチャーまで、部員やゲストDJが独自のフロアを創り上げます。
