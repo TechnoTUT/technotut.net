@@ -74,15 +74,15 @@
                 <div class="flex items-center gap-1.5">
                   <button
                     @click="prevPhoto"
-                    class="w-7 h-7 rounded-full bg-dark/80 border border-white/20 flex items-center justify-center text-xs text-white hover:border-white transition-colors cursor-pointer"
-                    aria-label="Previous Photo"
+                    class="w-11 h-11 rounded-full bg-dark/80 border border-white/20 flex items-center justify-center text-xs text-white hover:border-white transition-colors cursor-pointer"
+                    type="button" aria-label="前の写真"
                   >
                     &larr;
                   </button>
                   <button
                     @click="nextPhoto"
-                    class="w-7 h-7 rounded-full bg-dark/80 border border-white/20 flex items-center justify-center text-xs text-white hover:border-white transition-colors cursor-pointer"
-                    aria-label="Next Photo"
+                    class="w-11 h-11 rounded-full bg-dark/80 border border-white/20 flex items-center justify-center text-xs text-white hover:border-white transition-colors cursor-pointer"
+                    type="button" aria-label="次の写真"
                   >
                     &rarr;
                   </button>
