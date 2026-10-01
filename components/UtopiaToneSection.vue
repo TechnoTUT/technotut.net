@@ -71,7 +71,7 @@
             class="flex-shrink-0 w-64 sm:w-72 group relative overflow-hidden border border-white/10 bg-dark-panel transition-all duration-300 hover:border-white/30 hover:shadow-2xl hover:z-10 cursor-pointer -mr-px"
             @click="openModal(idx)"
           >
-            <div class="aspect-[3/4] relative overflow-hidden bg-neutral-900">
+            <div class="aspect-[210/297] relative overflow-hidden bg-neutral-900">
               <img
                 :src="item.image"
                 :alt="item.title"
