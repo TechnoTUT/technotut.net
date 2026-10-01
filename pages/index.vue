@@ -12,6 +12,9 @@
     <!-- School Festival (Gikadaifes) Showcase -->
     <GikadaifesSection />
 
+    <!-- DTM / Discography Showcase -->
+    <DtmSection />
+
     <!-- Access & Campus Guide -->
     <AccessSection />
   </div>

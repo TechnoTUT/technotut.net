@@ -19,6 +19,10 @@ dist
 # production
 /build
 
+# generated assets
+/public/images/discography/
+/data/discography.json
+
 # misc
 .DS_Store
 *.pem

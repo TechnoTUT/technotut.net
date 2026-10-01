@@ -4,12 +4,15 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "nuxt dev",
+    "dev": "nuxt dev --host",
     "build": "nuxt build",
+    "pregenerate": "node scripts/fetch-discography.mjs",
     "generate": "nuxt generate",
+    "preexport": "node scripts/fetch-discography.mjs",
     "export": "nuxt generate",
+    "fetch:discography": "node scripts/fetch-discography.mjs",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
+    "postinstall": "node scripts/fetch-discography.mjs && nuxt prepare",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
