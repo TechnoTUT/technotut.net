@@ -1,17 +1,11 @@
 <template>
   <div class="pt-40 pb-24 sm:pb-32 px-6 sm:px-12 lg:px-16 max-w-5xl mx-auto">
     <!-- Header -->
-    <div class="mb-12 border-b border-white/10 pb-6">
-      <p class="font-quicksand text-xs sm:text-sm tracking-widest text-gray-400 uppercase mb-2">
-        QUESTIONS &amp; ANSWERS
-      </p>
-      <h1 class="font-quicksand font-light text-4xl sm:text-6xl text-white tracking-tight">
-        よくある質問 (FAQ)
-      </h1>
-      <p class="mt-4 text-sm font-noto text-gray-dim font-[350] max-w-2xl leading-relaxed">
-        新入生や入部をご検討中の方からよくいただく質問と回答をまとめました。
-      </p>
-    </div>
+    <PageHeader
+      eyebrow="QUESTIONS &amp; ANSWERS"
+      title="よくある質問 (FAQ)"
+      description="新入生や入部をご検討中の方からよくいただく質問と回答をまとめました。"
+    />
 
     <template v-if="doc">
       <article

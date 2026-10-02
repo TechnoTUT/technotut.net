@@ -1,17 +1,11 @@
 <template>
   <div class="pt-40 pb-24 sm:pb-32 px-6 sm:px-12 lg:px-16 max-w-5xl mx-auto">
     <!-- Header -->
-    <div class="mb-12 border-b border-white/10 pb-6">
-      <p class="font-quicksand text-xs sm:text-sm tracking-widest text-gray-400 uppercase mb-2">
-        ACTIVITY &amp; RECORD
-      </p>
-      <h1 class="font-quicksand font-light text-4xl sm:text-6xl text-white tracking-tight">
-        活動情報
-      </h1>
-      <p class="mt-4 text-sm font-noto text-gray-dim font-[350] leading-relaxed">
-        音楽、映像、デザイン、テクノロジー。TechnoTUT の各班の活動と、年間スケジュール・活動実績を紹介します。
-      </p>
-    </div>
+    <PageHeader
+      eyebrow="ACTIVITY &amp; RECORD"
+      title="活動情報"
+      description="音楽、映像、デザイン、テクノロジー。TechnoTUT の各班の活動と、年間スケジュール・活動実績を紹介します。"
+    />
 
     <ActivityGroups />
 
