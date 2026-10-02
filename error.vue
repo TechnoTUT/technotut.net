@@ -6,7 +6,7 @@
       <div class="max-w-2xl w-full text-center">
         <!-- Error Code Label -->
         <p class="font-quicksand text-xs sm:text-sm tracking-[0.25em] text-gray-400 uppercase mb-3">
-          {{ is404 ? '404 - Page Not Found' : `${statusCode} - Server Error` }}
+          {{ is404 ? '404 — NO ENTRY' : `${statusCode} - Server Error` }}
         </p>
 
         <!-- Big Status Code -->
@@ -18,14 +18,15 @@
 
         <!-- Japanese Title -->
         <h2 class="font-noto font-light text-xl sm:text-2xl text-white mt-4 mb-4 tracking-wide">
-          {{ is404 ? 'お探しのページが見つかりませんでした' : 'サーバー内部でエラーが発生しました' }}
+          {{ is404 ? 'ここには、何もありませんでした' : 'サーバー内部でエラーが発生しました' }}
         </h2>
 
         <!-- Description -->
         <p class="font-noto text-sm sm:text-base text-gray-dim font-[350] leading-relaxed max-w-lg mx-auto mb-10">
           <template v-if="is404">
-            アクセスしようとしたページは削除されたか、URLが変更された可能性があります。<br class="hidden sm:inline">
-            URLをご確認いただくか、トップページよりお探しください。
+            <!-- Optical centering compensates for the trailing Japanese full stop's whitespace. -->
+            <span class="block translate-x-[0.25em]">お探しのものは、別の場所にあるのかもしれません。</span>
+            <span class="block translate-x-[0.25em]">もしくはコンテンツが削除された可能性があります。</span>
           </template>
           <template v-else>
             システムの一時的な不具合、または予期しない問題が発生しました。<br class="hidden sm:inline">
@@ -40,7 +41,7 @@
             class="common-btn text-xs sm:text-sm py-3 px-8 inline-flex cursor-pointer"
             @click="handleClearError"
           >
-            <span>TOP PAGE</span>
+            <span>{{ is404 ? 'トップページへ' : 'TOP PAGE' }}</span>
             <span>&rarr;</span>
           </button>
         </div>
@@ -61,10 +62,10 @@ const props = defineProps<{
 const statusCode = computed(() => props.error?.statusCode || 500)
 const is404 = computed(() => statusCode.value === 404)
 
-const pageTitle = computed(() => (is404.value ? '404 Not Found - TechnoTUT' : `${statusCode.value} Error - TechnoTUT`))
+const pageTitle = computed(() => (is404.value ? '404 — NO ENTRY - TechnoTUT' : `${statusCode.value} Error - TechnoTUT`))
 const pageDescription = computed(() =>
   is404.value
-    ? 'お探しのページが見つかりませんでした。'
+    ? 'ここには、何もありませんでした。お探しのものは、別の場所にあるのかもしれません。'
     : 'サーバー内部でエラーが発生しました。',
 )
 
