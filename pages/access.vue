@@ -281,20 +281,24 @@
       <!-- Commons 1 Steps and Photo -->
       <div class="grid gap-8 lg:grid-cols-2 items-stretch">
         <!-- Photo Viewer -->
-        <div class="relative overflow-hidden border border-white/10 bg-dark min-h-[300px] h-full flex flex-col group shadow-lg">
-          <div class="relative w-full h-full min-h-[280px] sm:min-h-[320px] flex-grow flex items-center justify-center p-2 sm:p-4 pb-14 sm:pb-16">
+        <div class="relative overflow-hidden border border-white/10 bg-dark min-h-[360px] h-full flex flex-col group shadow-lg">
+          <!-- Photo Display Area -->
+          <div class="relative w-full flex-grow min-h-[300px] sm:min-h-[360px] flex items-center justify-center p-4">
             <img
-              :src="commonsPhotos[currentPhotoIndex]"
-              :alt="`コモンズ1への行き方 写真 ${currentPhotoIndex + 1}`"
-              class="max-w-full max-h-full object-contain transition-opacity duration-300"
+              v-for="(photo, index) in commonsPhotos"
+              :key="photo"
+              :src="photo"
+              :alt="`コモンズ1への行き方 写真 ${index + 1}`"
+              class="absolute max-w-[calc(100%-2rem)] max-h-[calc(100%-2rem)] object-contain transition-opacity duration-700 ease-in-out"
+              :class="currentPhotoIndex === index ? 'opacity-100 z-1 pointer-events-auto' : 'opacity-0 z-0 pointer-events-none'"
             >
           </div>
-          <!-- Floating photo count & controls -->
-          <div class="absolute inset-x-0 bottom-0 p-3 sm:p-4 bg-gradient-to-t from-dark/95 via-dark/50 to-transparent flex items-center justify-between z-10">
+          <!-- Dedicated Controls Bar (Separated from photo) -->
+          <div class="p-3 sm:p-4 border-t border-white/10 bg-black/30 flex items-center justify-between">
             <span class="text-xs font-quicksand text-gray-300 tracking-wider">
               STEP {{ currentPhotoIndex + 1 }} / {{ commonsPhotos.length }}
             </span>
-            <div class="flex items-center gap-1.5">
+            <div class="flex items-center gap-2">
               <!-- Play / Pause Button -->
               <button
                 type="button"
@@ -334,11 +338,8 @@
         </div>
 
         <!-- Steps List -->
-        <div class="p-6 sm:p-8 bg-dark border border-white/10 flex flex-col justify-between h-full">
+        <div class="p-6 sm:p-8 bg-dark border border-white/10 flex flex-col justify-center h-full">
           <div>
-            <h3 class="font-noto text-lg font-light text-white mb-4">
-              入館ルート
-            </h3>
             <ol class="space-y-3 text-sm font-noto leading-relaxed">
               <li
                 v-for="(step, index) in commonsSteps"
