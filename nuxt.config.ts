@@ -20,6 +20,7 @@ export default defineNuxtConfig({
         { property: 'og:description', content: '豊橋技術科学大学 音楽技術部 (TechnoTUT) 公式HP' },
         { property: 'og:image', content: '/images/home/og-image.jpg' },
         { name: 'theme-color', content: '#050505' },
+        { name: 'referrer', content: 'strict-origin-when-cross-origin' },
       ],
       link: [
         { rel: 'icon', type: 'image/svg+xml', href: '/images/logo/favicon.svg' },
