@@ -281,61 +281,7 @@
       <!-- Commons 1 Steps and Photo -->
       <div class="grid gap-8 lg:grid-cols-2 items-stretch">
         <!-- Photo Viewer -->
-        <div class="relative overflow-hidden border border-white/10 bg-dark min-h-[360px] h-full flex flex-col group shadow-lg">
-          <!-- Photo Display Area -->
-          <div class="relative w-full flex-grow min-h-[300px] sm:min-h-[360px] flex items-center justify-center p-4">
-            <img
-              v-for="(photo, index) in commonsPhotos"
-              :key="photo"
-              :src="photo"
-              :alt="`コモンズ1への行き方 写真 ${index + 1}`"
-              class="absolute max-w-[calc(100%-2rem)] max-h-[calc(100%-2rem)] object-contain transition-opacity duration-700 ease-in-out"
-              :class="currentPhotoIndex === index ? 'opacity-100 z-1 pointer-events-auto' : 'opacity-0 z-0 pointer-events-none'"
-            >
-          </div>
-          <!-- Dedicated Controls Bar (Separated from photo) -->
-          <div class="p-3 sm:p-4 border-t border-white/10 bg-black/30 flex items-center justify-between">
-            <span class="text-xs font-quicksand text-gray-300 tracking-wider">
-              STEP {{ currentPhotoIndex + 1 }} / {{ commonsPhotos.length }}
-            </span>
-            <div class="flex items-center gap-2">
-              <!-- Play / Pause Button -->
-              <button
-                type="button"
-                class="w-10 h-10 rounded-full bg-dark/80 border border-white/20 flex items-center justify-center text-xs text-white hover:border-white transition-colors cursor-pointer"
-                :title="isPlaying ? '自動切り替えを一時停止' : '自動切り替えを再開'"
-                :aria-label="isPlaying ? '自動切り替えを一時停止' : '自動切り替えを再開'"
-                @click="togglePlayPause"
-              >
-                <!-- Pause Icon (shown when playing) -->
-                <svg v-if="isPlaying" class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
-                </svg>
-                <!-- Play Icon (shown when paused) -->
-                <svg v-else class="w-3.5 h-3.5 fill-current ml-0.5" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-              </button>
-
-              <button
-                type="button"
-                class="w-10 h-10 rounded-full bg-dark/80 border border-white/20 flex items-center justify-center text-xs text-white hover:border-white transition-colors cursor-pointer"
-                aria-label="前の写真"
-                @click="onManualPrev"
-              >
-                &larr;
-              </button>
-              <button
-                type="button"
-                class="w-10 h-10 rounded-full bg-dark/80 border border-white/20 flex items-center justify-center text-xs text-white hover:border-white transition-colors cursor-pointer"
-                aria-label="次の写真"
-                @click="onManualNext"
-              >
-                &rarr;
-              </button>
-            </div>
-          </div>
-        </div>
+        <CommonsPhotoViewer v-model="currentPhotoIndex" autoplay />
 
         <!-- Steps List -->
         <div class="p-6 sm:p-8 bg-dark border border-white/10 flex flex-col justify-center h-full">
@@ -427,78 +373,13 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
-
 const activeTransitTab = ref<'public' | 'car'>('public')
 
-const commonsPhotos = [
-  '/images/access/photos/1.jpg',
-  '/images/access/photos/2.jpg',
-  '/images/access/photos/3.jpg',
-  '/images/access/photos/4.jpg',
-]
-
 const currentPhotoIndex = ref(0)
-const isPlaying = ref(true)
-let autoPlayTimer: ReturnType<typeof setInterval> | null = null
-
-const startAutoPlay = () => {
-  stopAutoPlay()
-  if (isPlaying.value) {
-    autoPlayTimer = setInterval(() => {
-      nextPhoto()
-    }, 4000)
-  }
-}
-
-const stopAutoPlay = () => {
-  if (autoPlayTimer) {
-    clearInterval(autoPlayTimer)
-    autoPlayTimer = null
-  }
-}
-
-const togglePlayPause = () => {
-  isPlaying.value = !isPlaying.value
-  if (isPlaying.value) {
-    startAutoPlay()
-  } else {
-    stopAutoPlay()
-  }
-}
-
-const prevPhoto = () => {
-  currentPhotoIndex.value =
-    (currentPhotoIndex.value - 1 + commonsPhotos.length) % commonsPhotos.length
-}
-
-const nextPhoto = () => {
-  currentPhotoIndex.value =
-    (currentPhotoIndex.value + 1) % commonsPhotos.length
-}
-
-const onManualPrev = () => {
-  prevPhoto()
-  if (isPlaying.value) startAutoPlay()
-}
-
-const onManualNext = () => {
-  nextPhoto()
-  if (isPlaying.value) startAutoPlay()
-}
 
 const selectStep = (index: number) => {
   currentPhotoIndex.value = index
-  if (isPlaying.value) startAutoPlay()
 }
-
-onMounted(() => {
-  startAutoPlay()
-})
-
-onUnmounted(() => {
-  stopAutoPlay()
-})
 
 const commonsSteps = [
   {

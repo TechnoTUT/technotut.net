@@ -1,40 +1,19 @@
 <template>
   <section class="py-24 sm:py-32 px-6 sm:px-12 lg:px-16 bg-dark relative overflow-hidden">
     <div class="max-w-7xl mx-auto">
-      <!-- Section Header (Aligned with UtopiaToneSection & GikadaifesSection) -->
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-6">
-        <div ref="headerRef">
-          <p
-            class="font-quicksand text-xs sm:text-sm tracking-widest text-gray-400 mb-2 transition-all duration-500 ease-out"
-            :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'"
-          >
-            LOCATION &amp; ACCESS
-          </p>
-          <div class="relative inline-block overflow-hidden">
-            <h2 class="font-quicksand font-light text-4xl sm:text-6xl md:text-7xl text-white tracking-tight pb-1 sm:pb-2">
-              Access
-            </h2>
-            <div
-              aria-hidden="true"
-              class="block-reveal-mask"
-              :class="isVisible ? 'block-reveal-active' : ''"
-            />
-          </div>
-          <p
-            class="font-noto text-sm sm:text-base text-gray-dim font-light mt-4 max-w-2xl leading-relaxed tracking-wide transition-all duration-700 ease-out delay-300"
-            :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'"
-          >
-            豊橋技術科学大学へのアクセス、および学内活動拠点のご案内
-          </p>
-        </div>
-
-        <div class="self-start md:self-end">
+      <!-- Section Header -->
+      <SectionHeader
+        eyebrow="LOCATION &amp; ACCESS"
+        title="Access"
+        description="豊橋技術科学大学へのアクセス、および学内活動拠点のご案内"
+      >
+        <template #action>
           <NuxtLink to="/access" class="common-btn text-xs py-2 px-5 inline-flex">
             <span>ACCESS DETAIL</span>
             <span>&rarr;</span>
           </NuxtLink>
-        </div>
-      </div>
+        </template>
+      </SectionHeader>
 
       <!-- Frameless, elegant layout: Left: Large Map Visual (7 cols), Right: Locations (5 cols) -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-stretch">
@@ -85,37 +64,7 @@
             </p>
 
             <!-- Compact Photo Viewer -->
-            <div class="relative overflow-hidden aspect-[16/10] bg-dark group shadow-lg">
-              <img
-                :src="commonsPhotos[currentPhotoIndex]"
-                alt="Commons 1 Photo"
-                class="w-full h-full object-cover transition-opacity duration-300"
-              >
-              <!-- Floating photo count & controls -->
-              <div class="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-dark/90 via-dark/40 to-transparent flex items-center justify-between">
-                <span class="text-[11px] font-quicksand text-gray-300">
-                  {{ currentPhotoIndex + 1 }} / {{ commonsPhotos.length }}
-                </span>
-                <div class="flex items-center gap-1.5">
-                  <button
-                    type="button"
-                    class="w-11 h-11 rounded-full bg-dark/80 border border-white/20 flex items-center justify-center text-xs text-white hover:border-white transition-colors cursor-pointer"
-                    aria-label="Previous photo"
-                    @click="prevPhoto"
-                  >
-                    &larr;
-                  </button>
-                  <button
-                    type="button"
-                    class="w-11 h-11 rounded-full bg-dark/80 border border-white/20 flex items-center justify-center text-xs text-white hover:border-white transition-colors cursor-pointer"
-                    aria-label="Next photo"
-                    @click="nextPhoto"
-                  >
-                    &rarr;
-                  </button>
-                </div>
-              </div>
-            </div>
+            <CommonsPhotoViewer variant="compact" />
           </div>
 
           <!-- Place 2: TechnoTUT Clubroom -->
@@ -150,56 +99,13 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
-
 interface CampusMapInstance {
   flyTo: (id: 'all' | 'commons' | 'clubroom' | 'bus') => void
 }
 
-const headerRef = ref<HTMLElement | null>(null)
-const isVisible = ref(false)
 const campusMapRef = ref<CampusMapInstance | null>(null)
-let observer: IntersectionObserver | null = null
 
 const focusLocation = (id: 'all' | 'commons' | 'clubroom' | 'bus') => {
   campusMapRef.value?.flyTo(id)
-}
-
-onMounted(() => {
-  if (headerRef.value) {
-    observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          isVisible.value = true
-          observer?.disconnect()
-        }
-      },
-      { threshold: 0.15 }
-    )
-    observer.observe(headerRef.value)
-  }
-})
-
-onUnmounted(() => {
-  observer?.disconnect()
-})
-
-const commonsPhotos = [
-  '/images/access/photos/1.jpg',
-  '/images/access/photos/2.jpg',
-  '/images/access/photos/3.jpg',
-  '/images/access/photos/4.jpg',
-]
-
-const currentPhotoIndex = ref(0)
-
-const prevPhoto = () => {
-  currentPhotoIndex.value =
-    (currentPhotoIndex.value - 1 + commonsPhotos.length) % commonsPhotos.length
-}
-
-const nextPhoto = () => {
-  currentPhotoIndex.value =
-    (currentPhotoIndex.value + 1) % commonsPhotos.length
 }
 </script>

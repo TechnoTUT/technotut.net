@@ -42,6 +42,8 @@
 </template>
 
 <script setup lang="ts">
+import { formatJaDate as formatDate } from '~/utils/date'
+
 definePageMeta({ key: route => route.path })
 
 // Resolve content before rendering so navigation cannot show a temporary not-found state.
@@ -52,16 +54,6 @@ const { data: doc, error } = await useAsyncData(`page-document-${documentPath}`,
 if (error.value) throw createError(error.value)
 if (!doc.value) throw createError({ statusCode: 404, statusMessage: 'Page not found' })
 useContentHead(doc)
-
-const formatDate = (dateStr: string) => {
-  if (!dateStr) return ''
-  const d = new Date(dateStr)
-  return d.toLocaleDateString('ja-JP', {
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-  })
-}
 </script>
 
 <style scoped>

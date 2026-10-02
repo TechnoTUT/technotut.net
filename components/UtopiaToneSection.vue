@@ -2,40 +2,18 @@
   <section class="py-24 sm:py-32 px-6 sm:px-12 lg:px-16 bg-dark relative overflow-hidden">
     <div class="max-w-7xl mx-auto">
       <!-- Section Header -->
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-6">
-        <div ref="headerRef">
-          <p
-            class="font-quicksand text-xs sm:text-sm tracking-widest text-gray-400 mb-2 transition-all duration-500 ease-out"
-            :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'"
-          >
-            TechnoTUT Presents - Regular Party
-          </p>
-          <div class="relative inline-block overflow-hidden">
-            <h2 class="font-quicksand font-light text-4xl sm:text-6xl md:text-7xl text-white tracking-tight pb-1 sm:pb-2">
-              The Utopia Tone
-            </h2>
-            <div
-              aria-hidden="true"
-              class="block-reveal-mask"
-              :class="isVisible ? 'block-reveal-active' : ''"
-            />
-          </div>
-          <p
-            class="font-noto text-sm sm:text-base text-gray-dim font-light mt-4 max-w-2xl leading-relaxed tracking-wide transition-all duration-700 ease-out delay-300"
-            :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'"
-          >
-            TechnoTUTが定期主催する学内DJ＆ライブイベント。オールジャンルのエレクトロニックミュージックからサブカルチャーまで、部員やゲストDJが独自のフロアを創り上げます。
-          </p>
-        </div>
-
-        <!-- Activity Link in Header -->
-        <div class="self-start md:self-end">
+      <SectionHeader
+        eyebrow="TechnoTUT Presents - Regular Party"
+        title="The Utopia Tone"
+        description="TechnoTUTが定期主催する学内DJ＆ライブイベント。オールジャンルのエレクトロニックミュージックからサブカルチャーまで、部員やゲストDJが独自のフロアを創り上げます。"
+      >
+        <template #action>
           <NuxtLink to="/activity" class="common-btn text-xs py-2 px-5 inline-flex">
             <span>ACTIVITY DETAIL</span>
             <span>&rarr;</span>
           </NuxtLink>
-        </div>
-      </div>
+        </template>
+      </SectionHeader>
 
       <!-- Slider Area with Direct Flyer Navigation Controls -->
       <div class="relative group/track -mx-6 sm:mx-0">
@@ -193,11 +171,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
-
 const sliderContainer = ref<HTMLElement | null>(null)
-const headerRef = ref<HTMLElement | null>(null)
-const isVisible = ref(false)
 const selectedIdx = ref<number | null>(null)
 
 const openModal = (idx: number) => {
@@ -227,28 +201,15 @@ const handleKeydown = (e: KeyboardEvent) => {
   if (e.key === 'ArrowRight') nextImage()
 }
 
-let observer: IntersectionObserver | null = null
 
 onMounted(() => {
   window.addEventListener('keydown', handleKeydown)
-  if (headerRef.value) {
-    observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          isVisible.value = true
-          observer?.disconnect()
-        }
-      },
-      { threshold: 0.15 }
-    )
-    observer.observe(headerRef.value)
-  }
 })
 
 onUnmounted(() => {
   window.removeEventListener('keydown', handleKeydown)
-  observer?.disconnect()
 })
+
 
 // public/images/events/ 内の vol*.png, vol*.jpg などを自動スキャン
 const eventImages = import.meta.glob<string>(
