@@ -40,7 +40,14 @@
       </div>
       <div v-if="group.images.length" class="grid gap-6 mt-8 sm:mt-10" :class="group.images.length > 1 ? 'sm:grid-cols-2' : ''">
         <figure v-for="image in group.images" :key="image.src">
-          <img :src="image.src" :alt="image.alt" loading="lazy" class="w-full rounded-none bg-dark-panel" :class="group.id === 'media' ? 'h-80 sm:h-96 object-contain p-4' : 'aspect-[16/10] object-cover'">
+          <NuxtImg
+            :src="image.src"
+            :alt="image.alt"
+            loading="lazy"
+            format="webp"
+            class="w-full rounded-none bg-dark-panel"
+            :class="group.id === 'media' ? 'h-80 sm:h-96 object-contain p-4' : 'aspect-[16/10] object-cover'"
+          />
           <figcaption v-if="group.id === 'media'" class="font-noto text-xs text-gray-400 mt-3 leading-relaxed">
             {{ image.src.includes('media-1') ? 'テクノ部公式キャラクター テクノちゃん（みにまむてくのちゃん ver.）' : 'Flyer / 2024.07.13 Collaboration with GilleWorkers' }}
           </figcaption>

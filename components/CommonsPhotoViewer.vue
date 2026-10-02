@@ -4,11 +4,12 @@
     v-if="variant === 'compact'"
     class="relative overflow-hidden aspect-[16/10] bg-dark group shadow-lg"
   >
-    <img
+    <NuxtImg
       :src="commonsPhotos[currentIndex]"
       alt="Commons 1 Photo"
+      format="webp"
       class="w-full h-full object-cover transition-opacity duration-300"
-    >
+    />
     <!-- Floating photo count & controls -->
     <div class="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-dark/90 via-dark/40 to-transparent flex items-center justify-between">
       <span class="text-[11px] font-quicksand text-gray-300">
@@ -42,14 +43,15 @@
   >
     <!-- Photo Display Area -->
     <div class="relative w-full flex-grow min-h-[300px] sm:min-h-[360px] flex items-center justify-center p-4">
-      <img
+      <NuxtImg
         v-for="(photo, index) in commonsPhotos"
         :key="photo"
         :src="photo"
+        format="webp"
         :alt="`コモンズ1への行き方 写真 ${index + 1}`"
         class="absolute max-w-[calc(100%-2rem)] max-h-[calc(100%-2rem)] object-contain transition-opacity duration-700 ease-in-out"
         :class="currentIndex === index ? 'opacity-100 z-1 pointer-events-auto' : 'opacity-0 z-0 pointer-events-none'"
-      >
+      />
     </div>
     <!-- Dedicated Controls Bar (Separated from photo) -->
     <div class="p-3 sm:p-4 border-t border-white/10 bg-black/30 flex items-center justify-between">
