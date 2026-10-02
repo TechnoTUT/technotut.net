@@ -18,7 +18,7 @@
       <div
         v-for="post in posts"
         :key="post._path"
-        class="group overflow-hidden border border-white/10 bg-dark-panel flex flex-col md:flex-row transition-all hover:border-white/30 hover:-translate-y-1"
+        class="group overflow-hidden border border-white/10 bg-dark-panel flex flex-col md:flex-row transition-all hover:border-white/30"
       >
         <NuxtLink :to="post._path" class="block md:w-60 lg:w-72 shrink-0 aspect-[16/10] overflow-hidden bg-neutral-900 relative">
           <img
