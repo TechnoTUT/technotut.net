@@ -1,51 +1,51 @@
 <template>
-  <div class="py-24 sm:py-32 px-6 sm:px-12 lg:px-16 max-w-7xl mx-auto">
+  <div class="pt-40 pb-24 sm:pb-32 px-6 sm:px-12 lg:px-16 max-w-5xl mx-auto">
     <!-- Header -->
     <div class="mb-12 border-b border-white/10 pb-6">
       <p class="font-quicksand text-xs sm:text-sm tracking-widest text-gray-400 uppercase mb-2">
         EVENT ARCHIVE
       </p>
       <h1 class="font-quicksand font-light text-4xl sm:text-6xl text-white tracking-tight">
-        技科大祭 (Gikadaifes)
+        技科大祭
       </h1>
-      <p class="mt-4 text-sm font-noto text-gray-dim font-[350] max-w-2xl leading-relaxed">
-        毎年秋に開催される豊橋技術科学大学の学園祭「技科大祭」での TechnoTUT 主催DJイベントやステージパフォーマンスの特設情報です。
+      <p class="mt-4 text-sm font-noto text-gray-dim font-[350] max-w-none leading-relaxed">
+        毎年10月に開催される "技科大祭" での TechnoTUT 主催DJイベントやステージパフォーマンスの特設情報です。
       </p>
     </div>
 
-    <!-- Article Cards Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <!-- Article Cards (1 Column) -->
+    <div class="space-y-8">
       <div
         v-for="post in posts"
         :key="post._path"
-        class="group rounded-2xl overflow-hidden border border-white/10 bg-dark-panel flex flex-col justify-between transition-all hover:border-white/30 hover:-translate-y-1"
+        class="group overflow-hidden border border-white/10 bg-dark-panel flex flex-col md:flex-row transition-all hover:border-white/30 hover:-translate-y-1"
       >
-        <NuxtLink :to="post._path" class="block aspect-[16/10] overflow-hidden bg-neutral-900 relative">
+        <NuxtLink :to="post._path" class="block md:w-60 lg:w-72 shrink-0 aspect-[16/10] overflow-hidden bg-neutral-900 relative">
           <img
             v-if="post.image"
             :src="post.image"
             :alt="post.title"
             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           >
-          <div v-else class="w-full h-full flex items-center justify-center text-gray-600 font-quicksand text-xl">
+          <div v-else class="w-full h-full min-h-[160px] flex items-center justify-center text-gray-600 font-quicksand text-xl">
             TechnoTUT
           </div>
         </NuxtLink>
 
-        <div class="p-6 flex-grow flex flex-col justify-between">
+        <div class="p-6 md:p-8 flex-grow flex flex-col justify-between">
           <div>
             <p v-if="post.date" class="text-xs font-quicksand text-gray-400 mb-2">
               {{ formatDate(post.date) }}
             </p>
-            <h2 class="font-noto text-lg font-normal text-white group-hover:text-gray-200 transition-colors">
+            <h2 class="font-noto text-xl sm:text-2xl font-light text-white group-hover:text-gray-200 transition-colors">
               <NuxtLink :to="post._path">{{ post.title }}</NuxtLink>
             </h2>
-            <p v-if="post.description" class="mt-2 text-xs text-gray-400 font-noto font-[350] line-clamp-3 leading-relaxed">
+            <p v-if="post.description" class="mt-3 text-sm text-gray-400 font-noto font-[350] line-clamp-3 leading-relaxed">
               {{ post.description }}
             </p>
           </div>
 
-          <div class="mt-6 pt-4 border-t border-white/5">
+          <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between">
             <NuxtLink :to="post._path" class="text-xs font-quicksand tracking-wider text-white flex items-center gap-1 group-hover:gap-2 transition-all">
               <span>READ MORE</span>
               <span>&rarr;</span>
