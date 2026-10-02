@@ -26,6 +26,6 @@ useSeoMeta({
   ogTitle: 'TechnoTUT - 豊橋技術科学大学 音楽技術部',
   description: '豊橋技術科学大学 音楽技術部 (TechnoTUT) 公式ホームページ。Music & Live production Club.',
   ogDescription: '豊橋技術科学大学 音楽技術部 (TechnoTUT) 公式ホームページ。',
-  ogImage: '/images/home/og-image.jpg',
+  ogImage: 'https://technotut.net/images/home/hero-bg_mid.png',
 })
 </script>
