@@ -2,11 +2,12 @@
   <section class="relative min-h-screen w-full overflow-hidden bg-dark flex flex-col justify-end pb-8">
     <!-- Background visual layer -->
     <div class="absolute inset-0 pointer-events-none z-0 flex items-center justify-center">
-      <img
+      <NuxtImg
         src="/images/home/hero-bg.png"
         alt="TechnoTUT Hero Background"
+        format="webp"
         class="w-full h-full object-cover object-center opacity-70 animate-fadein"
-      >
+      />
       <div class="absolute inset-0 bg-gradient-to-b from-dark/60 via-transparent to-dark"/>
     </div>
     <nav aria-label="Homepage main links" class="relative z-10 px-6 sm:px-12 lg:px-16 pb-12 sm:pb-16">

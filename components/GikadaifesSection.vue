@@ -23,13 +23,14 @@
             class="block relative overflow-hidden w-full max-w-xl sm:max-w-2xl lg:max-w-none bg-dark border border-white/10"
             :class="latestPost.image_banner ? 'aspect-[2527/1072]' : 'aspect-[1/1.414] max-w-xs sm:max-w-sm'"
           >
-            <img
+            <NuxtImg
               v-if="latestPost.image_banner || latestPost.image"
               :src="latestPost.image_banner || latestPost.image"
               :alt="latestPost.title"
               loading="lazy"
+              format="webp"
               class="w-full h-full object-contain object-center"
-            >
+            />
             <div v-else class="w-full h-full flex items-center justify-center text-gray-600 font-quicksand text-2xl">
               TechnoTUT
             </div>

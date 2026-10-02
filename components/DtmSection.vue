@@ -30,12 +30,13 @@
           class="block relative aspect-square overflow-hidden bg-neutral-900 hover:opacity-85 transition-opacity"
           :aria-label="`${item.title} (Bandcamp)`"
         >
-          <img
+          <NuxtImg
             :src="item.image"
             :alt="item.title"
             loading="lazy"
+            format="webp"
             class="w-full h-full object-cover"
-          >
+          />
         </a>
       </div>
     </div>

@@ -52,12 +52,13 @@
             @click="openModal(idx)"
           >
             <div class="aspect-[210/297] relative overflow-hidden bg-neutral-900">
-              <img
+              <NuxtImg
                 :src="item.image"
                 :alt="item.title"
                 loading="lazy"
+                format="webp"
                 class="w-full h-full object-cover"
-              >
+              />
               <!-- Gradient Overlay & Info on Hover -->
               <div
                 class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5"
@@ -150,11 +151,12 @@
 
           <!-- Modal Content (Shifted slightly downward for better eye level) -->
           <div class="relative max-w-4xl max-h-[92vh] flex flex-col items-center pt-8 sm:pt-12 translate-y-3 sm:translate-y-5">
-            <img
+            <NuxtImg
               :src="archives[selectedIdx].image"
               :alt="archives[selectedIdx].title"
+              format="webp"
               class="max-h-[75vh] w-auto max-w-full object-contain shadow-2xl border border-white/15"
-            >
+            />
             <div class="mt-4 text-center">
               <p class="font-quicksand text-lg text-white font-medium tracking-wide">
                 {{ archives[selectedIdx].title }}
