@@ -15,22 +15,23 @@
 
     <!-- Article Cards (1 Column) -->
     <div class="space-y-8">
-      <div
+      <NuxtLink
         v-for="post in posts"
         :key="post._path"
-        class="group overflow-hidden border border-white/10 bg-dark-panel flex flex-col md:flex-row transition-all hover:border-white/30"
+        :to="post._path"
+        class="group overflow-hidden border border-white/10 bg-dark flex flex-col md:flex-row transition-all hover:border-white/30"
       >
-        <NuxtLink :to="post._path" class="block md:w-60 lg:w-72 shrink-0 aspect-[16/10] overflow-hidden bg-neutral-900 relative">
+        <div class="block md:w-60 lg:w-72 shrink-0 aspect-[16/10] overflow-hidden bg-dark relative">
           <img
             v-if="post.image"
             :src="post.image"
             :alt="post.title"
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            class="w-full h-full object-cover object-top"
           >
           <div v-else class="w-full h-full min-h-[160px] flex items-center justify-center text-gray-600 font-quicksand text-xl">
             TechnoTUT
           </div>
-        </NuxtLink>
+        </div>
 
         <div class="p-6 md:p-8 flex-grow flex flex-col justify-between">
           <div>
@@ -38,7 +39,7 @@
               {{ formatDate(post.date) }}
             </p>
             <h2 class="font-noto text-xl sm:text-2xl font-light text-white group-hover:text-gray-200 transition-colors">
-              <NuxtLink :to="post._path">{{ post.title }}</NuxtLink>
+              {{ post.title }}
             </h2>
             <p v-if="post.description" class="mt-3 text-sm text-gray-400 font-noto font-[350] line-clamp-3 leading-relaxed">
               {{ post.description }}
@@ -46,13 +47,13 @@
           </div>
 
           <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between">
-            <NuxtLink :to="post._path" class="text-xs font-quicksand tracking-wider text-white flex items-center gap-1 group-hover:gap-2 transition-all">
+            <span class="text-xs font-quicksand tracking-wider text-white flex items-center gap-1 group-hover:gap-2 transition-all">
               <span>READ MORE</span>
               <span>&rarr;</span>
-            </NuxtLink>
+            </span>
           </div>
         </div>
-      </div>
+      </NuxtLink>
     </div>
   </div>
 </template>
