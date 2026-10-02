@@ -170,7 +170,7 @@ onUnmounted(() => {
 .site-header.is-open { background: #050505; }
 .header-row { min-height: 88px; display: flex; align-items: center; gap: 20px; padding: 16px 24px; }
 .header-content { flex: 1; min-width: 0; }
-.header-subtitle { display: none; color: rgba(255,255,255,.9); font-size: 14px; }
+.header-subtitle { display: none; color: rgba(255,255,255,.9); font-size: 0.875rem; }
 .header-right-mobile { display: none; }
 @media (max-width: 767px) {
   .header-right-mobile {
@@ -271,6 +271,7 @@ onUnmounted(() => {
   .header-row { padding-inline: 64px; }
   .header-links { font-size: 1rem; gap: 0 1.5rem; }
   .header-university { font-size: 1rem; }
+  .header-subtitle { font-size: 1rem; }
 }
 @media (min-width: 1440px) { .compact-university { display: block; } }
 @media (min-width: 1920px) {
