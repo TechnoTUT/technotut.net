@@ -1,5 +1,5 @@
 <template>
-  <div class="mb-12 border-b border-white/10 pb-6">
+  <div class="mb-12 pb-6" :class="{ 'border-b border-white/10': !noBorder }">
     <p class="font-quicksand text-xs sm:text-sm tracking-widest text-gray-400 uppercase mb-2">
       {{ eyebrow }}
     </p>
@@ -17,5 +17,6 @@ defineProps<{
   eyebrow: string
   title: string
   description?: string
+  noBorder?: boolean
 }>()
 </script>
