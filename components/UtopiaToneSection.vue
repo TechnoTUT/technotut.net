@@ -193,12 +193,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
-
 const sliderContainer = ref<HTMLElement | null>(null)
-const headerRef = ref<HTMLElement | null>(null)
-const isVisible = ref(false)
 const selectedIdx = ref<number | null>(null)
+
+const { targetRef: headerRef, isVisible } = useScrollReveal()
 
 const openModal = (idx: number) => {
   selectedIdx.value = idx
@@ -227,28 +225,15 @@ const handleKeydown = (e: KeyboardEvent) => {
   if (e.key === 'ArrowRight') nextImage()
 }
 
-let observer: IntersectionObserver | null = null
 
 onMounted(() => {
   window.addEventListener('keydown', handleKeydown)
-  if (headerRef.value) {
-    observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          isVisible.value = true
-          observer?.disconnect()
-        }
-      },
-      { threshold: 0.15 }
-    )
-    observer.observe(headerRef.value)
-  }
 })
 
 onUnmounted(() => {
   window.removeEventListener('keydown', handleKeydown)
-  observer?.disconnect()
 })
+
 
 // public/images/events/ 内の vol*.png, vol*.jpg などを自動スキャン
 const eventImages = import.meta.glob<string>(

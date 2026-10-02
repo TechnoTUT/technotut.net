@@ -60,29 +60,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
 import releases from '~/data/discography.json'
 
-const headerRef = ref<HTMLElement | null>(null)
-const isVisible = ref(false)
-let observer: IntersectionObserver | null = null
-
-onMounted(() => {
-  if (headerRef.value) {
-    observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          isVisible.value = true
-          observer?.disconnect()
-        }
-      },
-      { threshold: 0.15 }
-    )
-    observer.observe(headerRef.value)
-  }
-})
-
-onUnmounted(() => {
-  observer?.disconnect()
-})
+const { targetRef: headerRef, isVisible } = useScrollReveal()
 </script>

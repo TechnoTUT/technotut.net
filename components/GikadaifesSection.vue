@@ -105,30 +105,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { formatJaDate } from '~/utils/date'
 
-const headerRef = ref<HTMLElement | null>(null)
-const isVisible = ref(false)
-let observer: IntersectionObserver | null = null
-
-onMounted(() => {
-  if (headerRef.value) {
-    observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          isVisible.value = true
-          observer?.disconnect()
-        }
-      },
-      { threshold: 0.15 }
-    )
-    observer.observe(headerRef.value)
-  }
-})
-
-onUnmounted(() => {
-  observer?.disconnect()
-})
+const { targetRef: headerRef, isVisible } = useScrollReveal()
 
 const { data: latestPost } = await useAsyncData('gikadaifes-latest', () =>
   queryContent('gikadaifes')
@@ -137,13 +116,5 @@ const { data: latestPost } = await useAsyncData('gikadaifes-latest', () =>
     .findOne()
 )
 
-const formatDate = (dateStr: string) => {
-  if (!dateStr) return ''
-  const d = new Date(dateStr)
-  return d.toLocaleDateString('ja-JP', {
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-  })
-}
+const formatDate = formatJaDate
 </script>

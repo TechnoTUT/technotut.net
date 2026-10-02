@@ -150,39 +150,16 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
-
 interface CampusMapInstance {
   flyTo: (id: 'all' | 'commons' | 'clubroom' | 'bus') => void
 }
 
-const headerRef = ref<HTMLElement | null>(null)
-const isVisible = ref(false)
+const { targetRef: headerRef, isVisible } = useScrollReveal()
 const campusMapRef = ref<CampusMapInstance | null>(null)
-let observer: IntersectionObserver | null = null
 
 const focusLocation = (id: 'all' | 'commons' | 'clubroom' | 'bus') => {
   campusMapRef.value?.flyTo(id)
 }
-
-onMounted(() => {
-  if (headerRef.value) {
-    observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          isVisible.value = true
-          observer?.disconnect()
-        }
-      },
-      { threshold: 0.15 }
-    )
-    observer.observe(headerRef.value)
-  }
-})
-
-onUnmounted(() => {
-  observer?.disconnect()
-})
 
 const commonsPhotos = [
   '/images/access/photos/1.jpg',
