@@ -4,7 +4,13 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: false },
 
-  modules: ['@nuxtjs/tailwindcss', '@nuxt/content', '@nuxt/eslint'],
+  modules: ['@nuxtjs/tailwindcss', '@nuxt/content', '@nuxt/eslint', '@nuxt/image'],
+
+  image: {
+    quality: 80,
+    format: ['webp'],
+  },
+
 
   app: {
     head: {
