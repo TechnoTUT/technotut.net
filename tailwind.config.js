@@ -5,6 +5,7 @@ module.exports = {
     './layouts/**/*.vue',
     './pages/**/*.vue',
     './app.vue',
+    './error.vue',
     './content/**/*.md',
   ],
   theme: {
