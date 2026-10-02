@@ -92,7 +92,7 @@
           <ul class="space-y-2">
             <li><NuxtLink to="/" class="text-gray-400 hover:text-white transition-colors">HOME</NuxtLink></li>
             <li><NuxtLink to="/activity" class="text-gray-400 hover:text-white transition-colors">ACTIVITY</NuxtLink></li>
-            <li><NuxtLink to="/gikadaifes" class="text-gray-400 hover:text-white transition-colors">GIKADAIFES</NuxtLink></li>
+            <li><NuxtLink to="/gikadaifes" class="text-gray-400 hover:text-white transition-colors">技科大祭</NuxtLink></li>
             <li><NuxtLink to="/access" class="text-gray-400 hover:text-white transition-colors">ACCESS</NuxtLink></li>
             <li><NuxtLink to="/faq" class="text-gray-400 hover:text-white transition-colors">FAQ</NuxtLink></li>
             <li><NuxtLink to="/join-us" class="text-gray-400 hover:text-white transition-colors">JOIN US</NuxtLink></li>
