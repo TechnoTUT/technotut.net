@@ -67,8 +67,8 @@
               <span class="font-noto text-sm sm:text-base text-white font-light">{{ latestPost.time || '10:00 - 17:00' }}</span>
             </div>
             <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6">
-              <span class="font-quicksand text-xs tracking-widest text-gray-400 uppercase w-28 shrink-0">ADMISSION</span>
-              <span class="font-noto text-sm sm:text-base text-white font-light">入場無料</span>
+              <span class="font-quicksand text-xs tracking-widest text-gray-400 uppercase w-28 shrink-0">ENTRANCE</span>
+              <span class="font-noto text-sm sm:text-base text-white font-light">無料</span>
             </div>
           </div>
 
