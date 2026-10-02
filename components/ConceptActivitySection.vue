@@ -2,11 +2,18 @@
   <section
     id="concept"
     ref="sectionRef"
-    class="relative min-h-screen py-20 sm:py-32 landscape:py-8 sm:landscape:py-12 px-4 sm:px-8 bg-dark flex items-center justify-center overflow-hidden scroll-mt-0"
+    class="concept-section relative min-h-screen py-20 sm:py-32 landscape:py-8 sm:landscape:py-12 px-4 sm:px-8 bg-dark flex items-center justify-center overflow-hidden scroll-mt-0"
     @mouseleave="onMouseLeave"
     @focusout="onFocusOut"
     @click="handleSectionClick"
   >
+    <div class="secret-entry secret-entry--mobile absolute sm:hidden font-quicksand text-sm tracking-widest text-gray-300" :style="{ opacity: secretStrength }" :aria-hidden="secretStrength === 0">
+      <NuxtLink v-if="secretReady" to="/independent" class="inline-flex min-h-11 items-center gap-3 text-white underline decoration-white/40 underline-offset-4 focus-visible:outline focus-visible:outline-offset-4" @click.stop>
+        <span>2/7</span><span>INDEPENDENCE DAY →</span>
+      </NuxtLink>
+      <span v-else class="inline-flex min-h-11 items-center">2/7</span>
+    </div>
+
     <!-- Ambient Background Image Overlay (Crossfade on hover) -->
     <div class="absolute inset-0 pointer-events-none z-0 overflow-hidden">
       <div
@@ -43,7 +50,7 @@
         class="relative z-10 text-left px-4 sm:px-6 pointer-events-auto select-none max-w-xs sm:max-w-sm 2xl:max-w-md [@media(min-width:2560px)]:max-w-xl transition-all duration-1000 ease-out"
         :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
       >
-        <div class="secret-entry absolute -top-10 left-4 font-quicksand text-sm tracking-widest text-gray-300 sm:left-6" :style="{ opacity: secretStrength }" :aria-hidden="secretStrength === 0">
+        <div class="secret-entry hidden sm:block absolute -top-10 left-4 font-quicksand text-sm tracking-widest text-gray-300 sm:left-6" :style="{ opacity: secretStrength }" :aria-hidden="secretStrength === 0">
           <NuxtLink v-if="secretReady" to="/independent" class="inline-flex min-h-11 items-center gap-3 text-white underline decoration-white/40 underline-offset-4 focus-visible:outline focus-visible:outline-offset-4" @click.stop>
             <span>2/7</span><span>INDEPENDENCE DAY →</span>
           </NuxtLink>
@@ -113,26 +120,20 @@
 
     </div>
 
-    <!-- Detail text area: Bottom card in portrait, side text in landscape/desktop -->
+    <!-- Side descriptions sit just below EVENT / Tech & DIY. -->
     <div
-      class="activity-detail-card absolute z-30 transition-all duration-300 pointer-events-none"
+      class="activity-detail-card z-30 transition-all duration-300 pointer-events-none"
       :inert="!activeItem"
       :class="[
-        activeItem
-          ? 'opacity-100 translate-y-0 landscape:translate-y-0 landscape:translate-x-0'
-          : 'opacity-0 translate-y-4 landscape:translate-y-0 ' + (displayedItem?.side === 'left' ? 'landscape:-translate-x-4' : 'landscape:translate-x-4'),
-        'bottom-6 inset-x-6 sm:max-w-lg sm:mx-auto',
-        'landscape:bottom-24 landscape:top-auto landscape:translate-y-0 landscape:inset-x-auto landscape:mx-0 landscape:max-w-[240px] md:landscape:max-w-[260px] xl:landscape:top-1/2 xl:landscape:bottom-auto xl:landscape:-translate-y-1/2 xl:landscape:max-w-sm 2xl:landscape:max-w-md [@media(min-width:2560px)]:landscape:max-w-lg',
-        displayedItem?.side === 'left'
-          ? 'landscape:left-6 md:landscape:left-10 lg:landscape:left-12 2xl:landscape:left-16 [@media(min-width:2560px)]:landscape:left-24 text-left'
-          : 'landscape:right-6 md:landscape:right-10 lg:landscape:right-12 2xl:landscape:right-16 [@media(min-width:2560px)]:landscape:right-24 text-left landscape:text-right'
+        activeItem ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4',
+        displayedItem?.side === 'left' ? 'activity-detail-card--left' : 'activity-detail-card--right'
       ]"
       @mouseenter="onCardMouseEnter"
       @mouseleave="onCardMouseLeave"
     >
       <div
         v-if="displayedItem"
-        class="p-4 sm:p-5 2xl:p-6 landscape:p-0 rounded-2xl landscape:rounded-none bg-dark/95 landscape:bg-transparent backdrop-blur-md landscape:backdrop-blur-none border border-white/15 landscape:border-0 shadow-2xl landscape:shadow-none space-y-2 2xl:space-y-3 pointer-events-auto"
+        class="activity-detail-panel p-4 sm:p-5 2xl:p-6 rounded-2xl bg-dark/95 backdrop-blur-md border border-white/15 shadow-2xl space-y-2 2xl:space-y-3 pointer-events-auto"
       >
         <div class="flex items-center justify-between">
           <p class="font-quicksand text-xs sm:text-sm 2xl:text-base [@media(min-width:2560px)]:text-lg tracking-[0.2em] text-white/60 uppercase">
@@ -140,7 +141,7 @@
           </p>
           <button
             type="button"
-            class="landscape:hidden w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-xs text-white/70 hover:text-white cursor-pointer"
+            class="activity-detail-close w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-xs text-white/70 hover:text-white cursor-pointer"
             aria-label="閉じる"
             @click.stop="activeItem = null"
           >
@@ -252,6 +253,7 @@ const isTouchDevice = () => {
   )
 }
 
+const hoverLeaveDelay = 500
 let leaveTimer: ReturnType<typeof setTimeout> | null = null
 
 const clearLeaveTimer = () => {
@@ -280,7 +282,7 @@ const onMouseLeave = () => {
     clearLeaveTimer()
     leaveTimer = setTimeout(() => {
       activeItem.value = null
-    }, 250)
+    }, hoverLeaveDelay)
   }
 }
 
@@ -295,7 +297,7 @@ const onCardMouseLeave = () => {
     clearLeaveTimer()
     leaveTimer = setTimeout(() => {
       activeItem.value = null
-    }, 200)
+    }, hoverLeaveDelay)
   }
 }
 
@@ -309,7 +311,8 @@ const onFocusOut = (event: FocusEvent) => {
 }
 
 const onWindowScroll = () => {
-  if (activeItem.value) {
+  const bounds = sectionRef.value?.getBoundingClientRect()
+  if (activeItem.value && bounds && (bounds.bottom <= 0 || bounds.top >= window.innerHeight)) {
     clearLeaveTimer()
     activeItem.value = null
   }
@@ -812,31 +815,93 @@ onUnmounted(() => {
   }
 }
 
-.aspect-square {
+.concept-section {
   --orbit-radius: clamp(140px, 38vw, 160px);
 }
 
 @media (min-width: 640px) {
-  .aspect-square {
+  .concept-section {
     --orbit-radius: clamp(160px, min(26vw, 34vh), 300px);
   }
 }
 
 @media (min-width: 1024px) {
-  .aspect-square {
+  .concept-section {
     --orbit-radius: clamp(220px, min(22vw, 34vh), 340px);
   }
 }
 
 @media (min-width: 1536px) {
-  .aspect-square {
+  .concept-section {
     --orbit-radius: clamp(300px, min(19vw, 32vh), 400px);
   }
 }
 
 @media (min-width: 2560px) {
-  .aspect-square {
+  .concept-section {
     --orbit-radius: clamp(380px, min(17vw, 30vh), 520px);
+  }
+}
+
+.activity-detail-card {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  right: 1.5rem;
+}
+
+.secret-entry--mobile {
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+  .concept-section {
+    min-height: max(100vh, 44rem);
+  }
+
+  .activity-detail-card {
+    /* EVENT and Tech & DIY share the -90deg / 7 orbit height. */
+    top: calc(50% - sin(90deg / 7) * var(--orbit-radius) + 3rem);
+    bottom: auto;
+    width: min(18vw, 24rem);
+  }
+
+  .activity-detail-card--left {
+    left: 0.75rem;
+    right: auto;
+  }
+
+  .activity-detail-card--right {
+    left: auto;
+    right: 0.75rem;
+    text-align: right;
+  }
+
+  .activity-detail-panel {
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    backdrop-filter: none;
+    box-shadow: none;
+  }
+
+  .activity-detail-close {
+    display: none;
+  }
+}
+
+@media (min-width: 1536px) {
+  .activity-detail-card--left {
+    left: 4rem;
+  }
+
+  .activity-detail-card--right {
+    right: 4rem;
   }
 }
 
