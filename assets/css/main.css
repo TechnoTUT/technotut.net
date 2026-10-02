@@ -1,0 +1,158 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-dark text-white font-noto antialiased selection:bg-white/20 selection:text-white;
+  }
+}
+
+/* Custom Styles aligned with MOK */
+.font-quicksand {
+  font-family: 'Quicksand', sans-serif;
+  font-optical-sizing: auto;
+}
+
+.font-noto {
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+.title-with-line {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  opacity: 0.8;
+}
+
+.title-with-line::after {
+  content: "";
+  flex-grow: 1;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.4);
+  margin-left: 1.5rem;
+}
+
+.common-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: transparent;
+  color: #FFFFFF;
+  padding: 0.85rem 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 9999px;
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+  font-family: 'Quicksand', sans-serif;
+  letter-spacing: 0.05em;
+}
+
+.common-btn:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: #FFFFFF;
+  transform: translateY(-1px);
+}
+
+.rounded-outline-text {
+  display: inline-block;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 8px;
+  padding: 0.25rem 0.85rem;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+}
+
+.hero-choice {
+  text-decoration: none;
+  overflow: visible;
+  white-space: nowrap;
+  letter-spacing: 0.08em;
+  transition: opacity 0.4s ease, letter-spacing 0.4s ease;
+}
+
+.hero-choice:hover, .hero-choice:focus-visible {
+  color: #fff;
+  text-decoration: none;
+  opacity: 0.75;
+  letter-spacing: 0.14em;
+}
+
+html {
+  color-scheme: dark;
+}
+
+/* 大画面（WQHD / 4K）での迫力と視認性を向上させるルートフォントスケーリング */
+@media (min-width: 1921px) {
+  html {
+    font-size: 18px; /* フルHD超: 1.125x */
+  }
+}
+
+@media (min-width: 2560px) {
+  html {
+    font-size: 20px; /* WQHD: 1.25x (max-w-7xl = 1600px) */
+  }
+}
+
+@media (min-width: 3200px) {
+  html {
+    font-size: 22px; /* 3K+: 1.375x (max-w-7xl = 1760px) */
+  }
+}
+
+@media (min-width: 3840px) {
+  html {
+    font-size: 24px; /* 4K: 1.5x (max-w-7xl = 1920px) */
+  }
+}
+
+[id] { scroll-margin-top: 136px; }
+a:focus-visible, button:focus-visible { outline: 2px solid white; outline-offset: 5px; }
+a, button { touch-action: manipulation; }
+
+/* Block Reveal Animation (White Mask Flicker & Slide) */
+.block-reveal-mask {
+  position: absolute;
+  inset: 0;
+  background-color: #ffffff;
+  pointer-events: none;
+}
+
+.block-reveal-active {
+  animation: blockFlickerAndSlide 1.05s linear forwards;
+}
+
+@keyframes blockFlickerAndSlide {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  8% {
+    opacity: 0.15;
+    transform: translateX(0);
+  }
+  16% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  24% {
+    opacity: 0.4;
+    transform: translateX(0);
+  }
+  32% {
+    opacity: 1;
+    transform: translateX(0);
+    animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(101%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  .block-reveal-mask { display: none !important; }
+}

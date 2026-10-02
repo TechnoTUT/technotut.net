@@ -6,7 +6,7 @@ draft: false
 
 <dl>
 
-![utanokakera_jacket](/images/dtm/utanokakera_jacket.png) 
+![utanokakera_jacket](/images/contents/m3/utanokakera_jacket.png) 
 
 #### 1. 鈍感になっチャイナ feat. 夏色花梨
 ##### 作詞・作曲：2F波瀬
