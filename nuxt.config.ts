@@ -1,3 +1,5 @@
+import { readdirSync } from 'node:fs'
+import { relative, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 export default defineNuxtConfig({
@@ -5,6 +7,10 @@ export default defineNuxtConfig({
   devtools: { enabled: false },
 
   modules: ['@nuxtjs/tailwindcss', '@nuxt/content', '@nuxt/eslint', '@nuxt/image'],
+
+  content: {
+    ignores: ['\\.vue$'],
+  },
 
   image: {
     quality: 80,
@@ -51,6 +57,55 @@ export default defineNuxtConfig({
     prerender: {
       crawlLinks: true,
       routes: ['/', '/access', '/activity', '/join-us', '/gikadaifes', '/independent', '/audio-heihachiro'],
+    },
+  },
+
+  hooks: {
+    'pages:extend'(pages) {
+      const contentDir = fileURLToPath(new URL('./content', import.meta.url))
+
+      function scanVueFiles(dir: string, baseDir: string = dir): { fullPath: string; relPath: string }[] {
+        let results: { fullPath: string; relPath: string }[] = []
+        try {
+          const list = readdirSync(dir, { withFileTypes: true })
+          for (const dirent of list) {
+            const fullPath = resolve(dir, dirent.name)
+            if (dirent.isDirectory()) {
+              results = results.concat(scanVueFiles(fullPath, baseDir))
+            } else if (dirent.isFile() && dirent.name.endsWith('.vue')) {
+              const relPath = relative(baseDir, fullPath).replace(/\\/g, '/')
+              results.push({ fullPath, relPath })
+            }
+          }
+        } catch {
+          // ignore if dir does not exist
+        }
+        return results
+      }
+
+      const vueFiles = scanVueFiles(contentDir)
+      for (const { fullPath, relPath } of vueFiles) {
+        // Convert relPath to route path
+        // e.g. "special/feature.vue" -> "/special/feature"
+        // e.g. "special/index.vue" -> "/special"
+        // e.g. "index.vue" -> "/"
+        let routePath = '/' + relPath.replace(/\.vue$/, '')
+        if (routePath.endsWith('/index')) {
+          routePath = routePath.slice(0, -6) || '/'
+        }
+
+        const routeName = 'content-' + relPath
+          .replace(/\.vue$/, '')
+          .replace(/\//g, '-')
+          .replace(/^_/, '')
+
+        // Unshift so content vue routes take precedence over catch-all [...slug].vue
+        pages.unshift({
+          name: routeName,
+          path: routePath,
+          file: fullPath,
+        })
+      }
     },
   },
 })
