@@ -13,17 +13,26 @@
       </p>
     </div>
 
-    <ContentDoc v-slot="{ doc }" path="/faq">
+    <template v-if="doc">
       <article
         class="faq-content prose prose-invert sm:prose-lg max-w-none font-noto prose-p:font-[350] prose-p:text-gray-dim prose-headings:font-noto prose-headings:font-light prose-headings:text-gray-100 prose-a:text-gray-300 prose-a:font-normal prose-a:decoration-white/40 prose-a:underline-offset-4 hover:prose-a:text-white"
       >
         <ContentRenderer :value="doc" />
       </article>
-    </ContentDoc>
+    </template>
   </div>
 </template>
 
 <script setup lang="ts">
+// Resolve content before rendering so navigation cannot show a temporary not-found state.
+const documentPath = '/faq'
+const { data: doc, error } = await useAsyncData(`page-document-${documentPath}`, () =>
+  queryContent(documentPath).findOne(),
+)
+if (error.value) throw createError(error.value)
+if (!doc.value) throw createError({ statusCode: 404, statusMessage: 'Page not found' })
+useContentHead(doc)
+
 useSeoMeta({
   title: 'FAQ (よくある質問) - TechnoTUT',
   description: '豊橋技術科学大学 音楽技術部 (TechnoTUT) に関するよくある質問と回答',
