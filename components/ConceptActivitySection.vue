@@ -780,6 +780,8 @@ onUnmounted(() => {
   .mirror-trigger {
     transition: none;
   }
+}
+
 .vignette-overlay {
   background: radial-gradient(circle at center, rgba(5, 5, 5, 0.45) 0%, rgba(5, 5, 5, 0.8) 55%, #050505 100%);
 }
