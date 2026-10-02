@@ -43,15 +43,26 @@
         class="relative z-10 text-left px-4 sm:px-6 pointer-events-auto select-none max-w-xs sm:max-w-sm 2xl:max-w-md [@media(min-width:2560px)]:max-w-xl transition-all duration-1000 ease-out"
         :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
       >
-        <p class="font-quicksand text-[11px] sm:text-xs 2xl:text-sm [@media(min-width:2560px)]:text-base tracking-[0.25em] text-gray-400 uppercase mb-2 sm:mb-3 2xl:mb-4">
+        <div class="secret-entry absolute -top-10 left-4 font-quicksand text-sm tracking-widest text-gray-300 sm:left-6" :style="{ opacity: secretStrength }" :aria-hidden="secretStrength === 0">
+          <NuxtLink v-if="secretReady" to="/independent" class="inline-flex min-h-11 items-center gap-3 text-white underline decoration-white/40 underline-offset-4 focus-visible:outline focus-visible:outline-offset-4" @click.stop>
+            <span>2/7</span><span>INDEPENDENCE DAY →</span>
+          </NuxtLink>
+          <span v-else class="inline-flex min-h-11 items-center">2/7</span>
+        </div>
+        <button type="button" class="concept-trigger font-quicksand text-[11px] sm:text-xs 2xl:text-sm [@media(min-width:2560px)]:text-base tracking-[0.25em] text-gray-400 uppercase mb-2 sm:mb-3 2xl:mb-4" @click.stop="chargeIndependence">
           CONCEPT
-        </p>
+        </button>
         <h2 class="font-quicksand font-light text-2xl sm:text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl [@media(min-width:2560px)]:text-8xl leading-[1.05] sm:leading-none tracking-tight text-white whitespace-nowrap">
-          Music,<br >
-          Technology,<br >
+          <button type="button" class="mirror-trigger" @click.stop="tapMirror('music')">Music,</button><br >
+          <button type="button" class="mirror-trigger" @click.stop="tapMirror('technology')">Technology,</button><br >
           In Sync.
         </h2>
-        <div class="mt-4 sm:mt-8 2xl:mt-10 [@media(min-width:2560px)]:mt-12">
+        <Transition name="mirror-reveal">
+        <div v-if="mirrorUnlocked" class="absolute inset-0 z-30 flex items-center justify-center bg-dark/95 font-quicksand text-lg tracking-widest text-white sm:text-2xl">
+          <NuxtLink to="/audio-heihachiro" class="inline-flex min-h-11 items-center border-b border-white/40 py-3 transition-colors hover:border-white focus-visible:outline focus-visible:outline-offset-4" @click.stop>MIRROR?</NuxtLink>
+        </div>
+        </Transition>
+        <div class="mt-4 text-center sm:mt-8 2xl:mt-10 [@media(min-width:2560px)]:mt-12">
           <NuxtLink to="/activity" class="common-btn text-xs sm:text-sm 2xl:text-base py-1.5 px-5 sm:py-2 sm:px-6 2xl:py-3 2xl:px-8 [@media(min-width:2560px)]:py-4 [@media(min-width:2560px)]:px-10">
             <span>EXPLORE ALL</span>
             <span>&rarr;</span>
@@ -71,7 +82,7 @@
           activeItem?.id === item.id ? 'orbit-item--active' : ''
         ]"
         :style="{
-          '--angle': `${idx * 60 - 120}deg`,
+          '--angle': `${item.slot * orbitStep - 90 - orbitStep / 2}deg`,
           '--float-delay': `${item.delay}s`,
           '--float-duration': `${item.duration}s`,
           '--enter-delay': `${400 + idx * 120}ms`,
@@ -99,18 +110,20 @@
           </div>
         </div>
       </a>
+
     </div>
 
     <!-- Detail text area: Bottom card in portrait, side text in landscape/desktop -->
     <div
       class="activity-detail-card absolute z-30 transition-all duration-300 pointer-events-none"
+      :inert="!activeItem"
       :class="[
         activeItem
           ? 'opacity-100 translate-y-0 landscape:translate-y-0 landscape:translate-x-0'
-          : 'opacity-0 translate-y-4 landscape:translate-y-0 ' + (activeItem?.side === 'left' ? 'landscape:-translate-x-4' : 'landscape:translate-x-4'),
+          : 'opacity-0 translate-y-4 landscape:translate-y-0 ' + (displayedItem?.side === 'left' ? 'landscape:-translate-x-4' : 'landscape:translate-x-4'),
         'bottom-6 inset-x-6 sm:max-w-lg sm:mx-auto',
         'landscape:bottom-24 landscape:top-auto landscape:translate-y-0 landscape:inset-x-auto landscape:mx-0 landscape:max-w-[240px] md:landscape:max-w-[260px] xl:landscape:top-1/2 xl:landscape:bottom-auto xl:landscape:-translate-y-1/2 xl:landscape:max-w-sm 2xl:landscape:max-w-md [@media(min-width:2560px)]:landscape:max-w-lg',
-        activeItem?.side === 'left'
+        displayedItem?.side === 'left'
           ? 'landscape:left-6 md:landscape:left-10 lg:landscape:left-12 2xl:landscape:left-16 [@media(min-width:2560px)]:landscape:left-24 text-left'
           : 'landscape:right-6 md:landscape:right-10 lg:landscape:right-12 2xl:landscape:right-16 [@media(min-width:2560px)]:landscape:right-24 text-left landscape:text-right'
       ]"
@@ -118,12 +131,12 @@
       @mouseleave="onCardMouseLeave"
     >
       <div
-        v-if="activeItem"
+        v-if="displayedItem"
         class="p-4 sm:p-5 2xl:p-6 landscape:p-0 rounded-2xl landscape:rounded-none bg-dark/95 landscape:bg-transparent backdrop-blur-md landscape:backdrop-blur-none border border-white/15 landscape:border-0 shadow-2xl landscape:shadow-none space-y-2 2xl:space-y-3 pointer-events-auto"
       >
         <div class="flex items-center justify-between">
           <p class="font-quicksand text-xs sm:text-sm 2xl:text-base [@media(min-width:2560px)]:text-lg tracking-[0.2em] text-white/60 uppercase">
-            ACTIVITY // {{ activeItem.title }}
+            ACTIVITY // {{ displayedItem.title }}
           </p>
           <button
             type="button"
@@ -135,14 +148,14 @@
           </button>
         </div>
         <p class="font-noto text-xs sm:text-sm 2xl:text-base [@media(min-width:2560px)]:text-lg text-white/95 font-normal leading-relaxed tracking-wide drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">
-          {{ activeItem.description }}
+          {{ displayedItem.description }}
         </p>
         <div class="pt-1 2xl:pt-2">
           <NuxtLink
-            :to="`/activity#${activeItem.id}`"
-            class="inline-flex items-center min-h-11 gap-2 text-xs sm:text-sm 2xl:text-base [@media(min-width:2560px)]:text-lg text-brand hover:text-white landscape:text-white landscape:underline underline-offset-4 font-medium transition-colors"
+            :to="`/activity#${displayedItem.id}`"
+            class="inline-flex items-center min-h-11 gap-2 text-xs sm:text-sm 2xl:text-base [@media(min-width:2560px)]:text-lg text-brand hover:text-white landscape:text-white font-medium transition-colors"
           >
-            活動を詳しく見る <span aria-hidden="true">&rarr;</span>
+            <span class="landscape:underline underline-offset-4">活動を詳しく見る</span><span aria-hidden="true">&rarr;</span>
           </NuxtLink>
         </div>
       </div>
@@ -151,7 +164,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, watch, onMounted, onUnmounted } from 'vue'
 
 const sectionRef = ref<HTMLElement | null>(null)
 const containerRef = ref<HTMLElement | null>(null)
@@ -161,6 +174,7 @@ let sectionObserver: IntersectionObserver | null = null
 
 interface Activity {
   id: string
+  slot: number
   title: string
   side: 'left' | 'right'
   image: string
@@ -170,7 +184,64 @@ interface Activity {
 }
 
 const activeItem = ref<Activity | null>(null)
+const displayedItem = ref<Activity | null>(null)
+watch(activeItem, (item) => {
+  if (item) displayedItem.value = item
+})
 const router = useRouter()
+const orbitStep = 360 / 7
+const secretStrength = ref(0)
+const secretReady = ref(false)
+let conceptTaps = 0
+let secretFadeTimer: ReturnType<typeof setTimeout> | null = null
+let secretResetTimer: ReturnType<typeof setTimeout> | null = null
+const mirrorLast = ref<'music' | 'technology' | null>(null)
+const mirrorUnlocked = ref(false)
+let mirrorTaps = 0
+let mirrorTimer: ReturnType<typeof setTimeout> | null = null
+
+const clearSecretTimers = () => {
+  if (secretFadeTimer) clearTimeout(secretFadeTimer)
+  if (secretResetTimer) clearTimeout(secretResetTimer)
+}
+
+const chargeIndependence = () => {
+  clearSecretTimers()
+  conceptTaps = Math.min(conceptTaps + 1, 7)
+  secretReady.value = conceptTaps === 7
+  secretStrength.value = conceptTaps < 2 ? 0 : Math.min(1, 0.25 + (conceptTaps - 2) * 0.15)
+  secretFadeTimer = setTimeout(() => {
+    secretStrength.value = 0
+    secretReady.value = false
+    secretResetTimer = setTimeout(() => { conceptTaps = 0 }, 1800)
+  }, 3000)
+}
+
+const resetMirror = () => {
+  mirrorTaps = 0
+  mirrorLast.value = null
+}
+
+const tapMirror = (word: 'music' | 'technology') => {
+  if (mirrorUnlocked.value) return
+  if (mirrorTimer) clearTimeout(mirrorTimer)
+  if (word === mirrorLast.value || (!mirrorLast.value && word !== 'music')) {
+    resetMirror()
+  }
+  if (word === 'music' || mirrorLast.value === 'music') {
+    mirrorTaps++
+    mirrorLast.value = word
+  }
+  if (mirrorTaps === 6) {
+    mirrorUnlocked.value = true
+    mirrorTimer = setTimeout(() => {
+      mirrorUnlocked.value = false
+      resetMirror()
+    }, 5000)
+    return
+  }
+  mirrorTimer = setTimeout(resetMirror, 3000)
+}
 
 const isTouchDevice = () => {
   if (typeof window === 'undefined') return false
@@ -265,6 +336,7 @@ const handleSectionClick = (e: MouseEvent) => {
 const activities: Activity[] = [
   {
     id: 'dj',
+    slot: 0,
     title: 'DJ',
     side: 'left',
     image: '/images/concept/dj.jpg',
@@ -275,6 +347,7 @@ const activities: Activity[] = [
   },
   {
     id: 'vj-lj',
+    slot: 1,
     title: 'VJ & LJ',
     side: 'right',
     image: '/images/concept/vj.jpg',
@@ -285,8 +358,9 @@ const activities: Activity[] = [
   },
   {
     id: 'media',
-    title: 'Media',
-    side: 'right',
+    slot: 5,
+    title: 'MEDIA',
+    side: 'left',
     image: '/images/concept/media.jpg',
     delay: -3.4,
     duration: 6.8,
@@ -295,6 +369,7 @@ const activities: Activity[] = [
   },
   {
     id: 'dtm',
+    slot: 3,
     title: 'DTM',
     side: 'right',
     image: '/images/concept/dtm.png',
@@ -305,8 +380,9 @@ const activities: Activity[] = [
   },
   {
     id: 'tech-diy',
+    slot: 2,
     title: 'Tech & DIY',
-    side: 'left',
+    side: 'right',
     image: '/images/concept/tech.jpg',
     delay: -2.6,
     duration: 6.4,
@@ -315,6 +391,7 @@ const activities: Activity[] = [
   },
   {
     id: 'ramen',
+    slot: 4,
     title: 'ら',
     side: 'left',
     image: '/images/concept/ra.jpg',
@@ -322,6 +399,17 @@ const activities: Activity[] = [
     duration: 7.8,
     description:
       '旅行する価値のある卓越したラーメンと唐揚げを求めて食べ歩く部内文化。部員厳選のおすすめ店舗はラーメンマップで公開中です。',
+  },
+  {
+    id: 'event',
+    slot: 6,
+    title: 'EVENT',
+    side: 'left',
+    image: '/images/index/event/camp.jpg',
+    delay: -1.2,
+    duration: 7.3,
+    description:
+      '部室での放課後イベントから、コモンズでの大規模イベント、技科大祭やクラブでの開催まで。企画・運営を通じて、誰もが楽しめる遊び場とステージを自分たちの手で作ります。',
   },
 ]
 
@@ -392,7 +480,7 @@ onMounted(() => {
 
   // Nodes positions on the orbit
   const getNodePos = (index: number) => {
-    const angle = (index * 60 - 90) * (Math.PI / 180)
+    const angle = (index * orbitStep - 90 - orbitStep / 2) * (Math.PI / 180)
     return {
       x: centerX + Math.cos(angle) * orbitRadius,
       y: centerY + Math.sin(angle) * orbitRadius,
@@ -437,7 +525,7 @@ onMounted(() => {
     ctx.clearRect(0, 0, width, height)
 
     // Nodes positions for subtle gravity perturbations
-    const nodes = [0, 1, 2, 3, 4, 5].map((i) => getNodePos(i))
+    const nodes = Array.from({ length: 7 }, (_, i) => getNodePos(i))
 
     // Dynamic scale factor for resolution adaptation
     const currentScale = Math.max(1, Math.min(orbitRadius / 280, 2.2))
@@ -463,7 +551,7 @@ onMounted(() => {
 
       // 2. Subtle gravity perturbation from activity nodes as orbs pass nearby
       const nodeDist = Math.max(90, orbitRadius * 0.28)
-      for (let i = 0; i < 6; i++) {
+      for (let i = 0; i < nodes.length; i++) {
         const n = nodes[i]
         const ndx = n.x - orb.x
         const ndy = n.y - orb.y
@@ -626,10 +714,74 @@ onUnmounted(() => {
     sectionRef.value.removeEventListener('mouseleave', onCanvasMouseLeave)
   }
   clearLeaveTimer()
+  clearSecretTimers()
+  if (mirrorTimer) clearTimeout(mirrorTimer)
 })
 </script>
 
 <style scoped>
+.mirror-reveal-enter-active,
+.mirror-reveal-leave-active {
+  transition: opacity 600ms ease;
+}
+
+.mirror-reveal-enter-from,
+.mirror-reveal-leave-to {
+  opacity: 0;
+}
+
+.mirror-reveal-leave-active {
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mirror-reveal-enter-active,
+  .mirror-reveal-leave-active {
+    transition: none;
+  }
+}
+
+.concept-trigger,
+.mirror-trigger {
+  position: relative;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.concept-trigger {
+  min-height: 44px;
+  margin-top: -12px;
+  margin-bottom: -4px;
+}
+
+.mirror-trigger {
+  min-height: 44px;
+  transition: color 200ms ease, text-shadow 200ms ease;
+}
+
+.concept-trigger:focus-visible,
+.mirror-trigger:focus-visible,
+.secret-entry a:focus-visible {
+  outline: 1px solid white;
+  outline-offset: 4px;
+}
+
+.secret-entry {
+  transition: opacity 1.8s ease;
+}
+
+.concept-container .common-btn {
+  padding: 0.65rem 1.25rem;
+  min-height: 44px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .secret-entry,
+  .mirror-trigger {
+    transition: none;
+  }
+}
+
 .vignette-overlay {
   background: radial-gradient(circle at center, rgba(5, 5, 5, 0.45) 0%, rgba(5, 5, 5, 0.8) 55%, #050505 100%);
 }

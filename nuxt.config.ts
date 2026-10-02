@@ -41,7 +41,7 @@ export default defineNuxtConfig({
     },
     prerender: {
       crawlLinks: true,
-      routes: ['/', '/access', '/activity', '/join-us', '/gikadaifes'],
+      routes: ['/', '/access', '/activity', '/join-us', '/gikadaifes', '/independent', '/audio-heihachiro'],
     },
   },
 })
