@@ -1,5 +1,5 @@
 <template>
-  <div class="relative isolate overflow-hidden">
+  <div ref="pageRoot" class="relative isolate overflow-hidden">
     <!-- Opening Splash / Loading Screen (SVG Line Drawing Animation) -->
     <Teleport to="body">
       <Transition name="splash-fade">
@@ -99,12 +99,15 @@
     <!-- Ambient Cyber Glow & Speed Visuals (Swing-by #c7000a -> Rainbow -> Theme Cyan convergence) -->
     <div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10 select-none overflow-hidden">
       <!-- Swing-by Comet Glow: Starts at top-right, dives past center to bottom-left, slingshots back to top-right -->
-      <div
-        class="swingby-glow"
-        :class="{
-          'rainbow-active': rainbowBurstActive,
-        }"
-      />
+      <!-- Track wrapper: scroll-driven vertical movement that pauses at each section -->
+      <div ref="glowTrack" class="glow-track">
+        <div
+          class="swingby-glow"
+          :class="{
+            'rainbow-active': rainbowBurstActive,
+          }"
+        />
+      </div>
 
       <!-- Vertical 'VOL. 11 // THE UTOPIA TONE' Cyber Tag in right margin -->
       <div class="hidden xl:flex absolute top-[calc(100vh-6rem)] right-8 items-center gap-3 rotate-90 origin-bottom-right font-mono text-[10px] tracking-[0.4em] text-[rgba(0,177,224,0.35)] uppercase">
@@ -129,7 +132,7 @@
     </div>
 
     <!-- Hero / Title Header -->
-    <header class="mb-16">
+    <header data-glow-stop class="mb-16">
       <div class="flex flex-wrap items-center gap-3 mb-4">
         <span class="font-quicksand text-xs sm:text-sm tracking-widest text-brand uppercase font-medium">
           The Utopia Tone vol.11 Extended
@@ -175,7 +178,7 @@
     </header>
 
     <!-- Flyer Showcase -->
-    <section class="mb-20">
+    <section data-glow-stop class="mb-20">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-stretch">
         <div class="flex items-center justify-center">
           <div class="w-full max-w-xs overflow-hidden border border-white/10 bg-dark aspect-[1/1.414]">
@@ -221,7 +224,7 @@
     </section>
 
     <!-- Main Stage Highlight Section -->
-    <section class="mb-20 p-8 sm:p-10 bg-dark border border-white/10 relative overflow-hidden">
+    <section data-glow-stop class="mb-20 p-8 sm:p-10 bg-dark border border-white/10 relative overflow-hidden">
       <div>
         <div class="mb-4">
           <span class="inline-flex items-center px-3 py-1 bg-white/10 border border-white/20 text-white text-xs font-quicksand tracking-wider uppercase font-medium">
@@ -301,7 +304,7 @@
       </div>
 
       <!-- Day 1 Guests (3 Cards) -->
-      <div class="mb-12">
+      <div data-glow-stop class="mb-12">
         <div class="flex items-center gap-3 mb-6">
           <span class="text-xs font-quicksand tracking-widest text-white uppercase font-medium">DAY 1</span>
           <span class="text-white/20">•</span>
@@ -374,7 +377,7 @@
       </div>
 
       <!-- Day 2 Guests (2 Cards centered) -->
-      <div>
+      <div data-glow-stop>
         <div class="flex items-center gap-3 mb-6">
           <span class="text-xs font-quicksand tracking-widest text-white uppercase font-medium">DAY 2</span>
           <span class="text-white/20">•</span>
@@ -428,7 +431,7 @@
     </section>
 
     <!-- Timetable Section -->
-    <section class="mb-20">
+    <section data-glow-stop class="mb-20">
       <div class="mb-10 text-center sm:text-left">
         <p class="font-quicksand text-xs tracking-widest text-gray-400 uppercase mb-2">SCHEDULE</p>
         <h2 class="font-quicksand font-light text-3xl sm:text-5xl text-white tracking-tight">
@@ -642,6 +645,8 @@ import 'leaflet/dist/leaflet.css'
 const activeModalImage = ref<string | null>(null)
 const isLoading = ref(true)
 const rainbowBurstActive = ref(false)
+const pageRoot = ref<HTMLElement | null>(null)
+const glowTrack = ref<HTMLElement | null>(null)
 
 // Sequence:
 // 1. 1.8s splash screen
@@ -657,6 +662,88 @@ onMounted(() => {
       clearTimeout(splashTimer)
     })
   }
+})
+
+// Scroll-driven glow movement:
+// - Anticipates the next section: starts gliding to the next stop as soon as
+//   the next section's top enters the viewport (lower 3/4 point to 1/4 point).
+// - Smoothly eases (critically damped lerp) so motion feels like it leads the scroll.
+// - Holds at each section's stop while that section is active.
+let glowCleanup: (() => void) | null = null
+onMounted(() => {
+  if (!import.meta.client) return
+  const root = pageRoot.value
+  const track = glowTrack.value
+  if (!root || !track) return
+
+  const getSections = () =>
+    Array.from(root.querySelectorAll('[data-glow-stop]')) as HTMLElement[]
+
+  const clamp01 = (v: number) => Math.min(1, Math.max(0, v))
+  const smoothstep = (t: number) => t * t * (3 - 2 * t)
+
+  let sectionTops: number[] = []
+  let displayed = 0
+  let rafId = 0
+
+  const computeTarget = (): number => {
+    if (sectionTops.length === 0) return 0
+    const vh = window.innerHeight
+    const probe = window.scrollY + vh * 0.5
+    let index = 0
+    for (let i = 0; i < sectionTops.length; i++) {
+      if (sectionTops[i] <= probe) index = i
+      else break
+    }
+    const base = sectionTops[index] - sectionTops[0]
+    const nextTop = sectionTops[index + 1]
+    if (nextTop === undefined) return base
+    // Anticipation window: next section top travelling from 75vh -> 50vh in viewport
+    // (a reaches 1 exactly when the viewport center crosses the next section top,
+    // so the interpolated position and the section-index flip stay continuous).
+    const dist = nextTop - window.scrollY
+    const a = smoothstep(clamp01((vh * 0.75 - dist) / (vh * 0.25)))
+    return base + (nextTop - sectionTops[0] - base) * a
+  }
+
+  const tick = () => {
+    const target = computeTarget()
+    displayed += (target - displayed) * 0.14
+    if (Math.abs(target - displayed) < 0.5) displayed = target
+    track.style.transform = `translateY(${displayed}px)`
+    if (displayed !== target) {
+      rafId = window.requestAnimationFrame(tick)
+    } else {
+      rafId = 0
+    }
+  }
+
+  const kick = () => {
+    if (!rafId) rafId = window.requestAnimationFrame(tick)
+  }
+
+  const measure = () => {
+    sectionTops = getSections().map(
+      (el) => el.getBoundingClientRect().top + window.scrollY,
+    )
+    kick()
+  }
+
+  measure()
+  window.addEventListener('scroll', kick, { passive: true })
+  window.addEventListener('resize', measure)
+  window.addEventListener('load', measure)
+
+  glowCleanup = () => {
+    window.removeEventListener('scroll', kick)
+    window.removeEventListener('resize', measure)
+    window.removeEventListener('load', measure)
+    if (rafId) window.cancelAnimationFrame(rafId)
+  }
+})
+
+onUnmounted(() => {
+  glowCleanup?.()
 })
 
 // Day 1: 2026-10-10, Day 2: 2026-10-11
@@ -1170,6 +1257,14 @@ useSeoMeta({
    3. Flashes through 5 intense rainbow colors (Red -> Yellow -> Green -> Purple -> Cyan)
    4. Converges into ambient cyan with breathing + triggers speed streams
 */
+/* Vertical track for the scroll-driven glow movement.
+   Slides smoothly to each section's stop, then pauses while that section is active. */
+.glow-track {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+}
+
 .swingby-glow {
   position: absolute;
   /* Anchor to the splash screen's final resting point (viewport center + 28.49vw, -14.53vh)
