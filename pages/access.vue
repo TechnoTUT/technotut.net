@@ -25,16 +25,16 @@
           大学への行き方
         </h2>
         <!-- Access to the University -->
-        <p class="mt-3 text-sm sm:text-base font-noto text-gray-dim font-light leading-relaxed max-w-3xl">
+        <p class="mt-3 text-sm sm:text-base font-noto text-gray-dim font-light leading-relaxed">
           大学への行き方は
           <a
             href="https://www.tut.ac.jp/about/overview/access.html"
             target="_blank"
             rel="noopener noreferrer"
-            class="text-white underline decoration-white/40 underline-offset-4 hover:decoration-white transition-colors inline-flex items-center gap-1"
+            class="text-white underline decoration-white/40 underline-offset-4 hover:decoration-white transition-colors"
           >
             豊橋技術科学大学 公式サイト
-            <svg class="w-3.5 h-3.5 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <svg class="w-3.5 h-3.5 inline-block align-baseline" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
             </svg>
           </a>
@@ -378,7 +378,7 @@
           部室への行き方
         </h2>
         <!-- Access to the Club Room -->
-        <p class="mt-3 text-sm sm:text-base font-noto text-gray-dim font-light leading-relaxed max-w-3xl">
+        <p class="mt-3 text-sm sm:text-base font-noto text-gray-dim font-light leading-relaxed">
           クラブハウス2階 音楽技術部室となります。ぜひお気軽にお越しください。部室が虹色に光り輝いていることを目印とすると便利です。
         </p>
         <!--

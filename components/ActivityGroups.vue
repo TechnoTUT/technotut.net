@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p class="font-noto font-light text-gray-300 leading-8 max-w-3xl">
+    <p class="font-noto font-light text-gray-300 leading-8">
       自分の興味に合わせ、好きな活動班に自由に参加でき、複数のグループに関わることも可能です。制約や強制は一切なく、自分のペースで、心が動くままに楽しめる場所です。
     </p>
 
