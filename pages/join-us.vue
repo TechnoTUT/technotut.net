@@ -6,7 +6,7 @@
         音楽技術部では、学年や経験を問わず部員を募集しています。
         DJや曲作り、映像・照明、機材に興味がある方は、お気軽に部室見学にお越しください。
       </p>
-      <NuxtLink to="/access" class="join-link mt-5">部室への行き方 <span aria-hidden="true">→</span></NuxtLink>
+      <NuxtLink to="/access" class="join-link mt-5"><span>部室への行き方</span><span aria-hidden="true">→</span></NuxtLink>
     </header>
 
     <section aria-labelledby="activities-heading" class="border-t border-white/10 py-10 sm:py-12">
@@ -15,7 +15,7 @@
         <div class="text-base font-light text-gray-dim leading-8">
           <p>部室や学内イベントでDJをしたり、曲を作ってM3で頒布したりしています。映像や照明の演出、イベントの運営、フライヤーの制作、イベントを支える技術開発も部の活動です。</p>
           <p class="mt-4">DJ、DTM、VJ・LJ、Media、Tech・DIYなど、興味のある活動に参加できます。</p>
-          <NuxtLink to="/activity" class="join-link mt-5">活動班と活動実績を見る <span aria-hidden="true">→</span></NuxtLink>
+          <NuxtLink to="/activity" class="join-link mt-5"><span>活動班と活動実績を見る</span><span aria-hidden="true">→</span></NuxtLink>
         </div>
       </div>
     </section>
@@ -76,14 +76,21 @@ useSeoMeta({
   gap: 0.5rem;
   min-height: 44px;
   color: #d0d0d0;
+  transition: color 0.2s ease;
+}
+
+.join-link > span:first-child {
   text-decoration: underline;
   text-decoration-color: rgb(255 255 255 / 40%);
   text-underline-offset: 0.3em;
-  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+  transition: text-decoration-color 0.2s ease;
 }
 
 .join-link:hover {
   color: #fff;
+}
+
+.join-link:hover > span:first-child {
   text-decoration-color: #fff;
 }
 

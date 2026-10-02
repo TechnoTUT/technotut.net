@@ -89,7 +89,7 @@
 const navItems = [
   { label: 'HOME', to: '/' },
   { label: 'ACTIVITY', to: '/activity' },
-  { label: 'GIKADAIFES', to: '/gikadaifes' },
+  { label: '技科大祭', to: '/gikadaifes' },
   { label: 'ACCESS', to: '/access' },
   { label: 'FAQ', to: '/faq' },
   { label: 'JOIN US', to: '/join-us' },
