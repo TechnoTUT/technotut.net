@@ -1,17 +1,11 @@
 <template>
   <div class="pt-40 pb-24 sm:pb-32 px-6 sm:px-12 lg:px-16 max-w-5xl mx-auto">
     <!-- Header -->
-    <div class="mb-12 border-b border-white/10 pb-6">
-      <p class="font-quicksand text-xs sm:text-sm tracking-widest text-gray-400 uppercase mb-2">
-        EVENT ARCHIVE
-      </p>
-      <h1 class="font-quicksand font-light text-4xl sm:text-6xl text-white tracking-tight">
-        技科大祭
-      </h1>
-      <p class="mt-4 text-sm font-noto text-gray-dim font-[350] max-w-none leading-relaxed">
-        毎年10月に開催される "技科大祭" での TechnoTUT 主催DJイベントやステージパフォーマンスの特設情報です。
-      </p>
-    </div>
+    <PageHeader
+      eyebrow="EVENT ARCHIVE"
+      title="技科大祭"
+      description="毎年10月に開催される &quot;技科大祭&quot; での TechnoTUT 主催DJイベントやステージパフォーマンスの特設情報です。"
+    />
 
     <!-- Article Cards (1 Column) -->
     <div class="space-y-8">
@@ -59,6 +53,8 @@
 </template>
 
 <script setup lang="ts">
+import { formatJaDate as formatDate } from '~/utils/date'
+
 useSeoMeta({
   title: '技科大祭 - TechnoTUT',
   description: '豊橋技術科学大学 音楽技術部 (TechnoTUT) の技科大祭特設情報・アーカイブ',
@@ -70,14 +66,4 @@ const { data: posts } = await useAsyncData('gikadaifes-posts', () =>
     .sort({ date: -1 })
     .find()
 )
-
-const formatDate = (dateStr: string) => {
-  if (!dateStr) return ''
-  const d = new Date(dateStr)
-  return d.toLocaleDateString('ja-JP', {
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-  })
-}
 </script>
