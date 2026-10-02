@@ -11,7 +11,12 @@
         <Transition name="header-switch" mode="out-in">
           <p v-if="!showLinks" key="subtitle" class="header-subtitle font-quicksand">Music &amp; Live production Club - TechnoTUT</p>
           <nav v-else key="links" class="header-links font-quicksand" aria-label="Main Navigation">
-            <NuxtLink v-for="item in navItems" :key="item.to" :to="item.to">
+            <NuxtLink
+              v-for="item in navItems"
+              :key="item.to"
+              :to="item.to"
+              :class="{ 'is-ja': /[^\x00-\x7F]/.test(item.label) }"
+            >
               {{ item.label }}
             </NuxtLink>
           </nav>
@@ -67,6 +72,7 @@
               :key="item.to"
               :to="item.to"
               class="mobile-link text-white/90 hover:text-brand"
+              :class="{ 'is-ja': /[^\x00-\x7F]/.test(item.label) }"
               @click="closeMenu"
             >
               <span>{{ item.label }}</span>
@@ -271,4 +277,20 @@ onUnmounted(() => {
   .header-row { padding-inline: 5rem; }
 }
 @media (max-width: 359px) { .header-row { padding-inline: 16px; gap: 12px; } }
+
+/* Safari-specific: slightly lighter Japanese font rendering in header */
+@supports (font: -apple-system-body) {
+  .header-links a.is-ja {
+    font-weight: 200;
+    opacity: 0.85;
+  }
+  .header-links a.is-ja:hover,
+  .header-links a.is-ja:focus-visible {
+    opacity: 0.75;
+  }
+  .mobile-link.is-ja {
+    font-weight: 200;
+    opacity: 0.85;
+  }
+}
 </style>
