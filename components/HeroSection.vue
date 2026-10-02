@@ -58,8 +58,6 @@
   </section>
 </template>
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-
 const isMounted = ref(false)
 onMounted(() => {
   isMounted.value = true
@@ -85,7 +83,6 @@ const scrollToConcept = () => {
 }
 </script>
 <style scoped>
-.hero-section { min-height: 100svh; padding-top: 128px; }
 .hero-choices { display: flex; flex-direction: column; gap: 12px; }
 .hero-choice { display: inline-flex; align-items: center; gap: 24px; min-height: 48px; padding-block: 4px; font-size: clamp(2rem, 4vw, 4rem); font-weight: 300; line-height: 1.2; color: white; }
 .hero-arrow { width: .7em; height: .7em; flex-shrink: 0; overflow: visible; }
