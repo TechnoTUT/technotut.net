@@ -2,7 +2,7 @@
   <div class="pt-40 pb-24 sm:pb-32 px-6 sm:px-12 lg:px-16 max-w-5xl mx-auto font-noto">
     <header class="mb-14 sm:mb-20">
       <h1 class="font-light text-4xl sm:text-6xl text-white tracking-tight">入部案内</h1>
-      <p class="mt-6 max-w-2xl text-base text-gray-dim font-light leading-8">
+      <p class="mt-6 text-base text-gray-dim font-light leading-8">
         音楽技術部では、学年や経験を問わず部員を募集しています。
         DJや曲作り、映像・照明、機材に興味がある方は、お気軽に部室見学にお越しください。
       </p>
