@@ -64,37 +64,7 @@
             </p>
 
             <!-- Compact Photo Viewer -->
-            <div class="relative overflow-hidden aspect-[16/10] bg-dark group shadow-lg">
-              <img
-                :src="commonsPhotos[currentPhotoIndex]"
-                alt="Commons 1 Photo"
-                class="w-full h-full object-cover transition-opacity duration-300"
-              >
-              <!-- Floating photo count & controls -->
-              <div class="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-dark/90 via-dark/40 to-transparent flex items-center justify-between">
-                <span class="text-[11px] font-quicksand text-gray-300">
-                  {{ currentPhotoIndex + 1 }} / {{ commonsPhotos.length }}
-                </span>
-                <div class="flex items-center gap-1.5">
-                  <button
-                    type="button"
-                    class="w-11 h-11 rounded-full bg-dark/80 border border-white/20 flex items-center justify-center text-xs text-white hover:border-white transition-colors cursor-pointer"
-                    aria-label="Previous photo"
-                    @click="prevPhoto"
-                  >
-                    &larr;
-                  </button>
-                  <button
-                    type="button"
-                    class="w-11 h-11 rounded-full bg-dark/80 border border-white/20 flex items-center justify-center text-xs text-white hover:border-white transition-colors cursor-pointer"
-                    aria-label="Next photo"
-                    @click="nextPhoto"
-                  >
-                    &rarr;
-                  </button>
-                </div>
-              </div>
-            </div>
+            <CommonsPhotoViewer variant="compact" />
           </div>
 
           <!-- Place 2: TechnoTUT Clubroom -->
@@ -137,24 +107,5 @@ const campusMapRef = ref<CampusMapInstance | null>(null)
 
 const focusLocation = (id: 'all' | 'commons' | 'clubroom' | 'bus') => {
   campusMapRef.value?.flyTo(id)
-}
-
-const commonsPhotos = [
-  '/images/access/photos/1.jpg',
-  '/images/access/photos/2.jpg',
-  '/images/access/photos/3.jpg',
-  '/images/access/photos/4.jpg',
-]
-
-const currentPhotoIndex = ref(0)
-
-const prevPhoto = () => {
-  currentPhotoIndex.value =
-    (currentPhotoIndex.value - 1 + commonsPhotos.length) % commonsPhotos.length
-}
-
-const nextPhoto = () => {
-  currentPhotoIndex.value =
-    (currentPhotoIndex.value + 1) % commonsPhotos.length
 }
 </script>
