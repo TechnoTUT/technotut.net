@@ -3,7 +3,7 @@
     <!-- Header -->
     <div class="mb-12 border-b border-white/10 pb-6">
       <p class="font-quicksand text-xs sm:text-sm tracking-widest text-gray-400 uppercase mb-2">
-        ACTIVITY &amp; SCHEDULE
+        ACTIVITY &amp; RECORD
       </p>
       <h1 class="font-quicksand font-light text-4xl sm:text-6xl text-white tracking-tight">
         活動情報
@@ -16,7 +16,7 @@
     <ActivityGroups />
 
     <div id="schedule" class="mt-24 sm:mt-32 border-t border-white/10 pt-12">
-      <p class="font-quicksand text-xs tracking-[0.2em] text-gray-400 mb-3">SCHEDULE &amp; RECORD</p>
+      <p class="font-quicksand text-xs tracking-[0.2em] text-gray-400 mb-3">RECORD</p>
       <h2 class="font-noto font-light text-3xl sm:text-4xl mb-8">活動予定・実績</h2>
       <!-- Markdown Content for Schedule / Record -->
       <ContentDoc v-slot="{ doc }" path="/activity">
