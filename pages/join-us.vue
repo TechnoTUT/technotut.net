@@ -1,120 +1,93 @@
 <template>
-  <div class="py-24 sm:py-32 px-6 sm:px-12 lg:px-16 max-w-5xl mx-auto">
-    <!-- Header -->
-    <div class="mb-12 border-b border-white/10 pb-6">
-      <p class="font-quicksand text-xs sm:text-sm tracking-widest text-brand uppercase mb-2">
-        RECRUITMENT &amp; JOIN US
+  <div class="pt-40 pb-24 sm:pb-32 px-6 sm:px-12 lg:px-16 max-w-5xl mx-auto font-noto">
+    <header class="mb-14 sm:mb-20">
+      <h1 class="font-light text-4xl sm:text-6xl text-white tracking-tight">入部案内</h1>
+      <p class="mt-6 max-w-2xl text-base text-gray-dim font-light leading-8">
+        音楽技術部では、学年や経験を問わず部員を募集しています。
+        DJや曲作り、映像・照明、機材に興味がある方は、お気軽に部室見学にお越しください。
       </p>
-      <h1 class="font-quicksand font-light text-4xl sm:text-6xl text-white tracking-tight">
-        Join TechnoTUT
-      </h1>
-      <p class="mt-4 text-sm sm:text-base font-noto text-gray-dim font-[350] max-w-2xl leading-relaxed">
-        音楽技術部では、学年・学部・経験を問わず、音楽や音響・映像演出・テクノロジーに興味のある新入部員を随時募集しています！
-      </p>
-    </div>
+      <NuxtLink to="/access" class="join-link mt-5">部室への行き方 <span aria-hidden="true">→</span></NuxtLink>
+    </header>
 
-    <!-- Overview Cards -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-      <div class="p-6 rounded-2xl bg-dark-panel border border-white/10 flex flex-col justify-between">
-        <div>
-          <span class="rounded-outline-text text-xs mb-3">WHO CAN JOIN</span>
-          <h3 class="font-noto text-xl font-light text-white mb-3">初心者大歓迎</h3>
-          <p class="text-xs sm:text-sm font-noto text-gray-400 font-[350] leading-relaxed">
-            部員の多くは大学に入ってからDJやDTM、音響機材、VJを始めています。先輩が機材の使い方や制作の基礎を一からサポートします。
-          </p>
+    <section aria-labelledby="activities-heading" class="border-t border-white/10 py-10 sm:py-12">
+      <div class="grid gap-6 md:grid-cols-[1fr_2fr] md:gap-12">
+        <h2 id="activities-heading" class="text-2xl font-light text-white">部では何ができる？</h2>
+        <div class="text-base font-light text-gray-dim leading-8">
+          <p>部室や学内イベントでDJをしたり、曲を作ってM3で頒布したりしています。映像や照明の演出、イベントの運営、フライヤーの制作、イベントを支える技術開発も部の活動です。</p>
+          <p class="mt-4">DJ、DTM、VJ・LJ、Media、Tech・DIYなど、興味のある活動に参加できます。</p>
+          <NuxtLink to="/activity" class="join-link mt-5">活動班と活動実績を見る <span aria-hidden="true">→</span></NuxtLink>
         </div>
       </div>
+    </section>
 
-      <div class="p-6 rounded-2xl bg-dark-panel border border-white/10 flex flex-col justify-between">
-        <div>
-          <span class="rounded-outline-text text-xs mb-3">EQUIPMENT</span>
-          <h3 class="font-noto text-xl font-light text-white mb-3">充実の機材環境</h3>
-          <p class="text-xs sm:text-sm font-noto text-gray-400 font-[350] leading-relaxed">
-            部室やコモンズ1にはプロ仕様のDJコントローラー、大型PAスピーカー、照明機器、配信用サーバーが整っており、自由に触ることができます。
-          </p>
+    <section aria-labelledby="fees-heading" class="border-t border-white/10 py-10 sm:py-12">
+      <div class="grid gap-6 md:grid-cols-[1fr_2fr] md:gap-12">
+        <h2 id="fees-heading" class="text-2xl font-light text-white">部費・体験入部</h2>
+        <div class="text-base font-light text-gray-dim leading-8">
+          <p>部費は初年度1,000円、2年目以降は年額2,000円です。2年目以降は、再入部手続きの際にお支払いください。</p>
+          <p class="mt-4">初年度の4月は仮入部期間です。部費を払わずに活動を体験できます。</p>
         </div>
       </div>
+    </section>
 
-      <div class="p-6 rounded-2xl bg-dark-panel border border-white/10 flex flex-col justify-between">
-        <div>
-          <span class="rounded-outline-text text-xs mb-3">LIFESTYLE</span>
-          <h3 class="font-noto text-xl font-light text-white mb-3">兼部・自由参加OK</h3>
-          <p class="text-xs sm:text-sm font-noto text-gray-400 font-[350] leading-relaxed">
-            研究や学業、他サークルとの兼部も大歓迎です。自分のペースに合わせてイベントや制作活動に関わることができます。
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Entry Steps -->
-    <div class="mb-16 p-8 rounded-2xl bg-dark-panel border border-white/10">
-      <h2 class="font-noto text-2xl font-light text-white mb-8 title-with-line">
-        入部の流れ
-      </h2>
-      <div class="space-y-6">
-        <div class="flex items-start gap-4">
-          <span class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center font-quicksand text-sm text-brand flex-shrink-0">
-            1
-          </span>
-          <div>
-            <h4 class="font-noto text-lg text-white font-medium">部室見学またはオンライン相談</h4>
-            <p class="text-sm font-noto font-[350] text-gray-400 mt-1">
-              まずはクラブハウス2階の部室へお気軽にお越しいただくか、公式X（Twitter）のDMまたはメールでお問い合わせください。
-            </p>
-          </div>
-        </div>
-        <div class="flex items-start gap-4">
-          <span class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center font-quicksand text-sm text-brand flex-shrink-0">
-            2
-          </span>
-          <div>
-            <h4 class="font-noto text-lg text-white font-medium">Discord サーバーへの参加</h4>
-            <p class="text-sm font-noto font-[350] text-gray-400 mt-1">
-              日々の連絡、制作進捗の共有、機材談義はサークル公式Discord上で行われています。
-            </p>
-          </div>
-        </div>
-        <div class="flex items-start gap-4">
-          <span class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center font-quicksand text-sm text-brand flex-shrink-0">
-            3
-          </span>
-          <div>
-            <h4 class="font-noto text-lg text-white font-medium">入部届の提出・活動スタート</h4>
-            <p class="text-sm font-noto font-[350] text-gray-400 mt-1">
-              興味のある班（DJ, DTM, VJ/LJ, Media, Tech/DIY, ら）に参加し、自由に活動を楽しんでいただけます。
-            </p>
+    <section aria-labelledby="visit-heading" class="border-t border-white/10 py-10 sm:py-12">
+      <div class="grid gap-6 md:grid-cols-[1fr_2fr] md:gap-12">
+        <h2 id="visit-heading" class="text-2xl font-light text-white">見学・入部について</h2>
+        <div class="text-base font-light text-gray-dim leading-8">
+          <p>見学・体験入部は、活動中にクラブハウス2階の音楽技術部室へお越しください。</p>
+          <p class="mt-4">部室は空いていないこともありますので、確実に見学をしたい方は事前にご連絡いただくことをおすすめします。</p>
+          <p class="mt-4">入部には、部員名簿への署名・捺印と部費の支払いが必要です。印鑑をお持ちください。シャチハタは使用できません。</p>
+          <p class="mt-4">経験や活動への参加については、<NuxtLink to="/faq" class="underline decoration-white/40 underline-offset-4 hover:text-white">よくある質問</NuxtLink>をご覧ください。</p>
+          <p class="mt-4">見学前に聞きたいことがあれば、X・InstagramのDMまたはメールでご連絡ください。</p>
+          <p class="mt-2">メール：<span class="whitespace-nowrap">contact [at] technotut.net</span><span class="block text-sm text-gray-400">[at]を@に置き換えてください。</span></p>
+          <div class="mt-6 flex flex-col items-start gap-3 sm:flex-row sm:flex-wrap">
+            <a href="https://x.com/ToyohashiTechno" target="_blank" rel="noopener noreferrer" class="common-btn min-h-11 text-sm">
+              <svg class="w-4 h-4 shrink-0 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z" />
+              </svg>
+              Xのプロフィール <span aria-hidden="true"></span>
+            </a>
+            <a href="https://www.instagram.com/tut_technotut/" target="_blank" rel="noopener noreferrer" class="common-btn min-h-11 text-sm">
+              <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+              </svg>
+              Instagramのプロフィール <span aria-hidden="true"></span>
+            </a>
           </div>
         </div>
       </div>
-    </div>
-
-    <!-- Contact CTA -->
-    <div class="text-center p-8 rounded-2xl border border-white/10 bg-gradient-to-b from-white/5 to-transparent">
-      <h3 class="font-noto text-2xl font-light text-white mb-3">質問・見学希望はお気軽に</h3>
-      <p class="text-sm font-noto font-[350] text-gray-400 max-w-xl mx-auto mb-6">
-        「機材を一度触ってみたい」「どんな楽曲を作っているか知りたい」など、少しでも気になったらご連絡ください！
-      </p>
-      <div class="flex flex-wrap items-center justify-center gap-4">
-        <a
-          href="https://twitter.com/toyohashitechno"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="common-btn text-xs py-2 px-6"
-        >
-          <span>公式𝕏のDMはこちら</span>
-          <span>&rarr;</span>
-        </a>
-        <NuxtLink to="/faq" class="px-6 py-2 rounded-full border border-white/30 text-xs font-quicksand hover:bg-white/10 transition-colors">
-          よくある質問 (FAQ)
-        </NuxtLink>
-      </div>
-    </div>
+    </section>
   </div>
 </template>
 
 <script setup lang="ts">
 useSeoMeta({
-  title: '入部案内 (Join Us) - TechnoTUT',
-  description: '豊橋技術科学大学 音楽技術部 (TechnoTUT) の新入部員募集案内',
+  title: '入部案内 - TechnoTUT',
+  description: '豊橋技術科学大学 音楽技術部（TechnoTUT）の見学・入部案内。活動内容、部室への行き方、入部手続きと連絡先を紹介します。',
 })
 </script>
+
+<style scoped>
+.join-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  color: #d0d0d0;
+  text-decoration: underline;
+  text-decoration-color: rgb(255 255 255 / 40%);
+  text-underline-offset: 0.3em;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+.join-link:hover {
+  color: #fff;
+  text-decoration-color: #fff;
+}
+
+h1, h2 {
+  text-wrap: balance;
+}
+</style>
