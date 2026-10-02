@@ -1,40 +1,19 @@
 <template>
   <section class="py-24 sm:py-32 px-6 sm:px-12 lg:px-16 bg-dark relative overflow-hidden">
     <div class="max-w-7xl mx-auto">
-      <!-- Section Header (Aligned with UtopiaToneSection & GikadaifesSection) -->
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-6">
-        <div ref="headerRef">
-          <p
-            class="font-quicksand text-xs sm:text-sm tracking-widest text-gray-400 mb-2 transition-all duration-500 ease-out"
-            :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'"
-          >
-            LOCATION &amp; ACCESS
-          </p>
-          <div class="relative inline-block overflow-hidden">
-            <h2 class="font-quicksand font-light text-4xl sm:text-6xl md:text-7xl text-white tracking-tight pb-1 sm:pb-2">
-              Access
-            </h2>
-            <div
-              aria-hidden="true"
-              class="block-reveal-mask"
-              :class="isVisible ? 'block-reveal-active' : ''"
-            />
-          </div>
-          <p
-            class="font-noto text-sm sm:text-base text-gray-dim font-light mt-4 max-w-2xl leading-relaxed tracking-wide transition-all duration-700 ease-out delay-300"
-            :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'"
-          >
-            豊橋技術科学大学へのアクセス、および学内活動拠点のご案内
-          </p>
-        </div>
-
-        <div class="self-start md:self-end">
+      <!-- Section Header -->
+      <SectionHeader
+        eyebrow="LOCATION &amp; ACCESS"
+        title="Access"
+        description="豊橋技術科学大学へのアクセス、および学内活動拠点のご案内"
+      >
+        <template #action>
           <NuxtLink to="/access" class="common-btn text-xs py-2 px-5 inline-flex">
             <span>ACCESS DETAIL</span>
             <span>&rarr;</span>
           </NuxtLink>
-        </div>
-      </div>
+        </template>
+      </SectionHeader>
 
       <!-- Frameless, elegant layout: Left: Large Map Visual (7 cols), Right: Locations (5 cols) -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-stretch">
@@ -154,7 +133,6 @@ interface CampusMapInstance {
   flyTo: (id: 'all' | 'commons' | 'clubroom' | 'bus') => void
 }
 
-const { targetRef: headerRef, isVisible } = useScrollReveal()
 const campusMapRef = ref<CampusMapInstance | null>(null)
 
 const focusLocation = (id: 'all' | 'commons' | 'clubroom' | 'bus') => {
