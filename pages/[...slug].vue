@@ -1,6 +1,6 @@
 <template>
   <div class="py-24 sm:py-32 px-6 sm:px-12 lg:px-16 max-w-4xl mx-auto">
-    <ContentDoc v-slot="{ doc }">
+    <template v-if="doc">
       <header class="mb-12 border-b border-white/10 pb-6">
         <h1 class="font-noto text-3xl sm:text-5xl font-light text-white leading-tight">
           {{ doc.title }}
@@ -15,10 +15,20 @@
       >
         <ContentRenderer :value="doc" />
       </article>
-    </ContentDoc>
+    </template>
   </div>
 </template>
 
 <script setup lang="ts">
-// Catch-all markdown renderer
+definePageMeta({ key: route => route.path })
+
+// Resolve content before rendering so navigation cannot show a temporary not-found state.
+const documentPath = useRoute().path
+const { data: doc, error } = await useAsyncData(`page-document-${documentPath}`, () =>
+  queryContent(documentPath).findOne(),
+)
+if (error.value) throw createError(error.value)
+if (!doc.value) throw createError({ statusCode: 404, statusMessage: 'Page not found' })
+useContentHead(doc)
+
 </script>

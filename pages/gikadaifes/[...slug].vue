@@ -1,6 +1,6 @@
 <template>
   <div class="py-24 sm:py-32 px-6 sm:px-12 lg:px-16 max-w-4xl mx-auto">
-    <ContentDoc v-slot="{ doc }">
+    <template v-if="doc">
       <!-- Breadcrumb / Back Link -->
       <div class="mb-8">
         <NuxtLink to="/gikadaifes" class="text-xs font-quicksand text-gray-400 hover:text-white transition-colors flex items-center gap-2">
@@ -37,11 +37,22 @@
           <span>一覧へ戻る</span>
         </NuxtLink>
       </div>
-    </ContentDoc>
+    </template>
   </div>
 </template>
 
 <script setup lang="ts">
+definePageMeta({ key: route => route.path })
+
+// Resolve content before rendering so navigation cannot show a temporary not-found state.
+const documentPath = useRoute().path
+const { data: doc, error } = await useAsyncData(`page-document-${documentPath}`, () =>
+  queryContent(documentPath).findOne(),
+)
+if (error.value) throw createError(error.value)
+if (!doc.value) throw createError({ statusCode: 404, statusMessage: 'Page not found' })
+useContentHead(doc)
+
 const formatDate = (dateStr: string) => {
   if (!dateStr) return ''
   const d = new Date(dateStr)

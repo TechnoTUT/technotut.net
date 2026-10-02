@@ -19,18 +19,27 @@
       <p class="font-quicksand text-xs tracking-[0.2em] text-gray-400 mb-3">RECORD</p>
       <h2 class="font-noto font-light text-3xl sm:text-4xl mb-8">活動予定・実績</h2>
       <!-- Markdown Content for Schedule / Record -->
-      <ContentDoc v-slot="{ doc }" path="/activity">
+      <template v-if="doc">
         <article
           class="schedule-content prose prose-invert prose-lg max-w-none font-noto prose-p:font-[350] prose-p:text-gray-dim prose-headings:font-noto prose-p:font-[350] prose-p:text-gray-dim prose-headings:font-light prose-headings:text-white prose-table:border-collapse prose-th:border-b prose-th:border-white/20 prose-th:py-3 prose-th:text-white prose-td:border-b prose-td:border-white/10 prose-td:py-3"
         >
           <ContentRenderer :value="doc" />
         </article>
-      </ContentDoc>
+      </template>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+// Resolve content before rendering so navigation cannot show a temporary not-found state.
+const documentPath = '/activity'
+const { data: doc, error } = await useAsyncData(`page-document-${documentPath}`, () =>
+  queryContent(documentPath).findOne(),
+)
+if (error.value) throw createError(error.value)
+if (!doc.value) throw createError({ statusCode: 404, statusMessage: 'Page not found' })
+useContentHead(doc)
+
 useSeoMeta({
   title: '活動情報 - TechnoTUT',
   description: '豊橋技術科学大学 音楽技術部 (TechnoTUT) の各班の活動紹介・活動予定・実績',
