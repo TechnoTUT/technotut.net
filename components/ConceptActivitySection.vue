@@ -22,7 +22,7 @@
       />
       <!-- Vignette / dark overlay gradient for readability -->
       <div
-        class="absolute inset-0 bg-gradient-radial from-dark/60 via-dark/85 to-dark transition-opacity duration-500"
+        class="vignette-overlay absolute inset-0 transition-opacity duration-500"
         :class="activeItem ? 'opacity-90' : 'opacity-0'"
       />
     </div>
@@ -306,6 +306,13 @@ const onFocusOut = (event: FocusEvent) => {
       clearLeaveTimer()
       activeItem.value = null
     }
+  }
+}
+
+const onWindowScroll = () => {
+  if (activeItem.value) {
+    clearLeaveTimer()
+    activeItem.value = null
   }
 }
 
@@ -687,9 +694,12 @@ onMounted(() => {
     )
     sectionObserver.observe(sectionRef.value)
   }
+
+  window.addEventListener('scroll', onWindowScroll, { passive: true })
 })
 
 onUnmounted(() => {
+  window.removeEventListener('scroll', onWindowScroll)
   if (animationFrameId) {
     cancelAnimationFrame(animationFrameId)
   }
@@ -770,6 +780,8 @@ onUnmounted(() => {
   .mirror-trigger {
     transition: none;
   }
+.vignette-overlay {
+  background: radial-gradient(circle at center, rgba(5, 5, 5, 0.45) 0%, rgba(5, 5, 5, 0.8) 55%, #050505 100%);
 }
 
 .concept-container {

@@ -5,7 +5,7 @@
       <img
         src="/images/home/hero-bg.png"
         alt="TechnoTUT Hero Background"
-        class="w-full h-full object-cover object-center opacity-70 animate-fadein filter contrast-125"
+        class="w-full h-full object-cover object-center opacity-70 animate-fadein"
       >
       <div class="absolute inset-0 bg-gradient-to-b from-dark/60 via-transparent to-dark"/>
     </div>
@@ -33,7 +33,27 @@
       aria-label="Scroll to Concept section"
       @click.prevent="scrollToConcept"
     >
-      <img src="/images/home/scroll.svg" alt="" class="w-40 sm:w-48 opacity-80" >
+      <svg
+        viewBox="0 0 298.46 55.32"
+        class="w-40 sm:w-48 opacity-80"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <text
+          x="149.23"
+          y="17.37"
+          text-anchor="middle"
+          fill="#e6e6e6"
+          class="font-quicksand font-light"
+          style="font-family: 'Quicksand', ShreeDev0714, 'Shree Devanagari 714', sans-serif; font-size: 20px; letter-spacing: 0.59em;"
+        >SCROLL</text>
+        <path
+          fill="#fff"
+          d="M149.23,31.6c-6.55,0-11.86,5.31-11.86,11.86s5.31,11.86,11.86,11.86,11.86-5.31,11.86-11.86-5.31-11.86-11.86-11.86ZM149.23,48.55l-6.19-6.19,2.04-2.04,4.15,4.14,4.14-4.14,2.04,2.04-6.19,6.19Z"
+        />
+        <rect fill="#fff" y="8.21" width="64" height="1" />
+        <rect fill="#fff" x="234.46" y="8.71" width="64" height="1" />
+      </svg>
     </a>
   </section>
 </template>

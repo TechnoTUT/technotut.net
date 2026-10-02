@@ -11,7 +11,12 @@
         <Transition name="header-switch" mode="out-in">
           <p v-if="!showLinks" key="subtitle" class="header-subtitle font-quicksand">Music &amp; Live production Club - TechnoTUT</p>
           <nav v-else key="links" class="header-links font-quicksand" aria-label="Main Navigation">
-            <NuxtLink v-for="item in navItems" :key="item.to" :to="item.to">
+            <NuxtLink
+              v-for="item in navItems"
+              :key="item.to"
+              :to="item.to"
+              :class="{ 'is-ja': /[^\x00-\x7F]/.test(item.label) }"
+            >
               {{ item.label }}
             </NuxtLink>
           </nav>
@@ -67,6 +72,7 @@
               :key="item.to"
               :to="item.to"
               class="mobile-link text-white/90 hover:text-brand"
+              :class="{ 'is-ja': /[^\x00-\x7F]/.test(item.label) }"
               @click="closeMenu"
             >
               <span>{{ item.label }}</span>
@@ -164,7 +170,7 @@ onUnmounted(() => {
 .site-header.is-open { background: #050505; }
 .header-row { min-height: 88px; display: flex; align-items: center; gap: 20px; padding: 16px 24px; }
 .header-content { flex: 1; min-width: 0; }
-.header-subtitle { display: none; color: rgba(255,255,255,.9); font-size: 14px; }
+.header-subtitle { display: none; color: rgba(255,255,255,.9); font-size: 0.875rem; }
 .header-right-mobile { display: none; }
 @media (max-width: 767px) {
   .header-right-mobile {
@@ -265,10 +271,27 @@ onUnmounted(() => {
   .header-row { padding-inline: 64px; }
   .header-links { font-size: 1rem; gap: 0 1.5rem; }
   .header-university { font-size: 1rem; }
+  .header-subtitle { font-size: 1rem; }
 }
 @media (min-width: 1440px) { .compact-university { display: block; } }
 @media (min-width: 1920px) {
   .header-row { padding-inline: 5rem; }
 }
 @media (max-width: 359px) { .header-row { padding-inline: 16px; gap: 12px; } }
+
+/* Safari-specific: slightly lighter Japanese font rendering in header */
+@supports (font: -apple-system-body) {
+  .header-links a.is-ja {
+    font-weight: 200;
+    opacity: 0.85;
+  }
+  .header-links a.is-ja:hover,
+  .header-links a.is-ja:focus-visible {
+    opacity: 0.75;
+  }
+  .mobile-link.is-ja {
+    font-weight: 200;
+    opacity: 0.85;
+  }
+}
 </style>
