@@ -263,9 +263,12 @@ onUnmounted(() => {
 }
 @media (min-width: 1024px) {
   .header-row { padding-inline: 64px; }
-  .header-links { font-size: 16px; gap: 0 24px; }
-  .header-university { font-size: 16px; }
+  .header-links { font-size: 1rem; gap: 0 1.5rem; }
+  .header-university { font-size: 1rem; }
 }
 @media (min-width: 1440px) { .compact-university { display: block; } }
+@media (min-width: 1920px) {
+  .header-row { padding-inline: 5rem; }
+}
 @media (max-width: 359px) { .header-row { padding-inline: 16px; gap: 12px; } }
 </style>

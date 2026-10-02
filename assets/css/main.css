@@ -79,7 +79,35 @@
   letter-spacing: 0.14em;
 }
 
-html { color-scheme: dark; }
+html {
+  color-scheme: dark;
+}
+
+/* 大画面（WQHD / 4K）での迫力と視認性を向上させるルートフォントスケーリング */
+@media (min-width: 1921px) {
+  html {
+    font-size: 18px; /* フルHD超: 1.125x */
+  }
+}
+
+@media (min-width: 2560px) {
+  html {
+    font-size: 20px; /* WQHD: 1.25x (max-w-7xl = 1600px) */
+  }
+}
+
+@media (min-width: 3200px) {
+  html {
+    font-size: 22px; /* 3K+: 1.375x (max-w-7xl = 1760px) */
+  }
+}
+
+@media (min-width: 3840px) {
+  html {
+    font-size: 24px; /* 4K: 1.5x (max-w-7xl = 1920px) */
+  }
+}
+
 [id] { scroll-margin-top: 136px; }
 a:focus-visible, button:focus-visible { outline: 2px solid white; outline-offset: 5px; }
 a, button { touch-action: manipulation; }

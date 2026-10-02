@@ -48,6 +48,6 @@ const links = [
 <style scoped>
 .hero-section { min-height: 100svh; padding-top: 128px; }
 .hero-choices { display: flex; flex-direction: column; gap: 12px; }
-.hero-choice { display: inline-flex; align-items: center; gap: 24px; min-height: 48px; padding-block: 4px; font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; line-height: 1.2; color: white; }
+.hero-choice { display: inline-flex; align-items: center; gap: 24px; min-height: 48px; padding-block: 4px; font-size: clamp(2rem, 4vw, 4rem); font-weight: 300; line-height: 1.2; color: white; }
 .hero-arrow { width: .7em; height: .7em; flex-shrink: 0; overflow: visible; }
 </style>
