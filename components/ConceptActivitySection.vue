@@ -1,7 +1,8 @@
 <template>
   <section
+    id="concept"
     ref="sectionRef"
-    class="relative min-h-screen py-20 sm:py-32 landscape:py-8 sm:landscape:py-12 px-4 sm:px-8 bg-dark flex items-center justify-center overflow-hidden"
+    class="relative min-h-screen py-20 sm:py-32 landscape:py-8 sm:landscape:py-12 px-4 sm:px-8 bg-dark flex items-center justify-center overflow-hidden scroll-mt-0"
     @mouseleave="onMouseLeave"
     @focusout="onFocusOut"
     @click="handleSectionClick"

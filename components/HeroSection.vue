@@ -27,7 +27,12 @@
         </li>
       </ul>
     </nav>
-    <a href="#activity" class="relative z-10 self-center p-3">
+    <a
+      href="#concept"
+      class="relative z-10 self-center p-3 cursor-pointer"
+      aria-label="Scroll to Concept section"
+      @click.prevent="scrollToConcept"
+    >
       <img src="/images/home/scroll.svg" alt="" class="w-40 sm:w-48 opacity-80" >
     </a>
   </section>
@@ -44,6 +49,20 @@ const links = [
   { label: 'ACTIVITY', to: '/activity' },
   { label: 'ACCESS', to: '/access' },
 ]
+
+const scrollToConcept = () => {
+  const heading = document.querySelector('#concept h2') as HTMLElement | null
+  const fallback = document.getElementById('concept')
+  const target = heading || fallback
+  if (!target) return
+
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  target.scrollIntoView({
+    behavior: prefersReducedMotion ? 'auto' : 'smooth',
+    block: 'center',
+  })
+  window.history.pushState(null, '', '#concept')
+}
 </script>
 <style scoped>
 .hero-section { min-height: 100svh; padding-top: 128px; }
