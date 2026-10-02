@@ -16,12 +16,13 @@
         class="group overflow-hidden border border-white/10 bg-dark flex flex-col md:flex-row transition-all hover:border-white/30"
       >
         <div class="block md:w-60 lg:w-72 shrink-0 aspect-[16/10] overflow-hidden bg-dark relative">
-          <img
+          <NuxtImg
             v-if="post.image"
             :src="post.image"
             :alt="post.title"
+            format="webp"
             class="w-full h-full object-cover object-top"
-          >
+          />
           <div v-else class="w-full h-full min-h-[160px] flex items-center justify-center text-gray-600 font-quicksand text-xl">
             TechnoTUT
           </div>

@@ -21,7 +21,7 @@
           {{ doc.description }}
         </p>
         <div v-if="doc.image" class="mt-8 overflow-hidden border border-white/10 bg-dark-panel">
-          <img :src="doc.image" :alt="doc.title" class="w-full h-auto object-cover" >
+          <NuxtImg :src="doc.image" :alt="doc.title" format="webp" class="w-full h-auto object-cover" />
         </div>
       </header>
 
