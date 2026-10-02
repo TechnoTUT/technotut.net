@@ -1,7 +1,124 @@
 <template>
-  <div class="py-24 sm:py-32 px-6 sm:px-12 lg:px-16 max-w-5xl mx-auto">
-    <!-- Breadcrumb / Back Link -->
-    <div class="mb-10">
+  <div class="relative isolate overflow-hidden">
+    <!-- Opening Splash / Loading Screen (SVG Line Drawing Animation) -->
+    <Teleport to="body">
+      <Transition name="splash-fade">
+        <div
+          v-if="isLoading"
+          class="fixed inset-0 z-[100] bg-dark flex flex-col items-center justify-center p-6 select-none overflow-hidden"
+        >
+          <!-- Swing-by Crimson Glow (#c7000a) diving across screen and curving back to top-right -->
+          <div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+            <div class="splash-swingby-glow" />
+          </div>
+
+          <div class="w-full max-w-5xl flex flex-col items-center justify-center px-4 sm:px-8 relative">
+            <!-- Animated SVG Logo (Large screen-filling display) -->
+            <div class="w-full max-w-[85vw] md:max-w-3xl lg:max-w-4xl max-h-[65vh] flex items-center justify-center utone-svg-loader relative z-10">
+              <svg
+                id="_レイヤー_2"
+                data-name="レイヤー 2"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 370.14 277.68"
+                class="w-full h-auto max-h-[65vh] object-contain"
+              >
+                <g id="_レイヤー_1-2" data-name="レイヤー 1">
+                  <g>
+                    <!-- THE -->
+                    <g class="utone-path-group">
+                      <path d="M17.81,90.97H4.41V4.73H0V0h22.22v4.73h-4.41v86.24Z" />
+                      <path d="M42.47,90.97V31.67c0-.98-.6-1.73-1.37-1.73h-2.38v61.02h-13.4V0h13.4v25.14h9.59c4.11,0,7.51,4.28,7.57,9.53v56.29h-13.4Z" />
+                      <path d="M81.97,90.97h-15.43c-4.17,0-7.57-4.28-7.57-9.53V7.73c0-4.28,2.8-7.73,6.2-7.73h18.17c3.4,0,6.14,3.45,6.14,7.73v32.35c0,4.28-2.74,7.73-6.14,7.73h-10.96v36.7c0,.9.54,1.58,1.19,1.73h1.19c.77,0,1.37-.83,1.37-1.73v-31.9h13.34v28.82c0,5.25-3.4,9.53-7.51,9.53ZM75,43.08c.66,0,1.13-.6,1.13-1.43V6.15c0-.83-.48-1.43-1.13-1.43h-1.55c-.6,0-1.07.6-1.07,1.43v36.93h2.62Z" />
+                    </g>
+                    <!-- EXTENDED -->
+                    <g class="utone-path-group">
+                      <g>
+                        <path d="M173.09,194.48v34.04h9.35c2.43,0,4.05-.74,4.86-2.22,1.09-1.95,1.69-5.38,1.82-10.29h1.16v29.98h-1.16c-.29-4.19-.59-6.88-.88-8.07-.38-1.48-.99-2.65-1.85-3.49-.86-.85-2.18-1.27-3.95-1.27h-9.35v28.39c0,3.81.08,6.13.25,6.95s.46,1.48.88,1.97c.42.49,1.21.73,2.39.73h7.22c2.41,0,4.15-.34,5.24-1.02,1.09-.68,2.13-2.01,3.14-4,1.3-2.62,2.63-6.58,3.99-11.88h1.26l-3.67,21.59h-32.8v-2.35h1.51c1,0,1.96-.49,2.86-1.46.67-.68,1.12-1.69,1.37-3.05.24-1.35.36-4.13.36-8.32v-55.95c0-5.46-.27-8.83-.82-10.1-.75-1.69-2.01-2.54-3.77-2.54h-1.51v-2.35h32.8l.47,18.86h-1.22c-.44-4.53-.93-7.64-1.46-9.34-.53-1.69-1.32-2.98-2.37-3.87-.84-.64-2.31-.95-4.42-.95h-11.67Z" />
+                        <path d="M195.14,217.73h13.53v2.35c-.86,0-1.46.3-1.8.89-.35.59-.52,1.38-.52,2.35s.37,2.58,1.1,4.7c.23.68.58,1.74,1.04,3.18l2.04,6.6,2.35-6.6c1.51-4.19,2.26-6.84,2.26-7.94,0-.89-.18-1.64-.53-2.25-.36-.61-.93-.92-1.73-.92v-2.35h9.73v2.35c-1.03.13-1.91.7-2.67,1.71-1.03,1.44-2.43,4.57-4.21,9.4l-3.92,10.61,7.16,20.83c1.76,5.12,3.01,8.2,3.77,9.24.75,1.04,1.73,1.62,2.92,1.75v2.29h-13.56v-2.29c.94,0,1.67-.42,2.2-1.27.4-.59.6-1.38.6-2.35s-.67-3.43-2.01-7.37l-4.21-12.45-4.61,12.45c-1.42,3.85-2.13,6.14-2.13,6.86,0,1.02.24,1.94.71,2.76.47.83,1.18,1.28,2.12,1.37v2.29h-9.38v-2.29c.75-.21,1.41-.74,1.98-1.59.79-1.23,2.13-4.36,4.02-9.4l6.03-16.2-5.46-16c-1.55-4.57-2.75-7.44-3.59-8.61-.85-1.16-1.91-1.75-3.19-1.75v-2.35Z" />
+                        <path d="M232.16,198.61v19.12h6.72v4.45h-6.72v37.73c0,3.77.27,6.31.8,7.62.53,1.31,1.22,1.97,2.06,1.97.69,0,1.36-.43,2.01-1.3.65-.87,1.15-2.15,1.51-3.84h1.22c-.73,4.15-1.77,7.27-3.11,9.37-1.34,2.1-2.72,3.14-4.14,3.14-.96,0-1.9-.54-2.82-1.62-.92-1.08-1.6-2.62-2.04-4.64-.44-2.01-.66-5.11-.66-9.3v-39.12h-4.55v-2.1c1.15-.93,2.33-2.51,3.53-4.73,1.2-2.22,2.28-4.86,3.22-7.91.48-1.61,1.15-4.55,2.01-8.83h.97Z" />
+                        <path d="M241.87,239.64c-.02,8.64,1.01,15.41,3.11,20.32,2.09,4.91,4.55,7.37,7.38,7.37,1.88,0,3.52-1.05,4.91-3.14,1.39-2.1,2.56-5.68,3.5-10.77l.97,1.27c-.44,5.8-1.72,11.08-3.83,15.85s-4.76,7.15-7.94,7.15c-3.45,0-6.41-2.72-8.87-8.16-2.46-5.44-3.69-12.75-3.69-21.94,0-9.95,1.26-17.71,3.78-23.28,2.52-5.57,5.69-8.35,9.49-8.35,3.22,0,5.87,2.15,7.94,6.45,2.07,4.3,3.11,10.05,3.11,17.24h-19.87ZM241.87,235.95h13.31c-.1-3.73-.32-6.35-.66-7.88-.52-2.37-1.3-4.23-2.34-5.59-1.04-1.35-2.12-2.03-3.25-2.03-1.74,0-3.29,1.37-4.66,4.1s-2.17,6.53-2.4,11.4Z" />
+                        <path d="M269.32,228.33c3.37-8.21,6.58-12.32,9.63-12.32,1.57,0,2.92.79,4.05,2.38,1.13,1.59,2.03,4.2,2.7,7.84.46,2.54.69,6.44.69,11.69v24.83c0,3.68.15,6.18.44,7.49.23,1.06.6,1.88,1.11,2.48.51.59,1.46.89,2.84.89v2.29h-14.22v-2.29h.6c1.34,0,2.28-.41,2.81-1.24.53-.83.9-2.04,1.11-3.65.08-.64.13-2.62.13-5.97v-23.82c0-5.29-.34-9.13-1.02-11.53-.68-2.39-1.83-3.59-3.44-3.59-2.49,0-4.97,2.75-7.44,8.26v30.68c0,3.94.11,6.37.35,7.3.29,1.23.7,2.13,1.21,2.7.51.57,1.55.86,3.12.86v2.29h-14.22v-2.29h.63c1.46,0,2.45-.75,2.97-2.25.51-1.5.77-4.37.77-8.61v-21.59c0-6.99-.08-11.24-.24-12.77-.16-1.52-.4-2.56-.72-3.11-.32-.55-.76-.83-1.3-.83-.59,0-1.29.32-2.1.95l-.47-2.29,8.66-7.11h1.35v12.32Z" />
+                        <path d="M308.75,269.36c-1.4,2.96-2.77,5.09-4.11,6.38s-2.78,1.94-4.33,1.94c-3.14,0-5.88-2.66-8.22-7.97-2.34-5.31-3.52-12.14-3.52-20.48s1.3-15.97,3.89-22.9c2.59-6.92,5.93-10.38,10.01-10.38,2.53,0,4.62,1.63,6.28,4.89v-10.73c0-6.65-.08-10.73-.24-12.26-.16-1.52-.4-2.56-.74-3.11-.33-.55-.75-.83-1.26-.83-.54,0-1.27.34-2.17,1.02l-.41-2.22,8.57-7.11h1.41v67.26c0,6.82.08,10.98.24,12.48.16,1.5.41,2.55.75,3.14.35.59.75.89,1.21.89.57,0,1.32-.36,2.26-1.08l.35,2.22-8.54,7.18h-1.44v-8.32ZM308.75,264.91v-29.98c-.12-2.88-.5-5.5-1.13-7.88-.63-2.37-1.46-4.16-2.5-5.37-1.04-1.21-2.04-1.81-3.03-1.81-1.84,0-3.48,1.67-4.93,5.02-1.9,4.4-2.86,10.84-2.86,19.31s.92,15.11,2.76,19.66c1.84,4.55,3.89,6.83,6.15,6.83,1.9,0,3.75-1.93,5.52-5.78Z" />
+                        <path d="M320.79,239.64c-.02,8.64,1.01,15.41,3.11,20.32,2.09,4.91,4.55,7.37,7.38,7.37,1.88,0,3.52-1.05,4.91-3.14,1.39-2.1,2.56-5.68,3.5-10.77l.97,1.27c-.44,5.8-1.72,11.08-3.83,15.85-2.11,4.76-4.76,7.15-7.94,7.15-3.45,0-6.41-2.72-8.87-8.16-2.46-5.44-3.69-12.75-3.69-21.94,0-9.95,1.26-17.71,3.78-23.28,2.52-5.57,5.69-8.35,9.49-8.35,3.22,0,5.87,2.15,7.94,6.45,2.07,4.3,3.11,10.05,3.11,17.24h-19.87ZM320.79,235.95h13.31c-.11-3.73-.33-6.35-.66-7.88-.52-2.37-1.3-4.23-2.34-5.59-1.04-1.35-2.12-2.03-3.25-2.03-1.74,0-3.29,1.37-4.66,4.1s-2.17,6.53-2.4,11.4Z" />
+                        <path d="M360.16,269.36c-1.4,2.96-2.77,5.09-4.11,6.38s-2.78,1.94-4.33,1.94c-3.14,0-5.88-2.66-8.22-7.97-2.34-5.31-3.52-12.14-3.52-20.48s1.3-15.97,3.89-22.9c2.59-6.92,5.93-10.38,10.01-10.38,2.53,0,4.62,1.63,6.28,4.89v-10.73c0-6.65-.08-10.73-.24-12.26-.16-1.52-.4-2.56-.74-3.11-.33-.55-.75-.83-1.26-.83-.54,0-1.27.34-2.17,1.02l-.41-2.22,8.57-7.11h1.41v67.26c0,6.82.08,10.98.24,12.48.16,1.5.41,2.55.75,3.14.35.59.75.89,1.21.89.57,0,1.32-.36,2.26-1.08l.35,2.22-8.54,7.18h-1.44v-8.32ZM360.16,264.91v-29.98c-.12-2.88-.5-5.5-1.13-7.88-.63-2.37-1.46-4.16-2.5-5.37-1.04-1.21-2.04-1.81-3.03-1.81-1.84,0-3.48,1.67-4.93,5.02-1.9,4.4-2.86,10.84-2.86,19.31s.92,15.11,2.76,19.66c1.84,4.55,3.89,6.83,6.15,6.83,1.9,0,3.75-1.93,5.52-5.78Z" />
+                      </g>
+                      <g>
+                        <path d="M164.84,251.26v-22.11h27.86v3.74h-20.27v4.9h18.86v3.73h-18.86v6.02h20.99v3.72h-28.58Z" />
+                        <path d="M192.56,251.26l9.82-8.25-9.41-7.77h8.79l4.82,4.4,5.07-4.4h8.46l-9.23,7.59,10.07,8.43h-8.84l-5.54-4.96-5.59,4.96h-8.43Z" />
+                        <path d="M233.91,235.24v3.38h-4.92v6.45c0,1.31.05,2.07.14,2.28.09.22.31.4.64.54.33.14.74.21,1.22.21.67,0,1.63-.14,2.9-.41l.62,3.29c-1.67.42-3.57.63-5.69.63-1.3,0-2.47-.13-3.51-.38-1.04-.26-1.81-.59-2.29-1-.49-.41-.82-.96-1.01-1.65-.15-.49-.23-1.49-.23-2.99v-6.98h-3.31v-3.38h3.31v-3.18l7.23-2.47v5.66h4.92Z" />
+                        <path d="M250.89,246.16l7.18.71c-.92,1.55-2.38,2.73-4.37,3.54-1.99.81-4.48,1.21-7.47,1.21-4.73,0-8.24-.91-10.51-2.73-1.79-1.46-2.69-3.3-2.69-5.52,0-2.65,1.18-4.73,3.54-6.24s5.34-2.25,8.94-2.25c4.05,0,7.24.79,9.59,2.36,2.34,1.57,3.46,3.98,3.36,7.23h-18.04c.05,1.26.63,2.23,1.74,2.93,1.11.7,2.49,1.05,4.15,1.05,1.13,0,2.08-.18,2.84-.54.77-.36,1.35-.94,1.74-1.75ZM251.3,241.88c-.05-1.23-.59-2.16-1.61-2.8-1.03-.64-2.27-.96-3.74-.96-1.57,0-2.87.34-3.9,1.01-1.03.67-1.53,1.59-1.51,2.74h10.76Z" />
+                        <path d="M285.31,251.26h-7.2v-8.17c0-1.73-.15-2.85-.46-3.36-.31-.51-.81-.9-1.5-1.18-.69-.28-1.53-.42-2.5-.42-1.25,0-2.37.2-3.36.6-.99.4-1.67.94-2.04,1.6-.37.66-.55,1.89-.55,3.68v7.25h-7.2v-16.02h6.69v2.35c2.37-1.81,5.37-2.71,8.97-2.71,1.59,0,3.04.17,4.36.5,1.31.34,2.31.77,2.98,1.29.68.52,1.14,1.12,1.41,1.78s.4,1.61.4,2.85v9.95Z" />
+                        <path d="M313.79,251.26h-6.69v-2.35c-1.11.92-2.42,1.6-3.93,2.04-1.51.45-3.04.67-4.58.67-3.13,0-5.81-.74-8.04-2.22-2.23-1.48-3.34-3.55-3.34-6.21s1.08-4.78,3.25-6.19c2.17-1.41,4.91-2.12,8.23-2.12,3.04,0,5.67.74,7.89,2.23v-7.96h7.2v22.11ZM294.57,242.9c0,1.71.4,2.95,1.21,3.71,1.16,1.11,2.79,1.66,4.87,1.66,1.66,0,3.07-.41,4.23-1.24s1.74-2.07,1.74-3.72c0-1.84-.56-3.16-1.69-3.97-1.13-.81-2.57-1.21-4.33-1.21s-3.14.4-4.29,1.2-1.73,1.99-1.73,3.58Z" />
+                        <path d="M332.88,246.16l7.18.71c-.92,1.55-2.38,2.73-4.37,3.54-1.99.81-4.48,1.21-7.47,1.21-4.73,0-8.24-.91-10.51-2.73-1.79-1.46-2.69-3.3-2.69-5.52,0-2.65,1.18-4.73,3.54-6.24s5.34-2.25,8.95-2.25c4.05,0,7.24.79,9.59,2.36,2.34,1.57,3.46,3.98,3.36,7.23h-18.04c.05,1.26.63,2.23,1.74,2.93,1.11.7,2.5,1.05,4.15,1.05,1.13,0,2.08-.18,2.85-.54.77-.36,1.35-.94,1.74-1.75ZM333.29,241.88c-.05-1.23-.59-2.16-1.61-2.8-1.03-.64-2.27-.96-3.74-.96-1.57,0-2.87.34-3.9,1.01-1.03.67-1.53,1.59-1.51,2.74h10.76Z" />
+                        <path d="M367.49,251.26h-6.69v-2.35c-1.11.92-2.42,1.6-3.93,2.04-1.51.45-3.04.67-4.58.67-3.13,0-5.81-.74-8.04-2.22-2.23-1.48-3.34-3.55-3.34-6.21s1.08-4.78,3.25-6.19c2.17-1.41,4.91-2.12,8.23-2.12,3.04,0,5.67.74,7.89,2.23v-7.96h7.2v22.11ZM348.27,242.9c0,1.71.4,2.95,1.21,3.71,1.16,1.11,2.79,1.66,4.87,1.66,1.66,0,3.07-.41,4.23-1.24s1.74-2.07,1.74-3.72c0-1.84-.56-3.16-1.69-3.97-1.13-.81-2.57-1.21-4.33-1.21s-3.14.4-4.29,1.2-1.73,1.99-1.73,3.58Z" />
+                      </g>
+                    </g>
+                    <!-- VOL. 11 -->
+                    <g class="utone-path-group">
+                      <path d="M229.25,184.37v-6.46h-2.38v-6.46h-2.38v-19.38h-2.38v-6.46h-2.38v-25.84h4.77v19.38h2.38v6.46h2.38v19.38h4.77v-19.38h2.38v-6.46h2.38v-19.38h4.77v25.84h-2.38v6.46h-2.38v19.38h-2.38v6.46h-2.38v6.46h-4.77Z" />
+                      <path d="M250.34,184.37v-6.46h-2.38v-6.46h-2.38v-38.76h2.38v-6.46h2.38v-6.46h14.3v6.46h2.38v6.46h2.38v38.76h-2.38v6.46h-2.38v6.46h-14.3ZM262.25,171.45v-6.46h2.38v-25.84h-2.38v-6.46h-9.53v6.46h-2.38v25.84h2.38v6.46h9.53Z" />
+                      <path d="M285.72,184.37v-6.46h-2.38v-6.46h-2.38v-64.59h-4.77v-12.92h9.53v71.05h2.38v6.46h7.15v12.92h-9.53Z" />
+                      <path d="M302.04,184.37v-25.84h9.53v25.84h-9.53Z" />
+                      <path d="M327.89,184.37v-12.92h4.77v-51.67h-4.77v-12.92h4.77v-12.92h4.77v77.51h4.77v12.92h-14.3Z" />
+                      <path d="M353.74,184.37v-12.92h4.77v-51.67h-4.77v-12.92h4.77v-12.92h4.77v77.51h4.77v12.92h-14.3Z" />
+                    </g>
+                    <!-- UTOPIA -->
+                    <g class="utone-path-group">
+                      <path d="M31.78,184.54H12.34c-5.25,0-9.53-4.28-9.53-9.53v-81.44h16.89v85.04c0,.9.68,1.58,1.5,1.73h1.5c.98,0,1.73-.83,1.73-1.73v-85.04h16.81v81.44c0,5.25-4.28,9.53-9.46,9.53Z" />
+                      <path d="M67.58,184.54h-12.91c-5.25,0-9.53-4.28-9.53-9.53v-81.44h16.89v43.08h5.55v4.73h-5.55v37.23c0,.9.68,1.58,1.5,1.73h4.05v4.2Z" />
+                      <path d="M100.38,184.54h-19.36c-5.25,0-9.53-4.28-9.53-9.53v-71.98c0-5.18,4.28-9.46,9.53-9.46h19.36c5.25,0,9.53,4.28,9.53,9.46v71.98c0,5.25-4.28,9.53-9.53,9.53ZM91.37,180.34c.98,0,1.73-.83,1.73-1.73v-79.11c0-.98-.75-1.73-1.73-1.73h-1.5c-.9.08-1.58.83-1.58,1.73v79.11c0,.9.68,1.58,1.58,1.73h1.5Z" />
+                      <path d="M113.81,184.54v-90.97h28.9c5.25,0,9.53,4.2,9.53,9.46v46.84c0,5.18-4.28,9.46-9.53,9.46h-12.08v25.22h-16.81ZM135.35,152.87v-52.84c0-.98-.75-1.73-1.65-1.73h-3.08v56.29h3.08c.9,0,1.65-.75,1.65-1.73Z" />
+                      <path d="M173.02,110.39h-16.89v-16.81h16.89v16.81ZM173.02,184.54h-16.89v-69.43h16.89v69.43Z" />
+                      <path d="M215.35,184.54h-30.62c-4.28,0-7.81-3.53-7.81-7.81v-32.27c0-4.28,3.53-7.81,7.81-7.81h13.81v-36.63c0-.9-.68-1.65-1.5-1.73h-1.58c-.9,0-1.73.75-1.73,1.73v31.9h-16.81v-28.9c0-5.18,4.28-9.46,9.53-9.46h19.36c5.25,0,9.53,4.28,9.53,9.46v81.51ZM198.54,179.81v-38.43h-3.08c-.98,0-1.73.45-1.73,1.43v35.58c0,.98.75,1.43,1.73,1.43h3.08Z" />
+                    </g>
+                    <!-- TONE -->
+                    <g class="utone-path-group">
+                      <path d="M25.25,277.54H8.36v-86.24H2.81v-4.73h28v4.73h-5.55v86.24Z" />
+                      <path d="M62.1,277.54h-19.36c-5.25,0-9.53-4.28-9.53-9.53v-71.98c0-5.18,4.28-9.46,9.53-9.46h19.36c5.25,0,9.53,4.28,9.53,9.46v71.98c0,5.25-4.28,9.53-9.53,9.53ZM53.09,273.33c.98,0,1.73-.83,1.73-1.73v-79.11c0-.98-.75-1.73-1.73-1.73h-1.5c-.9.08-1.58.83-1.58,1.73v79.11c0,.9.68,1.58,1.58,1.73h1.5Z" />
+                      <path d="M97.15,277.54v-85.04c0-.98-.83-1.73-1.73-1.73h-1.5c-.9.08-1.58.83-1.58,1.73v85.04h-16.81v-81.51c0-5.18,4.28-9.46,9.53-9.46h19.36c5.25,0,9.53,4.28,9.53,9.46v81.51h-16.81Z" />
+                      <path d="M146.83,277.54h-19.44c-5.25,0-9.53-4.28-9.53-9.53v-73.71c0-4.28,3.53-7.73,7.81-7.73h22.89c4.28,0,7.73,3.45,7.73,7.73v32.35c0,4.28-3.45,7.73-7.73,7.73h-13.81v36.7c0,.9.68,1.58,1.5,1.73h1.5c.98,0,1.73-.83,1.73-1.73v-31.9h16.81v28.82c0,5.25-4.28,9.53-9.46,9.53ZM138.05,229.65c.83,0,1.43-.6,1.43-1.43v-35.5c0-.83-.6-1.43-1.43-1.43h-1.95c-.75,0-1.35.6-1.35,1.43v36.93h3.3Z" />
+                    </g>
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <!-- Progress Line / Text -->
+            <div class="mt-8 flex flex-col items-center gap-2.5">
+              <span class="font-quicksand text-[11px] tracking-[0.35em] text-gray-400 uppercase">
+                LOADING...
+              </span>
+              <div class="w-36 h-[2px] bg-white/10 relative overflow-hidden rounded-full">
+                <div class="splash-progress-bar" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </Transition>
+    </Teleport>
+
+    <!-- Ambient Cyber Glow & Speed Visuals (Swing-by #c7000a -> Rainbow -> Theme Cyan convergence) -->
+    <div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10 select-none overflow-hidden">
+      <!-- Swing-by Comet Glow: Starts at top-right, dives past center to bottom-left, slingshots back to top-right -->
+      <div
+        class="swingby-glow"
+        :class="{
+          'rainbow-active': rainbowBurstActive,
+        }"
+      />
+
+      <!-- Vertical 'VOL. 11 // THE UTOPIA TONE' Cyber Tag in right margin -->
+      <div class="hidden xl:flex absolute top-[calc(100vh-6rem)] right-8 items-center gap-3 rotate-90 origin-bottom-right font-mono text-[10px] tracking-[0.4em] text-[rgba(0,177,224,0.35)] uppercase">
+        <span class="w-8 h-[1px] bg-[rgba(0,177,224,0.4)]" />
+        <span>VOL.11 EXTENDED</span>
+      </div>
+
+      <!-- Secondary soft cyan glow in Timetable section background -->
+      <div class="ambient-glow-bottom" />
+    </div>
+
+    <div class="py-24 sm:py-32 px-6 sm:px-12 lg:px-16 max-w-5xl mx-auto">
+      <!-- Breadcrumb / Back Link -->
+      <div class="mb-10">
       <NuxtLink
         to="/gikadaifes"
         class="text-xs font-quicksand tracking-wider text-gray-400 hover:text-white transition-colors inline-flex items-center gap-2 group"
@@ -507,11 +624,12 @@
       </div>
     </Teleport>
 
-    <!-- Footer Actions / Access -->
-    <div class="pt-12 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-6">
-      <NuxtLink to="/gikadaifes" class="common-btn text-xs py-2.5 px-6">
-        <span>&larr; 一覧へ戻る</span>
-      </NuxtLink>
+      <!-- Footer Actions / Access -->
+      <div class="pt-12 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <NuxtLink to="/gikadaifes" class="common-btn text-xs py-2.5 px-6">
+          <span>&larr; 一覧へ戻る</span>
+        </NuxtLink>
+      </div>
     </div>
   </div>
 </template>
@@ -522,6 +640,24 @@ import type { Map as LeafletMap } from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 
 const activeModalImage = ref<string | null>(null)
+const isLoading = ref(true)
+const rainbowBurstActive = ref(false)
+
+// Sequence:
+// 1. 1.8s splash screen
+// 2. Immediately upon splash closing: trigger rainbowBurstActive
+onMounted(() => {
+  if (import.meta.client) {
+    const splashTimer = setTimeout(() => {
+      isLoading.value = false
+      rainbowBurstActive.value = true
+    }, 1800)
+
+    onUnmounted(() => {
+      clearTimeout(splashTimer)
+    })
+  }
+})
 
 // Day 1: 2026-10-10, Day 2: 2026-10-11
 // Automatically select Day 2 only on the event day itself (Oct 11), otherwise default to Day 1
@@ -807,5 +943,412 @@ useSeoMeta({
   color: #c2c2c2;
   line-height: 1.5;
   margin: 0;
+}
+
+/* Splash Screen Line Drawing Animation */
+.splash-fade-leave-active {
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.splash-fade-leave-to {
+  opacity: 0;
+}
+
+.utone-svg-loader svg path {
+  fill: transparent;
+  stroke: #ffffff;
+  stroke-width: 1px;
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  animation: utoneStrokeDraw 1.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* Stagger different sections slightly for dynamic drawing feel */
+.utone-svg-loader .utone-path-group:nth-child(1) path {
+  animation-delay: 0.05s;
+}
+
+.utone-svg-loader .utone-path-group:nth-child(2) path {
+  animation-delay: 0.25s;
+}
+
+.utone-svg-loader .utone-path-group:nth-child(3) path {
+  animation-delay: 0.15s;
+}
+
+.utone-svg-loader .utone-path-group:nth-child(4) path {
+  animation-delay: 0.1s;
+}
+
+.utone-svg-loader .utone-path-group:nth-child(5) path {
+  animation-delay: 0.2s;
+}
+
+@keyframes utoneStrokeDraw {
+  0% {
+    stroke-dashoffset: 600;
+    fill: transparent;
+  }
+  75% {
+    stroke-dashoffset: 0;
+    fill: transparent;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    fill: #ffffff;
+    stroke: transparent;
+  }
+}
+
+.splash-progress-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
+  background-color: #ffffff;
+  animation: splashProgress 1.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes splashProgress {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+/* Swing-by Crimson Glow inside Loading Splash Screen:
+   Starts near top-right of the logo, swoops around the bottom/left of the logo in a tight ellipse,
+   and slingshots back to the top-right!
+*/
+.splash-swingby-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20rem;
+  height: 20rem;
+  margin-top: -10rem;
+  margin-left: -10rem;
+  border-radius: 9999px;
+  background-color: rgba(199, 0, 10, 0.85);
+  filter: blur(75px);
+  pointer-events: none;
+  mix-blend-mode: screen;
+  animation: splashSwingbyOrbitAroundLogo 1.8s linear forwards;
+}
+
+@media (min-width: 640px) {
+  .splash-swingby-glow {
+    width: 26rem;
+    height: 26rem;
+    margin-top: -13rem;
+    margin-left: -13rem;
+    filter: blur(95px);
+  }
+}
+
+/* Orbit trajectory around the center logo:
+   1. Starts at top-right (35vw, -30vh) -> plunges down right flank
+   2. Sweeps closely around the bottom (10vw, 32vh -> -20vw, 35vh)
+   3. Curves up the left flank (-38vw, 0vh)
+   4. Loops tightly over the top-left (-25vw, -25vh) and slingshots back into top-right origin (30vw, -30vh)
+*/
+/* Smooth 16-point mathematical orbit around the center logo:
+   Calculated along an elliptical curve: X = a * cos(theta), Y = b * sin(theta) with slingshot acceleration.
+   Starting at top-right (35vw, -25vh), smoothly rounding down the right, under the bottom,
+   sweeping up the left flank, rounding over the top, and accelerating back into top-right.
+*/
+@keyframes splashSwingbyOrbitAroundLogo {
+  0% { transform: translate(28.49vw, -14.53vh) scale(0.75); opacity: 0.25; }
+  1% { transform: translate(29.07vw, -13.92vh) scale(0.75); opacity: 0.34; }
+  2% { transform: translate(29.82vw, -13.09vh) scale(0.75); opacity: 0.42; }
+  3% { transform: translate(30.60vw, -12.14vh) scale(0.75); opacity: 0.51; }
+  4% { transform: translate(31.37vw, -11.09vh) scale(0.75); opacity: 0.60; }
+  5% { transform: translate(32.11vw, -9.95vh) scale(0.75); opacity: 0.69; }
+  6% { transform: translate(32.80vw, -8.73vh) scale(0.75); opacity: 0.77; }
+  7% { transform: translate(33.41vw, -7.44vh) scale(0.75); opacity: 0.86; }
+  8% { transform: translate(33.95vw, -6.09vh) scale(0.75); opacity: 0.95; }
+  9% { transform: translate(34.38vw, -4.68vh) scale(0.75); opacity: 0.95; }
+  10% { transform: translate(34.71vw, -3.22vh) scale(0.75); opacity: 0.95; }
+  11% { transform: translate(34.92vw, -1.71vh) scale(0.75); opacity: 0.95; }
+  12% { transform: translate(35.00vw, -0.17vh) scale(0.75); opacity: 0.95; }
+  13% { transform: translate(34.94vw, 1.40vh) scale(0.76); opacity: 0.95; }
+  14% { transform: translate(34.75vw, 3.00vh) scale(0.77); opacity: 0.95; }
+  15% { transform: translate(34.40vw, 4.60vh) scale(0.78); opacity: 0.95; }
+  16% { transform: translate(33.90vw, 6.21vh) scale(0.79); opacity: 0.95; }
+  17% { transform: translate(33.25vw, 7.82vh) scale(0.80); opacity: 0.95; }
+  18% { transform: translate(32.43vw, 9.40vh) scale(0.81); opacity: 0.95; }
+  19% { transform: translate(31.45vw, 10.97vh) scale(0.82); opacity: 0.95; }
+  20% { transform: translate(30.31vw, 12.50vh) scale(0.83); opacity: 0.95; }
+  21% { transform: translate(29.01vw, 13.99vh) scale(0.84); opacity: 0.95; }
+  22% { transform: translate(27.55vw, 15.42vh) scale(0.85); opacity: 0.95; }
+  23% { transform: translate(25.93vw, 16.79vh) scale(0.86); opacity: 0.95; }
+  24% { transform: translate(24.17vw, 18.08vh) scale(0.87); opacity: 0.95; }
+  25% { transform: translate(22.26vw, 19.29vh) scale(0.88); opacity: 0.95; }
+  26% { transform: translate(20.21vw, 20.41vh) scale(0.89); opacity: 0.95; }
+  27% { transform: translate(18.04vw, 21.42vh) scale(0.90); opacity: 0.95; }
+  28% { transform: translate(15.75vw, 22.33vh) scale(0.91); opacity: 0.95; }
+  29% { transform: translate(13.35vw, 23.11vh) scale(0.92); opacity: 0.95; }
+  30% { transform: translate(10.85vw, 23.77vh) scale(0.93); opacity: 0.95; }
+  31% { transform: translate(8.28vw, 24.29vh) scale(0.94); opacity: 0.95; }
+  32% { transform: translate(5.63vw, 24.67vh) scale(0.95); opacity: 0.95; }
+  33% { transform: translate(2.94vw, 24.91vh) scale(0.96); opacity: 0.95; }
+  34% { transform: translate(0.21vw, 25.00vh) scale(0.97); opacity: 0.95; }
+  35% { transform: translate(-2.54vw, 24.93vh) scale(0.98); opacity: 0.95; }
+  36% { transform: translate(-5.30vw, 24.71vh) scale(0.99); opacity: 0.95; }
+  37% { transform: translate(-8.03vw, 24.33vh) scale(0.99); opacity: 0.95; }
+  38% { transform: translate(-10.73vw, 23.80vh) scale(1.00); opacity: 0.95; }
+  39% { transform: translate(-13.38vw, 23.10vh) scale(1.01); opacity: 0.95; }
+  40% { transform: translate(-15.95vw, 22.25vh) scale(1.02); opacity: 0.95; }
+  41% { transform: translate(-18.43vw, 21.25vh) scale(1.03); opacity: 0.95; }
+  42% { transform: translate(-20.81vw, 20.10vh) scale(1.04); opacity: 0.95; }
+  43% { transform: translate(-23.43vw, 18.57vh) scale(1.04); opacity: 0.95; }
+  44% { transform: translate(-25.47vw, 17.14vh) scale(1.05); opacity: 0.95; }
+  45% { transform: translate(-27.23vw, 15.70vh) scale(1.06); opacity: 0.95; }
+  46% { transform: translate(-28.77vw, 14.23vh) scale(1.07); opacity: 0.95; }
+  47% { transform: translate(-30.12vw, 12.73vh) scale(1.07); opacity: 0.95; }
+  48% { transform: translate(-31.29vw, 11.21vh) scale(1.08); opacity: 0.95; }
+  49% { transform: translate(-32.28vw, 9.66vh) scale(1.09); opacity: 0.95; }
+  50% { transform: translate(-33.12vw, 8.09vh) scale(1.10); opacity: 0.95; }
+  51% { transform: translate(-33.79vw, 6.51vh) scale(1.10); opacity: 0.95; }
+  52% { transform: translate(-34.31vw, 4.93vh) scale(1.11); opacity: 0.95; }
+  53% { transform: translate(-34.69vw, 3.34vh) scale(1.11); opacity: 0.95; }
+  54% { transform: translate(-34.91vw, 1.76vh) scale(1.12); opacity: 0.95; }
+  55% { transform: translate(-35.00vw, 0.18vh) scale(1.13); opacity: 0.95; }
+  56% { transform: translate(-34.95vw, -1.38vh) scale(1.13); opacity: 0.95; }
+  57% { transform: translate(-34.76vw, -2.92vh) scale(1.14); opacity: 0.95; }
+  58% { transform: translate(-34.44vw, -4.44vh) scale(1.14); opacity: 0.95; }
+  59% { transform: translate(-34.00vw, -5.93vh) scale(1.15); opacity: 0.95; }
+  60% { transform: translate(-33.44vw, -7.39vh) scale(1.15); opacity: 0.95; }
+  61% { transform: translate(-32.75vw, -8.81vh) scale(1.16); opacity: 0.95; }
+  62% { transform: translate(-31.96vw, -10.19vh) scale(1.16); opacity: 0.95; }
+  63% { transform: translate(-31.06vw, -11.53vh) scale(1.16); opacity: 0.95; }
+  64% { transform: translate(-30.05vw, -12.82vh) scale(1.17); opacity: 0.95; }
+  65% { transform: translate(-28.94vw, -14.06vh) scale(1.17); opacity: 0.95; }
+  66% { transform: translate(-27.75vw, -15.24vh) scale(1.18); opacity: 0.95; }
+  67% { transform: translate(-26.46vw, -16.37vh) scale(1.18); opacity: 0.95; }
+  68% { transform: translate(-25.09vw, -17.43vh) scale(1.18); opacity: 0.95; }
+  69% { transform: translate(-23.64vw, -18.43vh) scale(1.18); opacity: 0.95; }
+  70% { transform: translate(-22.12vw, -19.37vh) scale(1.19); opacity: 0.95; }
+  71% { transform: translate(-20.54vw, -20.24vh) scale(1.19); opacity: 0.95; }
+  72% { transform: translate(-18.90vw, -21.04vh) scale(1.19); opacity: 0.95; }
+  73% { transform: translate(-17.20vw, -21.77vh) scale(1.19); opacity: 0.95; }
+  74% { transform: translate(-15.45vw, -22.43vh) scale(1.20); opacity: 0.95; }
+  75% { transform: translate(-13.66vw, -23.02vh) scale(1.20); opacity: 0.95; }
+  76% { transform: translate(-11.84vw, -23.53vh) scale(1.20); opacity: 0.95; }
+  77% { transform: translate(-9.98vw, -23.96vh) scale(1.20); opacity: 0.95; }
+  78% { transform: translate(-8.10vw, -24.32vh) scale(1.20); opacity: 0.95; }
+  79% { transform: translate(-6.21vw, -24.60vh) scale(1.20); opacity: 0.95; }
+  80% { transform: translate(-4.29vw, -24.81vh) scale(1.20); opacity: 0.95; }
+  81% { transform: translate(-2.38vw, -24.94vh) scale(1.20); opacity: 0.95; }
+  82% { transform: translate(-0.46vw, -25.00vh) scale(1.20); opacity: 0.95; }
+  83% { transform: translate(1.46vw, -24.98vh) scale(1.20); opacity: 0.95; }
+  84% { transform: translate(3.37vw, -24.88vh) scale(1.20); opacity: 0.95; }
+  85% { transform: translate(5.26vw, -24.72vh) scale(1.20); opacity: 0.95; }
+  86% { transform: translate(7.13vw, -24.48vh) scale(1.20); opacity: 0.95; }
+  87% { transform: translate(8.97vw, -24.17vh) scale(1.19); opacity: 0.95; }
+  88% { transform: translate(10.78vw, -23.78vh) scale(1.19); opacity: 0.95; }
+  89% { transform: translate(12.56vw, -23.34vh) scale(1.19); opacity: 0.95; }
+  90% { transform: translate(14.29vw, -22.82vh) scale(1.19); opacity: 0.95; }
+  91% { transform: translate(15.98vw, -22.24vh) scale(1.19); opacity: 0.95; }
+  92% { transform: translate(17.62vw, -21.60vh) scale(1.18); opacity: 0.95; }
+  93% { transform: translate(19.21vw, -20.90vh) scale(1.18); opacity: 0.95; }
+  94% { transform: translate(20.74vw, -20.14vh) scale(1.18); opacity: 0.95; }
+  95% { transform: translate(22.20vw, -19.33vh) scale(1.17); opacity: 0.95; }
+  96% { transform: translate(23.60vw, -18.46vh) scale(1.17); opacity: 0.95; }
+  97% { transform: translate(24.94vw, -17.54vh) scale(1.17); opacity: 0.95; }
+  98% { transform: translate(26.20vw, -16.58vh) scale(1.16); opacity: 0.95; }
+  99% { transform: translate(27.38vw, -15.57vh) scale(1.16); opacity: 0.95; }
+  100% { transform: translate(28.49vw, -14.53vh) scale(1.15); opacity: 0.95; }
+}
+
+/* Ambient Swing-by Glow:
+   1. Starts at top-right with accent crimson (#c7000a)
+   2. Swoops down and around the center towards bottom-left, slingshotting back to top-right (swing-by)
+   3. Flashes through 5 intense rainbow colors (Red -> Yellow -> Green -> Purple -> Cyan)
+   4. Converges into ambient cyan with breathing + triggers speed streams
+*/
+.swingby-glow {
+  position: absolute;
+  /* Anchor to the splash screen's final resting point (viewport center + 28.49vw, -14.53vh)
+     so the glow continues seamlessly from the splash into the page background. */
+  top: calc(50vh - 14.53vh);
+  left: calc(50vw + 28.49vw);
+  width: 26rem;
+  height: 26rem;
+  margin-top: -13rem;
+  margin-left: -13rem;
+  border-radius: 9999px;
+  background-color: rgba(199, 0, 10, 0.75);
+  filter: blur(85px);
+  pointer-events: none;
+  opacity: 0.9;
+  mix-blend-mode: screen;
+  animation: swingbyOrbit 1.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@media (min-width: 640px) {
+  .swingby-glow {
+    width: 36rem;
+    height: 36rem;
+    margin-top: -18rem;
+    margin-left: -18rem;
+    filter: blur(110px);
+  }
+}
+
+/* Swing-by curve: top-right -> diving past center towards bottom-left -> curve & slingshot back to top-right */
+@keyframes swingbyOrbit {
+  0% {
+    transform: translate(25vw, -15vh) scale(0.6);
+    background-color: rgba(199, 0, 10, 0.5);
+    opacity: 0;
+  }
+  20% {
+    transform: translate(0, 0) scale(1);
+    background-color: rgba(199, 0, 10, 0.85);
+    opacity: 0.95;
+  }
+  50% {
+    /* Closest approach (periapsis) diving across center-left */
+    transform: translate(-38vw, 32vh) scale(1.35);
+    background-color: rgba(220, 10, 25, 0.95);
+    opacity: 1;
+    filter: blur(95px);
+  }
+  75% {
+    /* Slingshot arc curving back upward */
+    transform: translate(-15vw, 15vh) scale(1.1);
+    background-color: rgba(199, 0, 10, 0.85);
+    opacity: 0.95;
+  }
+  100% {
+    /* Returned to top-right origin */
+    transform: translate(0, 0) scale(1);
+    background-color: rgba(199, 0, 10, 0.9);
+    opacity: 1;
+  }
+}
+
+/* Rainbow Burst: triggered when swing-by returns to top-right (5 intense distinct color shifts)
+   After flashing, it seamlessly settles into the theme cyan (rgb(0 177 224)) ambient glow with breathing.
+*/
+.swingby-glow.rainbow-active {
+  animation: rainbowThenCyanGlow 6.5s cubic-bezier(0.12, 1, 0.2, 1) forwards;
+}
+
+@keyframes rainbowThenCyanGlow {
+  /* 1. Red (#ff0a20) - violent punch */
+  0% {
+    background-color: rgba(255, 10, 30, 0.98);
+    transform: translate(0, 0) scale(1.25);
+    filter: blur(75px);
+    opacity: 1;
+    animation-timing-function: cubic-bezier(0.85, 0, 0.15, 1);
+  }
+  2.5% {
+    background-color: rgba(255, 10, 30, 0.98);
+    transform: translate(0, 0) scale(1.25);
+    animation-timing-function: cubic-bezier(0.85, 0, 0.15, 1);
+  }
+  /* 2. Yellow (#ffe600) - aggressive snap & expansion */
+  3% {
+    background-color: rgba(255, 235, 0, 0.98);
+    transform: translate(-14px, 10px) scale(1.45);
+    filter: blur(100px);
+    opacity: 1;
+    animation-timing-function: cubic-bezier(0.85, 0, 0.15, 1);
+  }
+  5.5% {
+    background-color: rgba(255, 235, 0, 0.98);
+    transform: translate(-14px, 10px) scale(1.45);
+    animation-timing-function: cubic-bezier(0.85, 0, 0.15, 1);
+  }
+  /* 3. Green (#00f550) - aggressive snap */
+  6% {
+    background-color: rgba(0, 245, 80, 0.98);
+    transform: translate(12px, -8px) scale(1.25);
+    filter: blur(85px);
+    opacity: 1;
+    animation-timing-function: cubic-bezier(0.85, 0, 0.15, 1);
+  }
+  8.5% {
+    background-color: rgba(0, 245, 80, 0.98);
+    transform: translate(12px, -8px) scale(1.25);
+    animation-timing-function: cubic-bezier(0.85, 0, 0.15, 1);
+  }
+  /* 4. Purple (#b900ff) - aggressive snap & deep flare */
+  9% {
+    background-color: rgba(185, 0, 255, 0.98);
+    transform: translate(-8px, 16px) scale(1.38);
+    filter: blur(110px);
+    opacity: 1;
+    animation-timing-function: cubic-bezier(0.85, 0, 0.15, 1);
+  }
+  11.5% {
+    background-color: rgba(185, 0, 255, 0.98);
+    transform: translate(-8px, 16px) scale(1.38);
+    animation-timing-function: cubic-bezier(0.85, 0, 0.15, 1);
+  }
+  /* 5. Electric Sky Blue (#00e1ff) - sharp flash */
+  12% {
+    background-color: rgba(0, 225, 255, 0.98);
+    transform: translate(0, 0) scale(1.2);
+    filter: blur(100px);
+    opacity: 1;
+    animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  14.5% {
+    background-color: rgba(0, 225, 255, 0.98);
+    transform: translate(0, 0) scale(1.2);
+    animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  /* Violent deceleration & convergence into Theme Cyan (rgb(0 177 224)) */
+  22% {
+    background-color: rgba(0, 177, 224, 0.82);
+    transform: translate(0, 0) scale(1);
+    filter: blur(125px);
+    opacity: 0.88;
+  }
+  /* Gentle continuous breathing cycles in pure cyan */
+  50% {
+    background-color: rgba(0, 177, 224, 0.65);
+    transform: scale(0.96) translate(-4px, 4px);
+    filter: blur(115px);
+    opacity: 0.78;
+  }
+  75% {
+    background-color: rgba(0, 177, 224, 0.85);
+    transform: scale(1.08) translate(-10px, 10px);
+    filter: blur(130px);
+    opacity: 0.92;
+  }
+  100% {
+    background-color: rgba(0, 177, 224, 0.75);
+    transform: scale(1) translate(0, 0);
+    filter: blur(125px);
+    opacity: 0.85;
+  }
+}
+
+.ambient-glow-bottom {
+  position: absolute;
+  bottom: 22%;
+  left: -8rem;
+  width: 20rem;
+  height: 20rem;
+  border-radius: 9999px;
+  background-color: rgba(0, 177, 224, 0.08);
+  filter: blur(90px);
+}
+
+@media (min-width: 640px) {
+  .ambient-glow-bottom {
+    width: 30rem;
+    height: 30rem;
+    filter: blur(130px);
+  }
 }
 </style>
