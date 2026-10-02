@@ -1,0 +1,3072 @@
+{
+  "categories": [
+    "ラーメン・中華料理",
+    "カフェ",
+    "和食・定食",
+    "その他レストラン",
+    "居酒屋・bar",
+    "閉業"
+  ],
+  "spots": [
+    {
+      "id": "spot-0-0",
+      "title": "魁力屋 豊橋浜道店",
+      "category": "ラーメン・中華料理",
+      "description": "技科大最寄りのラーメン屋 背脂醤油",
+      "image": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5DdAaRGaCgJPcdgUHKg6b2-A5g_rAL2a0Uf38JNLuJdSDuF9C_11QUntTmHnSzVebXaayyJZaRbkxWB0sRWKj5bwQmu2qSH55zj7c6AJNIbBQil5gXuNPokn3jXrJl0PGz-LjyTfvDuBseEzbkxaN6_C1exmc8jewe7-S7DSE-cPnGUJt8331pQ48eW96QMV-8a6BehC7zQZ--B32_j-al8pHrEmmHrVLnMVfmGiD4ROlRJ0BHm8wXbT4?fife=s16383",
+      "lat": 34.7168661,
+      "lng": 137.4061446,
+      "address": "豊橋市磯部下地町東三河環状線"
+    },
+    {
+      "id": "spot-0-1",
+      "title": "三河開化亭 豊橋牧野店",
+      "category": "ラーメン・中華料理",
+      "description": "豚骨スープのラーメン。常にレゲエが流れてる。替玉大食いチャレンジが可能。",
+      "image": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6fUX59r9ytnI-174-oe2WbesNNElp7uf7kkR9ERXdcM1dGobo48Fn-X6mrmlk2slD_5kjBL7SnCXSzEMN9FpcqInS7IdX2AP6S1toq4M9lQSKo5c2vEz8eS6mXKsLTgukAEZRwHg80oE2Fxhdb07rwuzErAJIEjm3cS1ho0OtKJdZjHLpD02KR9d6Qem02ACJSQDeDIaHBKE5JKMNiX7URS-Q8jW7_E5JV2_n68zJ49rzlb3ds2emGk3U?fife=s16383",
+      "lat": 34.7337308,
+      "lng": 137.4014446,
+      "address": "豊橋市東幸町平井牟呂大岩線"
+    },
+    {
+      "id": "spot-0-2",
+      "title": "ふくろう 豊橋三本木店",
+      "category": "ラーメン・中華料理",
+      "description": "魚介出汁のきいたからみそラーメン。たまにトッピング全部のせのLINEクーポンをくれる。",
+      "image": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6JZrbqKNcFtEleUpMOcPAG_wKUswH5M5sJgNc0cT5hTK8WIoRplqlomeqcnjoce5F5YFN1dHdDd0ie_tDhnS8tOCow4fmfKNWkGGpiv6MSKHb3wtAAhc_KXvI7v9XHIqRo-K5WQYrLtwxu-w85jpkRXTms8z_bS1Bu30wIoUvLDytEKsXTdYp7k1sUuiuOF399WwN7ogFKESGX_yO8rENIDEhShWLzC5x-_4gfUmeNQIisuNyT20plGkw?fife=s16383",
+      "lat": 34.7243953,
+      "lng": 137.3941726,
+      "address": "豊橋市三本木町"
+    },
+    {
+      "id": "spot-0-3",
+      "title": "らぁ麺 幸跳",
+      "category": "ラーメン・中華料理",
+      "description": "丸鶏スープの醤油ラーメン。ミシュランガイド愛知・岐阜・三重2019特別版 ビブグルマン掲載店",
+      "image": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7vre-jjyD3phsTlSKzGsABrkaOrBzH4jrxGthMS6MRLMhoqdbGqF_g31xZuFaOxumVPtmrQDcMOouHrbo03kNtDIN_uBwSJaQF1kaabMJGFyt_mvLNpFN5qrL99gGxIBGlR1qscRjGNpnVQzJuPYWSSCPRNkaefMr4aM2vHxPlrZ4aYdJKPVYSkXAGwLRLefC7FIZ5c-JSG37Id0avMX_rPKZMa3mG-lYRCbdKeuJrVyJJU-qc-UycHNI?fife=s16383",
+      "lat": 34.753402,
+      "lng": 137.3702413,
+      "address": "豊橋市東脇"
+    },
+    {
+      "id": "spot-0-4",
+      "title": "ラーメン 歩く花",
+      "category": "ラーメン・中華料理",
+      "description": "濃厚スープのつけ麺。人気店かつ営業時間が短いので注意。",
+      "image": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR5RL-CkrHZuv_7vpUDWg_aP1NTJ2MPPNu1qck9PHnYt8FSajelmUtrouPDGx-VZgudZxPyC-bTf52mc9rRDgfM-X-AZPoG9KpP0nejkYrAk9mLktPyjiU8CYP3-wDEryFb8qvLT79RHLW0eU2UEkXkhOL_R1EJcStcHLzFdBSLyWfQlVTSGbq0p-mTrNrsYCdA8Oz4Tvn896mAAZHavZtsNdAr6z54cjhtoCFkQDT_DPKVsh-4060t6bvg?fife=s16383",
+      "lat": 34.7771324,
+      "lng": 137.4218823,
+      "address": "豊橋市忠興"
+    },
+    {
+      "id": "spot-0-5",
+      "title": "ORIBE",
+      "category": "ラーメン・中華料理",
+      "description": "白湯麺がメイン。オシャレ。",
+      "image": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR6Ai5JnsQ6oCcw3yvlV9iTrhAHZewOTFiUM97vXhZyLNwWS6yu6i-buThZm_XiWapmpCgAV78jJMbWdXBZa9Ju8KXdYQ4LnJ3Dt3yy1fyyN3H61Cn3YsM5aiZB_-pSuRpr31eK7MWLfXUmaiwsp0oG5wX_bYaZX1UM2EstEJEJOkI2tHylxWLVeG-dluwicsRx2xRWhJlOiQ-LTSdX1qRIYHbwwZVjvIUMkC9UmiQvsNrJCWlBAw6XuaWw?fife=s16383 https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR48tFWd43SmQfTCL5nYAt_KiKVEQ3pcCHRcHU53eOJrlj4kjGp-cAtNi9OIC8vXdAlZVUsbDcM_l_eYTudJZI72rOIGmS6-WsZi_oCWJKnYzvARZ8RkvWQqdKVG6ECodARopnNTh7nhTg4MFyxpNyJIPkOY3NPuyeW7zHHVZyPxiTOnJiZ7EhjCmEEVRJR_5DFwVpIoSsvLRTKufV-jgLNF7_UnAhc7GwdlYJqJx9nE2nhY8-UIOh5VWqc?fife=s16383",
+      "lat": 34.7675105,
+      "lng": 137.4224029,
+      "address": "豊橋市井原町"
+    },
+    {
+      "id": "spot-0-6",
+      "title": "ラーメン専門店 らーめん亭",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 34.7640758,
+      "lng": 137.3837289,
+      "address": "豊橋市広小路広小路通り"
+    },
+    {
+      "id": "spot-0-7",
+      "title": "中華そば 政次郎",
+      "category": "ラーメン・中華料理",
+      "description": "あっさり醤油。カレーも推してるらしい。",
+      "image": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR7t59uElSyez8MPfYYvZyhV64neuaylDaTbFJfWcHw-AHP7RB9Sr1Y8uj8JuIbXYkmgtZhJpbfon3HGlaRDpmoMKel9mcVzIShCRemtImpCXKQyplnciU11bukyONWvupqKFMRzfdOVW7ELuPuAk6EARjCh7opxD6lnF5cc_8BvEr58QTEXLVQSv2IoWqm_ery-I0dDw5YnwHGNDGLIaZ4gWPdN4nS73To4Y-R0dKegjHiJoEv7lQJWs60?fife=s16383",
+      "lat": 34.7762845,
+      "lng": 137.4156878,
+      "address": "豊橋市牛川薬師町東三河環状線"
+    },
+    {
+      "id": "spot-0-8",
+      "title": "ラーメン宝塔 豊橋店",
+      "category": "ラーメン・中華料理",
+      "description": "ベトコンラーメン(という名前からいつの間にか大人の事情で変わった)が有名なお店。",
+      "image": null,
+      "lat": 34.7506723,
+      "lng": 137.3611525,
+      "address": "豊橋市市場"
+    },
+    {
+      "id": "spot-0-9",
+      "title": "ラーメン こば屋",
+      "category": "ラーメン・中華料理",
+      "description": "いわゆる\"黒田屋系\"。",
+      "image": null,
+      "lat": 34.7675771,
+      "lng": 137.363911,
+      "address": "豊橋市小向町"
+    },
+    {
+      "id": "spot-0-10",
+      "title": "唐勝軒 豊橋本店",
+      "category": "ラーメン・中華料理",
+      "description": "ホルモンがトッピングされた\"ホル辛\"らーめん・まぜそばが売り。",
+      "image": null,
+      "lat": 34.7718898,
+      "lng": 137.3746751,
+      "address": "豊橋市吉前町"
+    },
+    {
+      "id": "spot-0-11",
+      "title": "三八3",
+      "category": "ラーメン・中華料理",
+      "description": "丸鶏がらベースの無化調スープによる醤油ラーメン。本当の美味しさを見つけるために３回は食べてほしいらしい。あと金箔。",
+      "image": null,
+      "lat": 34.7687163,
+      "lng": 137.3737063,
+      "address": "豊橋市菰口町"
+    },
+    {
+      "id": "spot-0-12",
+      "title": "中華料理 ラーメン 新珠",
+      "category": "ラーメン・中華料理",
+      "description": "町中華屋。味噌煮込みラーメンがおいしい。",
+      "image": null,
+      "lat": 34.7675694,
+      "lng": 137.3574819,
+      "address": "豊橋市小向町県道豊橋幸田線"
+    },
+    {
+      "id": "spot-0-13",
+      "title": "ラーメン屋 Hi-BRi",
+      "category": "ラーメン・中華料理",
+      "description": "和風とんこつラーメンがおいしい。オシャレ。",
+      "image": null,
+      "lat": 34.8218107,
+      "lng": 137.362795,
+      "address": "豊川市佐奈川町"
+    },
+    {
+      "id": "spot-0-14",
+      "title": "玄米と麺 ワタナベ",
+      "category": "ラーメン・中華料理",
+      "description": "”汁ソバ”と、旬代わりの野菜がのった玄米ご飯がメイン。出で立ちは完全にカフェ。",
+      "image": null,
+      "lat": 34.752742,
+      "lng": 137.3798775,
+      "address": "豊橋市入船町"
+    },
+    {
+      "id": "spot-0-15",
+      "title": "麺厨房あじさい モユク札幌店",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 43.0575138,
+      "lng": 141.353426,
+      "address": "札幌市中央区"
+    },
+    {
+      "id": "spot-0-16",
+      "title": "らーめん初代",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 43.1869865,
+      "lng": 141.0109442,
+      "address": "小樽市堺町小樽港線"
+    },
+    {
+      "id": "spot-0-17",
+      "title": "味噌ラーメン よし乃 道の駅あさひかわ店",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 43.7598767,
+      "lng": 142.3489885,
+      "address": "旭川市神楽昭和通"
+    },
+    {
+      "id": "spot-0-18",
+      "title": "麺屋しずる 豊橋牧野店",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 34.7336341,
+      "lng": 137.4004117,
+      "address": "豊橋市東幸町平井牟呂大岩線"
+    },
+    {
+      "id": "spot-0-19",
+      "title": "ラーメン くいば",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 34.7418772,
+      "lng": 137.3716244,
+      "address": "豊橋市中浜町"
+    },
+    {
+      "id": "spot-0-20",
+      "title": "麺屋聖 名古屋栄店",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 35.1644583,
+      "lng": 136.9047419,
+      "address": "名古屋市中区"
+    },
+    {
+      "id": "spot-0-21",
+      "title": "いしやま屋",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 34.7499214,
+      "lng": 137.4229517,
+      "address": "豊橋市飯村北運動公園通り"
+    },
+    {
+      "id": "spot-0-22",
+      "title": "味噌ラーメン専門店 ミソウソツカナイ",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 34.7459192,
+      "lng": 137.3796651,
+      "address": "豊橋市柱二番町"
+    },
+    {
+      "id": "spot-0-23",
+      "title": "黒田屋",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 34.7533807,
+      "lng": 137.3879726,
+      "address": "豊橋市柳生町"
+    },
+    {
+      "id": "spot-0-24",
+      "title": "醍醐",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 34.750274,
+      "lng": 137.377601,
+      "address": "豊橋市堂坂町"
+    },
+    {
+      "id": "spot-0-25",
+      "title": "らーめん 親希 SHINKI",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 34.8332297,
+      "lng": 137.3631152,
+      "address": "豊川市市田町"
+    },
+    {
+      "id": "spot-0-26",
+      "title": "ラーメン山岡家 豊橋下地店",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 34.7791405,
+      "lng": 137.3847552,
+      "address": "豊橋市下地町"
+    },
+    {
+      "id": "spot-0-27",
+      "title": "横浜家系ラーメン 歌舞伎家",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 34.721817,
+      "lng": 137.3634209,
+      "address": "豊橋市磯部下地町"
+    },
+    {
+      "id": "spot-0-28",
+      "title": "まるぜんラーメン",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 34.7470424,
+      "lng": 137.3731923,
+      "address": "豊橋市柱四番町"
+    },
+    {
+      "id": "spot-0-29",
+      "title": "ラーメンは飲み物です。",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 34.742306,
+      "lng": 137.3937826,
+      "address": "豊橋市小松町"
+    },
+    {
+      "id": "spot-0-30",
+      "title": "らぁ麺 幸跳",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 34.753402,
+      "lng": 137.370252,
+      "address": "豊橋市東脇"
+    },
+    {
+      "id": "spot-0-31",
+      "title": "ラーメン専科 正五郎(まさごろう)",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 35.1583615,
+      "lng": 136.8987477,
+      "address": "名古屋市中区大須表参道"
+    },
+    {
+      "id": "spot-0-32",
+      "title": "豚骨ラーメン専門店一兆 豊橋店",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 34.7265633,
+      "lng": 137.3571349,
+      "address": "豊橋市大山町"
+    },
+    {
+      "id": "spot-0-33",
+      "title": "ささき屋",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 34.7266428,
+      "lng": 137.4565759,
+      "address": "豊橋市大脇町豊橋湖西線"
+    },
+    {
+      "id": "spot-0-34",
+      "title": "はなび 豊橋店",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 34.7493766,
+      "lng": 137.4081916,
+      "address": "豊橋市向山東町"
+    },
+    {
+      "id": "spot-0-35",
+      "title": "町田商店 豊橋店",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 34.7489125,
+      "lng": 137.4136135,
+      "address": "豊橋市三ノ輪町国道1号"
+    },
+    {
+      "id": "spot-0-36",
+      "title": "丸源ラーメン 豊橋曙店",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 34.7238058,
+      "lng": 137.4034598,
+      "address": "豊橋市浜道町小松原小池線"
+    },
+    {
+      "id": "spot-0-37",
+      "title": "ラーメンまこと屋 豊橋曙店",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 34.7302913,
+      "lng": 137.4003946,
+      "address": "豊橋市浜道町小松原小池線"
+    },
+    {
+      "id": "spot-0-38",
+      "title": "ラーメン横綱 豊橋店",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 34.7238805,
+      "lng": 137.4333662,
+      "address": "豊橋市大岩町"
+    },
+    {
+      "id": "spot-0-39",
+      "title": "らぁ麺 芳山",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 34.7454142,
+      "lng": 137.3986976,
+      "address": "豊橋市つつじが丘"
+    },
+    {
+      "id": "spot-0-40",
+      "title": "麺童 豊香",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 36.3018557,
+      "lng": 139.8211608,
+      "address": "小山市大字土塔"
+    },
+    {
+      "id": "spot-0-41",
+      "title": "ハイマウントJ",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 36.1352597,
+      "lng": 140.0849234,
+      "address": "つくば市鹿島台学園東大通り"
+    },
+    {
+      "id": "spot-0-42",
+      "title": "ラーメン山まさか",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 34.7375999,
+      "lng": 137.7436232,
+      "address": "浜松市中央区"
+    },
+    {
+      "id": "spot-0-43",
+      "title": "ラーメン山岡家 浜松南区店",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 34.6775816,
+      "lng": 137.6807203,
+      "address": "浜松市中央区"
+    },
+    {
+      "id": "spot-0-44",
+      "title": "蒙古タンメン中本 新宿",
+      "category": "ラーメン・中華料理",
+      "description": "新宿Azitoに近い",
+      "image": null,
+      "lat": 35.695727,
+      "lng": 139.698164,
+      "address": "新宿区西新宿"
+    },
+    {
+      "id": "spot-0-45",
+      "title": "YOKOKURA STOREHOUSE",
+      "category": "ラーメン・中華料理",
+      "description": "栃木最強昆布水つけめん",
+      "image": null,
+      "lat": 36.2816164,
+      "lng": 139.8288285,
+      "address": "小山市大字横倉新田小山環状線"
+    },
+    {
+      "id": "spot-0-46",
+      "title": "雷 東京本丸店",
+      "category": "ラーメン・中華料理",
+      "description": "東京駅で食べる二郎系と言えばここ\n肉が美味い",
+      "image": null,
+      "lat": 35.6819822,
+      "lng": 139.7666071,
+      "address": "千代田区丸の内丸の内中央広場"
+    },
+    {
+      "id": "spot-0-47",
+      "title": "大砲ラーメン 本店",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 33.3152674,
+      "lng": 130.5256637,
+      "address": "久留米市通外町"
+    },
+    {
+      "id": "spot-0-48",
+      "title": "丸星中華そばセンター 本店（丸星ラーメン本店）",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 33.3340993,
+      "lng": 130.5263449,
+      "address": "久留米市東櫛原町国道3号"
+    },
+    {
+      "id": "spot-0-49",
+      "title": "元祖 長浜屋",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 33.5924104,
+      "lng": 130.386696,
+      "address": "福岡市中央区"
+    },
+    {
+      "id": "spot-0-50",
+      "title": "久留米ラーメン清陽軒 本店",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 33.3026046,
+      "lng": 130.5224075,
+      "address": "久留米市諏訪野町"
+    },
+    {
+      "id": "spot-0-51",
+      "title": "六厘舎 上野店",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 35.7132743,
+      "lng": 139.7767286,
+      "address": "台東区上野入谷口通り"
+    },
+    {
+      "id": "spot-0-52",
+      "title": "一品香 城東店【丸麺侍】",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 36.3104167,
+      "lng": 139.8142483,
+      "address": "小山市大字稲葉郷"
+    },
+    {
+      "id": "spot-0-53",
+      "title": "久留米らーめん道 麺志 本店",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 33.3125843,
+      "lng": 130.519386,
+      "address": "久留米市東町一番街商店街"
+    },
+    {
+      "id": "spot-0-54",
+      "title": "ラーメン二郎 栃木街道店",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 36.4228816,
+      "lng": 139.7948941,
+      "address": "壬生町壬生乙壬生バイパス"
+    },
+    {
+      "id": "spot-0-55",
+      "title": "沖食堂",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 33.3231796,
+      "lng": 130.5069519,
+      "address": "久留米市篠山町"
+    },
+    {
+      "id": "spot-0-56",
+      "title": "ひろせ食堂",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 33.3079632,
+      "lng": 130.5110094,
+      "address": "久留米市原古賀町"
+    },
+    {
+      "id": "spot-0-57",
+      "title": "久留米ラーメン ふくの家 久留米本店",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 33.3209233,
+      "lng": 130.546134,
+      "address": "久留米市東合川町久留米東バイパス"
+    },
+    {
+      "id": "spot-0-58",
+      "title": "加藤屋にぼ次朗 南草津店",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 35.0017181,
+      "lng": 135.9495859,
+      "address": "草津市草津東海道"
+    },
+    {
+      "id": "spot-0-59",
+      "title": "丸幸ラーメンセンター",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 33.4290637,
+      "lng": 130.5329788,
+      "address": "基山町小倉国道3号"
+    },
+    {
+      "id": "spot-0-60",
+      "title": "らぁめん 登里勝",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 35.0633413,
+      "lng": 136.6934409,
+      "address": "桑名市京町"
+    },
+    {
+      "id": "spot-0-61",
+      "title": "ラーメン荘 歴史を刻め 新栄店",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 35.1664794,
+      "lng": 136.9200221,
+      "address": "名古屋市中区"
+    },
+    {
+      "id": "spot-0-62",
+      "title": "らーめん吉山商店街",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 43.0568604,
+      "lng": 141.3509988,
+      "address": "札幌市中央区"
+    },
+    {
+      "id": "spot-0-63",
+      "title": "麺屋にかい 豊橋店",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 34.768432,
+      "lng": 137.356961,
+      "address": "豊橋市小向町"
+    },
+    {
+      "id": "spot-0-64",
+      "title": "一蘭 豊橋店",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 34.76613,
+      "lng": 137.363421,
+      "address": "豊橋市新栄町県道豊橋幸田線"
+    },
+    {
+      "id": "spot-0-65",
+      "title": "ラーメンたのしみ",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 34.7715755,
+      "lng": 137.3686534,
+      "address": "豊橋市野田町"
+    },
+    {
+      "id": "spot-0-66",
+      "title": "来来亭 豊橋柳生橋店",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 34.7526742,
+      "lng": 137.3864385,
+      "address": "豊橋市西小池町"
+    },
+    {
+      "id": "spot-0-67",
+      "title": "らーめん 麺ʼS world 豊⼆郎",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 34.7628965,
+      "lng": 137.3857686,
+      "address": "豊橋市駅前大通豊橋停車場線"
+    },
+    {
+      "id": "spot-0-68",
+      "title": "麺Lab 千賀商店",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 34.7638137,
+      "lng": 137.3863576,
+      "address": "豊橋市広小路"
+    },
+    {
+      "id": "spot-0-69",
+      "title": "素和可",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 34.8202971,
+      "lng": 137.3670887,
+      "address": "豊川市佐奈川町"
+    },
+    {
+      "id": "spot-0-70",
+      "title": "麺屋 鶏ト海",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 34.7270812,
+      "lng": 137.4022468,
+      "address": "豊橋市浜道町小松原小池線"
+    },
+    {
+      "id": "spot-0-71",
+      "title": "元祖ラーメン 長浜家",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 33.5917459,
+      "lng": 130.3852945,
+      "address": "福岡市中央区"
+    },
+    {
+      "id": "spot-0-72",
+      "title": "陽華楼",
+      "category": "ラーメン・中華料理",
+      "description": "殺人担々麺",
+      "image": null,
+      "lat": 33.5874947,
+      "lng": 130.416253,
+      "address": "福岡市博多区東林寺通り"
+    },
+    {
+      "id": "spot-0-73",
+      "title": "熟成醤油ラーメン きゃべとん 豊橋草間本店",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 34.7371594,
+      "lng": 137.3782723,
+      "address": "豊橋市草間町"
+    },
+    {
+      "id": "spot-0-74",
+      "title": "まぜそば専門店 麺信",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 34.7425341,
+      "lng": 137.3705038,
+      "address": "豊橋市小浜町"
+    },
+    {
+      "id": "spot-0-75",
+      "title": "そのか",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 34.7488005,
+      "lng": 137.3789959,
+      "address": "豊橋市堂坂町"
+    },
+    {
+      "id": "spot-0-76",
+      "title": "中華のみゆき",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 34.762049,
+      "lng": 137.3810895,
+      "address": "豊橋市野黒町"
+    },
+    {
+      "id": "spot-0-77",
+      "title": "油そば専門店 歌志軒 豊橋駅前店",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 34.7616417,
+      "lng": 137.3843566,
+      "address": "豊橋市西小田原町"
+    },
+    {
+      "id": "spot-0-78",
+      "title": "くるまやラーメン 豊橋店",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 34.761742,
+      "lng": 137.3862753,
+      "address": "豊橋市新川町"
+    },
+    {
+      "id": "spot-0-79",
+      "title": "カドワラ",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 34.7663103,
+      "lng": 137.3912649,
+      "address": "豊橋市札木町旧東海道"
+    },
+    {
+      "id": "spot-0-80",
+      "title": "Ragaya",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 34.7412883,
+      "lng": 137.4216781,
+      "address": "豊橋市飯村南"
+    },
+    {
+      "id": "spot-0-81",
+      "title": "麵屋でんすけ",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 34.7289084,
+      "lng": 137.4339119,
+      "address": "豊橋市大岩町旧東海道"
+    },
+    {
+      "id": "spot-0-82",
+      "title": "福ちゃん 大岩店",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 34.7226008,
+      "lng": 137.4400392,
+      "address": "豊橋市大岩町国道1号"
+    },
+    {
+      "id": "spot-0-83",
+      "title": "ラーメン 炙 ABURI",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 41.8267618,
+      "lng": 140.7518298,
+      "address": "函館市石川町"
+    },
+    {
+      "id": "spot-0-84",
+      "title": "らぁめん真打 美原分店",
+      "category": "ラーメン・中華料理",
+      "description": "実家から一番近いラーメン屋",
+      "image": null,
+      "lat": 41.8202299,
+      "lng": 140.7510332,
+      "address": "函館市石川町美原学園通"
+    },
+    {
+      "id": "spot-0-85",
+      "title": "らーめん若大将 北美原別邸",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 41.827105,
+      "lng": 140.7455847,
+      "address": "函館市石川町"
+    },
+    {
+      "id": "spot-0-86",
+      "title": "麺屋 狼煙",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 41.809585,
+      "lng": 140.7418911,
+      "address": "函館市亀田本町"
+    },
+    {
+      "id": "spot-0-87",
+      "title": "らーめん初代一縁",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 41.7994428,
+      "lng": 140.7434988,
+      "address": "函館市田家町"
+    },
+    {
+      "id": "spot-0-88",
+      "title": "麺TEPPEN",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 41.8016993,
+      "lng": 140.7302555,
+      "address": "函館市追分町"
+    },
+    {
+      "id": "spot-0-89",
+      "title": "ラーメン響",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 41.7960175,
+      "lng": 140.7280616,
+      "address": "函館市北浜町"
+    },
+    {
+      "id": "spot-0-90",
+      "title": "函館麺厨房 あじさい 本店",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 41.7946641,
+      "lng": 140.7532456,
+      "address": "函館市柳町ときわ通り"
+    },
+    {
+      "id": "spot-0-91",
+      "title": "ラーメン二代目ひらき家",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 41.7895219,
+      "lng": 140.7502092,
+      "address": "函館市梁川町五稜郭公園線"
+    },
+    {
+      "id": "spot-0-92",
+      "title": "函館麺や 一文字 函館総本店",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 41.7748946,
+      "lng": 140.7878955,
+      "address": "函館市湯浜町国道278号"
+    },
+    {
+      "id": "spot-0-93",
+      "title": "まつ笠",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 41.8533072,
+      "lng": 140.7206966,
+      "address": "七飯町中野国道5号"
+    },
+    {
+      "id": "spot-0-94",
+      "title": "中華そば まんまるてい",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 41.7931018,
+      "lng": 140.7833877,
+      "address": "函館市花園町"
+    },
+    {
+      "id": "spot-0-95",
+      "title": "鶏白湯そば 星（あかり）",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 41.7880286,
+      "lng": 140.7521921,
+      "address": "函館市本町"
+    },
+    {
+      "id": "spot-0-96",
+      "title": "麺や 天嶺",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 41.7938704,
+      "lng": 140.7583432,
+      "address": "函館市柳町"
+    },
+    {
+      "id": "spot-0-97",
+      "title": "麺屋いっ徳",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 41.7969653,
+      "lng": 140.7434178,
+      "address": "函館市白鳥町教育大通"
+    },
+    {
+      "id": "spot-0-98",
+      "title": "ラーメン二郎 名古屋大曽根店",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 35.1938862,
+      "lng": 136.9419583,
+      "address": "名古屋市東区"
+    },
+    {
+      "id": "spot-0-99",
+      "title": "武平",
+      "category": "ラーメン・中華料理",
+      "description": "煮干し二郎がウマいです",
+      "image": null,
+      "lat": 35.1668757,
+      "lng": 136.9111615,
+      "address": "名古屋市中区南久屋武平町線"
+    },
+    {
+      "id": "spot-0-100",
+      "title": "田所商店 豊橋店",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 34.7671648,
+      "lng": 137.3713343,
+      "address": "豊橋市花田町"
+    },
+    {
+      "id": "spot-0-101",
+      "title": "らーめん吉山商店 札幌ステラプレイス店",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 43.067865,
+      "lng": 141.3514288,
+      "address": "札幌市中央区北5条手稲通"
+    },
+    {
+      "id": "spot-0-102",
+      "title": "札幌みその 北広島店",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 42.9715115,
+      "lng": 141.4718469,
+      "address": "北広島市大曲幸町"
+    },
+    {
+      "id": "spot-0-103",
+      "title": "中華そば つぼみ",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 34.7492147,
+      "lng": 137.359784,
+      "address": "豊橋市市場"
+    },
+    {
+      "id": "spot-0-104",
+      "title": "桃山商店",
+      "category": "ラーメン・中華料理",
+      "description": "朝5時までやってる。生にんにくを潰して入れる。",
+      "image": null,
+      "lat": 34.7315474,
+      "lng": 137.4142536,
+      "address": "豊橋市西幸町"
+    },
+    {
+      "id": "spot-0-105",
+      "title": "豊盛園",
+      "category": "ラーメン・中華料理",
+      "description": "ジェネリック美楽。水餃子が安い。",
+      "image": null,
+      "lat": 34.725238,
+      "lng": 137.388965,
+      "address": "豊橋市高師町"
+    },
+    {
+      "id": "spot-0-106",
+      "title": "麦の寅GACHI SOBA DOJO",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 34.7647526,
+      "lng": 137.4198155,
+      "address": "豊橋市前畑町豊橋大知波線"
+    },
+    {
+      "id": "spot-0-107",
+      "title": "ダシと麺 くじら 栄本店",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 35.1694634,
+      "lng": 136.9133524,
+      "address": "名古屋市中区"
+    },
+    {
+      "id": "spot-0-108",
+      "title": "横浜家系ラーメン まんぷく家 東岡崎駅前店",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 34.9530215,
+      "lng": 137.165129,
+      "address": "岡崎市明大寺本町県道東大見岡崎線"
+    },
+    {
+      "id": "spot-0-109",
+      "title": "中華そば おにぎり 番い-tsugai",
+      "category": "ラーメン・中華料理",
+      "description": "ラーメンとおにぎりのセットを売りにしてる。",
+      "image": null,
+      "lat": 34.9526197,
+      "lng": 137.1672362,
+      "address": "岡崎市上明大寺町東岡崎駅前通り"
+    },
+    {
+      "id": "spot-0-110",
+      "title": "柳家 総本店",
+      "category": "ラーメン・中華料理",
+      "description": "「レアチーズ納豆キムチラーメン」\n盛岡四大麺を自称している",
+      "image": null,
+      "lat": 39.7023616,
+      "lng": 141.1467487,
+      "address": "盛岡市仙北町"
+    },
+    {
+      "id": "spot-0-111",
+      "title": "中華 一品香",
+      "category": "ラーメン・中華料理",
+      "description": "老舗の町中華。大谷翔平が花巻東高時代に通ってたらしい。",
+      "image": null,
+      "lat": 39.3975591,
+      "lng": 141.1058423,
+      "address": "花巻市愛宕沢"
+    },
+    {
+      "id": "spot-0-112",
+      "title": "かっぱ飯店",
+      "category": "ラーメン・中華料理",
+      "description": "老舗の町中華。たぶん市役所の人御用達。よくばりせっとの見た目がすごい。",
+      "image": null,
+      "lat": 39.3901962,
+      "lng": 141.1139654,
+      "address": "花巻市坂本町"
+    },
+    {
+      "id": "spot-0-113",
+      "title": "豪ーめん 花巻店",
+      "category": "ラーメン・中華料理",
+      "description": "岩手の二郎インスパイアチェーン。特徴的な極太麺。",
+      "image": null,
+      "lat": 39.4019021,
+      "lng": 141.1053848,
+      "address": "花巻市愛宕沢"
+    },
+    {
+      "id": "spot-0-114",
+      "title": "八叉路飯店",
+      "category": "ラーメン・中華料理",
+      "description": "八叉路？の角にある老舗の町中華。入口の食品サンプルはたぶん数十年更新していない。",
+      "image": null,
+      "lat": 39.3903259,
+      "lng": 141.221378,
+      "address": "花巻市"
+    },
+    {
+      "id": "spot-0-115",
+      "title": "松葉商店",
+      "category": "ラーメン・中華料理",
+      "description": "東和町名物の醤油味のたこ焼きといえばここ。",
+      "image": null,
+      "lat": 39.386714,
+      "lng": 141.229894,
+      "address": "花巻市東和町土沢土沢停車場線"
+    },
+    {
+      "id": "spot-0-116",
+      "title": "花巻らーめんバガボンド 東バイパス店",
+      "category": "ラーメン・中華料理",
+      "description": "ホルモンがトッピングされた鉄砲らーめんが売り。",
+      "image": null,
+      "lat": 39.38741,
+      "lng": 141.14264,
+      "address": "花巻市高木花巻大曲線"
+    },
+    {
+      "id": "spot-0-117",
+      "title": "いこい",
+      "category": "ラーメン・中華料理",
+      "description": "ロードサイドのとんかつ・ラーメン屋。ここのレバニラは別格でうまい。辛味噌ラーメンもおすすめ。",
+      "image": null,
+      "lat": 39.42547,
+      "lng": 141.078698,
+      "address": "花巻市椚ノ目盛岡和賀線"
+    },
+    {
+      "id": "spot-0-118",
+      "title": "麺屋 いおり",
+      "category": "ラーメン・中華料理",
+      "description": "煮干しラーメン。",
+      "image": null,
+      "lat": 39.7039696,
+      "lng": 141.1468484,
+      "address": "盛岡市大通二丁目"
+    },
+    {
+      "id": "spot-0-119",
+      "title": "たかみ屋",
+      "category": "ラーメン・中華料理",
+      "description": "老舗のラーメン屋。オーソドックスながらガチでうまい。",
+      "image": null,
+      "lat": 39.6991356,
+      "lng": 141.1540681,
+      "address": "盛岡市肴町不動盛岡線"
+    },
+    {
+      "id": "spot-0-120",
+      "title": "黄金製麺食堂",
+      "category": "ラーメン・中華料理",
+      "description": "自家製麺の鶏白湯とTKM（卵かけ麺）。",
+      "image": null,
+      "lat": 39.2548026,
+      "lng": 141.104825,
+      "address": "北上市相去町"
+    },
+    {
+      "id": "spot-0-121",
+      "title": "中華そば 晴れる屋",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 39.2949418,
+      "lng": 141.0894647,
+      "address": "北上市北鬼柳"
+    },
+    {
+      "id": "spot-0-122",
+      "title": "銀蝶",
+      "category": "ラーメン・中華料理",
+      "description": "老舗の中華そば屋。シンプルながらうまい。",
+      "image": null,
+      "lat": 39.1386457,
+      "lng": 141.1493699,
+      "address": "奥州市水沢"
+    },
+    {
+      "id": "spot-0-123",
+      "title": "UMAMI SOUP NOODLES 虹ソラ",
+      "category": "ラーメン・中華料理",
+      "description": "煮干しスープがメイン。オープン当初はよかったけど、有名になってからは店長がちょっと...",
+      "image": null,
+      "lat": 38.9249308,
+      "lng": 141.1448158,
+      "address": "一関市字西沢"
+    },
+    {
+      "id": "spot-0-124",
+      "title": "らーめん 丸長",
+      "category": "ラーメン・中華料理",
+      "description": "一関で最も信頼できるラーメン屋。魚介の効いたシンプルな醤油ラーメン。",
+      "image": null,
+      "lat": 38.9272587,
+      "lng": 141.1372945,
+      "address": "一関市字深町大槻街通り"
+    },
+    {
+      "id": "spot-0-125",
+      "title": "ラーメンショップ 平泉店",
+      "category": "ラーメン・中華料理",
+      "description": "景観条例で暗いえんじ色をしたラーショ。ネギラーメンにおろしニンニクが安定。",
+      "image": null,
+      "lat": 38.9613754,
+      "lng": 141.1213329,
+      "address": "平泉町"
+    },
+    {
+      "id": "spot-0-126",
+      "title": "元祖満州にらラーメンさかえや 本店",
+      "category": "ラーメン・中華料理",
+      "description": "花巻の有名老舗ラーメン屋。丼がニラとニンニクの芽で覆われている。",
+      "image": null,
+      "lat": 39.3568173,
+      "lng": 141.109075,
+      "address": "花巻市下根子"
+    },
+    {
+      "id": "spot-0-127",
+      "title": "火鍋 シスター",
+      "category": "ラーメン・中華料理",
+      "description": "花巻で人気の火鍋屋。中国出身の姉妹がやってる。",
+      "image": null,
+      "lat": 39.3854535,
+      "lng": 141.1217089,
+      "address": "花巻市双葉町"
+    },
+    {
+      "id": "spot-0-128",
+      "title": "めん家 竹治郎",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 38.2611099,
+      "lng": 140.8838618,
+      "address": "仙台市宮城野区"
+    },
+    {
+      "id": "spot-0-129",
+      "title": "麺屋 優光",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 35.0097807,
+      "lng": 135.7593495,
+      "address": "京都市中京区姉小路通"
+    },
+    {
+      "id": "spot-0-130",
+      "title": "貝だし麺きた田",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 34.9872701,
+      "lng": 135.7547545,
+      "address": "京都市下京区塩小路通"
+    },
+    {
+      "id": "spot-0-131",
+      "title": "本家 第一旭 本店",
+      "category": "ラーメン・中華料理",
+      "description": "京都ラーメンの双角をなすお店のひとつ。めっっちゃ並ぶ。",
+      "image": null,
+      "lat": 34.986696,
+      "lng": 135.762502,
+      "address": "京都市下京区高倉通"
+    },
+    {
+      "id": "spot-0-132",
+      "title": "新福菜館 本店",
+      "category": "ラーメン・中華料理",
+      "description": "京都ラーメンの双角をなすお店のひとつ。こっちはそこまで並ばない。焼き飯がガチでうまい。",
+      "image": null,
+      "lat": 34.9867471,
+      "lng": 135.7624974,
+      "address": "京都市下京区"
+    },
+    {
+      "id": "spot-0-133",
+      "title": "麺道 しゅはり 石橋阪大前店",
+      "category": "ラーメン・中華料理",
+      "description": "濃厚な豚骨ラーメン。",
+      "image": null,
+      "lat": 34.807061,
+      "lng": 135.447745,
+      "address": "豊中市石橋麻田町国道423号"
+    },
+    {
+      "id": "spot-0-134",
+      "title": "きりん寺 千日前店",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 34.6683261,
+      "lng": 135.5032216,
+      "address": "大阪市中央区芝居裏"
+    },
+    {
+      "id": "spot-0-135",
+      "title": "秀ちゃんラーメン",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 32.7986069,
+      "lng": 130.7021114,
+      "address": "熊本市中央区辛島町通り"
+    },
+    {
+      "id": "spot-0-136",
+      "title": "八ちゃんラーメン",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 33.5815611,
+      "lng": 130.4036831,
+      "address": "福岡市中央区城南線"
+    },
+    {
+      "id": "spot-0-137",
+      "title": "佑記肉骨茶",
+      "category": "ラーメン・中華料理",
+      "description": "バクテーで店に困ったらここ。",
+      "image": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR41Ljjs9GjCpw99VJ7hYQW5CSQZB_JKamUAvQyplUnlGESvVTkBjKHpMwmAkw8pIOos1DESUTed6lADnO8iGdKE-ru-tWxYGgzz0LbM6u74KCiDzt-JLe5L0dsOt4N20gdZqOUz3Kn8WoqqhI0ntVq9zp-lMHmBNkven7Nwbmmcyzjzcnm6Cymj5R0LYPVfd6Jb-SnRXcjbzwfroUJyRVksoBvdGjtPb1qPA8r4u-nshN_Ertx2NaRoQWo?fife=s16383",
+      "lat": 5.9848161,
+      "lng": 116.0775357,
+      "address": "コタキナバルJalan Gaya"
+    },
+    {
+      "id": "spot-0-138",
+      "title": "Welcome Seafood Restaurant",
+      "category": "ラーメン・中華料理",
+      "description": "魚たちが生簀で泳いでる。写真みたく頼むとマレーシアにしてもまあまあいいお値段する。",
+      "image": "https://mymaps.usercontent.google.com/hostedimage/m/*/3AAjQbR4W5Hi4emc2gCgfGxZoFJC1Kfo50CKK-0rKAbJM8iUa7RWUro-xU3cY53F_PYvWUYkGJq657g7sORUdbtq787u7osyYe0wCb6HgrM0hV3EqyidWUaPMo2-fgLd-itPSxhDDNfu5sSRRRdBnUPQaSa1zVZbMO85Cg0Nc8rCbfYk99fvDc_hKdubXUPhjbGlU0xXeUifdlvO3s41EHBIF4M6JDrVZh5uS4f0W8-2JioXQlyPWPkRWx43haSg?fife=s16383",
+      "lat": 5.9754203,
+      "lng": 116.072347,
+      "address": "コタキナバル"
+    },
+    {
+      "id": "spot-0-139",
+      "title": "但馬ラーメン",
+      "category": "ラーメン・中華料理",
+      "description": "ラーメンほか日本食の居酒屋。豚骨ラーメンが15ドル。普通においしいのでご安心。",
+      "image": null,
+      "lat": 32.7145092,
+      "lng": -117.1563564,
+      "address": "サンディエゴDowntown San Diego9th Avenue"
+    },
+    {
+      "id": "spot-0-140",
+      "title": "新宿歌舞伎町 麺堂にしき",
+      "category": "ラーメン・中華料理",
+      "description": "鴨出汁の醤油ラーメン",
+      "image": null,
+      "lat": 35.6948011,
+      "lng": 139.7026566,
+      "address": "新宿区歌舞伎町"
+    },
+    {
+      "id": "spot-0-141",
+      "title": "五ノ神水産 神田店",
+      "category": "ラーメン・中華料理",
+      "description": "銀鱈をぜいたくに使ったラーメン。",
+      "image": null,
+      "lat": 35.6938352,
+      "lng": 139.7687647,
+      "address": "千代田区内神田"
+    },
+    {
+      "id": "spot-0-142",
+      "title": "麺巧 潮",
+      "category": "ラーメン・中華料理",
+      "description": "醤油と鶏白湯。醤油のほうは節系がゴリっと効いてる。",
+      "image": null,
+      "lat": 35.6963892,
+      "lng": 139.7677704,
+      "address": "千代田区神田淡路町外堀通り"
+    },
+    {
+      "id": "spot-0-143",
+      "title": "らーめん影武者",
+      "category": "ラーメン・中華料理",
+      "description": "二郎系",
+      "image": null,
+      "lat": 35.7009377,
+      "lng": 139.7702454,
+      "address": "千代田区外神田じゃんがら通り"
+    },
+    {
+      "id": "spot-0-144",
+      "title": "家系らーめん 武将家",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 35.7000294,
+      "lng": 139.7719991,
+      "address": "千代田区外神田"
+    },
+    {
+      "id": "spot-0-145",
+      "title": "ラーメン豚山 上野店",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 35.7062026,
+      "lng": 139.7724991,
+      "address": "台東区上野中央通り"
+    },
+    {
+      "id": "spot-0-146",
+      "title": "蒙古タンメン中本 御徒町",
+      "category": "ラーメン・中華料理",
+      "description": "リスポーン地点。ありえん並ぶ",
+      "image": null,
+      "lat": 35.7059358,
+      "lng": 139.7743766,
+      "address": "台東区上野ひすいアベニュー"
+    },
+    {
+      "id": "spot-0-147",
+      "title": "麺屋武蔵 武骨",
+      "category": "ラーメン・中華料理",
+      "description": "濃厚豚骨に極太のチャーシューが特徴",
+      "image": null,
+      "lat": 35.7089649,
+      "lng": 139.7758918,
+      "address": "台東区上野"
+    },
+    {
+      "id": "spot-0-148",
+      "title": "平和軒",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 36.565933,
+      "lng": 136.6544598,
+      "address": "金沢市南町上松原町"
+    },
+    {
+      "id": "spot-0-149",
+      "title": "鬼もぶっ豚だもんで",
+      "category": "ラーメン・中華料理",
+      "description": "バル・ダモンデで昼にやってる二郎系",
+      "image": null,
+      "lat": 34.7640754,
+      "lng": 137.385363,
+      "address": "豊橋市広小路広小路通り"
+    },
+    {
+      "id": "spot-0-150",
+      "title": "吉田製麺",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 34.7629194,
+      "lng": 137.3853941,
+      "address": "豊橋市駅前大通萱町通り"
+    },
+    {
+      "id": "spot-0-151",
+      "title": "東京油組総本店豊橋組",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 34.7640728,
+      "lng": 137.3853201,
+      "address": "豊橋市広小路広小路通り"
+    },
+    {
+      "id": "spot-0-152",
+      "title": "麺屋でんすけ小松店",
+      "category": "ラーメン・中華料理",
+      "description": "",
+      "image": null,
+      "lat": 34.7401589,
+      "lng": 137.3930256,
+      "address": "豊橋市小松町"
+    },
+    {
+      "id": "spot-0-153",
+      "title": "中華そば 大河",
+      "category": "ラーメン・中華料理",
+      "description": "市場のラーメン屋。朝ラができる。\nテーブル出てないときは立ち食い。並ぶけど回転ははやめ。",
+      "image": null,
+      "lat": 35.1700753,
+      "lng": 136.8884357,
+      "address": "名古屋市中村区"
+    },
+    {
+      "id": "spot-1-0",
+      "title": "スターバックス コーヒー 中部国際空港セントレアFLIGHT OF DREAMS店",
+      "category": "カフェ",
+      "description": "",
+      "image": null,
+      "lat": 34.855597,
+      "lng": 136.8172563,
+      "address": "常滑市セントレア一丁目522"
+    },
+    {
+      "id": "spot-1-1",
+      "title": "スターバックス コーヒー 豊橋ココラフロント店",
+      "category": "カフェ",
+      "description": "",
+      "image": null,
+      "lat": 34.762905,
+      "lng": 137.3840322,
+      "address": "豊橋市西小田原町"
+    },
+    {
+      "id": "spot-1-2",
+      "title": "Cafe Accordiana",
+      "category": "カフェ",
+      "description": "",
+      "image": null,
+      "lat": 34.7442834,
+      "lng": 137.4090492,
+      "address": "豊橋市佐藤"
+    },
+    {
+      "id": "spot-1-3",
+      "title": "北欧風焙煎珈琲 Cafe Cop Copine",
+      "category": "カフェ",
+      "description": "",
+      "image": null,
+      "lat": 34.7508186,
+      "lng": 137.3989296,
+      "address": "豊橋市向山町"
+    },
+    {
+      "id": "spot-1-4",
+      "title": "<![CDATA[sogoodcoffee&bake ソーグッドコーヒー&ベイク]]>",
+      "category": "カフェ",
+      "description": "",
+      "image": null,
+      "lat": 34.7601254,
+      "lng": 137.3737085,
+      "address": "豊橋市西羽田町"
+    },
+    {
+      "id": "spot-1-5",
+      "title": "奈。かふぇ",
+      "category": "カフェ",
+      "description": "",
+      "image": null,
+      "lat": 34.7617484,
+      "lng": 137.3905848,
+      "address": "豊橋市新川町"
+    },
+    {
+      "id": "spot-1-6",
+      "title": "BISSE SWEETS",
+      "category": "カフェ",
+      "description": "",
+      "image": null,
+      "lat": 43.0614715,
+      "lng": 141.3522735,
+      "address": "札幌市中央区札幌駅前通"
+    },
+    {
+      "id": "spot-1-7",
+      "title": "<![CDATA[Tome's Cafe(トメズカフェ)]]>",
+      "category": "カフェ",
+      "description": "",
+      "image": null,
+      "lat": 34.785763,
+      "lng": 137.3336861,
+      "address": "豊橋市前芝町"
+    },
+    {
+      "id": "spot-1-8",
+      "title": "ニューオリンズカフェ",
+      "category": "カフェ",
+      "description": "",
+      "image": null,
+      "lat": 34.7212042,
+      "lng": 137.4180144,
+      "address": "豊橋市高田町"
+    },
+    {
+      "id": "spot-1-9",
+      "title": "KITAKARO L (キタカロウ エル)",
+      "category": "カフェ",
+      "description": "",
+      "image": null,
+      "lat": 43.0589971,
+      "lng": 141.3311584,
+      "address": "札幌市中央区宮の沢北一条線"
+    },
+    {
+      "id": "spot-1-10",
+      "title": "北菓楼 札幌本館",
+      "category": "カフェ",
+      "description": "",
+      "image": null,
+      "lat": 43.0618929,
+      "lng": 141.3487918,
+      "address": "札幌市中央区国道230号"
+    },
+    {
+      "id": "spot-1-11",
+      "title": "ルタオ本店｜小樽 スイーツ",
+      "category": "カフェ",
+      "description": "",
+      "image": null,
+      "lat": 43.191311,
+      "lng": 141.007433,
+      "address": "小樽市相生町"
+    },
+    {
+      "id": "spot-1-12",
+      "title": "YATSUDOKI TERRACE小海 シャトレーゼ",
+      "category": "カフェ",
+      "description": "",
+      "image": null,
+      "lat": 36.0546965,
+      "lng": 138.4504892,
+      "address": "小海町大字稲子松原湖高原線"
+    },
+    {
+      "id": "spot-1-13",
+      "title": "六壱珈琲 大山店",
+      "category": "カフェ",
+      "description": "",
+      "image": null,
+      "lat": 34.7266563,
+      "lng": 137.3566256,
+      "address": "豊橋市一色町東三河環状線"
+    },
+    {
+      "id": "spot-1-14",
+      "title": "KINOTOYA BAKE ポールタウン店",
+      "category": "カフェ",
+      "description": "",
+      "image": null,
+      "lat": 43.0575562,
+      "lng": 141.3528775,
+      "address": "札幌市中央区札幌駅前通"
+    },
+    {
+      "id": "spot-1-15",
+      "title": "<![CDATA[ミルク&パフェ よつ葉 ホワイトコージ 新千歳空港店]]>",
+      "category": "カフェ",
+      "description": "",
+      "image": null,
+      "lat": 42.7871283,
+      "lng": 141.6803299,
+      "address": "千歳市"
+    },
+    {
+      "id": "spot-1-16",
+      "title": "bakery＆cafe ESPRIT NAGOYA",
+      "category": "カフェ",
+      "description": "",
+      "image": null,
+      "lat": 35.1733725,
+      "lng": 136.9088961,
+      "address": "名古屋市中区久屋大通"
+    },
+    {
+      "id": "spot-1-17",
+      "title": "Dublinroomcafe",
+      "category": "カフェ",
+      "description": "",
+      "image": null,
+      "lat": 35.172694,
+      "lng": 136.889286,
+      "address": "名古屋市中村区"
+    },
+    {
+      "id": "spot-1-18",
+      "title": "蔵茶房なつめ",
+      "category": "カフェ",
+      "description": "",
+      "image": null,
+      "lat": 34.7972117,
+      "lng": 137.563709,
+      "address": "浜松市浜名区国道362号"
+    },
+    {
+      "id": "spot-1-19",
+      "title": "ガトーキングダムサッポロ",
+      "category": "カフェ",
+      "description": "",
+      "image": null,
+      "lat": 43.1713015,
+      "lng": 141.3557912,
+      "address": "札幌市北区"
+    },
+    {
+      "id": "spot-1-20",
+      "title": "1_34cafe",
+      "category": "カフェ",
+      "description": "",
+      "image": null,
+      "lat": 34.829946,
+      "lng": 137.3574053,
+      "address": "豊川市野口町"
+    },
+    {
+      "id": "spot-1-21",
+      "title": "KURUMEジェラート",
+      "category": "カフェ",
+      "description": "",
+      "image": null,
+      "lat": 33.316617,
+      "lng": 130.517364,
+      "address": "久留米市螢川町"
+    },
+    {
+      "id": "spot-1-22",
+      "title": "赤福 本店",
+      "category": "カフェ",
+      "description": "",
+      "image": null,
+      "lat": 34.4626177,
+      "lng": 136.7235158,
+      "address": "伊勢市桜木町"
+    },
+    {
+      "id": "spot-1-23",
+      "title": "ジェラートサンタ 道の駅とよはし店",
+      "category": "カフェ",
+      "description": "",
+      "image": null,
+      "lat": 34.6960925,
+      "lng": 137.4143648,
+      "address": "豊橋市"
+    },
+    {
+      "id": "spot-1-24",
+      "title": "BARISUTART COFFEE FURANO(無料休憩所併設)",
+      "category": "カフェ",
+      "description": "",
+      "image": null,
+      "lat": 43.3254609,
+      "lng": 142.3538812,
+      "address": "富良野市中御料"
+    },
+    {
+      "id": "spot-1-25",
+      "title": "レークヒル･ファーム",
+      "category": "カフェ",
+      "description": "美しい羊蹄山を見ながら絶品ジェラートが食べられる",
+      "image": null,
+      "lat": 42.6155325,
+      "lng": 140.7864909,
+      "address": "洞爺湖町月浦国道230号"
+    },
+    {
+      "id": "spot-1-26",
+      "title": "パン工房 こなひきのゴーシュ",
+      "category": "カフェ",
+      "description": "田んぼの広がる丘の上にいきなり現れるおしゃれなパン屋。人気店ゆえすぐに売り切れる。カフェコーナーあり。",
+      "image": null,
+      "lat": 39.3988237,
+      "lng": 141.2174781,
+      "address": "花巻市東和町百ノ沢"
+    },
+    {
+      "id": "spot-1-27",
+      "title": "ずんだ茶寮 仙台駅ずんだ小径店",
+      "category": "カフェ",
+      "description": "ずんだシェイクを崇めよ",
+      "image": null,
+      "lat": 38.2604316,
+      "lng": 140.8818661,
+      "address": "仙台市青葉区杜の陽だまりガレリア(仙台駅東西自由通路)"
+    },
+    {
+      "id": "spot-1-28",
+      "title": "郭公だんご",
+      "category": "カフェ",
+      "description": "厳美渓名物の空飛ぶだんご。川をまたいだ東屋までロープがひいてあり、カゴにお金を入れて合図すると団子がかえってくる。",
+      "image": null,
+      "lat": 38.9446059,
+      "lng": 141.0471565,
+      "address": "一関市"
+    },
+    {
+      "id": "spot-1-29",
+      "title": "<![CDATA[Ghirardelli Ice Cream & Chocolate Shop]]>",
+      "category": "カフェ",
+      "description": "有名なアイスクリーム＆チョコレートショップ。パフェ等のカフェメニューのほか、お土産にぴったりなチョコレートの販売もある。日本人の口にも合うタイプのやつなのでご安心。",
+      "image": null,
+      "lat": 32.712179,
+      "lng": -117.1599965,
+      "address": "サンディエゴDowntown San Diego5th Avenue"
+    },
+    {
+      "id": "spot-2-0",
+      "title": "やまじょう",
+      "category": "和食・定食",
+      "description": "ビビるくらい高威力の刺身定食が自慢の魚介系定食屋。夜は昼より1000円くらい高いので注意。",
+      "image": null,
+      "lat": 34.7547552,
+      "lng": 137.3803077,
+      "address": "豊橋市中郷町"
+    },
+    {
+      "id": "spot-2-1",
+      "title": "我しゃまんま",
+      "category": "和食・定食",
+      "description": "魚介系の定食や海鮮丼が豊富。夜は居酒屋メインっぽいが、メシも普通に食える(昼より500円くらい高い)。",
+      "image": null,
+      "lat": 34.7490698,
+      "lng": 137.37442,
+      "address": "豊橋市柱四番町"
+    },
+    {
+      "id": "spot-2-2",
+      "title": "浜の家",
+      "category": "和食・定食",
+      "description": "海鮮系。日替わりランチがお得。夜は居酒屋。",
+      "image": null,
+      "lat": 34.7278685,
+      "lng": 137.400639,
+      "address": "豊橋市曙町"
+    },
+    {
+      "id": "spot-2-3",
+      "title": "お寺",
+      "category": "和食・定食",
+      "description": "味噌煮込みうどんが名物。店内の雰囲気がとてもよい。",
+      "image": null,
+      "lat": 34.7198995,
+      "lng": 137.4046215,
+      "address": "豊橋市浜道町小松原小池線"
+    },
+    {
+      "id": "spot-2-4",
+      "title": "鈴八庵",
+      "category": "和食・定食",
+      "description": "うどん屋。無料で大盛(鈴八盛り)にできる。黒酢天ぷら定食が本当に最高。",
+      "image": null,
+      "lat": 34.7241888,
+      "lng": 137.4035234,
+      "address": "豊橋市曙町"
+    },
+    {
+      "id": "spot-2-5",
+      "title": "やまと食堂 豊橋南陽通り店",
+      "category": "和食・定食",
+      "description": "海鮮系各種メニューを手頃な価格で楽しめる。",
+      "image": null,
+      "lat": 34.7386661,
+      "lng": 137.3644193,
+      "address": "豊橋市小浜町"
+    },
+    {
+      "id": "spot-2-6",
+      "title": "矢場とん 名古屋駅名鉄店",
+      "category": "和食・定食",
+      "description": "",
+      "image": null,
+      "lat": 35.169503,
+      "lng": 136.8839233,
+      "address": "名古屋市中村区"
+    },
+    {
+      "id": "spot-2-7",
+      "title": "とん八",
+      "category": "和食・定食",
+      "description": "",
+      "image": null,
+      "lat": 35.15475,
+      "lng": 136.913541,
+      "address": "名古屋市中区"
+    },
+    {
+      "id": "spot-2-8",
+      "title": "あつみ食堂",
+      "category": "和食・定食",
+      "description": "地元野菜をふんだんに使った定食が食べれる",
+      "image": null,
+      "lat": 34.740597,
+      "lng": 137.3992741,
+      "address": "豊橋市山田三番町"
+    },
+    {
+      "id": "spot-2-9",
+      "title": "醍醐",
+      "category": "和食・定食",
+      "description": "",
+      "image": null,
+      "lat": 34.750274,
+      "lng": 137.377601,
+      "address": "豊橋市堂坂町"
+    },
+    {
+      "id": "spot-2-10",
+      "title": "中国料理 美楽",
+      "category": "和食・定食",
+      "description": "唐揚げ定食が名物",
+      "image": null,
+      "lat": 34.7282885,
+      "lng": 137.4017348,
+      "address": "豊橋市曙町"
+    },
+    {
+      "id": "spot-2-11",
+      "title": "熟成肉とんかつロース堂 豊橋曙本店",
+      "category": "和食・定食",
+      "description": "",
+      "image": null,
+      "lat": 34.7253032,
+      "lng": 137.4030806,
+      "address": "豊橋市三本木町"
+    },
+    {
+      "id": "spot-2-12",
+      "title": "正八郎うどん",
+      "category": "和食・定食",
+      "description": "",
+      "image": null,
+      "lat": 33.338097,
+      "lng": 130.5128135,
+      "address": "久留米市小森野町久留米基山筑紫野線"
+    },
+    {
+      "id": "spot-2-13",
+      "title": "天麩羅処ひらお 本店",
+      "category": "和食・定食",
+      "description": "",
+      "image": null,
+      "lat": 33.5838348,
+      "lng": 130.4565615,
+      "address": "福岡市博多区県道45号福岡空港線"
+    },
+    {
+      "id": "spot-2-14",
+      "title": "鳥栖駅5.6番ホーム中央軒",
+      "category": "和食・定食",
+      "description": "",
+      "image": null,
+      "lat": 33.3737101,
+      "lng": 130.5199617,
+      "address": "鳥栖市京町虹の橋"
+    },
+    {
+      "id": "spot-2-15",
+      "title": "手巻きとまぶし いっしょうめし 本店",
+      "category": "和食・定食",
+      "description": "",
+      "image": null,
+      "lat": 34.6960752,
+      "lng": 137.4142079,
+      "address": "豊橋市"
+    },
+    {
+      "id": "spot-2-16",
+      "title": "讃岐うどんめりけんや 池袋店 IKE麺KITCHENフードコート内",
+      "category": "和食・定食",
+      "description": "東京で讃岐うどんを食べるならここ\nJR四国グループ会社なので本物です",
+      "image": null,
+      "lat": 35.7307847,
+      "lng": 139.7120086,
+      "address": "豊島区南池袋"
+    },
+    {
+      "id": "spot-2-17",
+      "title": "三寿司 菜園総本店",
+      "category": "和食・定食",
+      "description": "",
+      "image": null,
+      "lat": 39.7022277,
+      "lng": 141.145393,
+      "address": "盛岡市菜園二丁目"
+    },
+    {
+      "id": "spot-2-18",
+      "title": "とんかつ熊さん",
+      "category": "和食・定食",
+      "description": "デカ盛りの定食屋。",
+      "image": null,
+      "lat": 39.6920417,
+      "lng": 141.1233159,
+      "address": "盛岡市下太田杉田盛岡環状線"
+    },
+    {
+      "id": "spot-2-19",
+      "title": "南部家敷 総本店",
+      "category": "和食・定食",
+      "description": "岩手の和食レストランチェーン。分身の術でそば・天ぷら・うなぎを平らげるCMが頭にこびりつく。",
+      "image": null,
+      "lat": 39.3404964,
+      "lng": 141.1073608,
+      "address": "北上市国道4号"
+    },
+    {
+      "id": "spot-2-20",
+      "title": "青葉 直利庵",
+      "category": "和食・定食",
+      "description": "一関で有名な蕎麦屋。極太の麺を甘めのつけダレで食う。これ食うと普通の蕎麦が物足りなくなる。",
+      "image": null,
+      "lat": 38.9323315,
+      "lng": 141.1292633,
+      "address": "一関市寿町"
+    },
+    {
+      "id": "spot-2-21",
+      "title": "ほし",
+      "category": "和食・定食",
+      "description": "和食屋。強い人御用達の、知る人ぞ知るお店らしい。",
+      "image": null,
+      "lat": 38.263157,
+      "lng": 140.867948,
+      "address": "仙台市青葉区本櫓丁線"
+    },
+    {
+      "id": "spot-2-22",
+      "title": "博多豊一 ベイサイドプレイス博多",
+      "category": "和食・定食",
+      "description": "",
+      "image": null,
+      "lat": 33.6034756,
+      "lng": 130.3989908,
+      "address": "福岡市博多区AH1"
+    },
+    {
+      "id": "spot-2-23",
+      "title": "牛丼専門 サンボ",
+      "category": "和食・定食",
+      "description": "秋葉原で有名な老舗の牛丼屋",
+      "image": null,
+      "lat": 35.7012705,
+      "lng": 139.7710074,
+      "address": "千代田区外神田サンボ通り"
+    },
+    {
+      "id": "spot-2-24",
+      "title": "尾山食堂",
+      "category": "和食・定食",
+      "description": "おしゃれな定食屋。ジビエやってる。",
+      "image": null,
+      "lat": 36.5663219,
+      "lng": 136.6543581,
+      "address": "金沢市南町"
+    },
+    {
+      "id": "spot-2-25",
+      "title": "岩沼屋",
+      "category": "和食・定食",
+      "description": "魚介が強い老舗の和食・定食屋。慶応元年創業らしい。",
+      "image": null,
+      "lat": 38.2521186,
+      "lng": 140.8780572,
+      "address": "仙台市青葉区田町通り"
+    },
+    {
+      "id": "spot-2-26",
+      "title": "うな中 本店",
+      "category": "和食・定食",
+      "description": "老夫婦がやってる鰻屋。特上が肝吸いまでついて2500円はすごい。",
+      "image": null,
+      "lat": 34.7667413,
+      "lng": 137.3860085,
+      "address": "豊橋市松葉町"
+    },
+    {
+      "id": "spot-3-0",
+      "title": "韓国居酒屋 新明洞",
+      "category": "その他レストラン",
+      "description": "韓国人の主人と日本人の奥さん(だと思う)の二人でやっている人気店。圧力鍋で骨がホロホロになるまで煮込まれた参鶏湯が本当に美味しい。",
+      "image": null,
+      "lat": 34.7374544,
+      "lng": 137.3959568,
+      "address": "豊橋市山田三番町"
+    },
+    {
+      "id": "spot-3-1",
+      "title": "讃岐うどん 本格手打 てつ家",
+      "category": "その他レストラン",
+      "description": "",
+      "image": null,
+      "lat": 34.7271455,
+      "lng": 137.4086163,
+      "address": "豊橋市西幸町"
+    },
+    {
+      "id": "spot-3-2",
+      "title": "メキシポン（MEXIPON）豊橋本店",
+      "category": "その他レストラン",
+      "description": "",
+      "image": null,
+      "lat": 34.7637026,
+      "lng": 137.3802401,
+      "address": "豊橋市花田一番町"
+    },
+    {
+      "id": "spot-3-3",
+      "title": "すき家 豊橋浜道店",
+      "category": "その他レストラン",
+      "description": "技科大最寄りのすき家\nユートーンの設営終わりに行きがち",
+      "image": null,
+      "lat": 34.7163758,
+      "lng": 137.4053502,
+      "address": "豊橋市磯部下地町東三河環状線"
+    },
+    {
+      "id": "spot-3-4",
+      "title": "韓国食堂サムギョプサル",
+      "category": "その他レストラン",
+      "description": "",
+      "image": null,
+      "lat": 34.749052,
+      "lng": 137.3974874,
+      "address": "豊橋市つつじが丘"
+    },
+    {
+      "id": "spot-3-5",
+      "title": "コウヨウ館 浜道店",
+      "category": "その他レストラン",
+      "description": "",
+      "image": null,
+      "lat": 34.7192671,
+      "lng": 137.4093662,
+      "address": "豊橋市磯部下地町東三河環状線"
+    },
+    {
+      "id": "spot-3-6",
+      "title": "ニューオリンズカフェ",
+      "category": "その他レストラン",
+      "description": "",
+      "image": null,
+      "lat": 34.7212042,
+      "lng": 137.4180144,
+      "address": "豊橋市高田町"
+    },
+    {
+      "id": "spot-3-7",
+      "title": "ジョイフル 豊橋浜道店",
+      "category": "その他レストラン",
+      "description": "",
+      "image": null,
+      "lat": 34.7205564,
+      "lng": 137.4112378,
+      "address": "豊橋市藤並町東三河環状線"
+    },
+    {
+      "id": "spot-3-8",
+      "title": "Asian Restaurant Atithi 浜道店",
+      "category": "その他レストラン",
+      "description": "",
+      "image": null,
+      "lat": 34.7224757,
+      "lng": 137.4148877,
+      "address": "豊橋市藤並町東三河環状線"
+    },
+    {
+      "id": "spot-3-9",
+      "title": "ピッツァ オリーブ",
+      "category": "その他レストラン",
+      "description": "",
+      "image": null,
+      "lat": 34.7233022,
+      "lng": 137.4053852,
+      "address": "豊橋市浜道町"
+    },
+    {
+      "id": "spot-3-10",
+      "title": "ハンバーグ専門店 オクトパスガーデン",
+      "category": "その他レストラン",
+      "description": "",
+      "image": null,
+      "lat": 34.7634828,
+      "lng": 137.3937285,
+      "address": "豊橋市新吉町"
+    },
+    {
+      "id": "spot-3-11",
+      "title": "さわやか 湖西浜名湖店",
+      "category": "その他レストラン",
+      "description": "",
+      "image": null,
+      "lat": 34.7271942,
+      "lng": 137.5255825,
+      "address": "湖西市国道301号"
+    },
+    {
+      "id": "spot-3-12",
+      "title": "tower eleven foodhall by Nipponham",
+      "category": "その他レストラン",
+      "description": "",
+      "image": null,
+      "lat": 42.989737,
+      "lng": 141.5511249,
+      "address": "北広島市共栄町"
+    },
+    {
+      "id": "spot-3-13",
+      "title": "らるきい",
+      "category": "その他レストラン",
+      "description": "",
+      "image": null,
+      "lat": 33.5905492,
+      "lng": 130.3750715,
+      "address": "福岡市中央区谷荒戸線"
+    },
+    {
+      "id": "spot-3-14",
+      "title": "ミスタージョージ 東合川本店",
+      "category": "その他レストラン",
+      "description": "",
+      "image": null,
+      "lat": 33.3220236,
+      "lng": 130.5550946,
+      "address": "久留米市東合川新町久留米東バイパス"
+    },
+    {
+      "id": "spot-3-15",
+      "title": "さん太",
+      "category": "その他レストラン",
+      "description": "",
+      "image": null,
+      "lat": 34.9580401,
+      "lng": 137.1618396,
+      "address": "岡崎市康生町"
+    },
+    {
+      "id": "spot-3-16",
+      "title": "道の駅 ニセコビュープラザ",
+      "category": "その他レストラン",
+      "description": "合宿メロンの調達先。甘くて美味しい。",
+      "image": null,
+      "lat": 42.7993577,
+      "lng": 140.7030692,
+      "address": "ニセコ町元町"
+    },
+    {
+      "id": "spot-3-17",
+      "title": "ビュッフェダイニング hal",
+      "category": "その他レストラン",
+      "description": "",
+      "image": null,
+      "lat": 43.0637467,
+      "lng": 142.6277183,
+      "address": "占冠村"
+    },
+    {
+      "id": "spot-3-18",
+      "title": "道の駅 とうや湖",
+      "category": "その他レストラン",
+      "description": "合宿でのぐるまきソーセージの調達先。美味しかった。",
+      "image": null,
+      "lat": 42.6647264,
+      "lng": 140.8221642,
+      "address": "洞爺湖町"
+    },
+    {
+      "id": "spot-3-19",
+      "title": "KK Indian Restaurant 豊橋店",
+      "category": "その他レストラン",
+      "description": "店内広め。奥に食料品の売店もある。LINE登録でフードデリバリーできる、というポスティングがラミネート加工されて来た。",
+      "image": null,
+      "lat": 34.723996,
+      "lng": 137.3766511,
+      "address": "豊橋市松井町"
+    },
+    {
+      "id": "spot-3-20",
+      "title": "トラットリア チェントロ",
+      "category": "その他レストラン",
+      "description": "",
+      "image": null,
+      "lat": 34.7204264,
+      "lng": 137.4346089,
+      "address": "豊橋市大岩町"
+    },
+    {
+      "id": "spot-3-21",
+      "title": "こすたりかシティガーデン",
+      "category": "その他レストラン",
+      "description": "",
+      "image": null,
+      "lat": 34.7692877,
+      "lng": 137.3922776,
+      "address": "豊橋市今橋町"
+    },
+    {
+      "id": "spot-3-22",
+      "title": "淡路島バーガー",
+      "category": "その他レストラン",
+      "description": "淡路島名産の玉ねぎの分厚いのが入ってる。オニオンリングもガッチリしてる。",
+      "image": null,
+      "lat": 34.7159198,
+      "lng": 137.4046181,
+      "address": "豊橋市浜道町"
+    },
+    {
+      "id": "spot-3-23",
+      "title": "ハンバーグのベル大通店",
+      "category": "その他レストラン",
+      "description": "びっくりドンキーの１号店",
+      "image": null,
+      "lat": 39.7020862,
+      "lng": 141.1492858,
+      "address": "盛岡市大通一丁目"
+    },
+    {
+      "id": "spot-3-24",
+      "title": "白龍 本店",
+      "category": "その他レストラン",
+      "description": "じゃじゃ麺といえばここ。",
+      "image": null,
+      "lat": 39.7022579,
+      "lng": 141.1521889,
+      "address": "盛岡市内丸"
+    },
+    {
+      "id": "spot-3-25",
+      "title": "元祖 平壌冷麺 食道園",
+      "category": "その他レストラン",
+      "description": "盛岡冷麺の祖",
+      "image": null,
+      "lat": 39.7033155,
+      "lng": 141.1481883,
+      "address": "盛岡市大通二丁目"
+    },
+    {
+      "id": "spot-3-26",
+      "title": "マルカンビル大食堂",
+      "category": "その他レストラン",
+      "description": "昭和のデパートの大食堂。縦に長ーいソフトクリームを割り箸で食べるのが地元の慣わし。",
+      "image": null,
+      "lat": 39.385832,
+      "lng": 141.11711,
+      "address": "花巻市上町"
+    },
+    {
+      "id": "spot-3-27",
+      "title": "わんこそば・やぶ屋総本店花巻",
+      "category": "その他レストラン",
+      "description": "宮沢賢治が足繁く通ったらしい。天ぷらそばが有名。昔法事で使ったとき、塩の入っていないお吸い物が届いたことがある。",
+      "image": null,
+      "lat": 39.3878234,
+      "lng": 141.1150361,
+      "address": "花巻市吹張町"
+    },
+    {
+      "id": "spot-3-28",
+      "title": "焼肉･冷麺ヤマト 花巻店",
+      "category": "その他レストラン",
+      "description": "地元民がよく使う焼肉冷麺チェーン②。冷麺が安くなる冷麺まつりを定期的に開催しており、混む。ヤマトの冷麺は信者が多い。",
+      "image": null,
+      "lat": 39.4024788,
+      "lng": 141.1014262,
+      "address": "花巻市南新田"
+    },
+    {
+      "id": "spot-3-29",
+      "title": "焼肉冷麺やまなか家 花巻店",
+      "category": "その他レストラン",
+      "description": "地元民が行く焼肉冷麺チェーン①。サンドウィッチマンがCMやってる。",
+      "image": null,
+      "lat": 39.4025397,
+      "lng": 141.1064437,
+      "address": "花巻市愛宕沢"
+    },
+    {
+      "id": "spot-3-30",
+      "title": "じんぎすかん あんべ",
+      "category": "その他レストラン",
+      "description": "遠野は独自にジンギスカンが発達した町で、この店はそのルーツ。最近リニューアルして店がきれいになった。",
+      "image": null,
+      "lat": 39.3359257,
+      "lng": 141.525322,
+      "address": "遠野市早瀬町三丁目"
+    },
+    {
+      "id": "spot-3-31",
+      "title": "三平",
+      "category": "その他レストラン",
+      "description": "岩手で有名なホルモン屋。「めし」の盛られ方が異常。予約しないと入れない。",
+      "image": null,
+      "lat": 39.4920267,
+      "lng": 141.1482592,
+      "address": "花巻市石鳥谷町好地"
+    },
+    {
+      "id": "spot-3-32",
+      "title": "八食センター",
+      "category": "その他レストラン",
+      "description": "魚市場。中の寿司屋もいいが、市場で買った魚介を七輪で焼いて食える「七厘村」がおすすめ。",
+      "image": null,
+      "lat": 40.5264414,
+      "lng": 141.4529163,
+      "address": "八戸市河原木"
+    },
+    {
+      "id": "spot-4-0",
+      "title": "<![CDATA[ライブハウス&BAR SAQURA Zero to Infinity]]>",
+      "category": "居酒屋・bar",
+      "description": "",
+      "image": null,
+      "lat": 34.7660162,
+      "lng": 137.3859041,
+      "address": "豊橋市萱町"
+    },
+    {
+      "id": "spot-4-1",
+      "title": "ニッカウヰスキー 余市蒸溜所",
+      "category": "居酒屋・bar",
+      "description": "蒸留所見学から限定ウイスキーの試飲・購入も\n余市蒸留所限定品を合宿でご提供しました。",
+      "image": null,
+      "lat": 43.1868327,
+      "lng": 140.7912896,
+      "address": "余市町入舟町"
+    },
+    {
+      "id": "spot-4-2",
+      "title": "THE NIKKA BAR（ザ・ニッカバー）",
+      "category": "居酒屋・bar",
+      "description": "",
+      "image": null,
+      "lat": 43.0554783,
+      "lng": 141.3544958,
+      "address": "札幌市中央区月寒通"
+    },
+    {
+      "id": "spot-4-3",
+      "title": "大安吉日",
+      "category": "居酒屋・bar",
+      "description": "",
+      "image": null,
+      "lat": 34.7388732,
+      "lng": 137.393908,
+      "address": "豊橋市町畑町"
+    },
+    {
+      "id": "spot-4-4",
+      "title": "広小路でんでん",
+      "category": "居酒屋・bar",
+      "description": "ヤマサがやってる居酒屋。ちくわを焼いて食えるコースがある。",
+      "image": null,
+      "lat": 34.7644183,
+      "lng": 137.3840815,
+      "address": "豊橋市広小路広小路通り"
+    },
+    {
+      "id": "spot-4-5",
+      "title": "豊橋呑場 くゐな",
+      "category": "居酒屋・bar",
+      "description": "",
+      "image": null,
+      "lat": 34.7641265,
+      "lng": 137.384516,
+      "address": "豊橋市広小路広小路通り"
+    },
+    {
+      "id": "spot-4-6",
+      "title": "ねりや花でん",
+      "category": "居酒屋・bar",
+      "description": "",
+      "image": null,
+      "lat": 34.763779,
+      "lng": 137.3824152,
+      "address": "豊橋市松葉町"
+    },
+    {
+      "id": "spot-4-7",
+      "title": "あねごや",
+      "category": "居酒屋・bar",
+      "description": "技科大最寄り",
+      "image": null,
+      "lat": 34.7103434,
+      "lng": 137.4128496,
+      "address": "豊橋市天伯町"
+    },
+    {
+      "id": "spot-4-8",
+      "title": "大漁 豊橋駅前店",
+      "category": "居酒屋・bar",
+      "description": "",
+      "image": null,
+      "lat": 34.7640415,
+      "lng": 137.3844445,
+      "address": "豊橋市松葉町"
+    },
+    {
+      "id": "spot-4-9",
+      "title": "三代目鳥メロ 豊橋東口駅前店",
+      "category": "居酒屋・bar",
+      "description": "",
+      "image": null,
+      "lat": 34.7636811,
+      "lng": 137.383846,
+      "address": "豊橋市広小路豊橋停車場線"
+    },
+    {
+      "id": "spot-4-10",
+      "title": "ミライザカ 豊橋店",
+      "category": "居酒屋・bar",
+      "description": "",
+      "image": null,
+      "lat": 34.7640913,
+      "lng": 137.3841174,
+      "address": "豊橋市松葉町"
+    },
+    {
+      "id": "spot-4-11",
+      "title": "メリケン 豊橋店",
+      "category": "居酒屋・bar",
+      "description": "",
+      "image": null,
+      "lat": 34.763749,
+      "lng": 137.3851365,
+      "address": "豊橋市広小路"
+    },
+    {
+      "id": "spot-4-12",
+      "title": "モアスタッフ",
+      "category": "居酒屋・bar",
+      "description": "",
+      "image": null,
+      "lat": 34.7641956,
+      "lng": 137.3799977,
+      "address": "豊橋市花田一番町"
+    },
+    {
+      "id": "spot-4-13",
+      "title": "昔の矢場とん",
+      "category": "居酒屋・bar",
+      "description": "",
+      "image": null,
+      "lat": 35.1596073,
+      "lng": 136.8998569,
+      "address": "名古屋市中区"
+    },
+    {
+      "id": "spot-4-14",
+      "title": "新時代 豊橋柱店",
+      "category": "居酒屋・bar",
+      "description": "",
+      "image": null,
+      "lat": 34.7490329,
+      "lng": 137.3767354,
+      "address": "豊橋市中橋良町豊橋環状線"
+    },
+    {
+      "id": "spot-4-15",
+      "title": "そらとしば by よなよなエール",
+      "category": "居酒屋・bar",
+      "description": "球場内で醸造したビールが飲める。最高。",
+      "image": null,
+      "lat": 42.9894755,
+      "lng": 141.5507594,
+      "address": "北広島市美沢"
+    },
+    {
+      "id": "spot-4-16",
+      "title": "長島ビール園",
+      "category": "居酒屋・bar",
+      "description": "ビールは勿論、スペアリブが魅力的",
+      "image": null,
+      "lat": 35.0822394,
+      "lng": 136.7026462,
+      "address": "桑名市長島町駒江"
+    },
+    {
+      "id": "spot-4-17",
+      "title": "大衆焼鳥 日吉丸",
+      "category": "居酒屋・bar",
+      "description": "",
+      "image": null,
+      "lat": 33.3140371,
+      "lng": 130.5162019,
+      "address": "久留米市螢川町"
+    },
+    {
+      "id": "spot-4-18",
+      "title": "サッポロビール博物館",
+      "category": "居酒屋・bar",
+      "description": "",
+      "image": null,
+      "lat": 43.0714671,
+      "lng": 141.3689124,
+      "address": "札幌市東区北8条通"
+    },
+    {
+      "id": "spot-4-19",
+      "title": "BREWERY1876",
+      "category": "居酒屋・bar",
+      "description": "",
+      "image": null,
+      "lat": 43.0653595,
+      "lng": 141.3619125,
+      "address": "札幌市中央区煙突広場"
+    },
+    {
+      "id": "spot-4-20",
+      "title": "サーモンパンチ 栄店",
+      "category": "居酒屋・bar",
+      "description": "",
+      "image": null,
+      "lat": 35.1676101,
+      "lng": 136.9063544,
+      "address": "名古屋市中区入江町通"
+    },
+    {
+      "id": "spot-4-21",
+      "title": "YEBISU BREWERY TOKYO",
+      "category": "居酒屋・bar",
+      "description": "激ウマビールが飲める。ビール好きなら行ったほうがいい。",
+      "image": null,
+      "lat": 35.6429178,
+      "lng": 139.7144118,
+      "address": "渋谷区恵比寿恵比寿プロムナード"
+    },
+    {
+      "id": "spot-4-22",
+      "title": "ふじのくに 空のしおり -3776-",
+      "category": "居酒屋・bar",
+      "description": "高級緑茶・ウイスキー・日本酒の試飲ができる。",
+      "image": null,
+      "lat": 34.7955996,
+      "lng": 138.179215,
+      "address": "牧之原市坂口"
+    },
+    {
+      "id": "spot-4-23",
+      "title": "キリンディスティラリー富士御殿場蒸溜所",
+      "category": "居酒屋・bar",
+      "description": "",
+      "image": null,
+      "lat": 35.3366322,
+      "lng": 138.8968073,
+      "address": "御殿場市水土野"
+    },
+    {
+      "id": "spot-4-24",
+      "title": "魚貝三昧 げん屋",
+      "category": "居酒屋・bar",
+      "description": "魚介最強。接待におすすめ。",
+      "image": null,
+      "lat": 34.7648743,
+      "lng": 137.3845628,
+      "address": "豊橋市松葉町松葉小路"
+    },
+    {
+      "id": "spot-4-25",
+      "title": "焼肉 シャトーブリアン芯",
+      "category": "居酒屋・bar",
+      "description": "一番上のコースにするとうんざりするくらいシャトーブリアンを楽しめる。ごはんの後にまたシャトーブリアンが来るとかきいてない",
+      "image": null,
+      "lat": 34.7653214,
+      "lng": 137.3834117,
+      "address": "豊橋市松葉町"
+    },
+    {
+      "id": "spot-4-26",
+      "title": "飛騨路",
+      "category": "居酒屋・bar",
+      "description": "",
+      "image": null,
+      "lat": 34.7666619,
+      "lng": 137.389921,
+      "address": "豊橋市札木町旧東海道"
+    },
+    {
+      "id": "spot-4-27",
+      "title": "鳥善",
+      "category": "居酒屋・bar",
+      "description": "いい焼鳥居酒屋。殻付きのうずら卵串焼がある。",
+      "image": null,
+      "lat": 34.7636402,
+      "lng": 137.3913131,
+      "address": "豊橋市新吉町"
+    },
+    {
+      "id": "spot-4-28",
+      "title": "日の丸や",
+      "category": "居酒屋・bar",
+      "description": "くじら専門の居酒屋。寒い日の飛龍頭がガチで沁みる。",
+      "image": null,
+      "lat": 34.7634253,
+      "lng": 137.380366,
+      "address": "豊橋市花田一番町"
+    },
+    {
+      "id": "spot-4-29",
+      "title": "三日月",
+      "category": "居酒屋・bar",
+      "description": "日本酒バー",
+      "image": null,
+      "lat": 34.7643441,
+      "lng": 137.3799519,
+      "address": "豊橋市花田一番町"
+    },
+    {
+      "id": "spot-4-30",
+      "title": "百万石",
+      "category": "居酒屋・bar",
+      "description": "どじょうが食えるのはここだけ",
+      "image": null,
+      "lat": 34.762483,
+      "lng": 137.38035,
+      "address": "豊橋市白河町"
+    },
+    {
+      "id": "spot-4-31",
+      "title": "GIN蔵",
+      "category": "居酒屋・bar",
+      "description": "全国の日本酒が楽しめる。割とレアな日本酒が置いてある",
+      "image": null,
+      "lat": 39.703425,
+      "lng": 141.148393,
+      "address": "盛岡市中央通一丁目"
+    },
+    {
+      "id": "spot-4-32",
+      "title": "チェスコヤ 仙台 Českoya Sendai",
+      "category": "居酒屋・bar",
+      "description": "チェコ出身のご主人がやってるビアバー。樽生のピルスナーウルケルが置いてある。",
+      "image": null,
+      "lat": 38.2579975,
+      "lng": 140.8723637,
+      "address": "仙台市青葉区南町通"
+    },
+    {
+      "id": "spot-4-33",
+      "title": "酒BAR",
+      "category": "居酒屋・bar",
+      "description": "パーキングの隅から入っていく隠れ家的なバー。",
+      "image": null,
+      "lat": 38.2583396,
+      "lng": 140.8777043,
+      "address": "仙台市青葉区"
+    },
+    {
+      "id": "spot-4-34",
+      "title": "仙台朝市 大黒",
+      "category": "居酒屋・bar",
+      "description": "",
+      "image": null,
+      "lat": 38.2621197,
+      "lng": 140.8799433,
+      "address": "仙台市青葉区ハピナ名掛丁"
+    },
+    {
+      "id": "spot-4-35",
+      "title": "天然魚 活魚 ふじけん 中洲店",
+      "category": "居酒屋・bar",
+      "description": "",
+      "image": null,
+      "lat": 33.5921706,
+      "lng": 130.4061956,
+      "address": "福岡市博多区"
+    },
+    {
+      "id": "spot-4-36",
+      "title": "ＳＩＧＮＳ",
+      "category": "居酒屋・bar",
+      "description": "",
+      "image": null,
+      "lat": 33.5921875,
+      "lng": 130.4063478,
+      "address": "福岡市博多区"
+    },
+    {
+      "id": "spot-4-37",
+      "title": "海鮮居酒屋 だるま屋",
+      "category": "居酒屋・bar",
+      "description": "",
+      "image": null,
+      "lat": 33.5923289,
+      "lng": 130.4021877,
+      "address": "福岡市中央区赤煉瓦通り"
+    },
+    {
+      "id": "spot-4-38",
+      "title": "浪曼房",
+      "category": "居酒屋・bar",
+      "description": "多くの文化人が愛する老舗居酒屋。昭和レトロな雰囲気。",
+      "image": null,
+      "lat": 35.6898843,
+      "lng": 139.7026949,
+      "address": "新宿区新宿"
+    },
+    {
+      "id": "spot-4-39",
+      "title": "神谷バー",
+      "category": "居酒屋・bar",
+      "description": "日本で最初のバーらしい。電気ブランといえばここ。ビールをチェイサーにして飲む。",
+      "image": null,
+      "lat": 35.7109309,
+      "lng": 139.797503,
+      "address": "台東区浅草雷門通り"
+    },
+    {
+      "id": "spot-4-40",
+      "title": "海鮮問屋 ふじ丸 小田原駅前店",
+      "category": "居酒屋・bar",
+      "description": "",
+      "image": null,
+      "lat": 35.255558,
+      "lng": 139.157734,
+      "address": "小田原市栄町二丁目おしゃれ横丁"
+    },
+    {
+      "id": "spot-4-41",
+      "title": "ひっぱり凧",
+      "category": "居酒屋・bar",
+      "description": "看板に立ち飲みって書いてるけど座れるのでご安心。一人でも入りやすい。",
+      "image": null,
+      "lat": 34.765838,
+      "lng": 137.3845275,
+      "address": "豊橋市萱町"
+    },
+    {
+      "id": "spot-4-42",
+      "title": "酒場HANCHIKA",
+      "category": "居酒屋・bar",
+      "description": "",
+      "image": null,
+      "lat": 34.7646266,
+      "lng": 137.3854466,
+      "address": "豊橋市萱町萱町通り"
+    },
+    {
+      "id": "spot-4-43",
+      "title": "スペイン食堂がぶ飲みワイン バルダモンデ",
+      "category": "居酒屋・bar",
+      "description": "スペイン料理とワイン。平日頭はグラスワインが半額なので軽率に飲める。",
+      "image": null,
+      "lat": 34.764084,
+      "lng": 137.385335,
+      "address": "豊橋市広小路広小路通り"
+    },
+    {
+      "id": "spot-4-44",
+      "title": "燃えよドラゴン",
+      "category": "居酒屋・bar",
+      "description": "シーシャバー",
+      "image": null,
+      "lat": 34.7638945,
+      "lng": 137.3851713,
+      "address": "豊橋市広小路"
+    },
+    {
+      "id": "spot-4-45",
+      "title": "かね十魚店",
+      "category": "居酒屋・bar",
+      "description": "魚がガチでうまい。お父さんと息子さん？の二人でやってるので、注文はゆっくり待とう。値札ないけど、冷奴、刺身3種、ビール2杯で5000円くらい。ひとりor少人数でゆっくり飲みたいときにおすすめ。",
+      "image": null,
+      "lat": 34.7664641,
+      "lng": 137.3863071,
+      "address": "豊橋市広小路"
+    },
+    {
+      "id": "spot-4-46",
+      "title": "マルカイ水産",
+      "category": "居酒屋・bar",
+      "description": "魚介系の居酒屋。カジュアルで入りやすいし安定しておいしい。",
+      "image": null,
+      "lat": 34.765206,
+      "lng": 137.3834367,
+      "address": "豊橋市松葉町"
+    },
+    {
+      "id": "spot-4-47",
+      "title": "柊",
+      "category": "居酒屋・bar",
+      "description": "",
+      "image": null,
+      "lat": 34.7639764,
+      "lng": 137.3859364,
+      "address": "豊橋市広小路広小路通り"
+    },
+    {
+      "id": "spot-5-0",
+      "title": "【閉業】モティマハール レストラン＆バー",
+      "category": "閉業",
+      "description": "",
+      "image": null,
+      "lat": 34.7360366,
+      "lng": 137.3850279,
+      "address": "豊橋市南栄町"
+    },
+    {
+      "id": "spot-5-1",
+      "title": "【閉業】らぁ麺海豚(Iruka)",
+      "category": "閉業",
+      "description": "信じられない濃さの煮干し醤油。信じられないくらい煮干しを使っているからか、信じられないくらいしょっぱい。",
+      "image": null,
+      "lat": 34.7738292,
+      "lng": 137.4224297,
+      "address": "豊橋市西小鷹野"
+    },
+    {
+      "id": "spot-5-2",
+      "title": "【閉業】好麺食堂",
+      "category": "閉業",
+      "description": "担々麺専門店",
+      "image": null,
+      "lat": 34.7217743,
+      "lng": 137.3634591,
+      "address": "豊橋市磯部下地町"
+    },
+    {
+      "id": "spot-5-3",
+      "title": "【閉業】曙ラーメン",
+      "category": "閉業",
+      "description": "魚介出汁の醤油ラーメンがメイン。いつ開いてるかよくわからない。",
+      "image": null,
+      "lat": 34.7270638,
+      "lng": 137.4022198,
+      "address": "豊橋市浜道町小松原小池線"
+    },
+    {
+      "id": "spot-5-4",
+      "title": "【閉業】麦の空 GACHI SOBA DOJO",
+      "category": "閉業",
+      "description": "",
+      "image": null,
+      "lat": 34.7303136,
+      "lng": 137.3588296,
+      "address": "豊橋市駒形町"
+    },
+    {
+      "id": "spot-5-5",
+      "title": "【閉業】だいだいや 浜道店",
+      "category": "閉業",
+      "description": "技科大に最も近い海鮮系定食屋。2023年の水害後に閉業。",
+      "image": null,
+      "lat": 34.7158954,
+      "lng": 137.4046007,
+      "address": "豊橋市磯部下地町東三河環状線"
+    },
+    {
+      "id": "spot-5-6",
+      "title": "【閉業】小原ラーメン",
+      "category": "閉業",
+      "description": "魚介出汁のきいたラーメン。いい店だったが、店主急逝のため閉業。",
+      "image": null,
+      "lat": 39.3790213,
+      "lng": 141.2309925,
+      "address": "花巻市東和町土沢国道456号"
+    },
+    {
+      "id": "spot-5-7",
+      "title": "【閉業】篠亭",
+      "category": "閉業",
+      "description": "ロードサイドのとんかつ・ラーメン屋。辛味噌ラーメンがおいしかった。なぜ閉めた...?",
+      "image": null,
+      "lat": 39.3804444444444,
+      "lng": 141.235166666667,
+      "address": "花巻市東和町土沢土沢バイパス"
+    },
+    {
+      "id": "spot-5-8",
+      "title": "【閉業】孝和園",
+      "category": "閉業",
+      "description": "和食中心にメニューが豊富。釣り堀があり、釣ったニジマスを調理してもらい食べることができた。ニジマスはなんもしなくても勝手に針にかかってきた。",
+      "image": null,
+      "lat": 39.374036,
+      "lng": 141.251331,
+      "address": "花巻市東和町小友国道283号"
+    },
+    {
+      "id": "spot-5-9",
+      "title": "【閉業】だいだい",
+      "category": "閉業",
+      "description": "老夫婦がやってる魚介割烹。刺身の盛り合わせがとても美しい。",
+      "image": null,
+      "lat": 39.3838157,
+      "lng": 141.1179975,
+      "address": "花巻市双葉町"
+    },
+    {
+      "id": "spot-5-10",
+      "title": "麺屋わかな",
+      "category": "閉業",
+      "description": "超濃厚な魚豚ラーメンが美味しかった。店主が無愛想。",
+      "image": null,
+      "lat": 39.3857977,
+      "lng": 141.1090383,
+      "address": "花巻市材木町"
+    },
+    {
+      "id": "spot-5-11",
+      "title": "【閉業】SABO",
+      "category": "閉業",
+      "description": "箸で啜って食べるスープパスタのお店。「チェメント」という煮干し鶏白湯のスープパスタが美味しかった。",
+      "image": null,
+      "lat": 39.7457530386479,
+      "lng": 141.120767742076,
+      "address": "盛岡市みたけ四丁目"
+    },
+    {
+      "id": "spot-5-12",
+      "title": "【移転】スープカレーハウスしっぽ",
+      "category": "閉業",
+      "description": "花巻で一番美味しいスープカレー屋。盛岡に移転。すごくかなしい",
+      "image": null,
+      "lat": 39.3948686,
+      "lng": 141.1158646,
+      "address": "花巻市一日市"
+    },
+    {
+      "id": "spot-5-13",
+      "title": "竹駒",
+      "category": "閉業",
+      "description": "老舗の中華そば屋。薪の釜を使っている。",
+      "image": null,
+      "lat": 39.3861288,
+      "lng": 141.1219577,
+      "address": "花巻市御田屋町"
+    }
+  ]
+}
