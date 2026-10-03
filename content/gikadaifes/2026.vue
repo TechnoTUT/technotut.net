@@ -77,15 +77,6 @@
                 </g>
               </svg>
             </div>
-            <!-- Progress Line / Text -->
-            <div class="mt-8 flex flex-col items-center gap-2.5">
-              <span class="font-quicksand text-[11px] tracking-[0.35em] text-gray-400 uppercase">
-                LOADING...
-              </span>
-              <div class="w-36 h-[2px] bg-white/10 relative overflow-hidden rounded-full">
-                <div class="splash-progress-bar" />
-              </div>
-            </div>
           </div>
         </div>
       </Transition>
@@ -985,26 +976,6 @@ useSeoMeta({
     stroke: transparent;
   }
 }
-
-.splash-progress-bar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 0%;
-  background-color: #ffffff;
-  animation: splashProgress 1.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-}
-
-@keyframes splashProgress {
-  0% {
-    width: 0%;
-  }
-  100% {
-    width: 100%;
-  }
-}
-
 
 /* Ambient cyan glow: static, fixed position, no scroll tracking */
 .swingby-glow {
