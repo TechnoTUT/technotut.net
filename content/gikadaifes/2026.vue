@@ -1224,6 +1224,14 @@ body.utone-cyan-theme img[src="/images/logo/logo_dark.svg"] {
   }
 }
 
+@media (max-width: 639px) {
+  /* On narrow screens right:-14rem pushes almost the entire glow off-screen;
+     pull it left so the light pool is actually visible */
+  .section-glow {
+    right: -6rem;
+  }
+}
+
 @media (min-width: 640px) {
   .section-glow {
     width: 24rem;
