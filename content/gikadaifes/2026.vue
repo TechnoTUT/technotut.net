@@ -632,12 +632,12 @@ const activeModalImage = ref<string | null>(null)
 const isLoading = ref(true)
 const pageRoot = ref<HTMLElement | null>(null)
 
-// 1.8s splash screen, then reveal the page
+// 2.3s splash screen, then reveal the page
 onMounted(() => {
   if (import.meta.client) {
     const splashTimer = setTimeout(() => {
       isLoading.value = false
-    }, 1800)
+    }, 2300)
 
     onUnmounted(() => {
       clearTimeout(splashTimer)
