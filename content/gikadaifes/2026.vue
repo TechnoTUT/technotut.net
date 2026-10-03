@@ -512,7 +512,7 @@
             </button>
           </div>
           <div
-            class="overflow-hidden bg-dark border border-white/10 cursor-pointer group flex items-center justify-center p-2 max-w-2xl mx-auto"
+            class="overflow-hidden bg-dark cursor-pointer group flex items-center justify-center p-2 max-w-2xl mx-auto"
             @click="activeModalImage = '/images/gikadaifes/2026/TT_1.png'"
           >
             <NuxtImg
@@ -584,7 +584,7 @@
             </button>
           </div>
           <div
-            class="overflow-hidden bg-dark border border-white/10 cursor-pointer group flex items-center justify-center p-2 max-w-2xl mx-auto"
+            class="overflow-hidden bg-dark cursor-pointer group flex items-center justify-center p-2 max-w-2xl mx-auto"
             @click="activeModalImage = '/images/gikadaifes/2026/TT_2.png'"
           >
             <NuxtImg
