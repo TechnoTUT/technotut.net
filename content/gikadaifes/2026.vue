@@ -91,18 +91,9 @@
       </Transition>
     </Teleport>
 
-    <!-- Ambient Cyber Glow & Speed Visuals (Swing-by #c7000a -> Rainbow -> Theme Cyan convergence) -->
+    <!-- Ambient Cyber Glow (static theme cyan) -->
     <div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10 select-none overflow-hidden">
-      <!-- Swing-by Comet Glow: Starts at top-right, dives past center to bottom-left, slingshots back to top-right -->
-      <!-- Track wrapper: scroll-driven vertical movement that pauses at each section -->
-      <div ref="glowTrack" class="glow-track">
-        <div
-          class="swingby-glow"
-          :class="{
-            'rainbow-active': rainbowBurstActive,
-          }"
-        />
-      </div>
+      <div class="swingby-glow" />
 
       <!-- Vertical 'VOL. 11 // THE UTOPIA TONE' Cyber Tag in right margin -->
       <div class="hidden xl:flex absolute top-[calc(100vh-6rem)] right-8 items-center gap-3 rotate-90 origin-bottom-right font-mono text-[10px] tracking-[0.4em] text-[rgba(0,177,224,0.35)] uppercase">
@@ -639,106 +630,19 @@ import 'leaflet/dist/leaflet.css'
 
 const activeModalImage = ref<string | null>(null)
 const isLoading = ref(true)
-const rainbowBurstActive = ref(false)
 const pageRoot = ref<HTMLElement | null>(null)
-const glowTrack = ref<HTMLElement | null>(null)
 
-// Sequence:
-// 1. 1.8s splash screen
-// 2. Immediately upon splash closing: trigger rainbowBurstActive
+// 1.8s splash screen, then reveal the page
 onMounted(() => {
   if (import.meta.client) {
     const splashTimer = setTimeout(() => {
       isLoading.value = false
-      rainbowBurstActive.value = true
     }, 1800)
 
     onUnmounted(() => {
       clearTimeout(splashTimer)
     })
   }
-})
-
-// Scroll-driven glow movement:
-// - Anticipates the next section: starts gliding to the next stop as soon as
-//   the next section's top enters the viewport (lower 3/4 point to 1/4 point).
-// - Smoothly eases (critically damped lerp) so motion feels like it leads the scroll.
-// - Holds at each section's stop while that section is active.
-let glowCleanup: (() => void) | null = null
-onMounted(() => {
-  if (!import.meta.client) return
-  const root = pageRoot.value
-  const track = glowTrack.value
-  if (!root || !track) return
-
-  const getSections = () =>
-    Array.from(root.querySelectorAll('[data-glow-stop]')) as HTMLElement[]
-
-  const clamp01 = (v: number) => Math.min(1, Math.max(0, v))
-  const smoothstep = (t: number) => t * t * (3 - 2 * t)
-
-  let sectionTops: number[] = []
-  let displayed = 0
-  let rafId = 0
-
-  const computeTarget = (): number => {
-    if (sectionTops.length === 0) return 0
-    const vh = window.innerHeight
-    const probe = window.scrollY + vh * 0.5
-    let index = 0
-    for (let i = 0; i < sectionTops.length; i++) {
-      if (sectionTops[i] <= probe) index = i
-      else break
-    }
-    const base = sectionTops[index] - sectionTops[0]
-    const nextTop = sectionTops[index + 1]
-    if (nextTop === undefined) return base
-    // Anticipation window: next section top travelling from 75vh -> 50vh in viewport
-    // (a reaches 1 exactly when the viewport center crosses the next section top,
-    // so the interpolated position and the section-index flip stay continuous).
-    const dist = nextTop - window.scrollY
-    const a = smoothstep(clamp01((vh * 0.75 - dist) / (vh * 0.25)))
-    return base + (nextTop - sectionTops[0] - base) * a
-  }
-
-  const tick = () => {
-    const target = computeTarget()
-    displayed += (target - displayed) * 0.14
-    if (Math.abs(target - displayed) < 0.5) displayed = target
-    track.style.transform = `translateY(${displayed}px)`
-    if (displayed !== target) {
-      rafId = window.requestAnimationFrame(tick)
-    } else {
-      rafId = 0
-    }
-  }
-
-  const kick = () => {
-    if (!rafId) rafId = window.requestAnimationFrame(tick)
-  }
-
-  const measure = () => {
-    sectionTops = getSections().map(
-      (el) => el.getBoundingClientRect().top + window.scrollY,
-    )
-    kick()
-  }
-
-  measure()
-  window.addEventListener('scroll', kick, { passive: true })
-  window.addEventListener('resize', measure)
-  window.addEventListener('load', measure)
-
-  glowCleanup = () => {
-    window.removeEventListener('scroll', kick)
-    window.removeEventListener('resize', measure)
-    window.removeEventListener('load', measure)
-    if (rafId) window.cancelAnimationFrame(rafId)
-  }
-})
-
-onUnmounted(() => {
-  glowCleanup?.()
 })
 
 // Day 1: 2026-10-10, Day 2: 2026-10-11
@@ -1102,24 +1006,9 @@ useSeoMeta({
 }
 
 
-/* Ambient Swing-by Glow:
-   1. Starts at top-right with accent crimson (#c7000a)
-   2. Swoops down and around the center towards bottom-left, slingshotting back to top-right (swing-by)
-   3. Flashes through 5 intense rainbow colors (Red -> Yellow -> Green -> Purple -> Cyan)
-   4. Converges into ambient cyan with breathing + triggers speed streams
-*/
-/* Vertical track for the scroll-driven glow movement.
-   Slides smoothly to each section's stop, then pauses while that section is active. */
-.glow-track {
-  position: absolute;
-  inset: 0;
-  will-change: transform;
-}
-
+/* Ambient cyan glow: static, fixed position, no scroll tracking */
 .swingby-glow {
   position: absolute;
-  /* Anchor to the splash screen's final resting point (viewport center + 28.49vw, -14.53vh)
-     so the glow continues seamlessly from the splash into the page background. */
   top: calc(50vh - 14.53vh);
   left: calc(50vw + 28.49vw);
   width: 26rem;
@@ -1127,12 +1016,11 @@ useSeoMeta({
   margin-top: -13rem;
   margin-left: -13rem;
   border-radius: 9999px;
-  background-color: rgba(199, 0, 10, 0.75);
+  background-color: rgba(0, 177, 224, 0.75);
   filter: blur(85px);
   pointer-events: none;
   opacity: 0.9;
   mix-blend-mode: screen;
-  animation: swingbyOrbit 1.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 @media (min-width: 640px) {
@@ -1145,139 +1033,6 @@ useSeoMeta({
   }
 }
 
-/* Swing-by curve: top-right -> diving past center towards bottom-left -> curve & slingshot back to top-right */
-@keyframes swingbyOrbit {
-  0% {
-    transform: translate(25vw, -15vh) scale(0.6);
-    background-color: rgba(199, 0, 10, 0.5);
-    opacity: 0;
-  }
-  20% {
-    transform: translate(0, 0) scale(1);
-    background-color: rgba(199, 0, 10, 0.85);
-    opacity: 0.95;
-  }
-  50% {
-    /* Closest approach (periapsis) diving across center-left */
-    transform: translate(-38vw, 32vh) scale(1.35);
-    background-color: rgba(220, 10, 25, 0.95);
-    opacity: 1;
-    filter: blur(95px);
-  }
-  75% {
-    /* Slingshot arc curving back upward */
-    transform: translate(-15vw, 15vh) scale(1.1);
-    background-color: rgba(199, 0, 10, 0.85);
-    opacity: 0.95;
-  }
-  100% {
-    /* Returned to top-right origin */
-    transform: translate(0, 0) scale(1);
-    background-color: rgba(199, 0, 10, 0.9);
-    opacity: 1;
-  }
-}
-
-/* Rainbow Burst: triggered when swing-by returns to top-right (5 intense distinct color shifts)
-   After flashing, it seamlessly settles into the theme cyan (rgb(0 177 224)) ambient glow with breathing.
-*/
-.swingby-glow.rainbow-active {
-  animation: rainbowThenCyanGlow 6.5s cubic-bezier(0.12, 1, 0.2, 1) forwards;
-}
-
-@keyframes rainbowThenCyanGlow {
-  /* 1. Red (#ff0a20) - violent punch */
-  0% {
-    background-color: rgba(255, 10, 30, 0.98);
-    transform: translate(0, 0) scale(1.25);
-    filter: blur(75px);
-    opacity: 1;
-    animation-timing-function: cubic-bezier(0.85, 0, 0.15, 1);
-  }
-  2.5% {
-    background-color: rgba(255, 10, 30, 0.98);
-    transform: translate(0, 0) scale(1.25);
-    animation-timing-function: cubic-bezier(0.85, 0, 0.15, 1);
-  }
-  /* 2. Yellow (#ffe600) - aggressive snap & expansion */
-  3% {
-    background-color: rgba(255, 235, 0, 0.98);
-    transform: translate(-14px, 10px) scale(1.45);
-    filter: blur(100px);
-    opacity: 1;
-    animation-timing-function: cubic-bezier(0.85, 0, 0.15, 1);
-  }
-  5.5% {
-    background-color: rgba(255, 235, 0, 0.98);
-    transform: translate(-14px, 10px) scale(1.45);
-    animation-timing-function: cubic-bezier(0.85, 0, 0.15, 1);
-  }
-  /* 3. Green (#00f550) - aggressive snap */
-  6% {
-    background-color: rgba(0, 245, 80, 0.98);
-    transform: translate(12px, -8px) scale(1.25);
-    filter: blur(85px);
-    opacity: 1;
-    animation-timing-function: cubic-bezier(0.85, 0, 0.15, 1);
-  }
-  8.5% {
-    background-color: rgba(0, 245, 80, 0.98);
-    transform: translate(12px, -8px) scale(1.25);
-    animation-timing-function: cubic-bezier(0.85, 0, 0.15, 1);
-  }
-  /* 4. Purple (#b900ff) - aggressive snap & deep flare */
-  9% {
-    background-color: rgba(185, 0, 255, 0.98);
-    transform: translate(-8px, 16px) scale(1.38);
-    filter: blur(110px);
-    opacity: 1;
-    animation-timing-function: cubic-bezier(0.85, 0, 0.15, 1);
-  }
-  11.5% {
-    background-color: rgba(185, 0, 255, 0.98);
-    transform: translate(-8px, 16px) scale(1.38);
-    animation-timing-function: cubic-bezier(0.85, 0, 0.15, 1);
-  }
-  /* 5. Electric Sky Blue (#00e1ff) - sharp flash */
-  12% {
-    background-color: rgba(0, 225, 255, 0.98);
-    transform: translate(0, 0) scale(1.2);
-    filter: blur(100px);
-    opacity: 1;
-    animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  14.5% {
-    background-color: rgba(0, 225, 255, 0.98);
-    transform: translate(0, 0) scale(1.2);
-    animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  /* Violent deceleration & convergence into Theme Cyan (rgb(0 177 224)) */
-  22% {
-    background-color: rgba(0, 177, 224, 0.82);
-    transform: translate(0, 0) scale(1);
-    filter: blur(125px);
-    opacity: 0.88;
-  }
-  /* Gentle continuous breathing cycles in pure cyan */
-  50% {
-    background-color: rgba(0, 177, 224, 0.65);
-    transform: scale(0.96) translate(-4px, 4px);
-    filter: blur(115px);
-    opacity: 0.78;
-  }
-  75% {
-    background-color: rgba(0, 177, 224, 0.85);
-    transform: scale(1.08) translate(-10px, 10px);
-    filter: blur(130px);
-    opacity: 0.92;
-  }
-  100% {
-    background-color: rgba(0, 177, 224, 0.75);
-    transform: scale(1) translate(0, 0);
-    filter: blur(125px);
-    opacity: 0.85;
-  }
-}
 
 .ambient-glow-bottom {
   position: absolute;
