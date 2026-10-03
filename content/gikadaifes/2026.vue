@@ -1115,8 +1115,8 @@ body.utone-cyan-theme img[src="/images/logo/logo_dark.svg"] {
   inset: 0;
   background:
     radial-gradient(ellipse 60% 50% at 30% 60%, rgba(0, 225, 255, 0.07), transparent 70%),
-    radial-gradient(ellipse 55% 45% at 70% 30%, rgba(255, 0, 200, 0.06), transparent 70%),
-    radial-gradient(ellipse 50% 40% at 50% 80%, rgba(120, 80, 255, 0.05), transparent 70%);
+    radial-gradient(ellipse 55% 45% at 70% 30%, rgba(0, 177, 224, 0.06), transparent 70%),
+    radial-gradient(ellipse 50% 40% at 50% 80%, rgba(0, 200, 255, 0.05), transparent 70%);
   animation: fogDrift 11s ease-in-out infinite alternate;
   pointer-events: none;
 }
