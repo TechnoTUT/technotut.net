@@ -1057,6 +1057,17 @@ body.utone-cyan-theme img[src="/images/logo/logo_dark.svg"] {
   filter: blur(4px) drop-shadow(0 0 10px currentColor);
 }
 
+/* Narrow screens: rays sized at150% of the width only reach ~half a screen,
+   so extend them and pull them in from the edge to keep them visible */
+@media (max-width: 639px) {
+  .laser-beam {
+    left: 1.5rem;
+    width: 600%;
+    height: 5px;
+    filter: blur(5px) drop-shadow(0 0 12px currentColor);
+  }
+}
+
 /* Follow the content column's left padding at each breakpoint */
 @media (min-width: 640px) {
   .laser-beam {
