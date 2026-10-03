@@ -446,153 +446,161 @@
         </button>
       </div>
 
-      <!-- Active Day Panel: Day 1 -->
-      <div v-show="activeTimetableDay === 'day1'" class="bg-dark border border-white/10 p-6 flex flex-col justify-between lg:flex-row lg:items-start lg:gap-10">
-        <div class="lg:flex-1 lg:min-w-0">
-          <div class="flex items-center justify-between mb-6 pb-4 border-b border-white/10">
-            <div>
-              <span class="text-xs font-quicksand tracking-wider text-gray-400 block mb-1">DAY 1</span>
-              <h3 class="font-noto text-xl font-light text-white">10月10日（土）</h3>
+      <div class="grid">
+        <!-- Active Day Panel: Day 1 -->
+        <div
+          class="col-start-1 row-start-1 bg-dark border border-white/10 p-6 flex flex-col lg:flex-row lg:items-start lg:gap-10"
+          :class="activeTimetableDay === 'day1' ? '' : 'invisible'"
+        >
+          <div class="lg:flex-1 lg:min-w-0">
+            <div class="flex items-center justify-between mb-6 pb-4 border-b border-white/10">
+              <div>
+                <span class="text-xs font-quicksand tracking-wider text-gray-400 block mb-1">DAY 1</span>
+                <h3 class="font-noto text-xl font-light text-white">10月10日（土）</h3>
+              </div>
+              <span class="text-xs font-quicksand tracking-widest text-[#00b1e0] border-[#00b1e0]/30 px-3 py-1">CLUB MUSIC</span>
             </div>
-            <span class="text-xs font-quicksand tracking-widest text-[#00b1e0] border-[#00b1e0]/30 px-3 py-1">CLUB MUSIC</span>
-          </div>
 
-          <!-- Schedule List -->
-          <div class="divide-y divide-white/5 mb-8">
-            <div
-              v-for="slot in day1Schedule"
-              :key="slot.time"
-              class="py-3 flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 sm:gap-4 transition-colors hover:bg-white/[0.02] px-2"
-              :class="[
-                { 'bg-white/[0.03]': slot.tag === 'GUEST' },
-                slot.tag === 'GUEST' ? 'sm:flex-col sm:items-stretch' : '',
-              ]"
-            >
-              <div class="flex items-baseline gap-3 shrink-0">
-                <span class="font-mono text-xs sm:text-sm text-gray-400 font-light w-28">{{ slot.time }}</span>
-                <div class="w-20 shrink-0 flex items-center">
-                  <span
-                    v-if="slot.tag"
-                    class="text-xs font-quicksand font-medium tracking-wide w-full text-center py-0.5"
-                    :class="slot.tag === 'GUEST' ? 'bg-[#00b1e0] text-white font-semibold' : 'border border-white/20 text-gray-300'"
+            <!-- Schedule List -->
+            <div class="divide-y divide-white/5 mb-8">
+              <div
+                v-for="slot in day1Schedule"
+                :key="slot.time"
+                class="py-3 flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 sm:gap-4 transition-colors hover:bg-white/[0.02] px-2"
+                :class="[
+                  { 'bg-white/[0.03]': slot.tag === 'GUEST' },
+                  slot.tag === 'GUEST' ? 'sm:flex-col sm:items-stretch' : '',
+                ]"
+              >
+                <div class="flex items-baseline gap-3 shrink-0">
+                  <span class="font-mono text-xs sm:text-sm text-gray-400 font-light w-28">{{ slot.time }}</span>
+                  <div class="w-20 shrink-0 flex items-center">
+                    <span
+                      v-if="slot.tag"
+                      class="text-xs font-quicksand font-medium tracking-wide w-full text-center py-0.5"
+                      :class="slot.tag === 'GUEST' ? 'bg-[#00b1e0] text-white font-semibold' : 'border border-white/20 text-gray-300'"
+                    >
+                      {{ slot.tag }}
+                    </span>
+                  </div>
+                </div>
+                <div class="flex-grow text-left sm:text-right">
+                  <div class="font-noto text-sm font-light" :class="slot.tag === 'GUEST' ? 'text-white font-normal text-xl' : 'text-gray-200'">
+                    {{ slot.artist }}
+                  </div>
+                  <div
+                    v-if="slot.sub"
+                    class="font-noto font-light mt-0.5"
+                    :class="slot.tag === 'GUEST' ? 'text-sm text-white font-normal' : 'text-xs text-gray-400'"
                   >
-                    {{ slot.tag }}
-                  </span>
-                </div>
-              </div>
-              <div class="flex-grow text-left sm:text-right">
-                <div class="font-noto text-sm font-light" :class="slot.tag === 'GUEST' ? 'text-white font-normal text-xl' : 'text-gray-200'">
-                  {{ slot.artist }}
-                </div>
-                <div
-                  v-if="slot.sub"
-                  class="font-noto font-light mt-0.5"
-                  :class="slot.tag === 'GUEST' ? 'text-sm text-white font-normal' : 'text-xs text-gray-400'"
-                >
-                  {{ slot.sub }}
-                </div>
-                <div v-if="slot.genre" class="text-xs font-quicksand text-gray-500 font-light mt-0.5">
-                  {{ slot.genre }}
+                    {{ slot.sub }}
+                  </div>
+                  <div v-if="slot.genre" class="text-xs font-quicksand text-gray-500 font-light mt-0.5">
+                    {{ slot.genre }}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- Flyer image preview (placed below schedule) -->
-        <div class="pt-6 border-t border-white/10 mt-6 lg:pt-0 lg:mt-0 lg:border-t-0 lg:border-l lg:pl-8 lg:w-96 lg:shrink-0">
-          <div class="flex items-center justify-between mb-3">
-            <span class="text-xs font-quicksand tracking-wider text-gray-400">TIMETABLE FLYER</span>
-            <button
-              type="button"
-              class="text-xs font-quicksand text-gray-400 hover:text-white transition-colors"
+          <!-- Flyer image preview (placed below schedule) -->
+          <div class="pt-6 border-t border-white/10 mt-6 lg:pt-0 lg:mt-0 lg:border-t-0 lg:border-l lg:pl-8 lg:w-96 lg:shrink-0">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-quicksand tracking-wider text-gray-400">TIMETABLE FLYER</span>
+              <button
+                type="button"
+                class="text-xs font-quicksand text-gray-400 hover:text-white transition-colors"
+                @click="activeModalImage = '/images/gikadaifes/2026/TT_1.png'"
+              >
+                画像を拡大表示 &rarr;
+              </button>
+            </div>
+            <div
+              class="overflow-hidden bg-dark cursor-pointer group flex items-center justify-center p-2 max-w-2xl mx-auto"
               @click="activeModalImage = '/images/gikadaifes/2026/TT_1.png'"
             >
-              画像を拡大表示 &rarr;
-            </button>
-          </div>
-          <div
-            class="overflow-hidden bg-dark cursor-pointer group flex items-center justify-center p-2 max-w-2xl mx-auto"
-            @click="activeModalImage = '/images/gikadaifes/2026/TT_1.png'"
-          >
-            <NuxtImg
-              src="/images/gikadaifes/2026/TT_1.png"
-              alt="1日目 タイムテーブル画像"
-              format="webp"
-              class="w-full h-auto object-contain group-hover:opacity-90 transition-opacity"
-            />
+              <NuxtImg
+                src="/images/gikadaifes/2026/TT_1.png"
+                alt="1日目 タイムテーブル画像"
+                format="webp"
+                class="w-full h-auto object-contain group-hover:opacity-90 transition-opacity"
+              />
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Active Day Panel: Day 2 -->
-      <div v-show="activeTimetableDay === 'day2'" class="bg-dark border border-white/10 p-6 flex flex-col justify-between lg:flex-row lg:items-start lg:gap-10">
-        <div class="lg:flex-1 lg:min-w-0">
-          <div class="flex items-center justify-between mb-6 pb-4 border-b border-white/10">
-            <div>
-              <span class="text-xs font-quicksand tracking-wider text-gray-400 block mb-1">DAY 2</span>
-              <h3 class="font-noto text-xl font-light text-white">10月11日（日）</h3>
+        <!-- Active Day Panel: Day 2 -->
+        <div
+          class="col-start-1 row-start-1 bg-dark border border-white/10 p-6 flex flex-col lg:flex-row lg:items-start lg:gap-10"
+          :class="activeTimetableDay === 'day2' ? '' : 'invisible'"
+        >
+          <div class="lg:flex-1 lg:min-w-0">
+            <div class="flex items-center justify-between mb-6 pb-4 border-b border-white/10">
+              <div>
+                <span class="text-xs font-quicksand tracking-wider text-gray-400 block mb-1">DAY 2</span>
+                <h3 class="font-noto text-xl font-light text-white">10月11日（日）</h3>
+              </div>
+              <span class="text-xs font-quicksand tracking-widest text-[#00b1e0] border-[#00b1e0]/30 px-3 py-1">SUBCULTURE</span>
             </div>
-            <span class="text-xs font-quicksand tracking-widest text-[#00b1e0] border-[#00b1e0]/30 px-3 py-1">SUBCULTURE</span>
+
+            <!-- Schedule List -->
+            <div class="divide-y divide-white/5 mb-8">
+              <div
+                v-for="slot in day2Schedule"
+                :key="slot.time"
+                class="py-3 flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 sm:gap-4 transition-colors hover:bg-white/[0.02] px-2"
+                :class="[
+                  { 'bg-white/[0.03]': slot.tag === 'GUEST' },
+                  slot.tag === 'GUEST' ? 'sm:flex-col sm:items-stretch' : '',
+                ]"
+              >
+                <div class="flex items-baseline gap-3 shrink-0">
+                  <span class="font-mono text-xs sm:text-sm text-gray-400 font-light w-28">{{ slot.time }}</span>
+                  <div class="w-20 shrink-0 flex items-center">
+                    <span
+                      v-if="slot.tag"
+                      class="text-xs font-quicksand font-medium tracking-wide w-full text-center py-0.5"
+                      :class="slot.tag === 'GUEST' ? 'bg-[#00b1e0] text-white font-semibold' : 'border border-white/20 text-gray-300'"
+                    >
+                      {{ slot.tag }}
+                    </span>
+                  </div>
+                </div>
+                <div class="flex-grow text-left sm:text-right">
+                  <div class="font-noto text-sm font-light" :class="slot.tag === 'GUEST' ? 'text-white font-normal text-xl' : 'text-gray-200'">
+                    {{ slot.artist }}
+                  </div>
+                  <div v-if="slot.genre" class="text-xs font-quicksand text-gray-500 font-light mt-0.5">
+                    {{ slot.genre }}
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <!-- Schedule List -->
-          <div class="divide-y divide-white/5 mb-8">
+          <!-- Flyer image preview (placed below schedule) -->
+          <div class="pt-6 border-t border-white/10 mt-6 lg:pt-0 lg:mt-0 lg:border-t-0 lg:border-l lg:pl-8 lg:w-96 lg:shrink-0">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-quicksand tracking-wider text-gray-400">TIMETABLE FLYER</span>
+              <button
+                type="button"
+                class="text-xs font-quicksand text-gray-400 hover:text-white transition-colors"
+                @click="activeModalImage = '/images/gikadaifes/2026/TT_2.png'"
+              >
+                画像を拡大表示 &rarr;
+              </button>
+            </div>
             <div
-              v-for="slot in day2Schedule"
-              :key="slot.time"
-              class="py-3 flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 sm:gap-4 transition-colors hover:bg-white/[0.02] px-2"
-              :class="[
-                { 'bg-white/[0.03]': slot.tag === 'GUEST' },
-                slot.tag === 'GUEST' ? 'sm:flex-col sm:items-stretch' : '',
-              ]"
-            >
-              <div class="flex items-baseline gap-3 shrink-0">
-                <span class="font-mono text-xs sm:text-sm text-gray-400 font-light w-28">{{ slot.time }}</span>
-                <div class="w-20 shrink-0 flex items-center">
-                  <span
-                    v-if="slot.tag"
-                    class="text-xs font-quicksand font-medium tracking-wide w-full text-center py-0.5"
-                    :class="slot.tag === 'GUEST' ? 'bg-[#00b1e0] text-white font-semibold' : 'border border-white/20 text-gray-300'"
-                  >
-                    {{ slot.tag }}
-                  </span>
-                </div>
-              </div>
-              <div class="flex-grow text-left sm:text-right">
-                <div class="font-noto text-sm font-light" :class="slot.tag === 'GUEST' ? 'text-white font-normal text-xl' : 'text-gray-200'">
-                  {{ slot.artist }}
-                </div>
-                <div v-if="slot.genre" class="text-xs font-quicksand text-gray-500 font-light mt-0.5">
-                  {{ slot.genre }}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Flyer image preview (placed below schedule) -->
-        <div class="pt-6 border-t border-white/10 mt-6 lg:pt-0 lg:mt-0 lg:border-t-0 lg:border-l lg:pl-8 lg:w-96 lg:shrink-0">
-          <div class="flex items-center justify-between mb-3">
-            <span class="text-xs font-quicksand tracking-wider text-gray-400">TIMETABLE FLYER</span>
-            <button
-              type="button"
-              class="text-xs font-quicksand text-gray-400 hover:text-white transition-colors"
+              class="overflow-hidden bg-dark cursor-pointer group flex items-center justify-center p-2 max-w-2xl mx-auto"
               @click="activeModalImage = '/images/gikadaifes/2026/TT_2.png'"
             >
-              画像を拡大表示 &rarr;
-            </button>
-          </div>
-          <div
-            class="overflow-hidden bg-dark cursor-pointer group flex items-center justify-center p-2 max-w-2xl mx-auto"
-            @click="activeModalImage = '/images/gikadaifes/2026/TT_2.png'"
-          >
-            <NuxtImg
-              src="/images/gikadaifes/2026/TT_2.png"
-              alt="2日目 タイムテーブル画像"
-              format="webp"
-              class="w-full h-auto object-contain group-hover:opacity-90 transition-opacity"
-            />
+              <NuxtImg
+                src="/images/gikadaifes/2026/TT_2.png"
+                alt="2日目 タイムテーブル画像"
+                format="webp"
+                class="w-full h-auto object-contain group-hover:opacity-90 transition-opacity"
+              />
+            </div>
           </div>
         </div>
       </div>
