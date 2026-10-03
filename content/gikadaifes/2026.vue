@@ -84,16 +84,12 @@
 
     <!-- Ambient Cyber Glow (static theme cyan) -->
     <div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10 select-none overflow-hidden">
-      <div class="swingby-glow" />
-
       <!-- Vertical 'VOL. 11 // THE UTOPIA TONE' Cyber Tag in right margin -->
       <div class="hidden xl:flex absolute top-[calc(100vh-6rem)] right-8 items-center gap-3 rotate-90 origin-bottom-right font-mono text-[10px] tracking-[0.4em] text-[rgba(0,177,224,0.35)] uppercase">
         <span class="w-8 h-[1px] bg-[rgba(0,177,224,0.4)]" />
         <span>VOL.11 EXTENDED</span>
       </div>
 
-      <!-- Secondary soft cyan glow in Timetable section background -->
-      <div class="ambient-glow-bottom" />
     </div>
 
     <div class="py-24 sm:py-32 px-6 sm:px-12 lg:px-16 max-w-5xl mx-auto">
@@ -109,18 +105,28 @@
     </div>
 
     <!-- Hero / Title Header -->
-    <header data-glow-stop class="mb-16">
+    <header data-glow-stop class="relative mb-16">
       <div class="flex flex-wrap items-center gap-3 mb-4">
         <span class="font-quicksand text-xs sm:text-sm tracking-widest text-brand uppercase font-medium">
           The Utopia Tone vol.11 Extended
         </span>
       </div>
 
-      <div class="relative inline-block overflow-hidden mb-6">
-        <h1 class="font-quicksand font-light text-4xl sm:text-6xl md:text-7xl text-white tracking-tight pb-1 sm:pb-2">
-          技科大祭 2026
-        </h1>
-        <div aria-hidden="true" class="block-reveal-mask block-reveal-active" />
+      <div class="flex items-center justify-between gap-6 mb-6">
+        <div class="relative inline-block overflow-hidden">
+          <h1 class="font-quicksand font-light text-4xl sm:text-6xl md:text-7xl text-white tracking-tight pb-1 sm:pb-2">
+            技科大祭 2026
+          </h1>
+          <div aria-hidden="true" class="block-reveal-mask block-reveal-active" />
+        </div>
+
+        <!-- Vol.11 logo, vertically centered with the headline -->
+        <img
+          src="/images/gikadaifes/2026/utone11ext.svg"
+          alt=""
+          aria-hidden="true"
+          class="pointer-events-none select-none shrink-0 w-[28%] max-w-[16rem] hidden sm:block"
+        >
       </div>
 
       <div class="font-noto text-base sm:text-lg text-gray-dim font-[350] leading-relaxed max-w-3xl space-y-2">
@@ -155,7 +161,8 @@
     </header>
 
     <!-- Flyer Showcase -->
-    <section data-glow-stop class="mb-20">
+    <section data-glow-stop class="relative mb-20">
+      <div class="section-glow" style="top: -7.5rem" />
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-stretch">
         <div class="flex items-center justify-center">
           <div class="w-full max-w-xs overflow-hidden border border-white/10 bg-dark aspect-[1/1.414]">
@@ -201,7 +208,8 @@
     </section>
 
     <!-- Main Stage Highlight Section -->
-    <section data-glow-stop class="mb-20 p-8 sm:p-10 bg-dark border border-white/10 relative overflow-hidden">
+    <section data-glow-stop class="mb-20 p-8 sm:p-10 bg-dark border border-white/10 relative">
+      <div class="section-glow" style="top: -4.5rem" />
       <div>
         <div class="mb-4">
           <span class="inline-flex items-center px-3 py-1 bg-white/10 border border-white/20 text-white text-xs font-quicksand tracking-wider uppercase font-medium">
@@ -272,7 +280,8 @@
     </section>
 
     <!-- Guest Artists Section -->
-    <section class="mb-20">
+    <section class="relative mb-20">
+      <div class="section-glow" style="top: -8rem" />
       <div class="mb-10">
         <p class="font-quicksand text-xs tracking-widest text-gray-400 uppercase mb-2">LINEUP</p>
         <h2 class="font-quicksand font-light text-3xl sm:text-5xl text-white tracking-tight">
@@ -408,7 +417,8 @@
     </section>
 
     <!-- Timetable Section -->
-    <section data-glow-stop class="mb-20">
+    <section data-glow-stop class="relative mb-20">
+      <div class="section-glow" style="top: -8rem" />
       <div class="mb-10 text-center sm:text-left">
         <p class="font-quicksand text-xs tracking-widest text-gray-400 uppercase mb-2">SCHEDULE</p>
         <h2 class="font-quicksand font-light text-3xl sm:text-5xl text-white tracking-tight">
@@ -584,6 +594,17 @@
       </div>
     </section>
 
+    <!-- Page-wide laser rays from the top-right corner + fog -->
+    <div aria-hidden="true" class="pointer-events-none absolute inset-0 overflow-hidden mix-blend-screen">
+      <div class="laser-fog" />
+      <div class="laser-beam laser-beam-cyan" />
+      <div class="laser-beam laser-beam-magenta" />
+      <div class="laser-beam laser-beam-blue" />
+      <div class="laser-beam laser-beam-violet" />
+      <div class="laser-beam laser-beam-1" />
+      <div class="laser-beam laser-beam-2" />
+    </div>
+
     <!-- Modal for Zooming Timetable -->
     <Teleport to="body">
       <div
@@ -634,6 +655,29 @@ onMounted(() => {
       clearTimeout(splashTimer)
     })
   }
+})
+
+// PAR light turn-on when each glow scrolls into view
+let glowObserver: IntersectionObserver | null = null
+onMounted(() => {
+  if (!import.meta.client) return
+  const glows = document.querySelectorAll('.section-glow')
+  glowObserver = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('lit')
+          glowObserver?.unobserve(entry.target)
+        }
+      }
+    },
+    { rootMargin: '-45% 0px -45% 0px', threshold: 0 },
+  )
+  glows.forEach((el) => glowObserver?.observe(el))
+})
+
+onUnmounted(() => {
+  glowObserver?.disconnect()
 })
 
 // Day 1: 2026-10-10, Day 2: 2026-10-11
@@ -977,50 +1021,180 @@ useSeoMeta({
   }
 }
 
-/* Ambient cyan glow: static, fixed position, no scroll tracking */
-.swingby-glow {
+/* Laser rays fired from the left side: scale out from the origin, flash, fade */
+.laser-beam {
   position: absolute;
-  top: calc(50vh - 14.53vh);
-  left: calc(50vw + 28.49vw);
-  width: 26rem;
-  height: 26rem;
-  margin-top: -13rem;
-  margin-left: -13rem;
+  top: -12rem;
+  left: max(0rem, (100% - 64rem) / 2);
+  width: 150%;
+  height: 4px;
   border-radius: 9999px;
-  background-color: rgba(0, 177, 224, 0.75);
-  filter: blur(85px);
+  transform-origin: 0% 50%;
   pointer-events: none;
-  opacity: 0.9;
   mix-blend-mode: screen;
+  filter: blur(4px) drop-shadow(0 0 10px currentColor);
 }
 
+/* Follow the content column's left padding at each breakpoint */
 @media (min-width: 640px) {
-  .swingby-glow {
-    width: 36rem;
-    height: 36rem;
-    margin-top: -18rem;
-    margin-left: -18rem;
-    filter: blur(110px);
+  .laser-beam {
+    left: calc(max(0rem, (100% - 64rem) / 2) + 1.5rem);
   }
 }
 
+@media (min-width: 1024px) {
+  .laser-beam {
+    left: calc(max(0rem, (100% - 64rem) / 2) + 2.5rem);
+  }
+}
 
-.ambient-glow-bottom {
+.laser-beam-cyan {
+  color: #00b1e0;
+  background: linear-gradient(90deg, rgba(0,177,224,0.55) 0%, rgba(0,177,224,0.28) 35%, rgba(0,177,224,0.1) 60%, rgba(0,177,224,0) 80%);
+  --ray: 90.5deg;
+  animation: laserFire 5s ease-out infinite;
+  animation-delay: 1.6s;
+}
+
+.laser-beam-magenta {
+  color: #00b1e0;
+  background: linear-gradient(90deg, rgba(0,177,224,0.55) 0%, rgba(0,177,224,0.28) 35%, rgba(0,177,224,0.1) 60%, rgba(0,177,224,0) 80%);
+  --ray: 93.5deg;
+  animation: laserFire 5s ease-out infinite;
+  animation-delay: 3.2s;
+}
+
+.laser-beam-blue {
+  color: #00b1e0;
+  background: linear-gradient(90deg, rgba(0,177,224,0.55) 0%, rgba(0,177,224,0.28) 35%, rgba(0,177,224,0.1) 60%, rgba(0,177,224,0) 80%);
+  --ray: 87.5deg;
+  animation: laserFire 5s ease-out infinite;
+  animation-delay: 0s;
+}
+
+.laser-beam-violet {
+  color: #00b1e0;
+  background: linear-gradient(90deg, rgba(0,177,224,0.55) 0%, rgba(0,177,224,0.28) 35%, rgba(0,177,224,0.1) 60%, rgba(0,177,224,0) 80%);
+  --ray: 95deg;
+  animation: laserFire 5s ease-out infinite;
+  animation-delay: 4s;
+}
+
+.laser-beam-1 {
+  color: #00b1e0;
+  background: linear-gradient(90deg, rgba(0,177,224,0.55) 0%, rgba(0,177,224,0.28) 35%, rgba(0,177,224,0.1) 60%, rgba(0,177,224,0) 80%);
+  --ray: 89deg;
+  animation: laserFire 5s ease-out infinite;
+  animation-delay: 0.8s;
+}
+
+.laser-beam-2 {
+  color: #00b1e0;
+  background: linear-gradient(90deg, rgba(0,177,224,0.55) 0%, rgba(0,177,224,0.28) 35%, rgba(0,177,224,0.1) 60%, rgba(0,177,224,0) 80%);
+  --ray: 92deg;
+  animation: laserFire 5s ease-out infinite;
+  animation-delay: 2.4s;
+}
+
+/* Hazy fog behind the beams, drifting slowly */
+.laser-fog {
   position: absolute;
-  bottom: 22%;
-  left: -8rem;
-  width: 20rem;
-  height: 20rem;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 30% 60%, rgba(0, 225, 255, 0.07), transparent 70%),
+    radial-gradient(ellipse 55% 45% at 70% 30%, rgba(255, 0, 200, 0.06), transparent 70%),
+    radial-gradient(ellipse 50% 40% at 50% 80%, rgba(120, 80, 255, 0.05), transparent 70%);
+  animation: fogDrift 11s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes fogDrift {
+  from { transform: translateX(-4%) scale(1.05); }
+  to { transform: translateX(4%) scale(1.1); }
+}
+
+@keyframes laserFire {
+  0% { transform: rotate(var(--ray)) scaleX(0); opacity: 0; }
+  12% { transform: rotate(var(--ray)) scaleX(1); opacity: 0.7; }
+  55% { transform: rotate(var(--ray)) scaleX(1); opacity: 0.55; }
+  100% { transform: rotate(var(--ray)) scaleX(1); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .laser-beam,
+  .laser-fog {
+    animation: none;
+  }
+  .laser-beam {
+    display: none;
+  }
+}
+
+/* Per-headline ambient glow: aligned at the section's left edge, shaped like a
+   PAR light pool on the floor (wide ellipse, bright center fading out). */
+.section-glow {
+  position: absolute;
+  right: -14rem;
+  width: 16rem;
+  height: 16rem;
   border-radius: 9999px;
-  background-color: rgba(0, 177, 224, 0.08);
-  filter: blur(90px);
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 177, 224, 0.5) 0%,
+    rgba(0, 177, 224, 0.18) 45%,
+    rgba(0, 177, 224, 0) 75%
+  );
+  filter: blur(12px);
+  mix-blend-mode: screen;
+  pointer-events: none;
+  opacity: 0;
+}
+
+/* Dark halo around the glow so it fades into darkness, like a PAR light in the dark */
+.section-glow::after {
+  content: '';
+  position: absolute;
+  inset: -60%;
+  border-radius: 9999px;
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 0, 0, 0) 25%,
+    rgba(0, 0, 0, 0.5) 55%,
+    rgba(0, 0, 0, 0.85) 100%
+  );
+  pointer-events: none;
+}
+
+/* PAR light turn-on: quick flicker burst, then a stable pool of light */
+.section-glow.lit {
+  animation: parTurnOn 1.7s ease-out forwards;
+}
+
+@keyframes parTurnOn {
+  0% { opacity: 0; transform: scale(0.85); }
+  8% { opacity: 0.7; }
+  13% { opacity: 0.15; }
+  18% { opacity: 0.85; }
+  24% { opacity: 0.1; }
+  32% { opacity: 0.9; }
+  45% { opacity: 0.4; }
+  60% { opacity: 1; }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section-glow {
+    opacity: 1;
+  }
+  .section-glow.lit {
+    animation: none;
+  }
 }
 
 @media (min-width: 640px) {
-  .ambient-glow-bottom {
-    width: 30rem;
-    height: 30rem;
-    filter: blur(130px);
+  .section-glow {
+    width: 24rem;
+    height: 24rem;
   }
 }
 </style>
