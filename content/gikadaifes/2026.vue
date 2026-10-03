@@ -132,7 +132,8 @@
       <div class="font-noto text-base sm:text-lg text-gray-dim font-[350] leading-relaxed max-w-3xl space-y-2">
         <p>お待たせいたしました！！</p>
         <p>
-          10月10日（土）、10月11日（日）に開催される技科大祭にて、DJイベント「The Utopia Tone vol.11 Extended」を開催します！
+          10月10日（土）、10月11日（日）に開催される技科大祭にて、DJイベント<span class="whitespace-nowrap">「The Utopia Tone vol.11
+            Extended」</span>を開催します！
         </p>
         <p class="text-white font-normal">
           入場無料で、学外の方もご参加いただけます！
