@@ -215,7 +215,7 @@
       <div class="section-glow" style="top: -4.5rem" />
       <div>
         <div class="mb-4">
-          <span class="inline-flex items-center px-3 py-1 bg-white/10 border border-white/20 text-white text-xs font-quicksand tracking-wider uppercase font-medium">
+          <span class="inline-flex items-center px-3 py-1 bg-[#00b1e0]/15 border border-[#00b1e0]/40 text-[#00b1e0] text-xs font-quicksand tracking-wider uppercase font-medium">
             MAIN STAGE
           </span>
         </div>
@@ -913,9 +913,10 @@ body.utone-cyan-theme img[src="/images/logo/logo_dark.svg"] {
   width: 12px;
   height: 12px;
   border-radius: 9999px;
-  border: 2px solid #ffffff;
+  border: 2px solid #00b1e0;
+  background-color: #00b1e0;
   z-index: 2;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 10px rgba(0, 177, 224, 0.8);
 }
 
 .marker-brand .marker-pulse {
@@ -923,6 +924,20 @@ body.utone-cyan-theme img[src="/images/logo/logo_dark.svg"] {
 }
 .marker-brand .marker-core {
   background-color: #00b1e0;
+}
+
+/* Tailwind only emits @keyframes ping when animate-ping is used somewhere;
+   define it locally so the marker pulse actually animates */
+@keyframes ping {
+  0% {
+    transform: scale(0.2);
+    opacity: 1;
+  }
+  80%,
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
 }
 
 .marker-label {
