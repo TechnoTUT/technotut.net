@@ -668,7 +668,7 @@ const activeModalImage = ref<string | null>(null)
 const isLoading = ref(true)
 const pageRoot = ref<HTMLElement | null>(null)
 
-// 2.3s splash screen, then reveal the page
+// Splash ends exactly when the last stroke finishes drawing
 onMounted(() => {
   if (import.meta.client) {
     // Swap the shared header/footer logo accent to cyan while on this page
@@ -679,7 +679,7 @@ onMounted(() => {
 
     const splashTimer = setTimeout(() => {
       isLoading.value = false
-    }, 2300)
+    }, 600)
 
     onUnmounted(() => {
       clearTimeout(splashTimer)
@@ -1029,11 +1029,11 @@ body.utone-cyan-theme img[src="/images/logo/logo_dark.svg"] {
 
 .utone-svg-loader svg path {
   fill: transparent;
-  stroke: #00b1e0;
+  stroke: #ffffff;
   stroke-width: 1px;
   stroke-dasharray: 600;
   stroke-dashoffset: 600;
-  animation: utoneStrokeDraw 1.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation: utoneStrokeDraw 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
 /* Stagger different sections slightly for dynamic drawing feel */
@@ -1068,8 +1068,8 @@ body.utone-cyan-theme img[src="/images/logo/logo_dark.svg"] {
   }
   100% {
     stroke-dashoffset: 0;
-    fill: #ffffff;
-    stroke: transparent;
+    fill: transparent;
+    stroke: #ffffff;
   }
 }
 
