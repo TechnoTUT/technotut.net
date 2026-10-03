@@ -180,6 +180,9 @@
         </div>
         <div class="flex flex-col justify-between py-2 space-y-6">
           <div class="space-y-6">
+            <h2 class="font-noto text-2xl sm:text-3xl font-light text-white leading-snug">
+              The Utopia Tone vol.11 Extended
+            </h2>
             <div class="space-y-4 font-noto leading-relaxed">
               <div class="p-4 border border-white/10 bg-dark">
                 <p class="font-quicksand text-xs tracking-wider text-white font-medium uppercase mb-1">Day 1：CLUB MUSIC</p>
