@@ -420,7 +420,7 @@
     <!-- Timetable Section -->
     <section data-glow-stop class="relative mb-20">
       <div class="section-glow" style="top: -8rem" />
-      <div class="mb-10 text-center sm:text-left">
+      <div class="mb-10">
         <p class="font-quicksand text-xs tracking-widest text-gray-400 uppercase mb-2">SCHEDULE</p>
         <h2 class="font-quicksand font-light text-3xl sm:text-5xl text-white tracking-tight">
           TIMETABLE
