@@ -431,8 +431,8 @@
       <div class="flex items-center gap-2 mb-8 border-b border-white/10 pb-4">
         <button
           type="button"
-          class="font-quicksand text-sm tracking-wider px-5 py-2.5 transition-all relative"
-          :class="activeTimetableDay === 'day1' ? 'text-white bg-white/10 border-b-2 border-white' : 'text-gray-400 hover:text-white'"
+          class="font-quicksand text-sm tracking-wider px-5 py-2.5 border-b-2 transition-colors relative"
+          :class="activeTimetableDay === 'day1' ? 'text-white bg-white/10 border-white' : 'text-gray-400 hover:text-white border-transparent'"
           @click="activeTimetableDay = 'day1'"
         >
           <span class="font-medium mr-2">DAY 1</span>
@@ -440,8 +440,8 @@
         </button>
         <button
           type="button"
-          class="font-quicksand text-sm tracking-wider px-5 py-2.5 transition-all relative"
-          :class="activeTimetableDay === 'day2' ? 'text-white bg-white/10 border-b-2 border-white' : 'text-gray-400 hover:text-white'"
+          class="font-quicksand text-sm tracking-wider px-5 py-2.5 border-b-2 transition-colors relative"
+          :class="activeTimetableDay === 'day2' ? 'text-white bg-white/10 border-white' : 'text-gray-400 hover:text-white border-transparent'"
           @click="activeTimetableDay = 'day2'"
         >
           <span class="font-medium mr-2">DAY 2</span>
@@ -525,6 +525,8 @@
               <NuxtImg
                 src="/images/gikadaifes/2026/TT_1.png"
                 alt="1日目 タイムテーブル画像"
+                width="1787"
+                height="2526"
                 format="webp"
                 class="w-full h-auto object-contain group-hover:opacity-90 transition-opacity"
               />
@@ -600,6 +602,8 @@
               <NuxtImg
                 src="/images/gikadaifes/2026/TT_2.png"
                 alt="2日目 タイムテーブル画像"
+                width="1787"
+                height="2527"
                 format="webp"
                 class="w-full h-auto object-contain group-hover:opacity-90 transition-opacity"
               />
