@@ -611,22 +611,31 @@
 
     <!-- Modal for Zooming Timetable -->
     <Teleport to="body">
-      <div
-        v-if="activeModalImage"
-        class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-8"
-        @click="activeModalImage = null"
+      <Transition
+        enter-active-class="transition duration-300 ease-out"
+        enter-from-class="opacity-0"
+        enter-to-class="opacity-100"
+        leave-active-class="transition duration-200 ease-in"
+        leave-from-class="opacity-100"
+        leave-to-class="opacity-0"
       >
-        <div class="relative max-w-4xl max-h-[90vh] overflow-auto border border-white/20 bg-dark p-2" @click.stop>
-          <button
-            type="button"
-            class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-black/70 border border-white/30 text-white flex items-center justify-center hover:bg-white hover:text-black transition-colors"
-            @click="activeModalImage = null"
-          >
-            ✕
-          </button>
-          <img :src="activeModalImage" alt="Timetable Zoom" class="w-full h-auto object-contain max-h-[85vh]">
+        <div
+          v-if="activeModalImage"
+          class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-8"
+          @click="activeModalImage = null"
+        >
+          <div class="relative max-w-4xl max-h-[90vh] overflow-auto" @click.stop>
+            <button
+              type="button"
+              class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-black/70 border border-white/30 text-white flex items-center justify-center hover:bg-white hover:text-black transition-colors"
+              @click="activeModalImage = null"
+            >
+              ✕
+            </button>
+            <img :src="activeModalImage" alt="Timetable Zoom" class="w-full h-auto object-contain max-h-[85vh]">
+          </div>
         </div>
-      </div>
+      </Transition>
     </Teleport>
 
       <!-- Footer Actions / Access -->
