@@ -312,7 +312,7 @@
             </div>
             <div class="p-6 flex-grow flex flex-col justify-between">
               <div>
-                <span class="text-xs font-quicksand tracking-wider text-gray-400 block mb-2">DJ / TRACKMAKER</span>
+                <span class="text-xs font-quicksand tracking-wider text-gray-400 block mb-2">DJ</span>
                 <h3 class="font-noto text-2xl font-light text-white mb-3">SyurV</h3>
                 <p class="font-noto text-xs sm:text-sm text-gray-dim font-[350] leading-relaxed">
                   名古屋で主に活動しているDJ／トラックメイカー。Anti-Aging Record 2026現DJ班長。DnB、Psy、Experimentalを中心に、サブカルも含む幅広い音楽でDJをする。奇怪なトラックを作り、サークルメンバーに奇怪な音楽を布教する活動を行っている。
@@ -354,7 +354,7 @@
             </div>
             <div class="p-6 flex-grow flex flex-col justify-between">
               <div>
-                <span class="text-xs font-quicksand tracking-wider text-gray-400 block mb-2">MC / RAPPER</span>
+                <span class="text-xs font-quicksand tracking-wider text-gray-400 block mb-2">MC</span>
                 <h3 class="font-noto text-2xl font-light text-white mb-3">大楽Chap（DaraChap）</h3>
                 <p class="font-noto text-xs sm:text-sm text-gray-dim font-[350] leading-relaxed">
                   愛知県春日井市出身のMC／ラッパー。HipHopやレゲエをルーツに持ち、巧みなフロウでUK Bassを乗りこなす。好きな食べ物は餃子。
@@ -862,9 +862,9 @@ onUnmounted(() => {
 
 useSeoMeta({
   title: '[イベント告知] 2026 技科大祭 - TechnoTUT',
-  description: '技科大祭にて『The Utopia Tone vol.11 Extended』を開催します！出演ゲストアーティストやタイムテーブル、ステージ情報を公開中。',
+  description: '技科大祭にて『The Utopia Tone vol.11 Extended』を開催します！',
   ogTitle: '[イベント告知] 2026 技科大祭 - TechnoTUT',
-  ogDescription: '技科大祭にて『The Utopia Tone vol.11 Extended』を開催します！入場無料・一般来場歓迎！',
+  ogDescription: '技科大祭にて『The Utopia Tone vol.11 Extended』を開催します！',
   ogImage: 'https://technotut.net/images/gikadaifes/2026/2026flyer.png',
 })
 </script>
