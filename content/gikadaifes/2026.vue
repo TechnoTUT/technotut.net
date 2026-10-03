@@ -165,12 +165,15 @@
       <div class="section-glow" style="top: -7.5rem" />
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-stretch">
         <div class="flex items-center justify-center">
-          <div class="w-full max-w-xs overflow-hidden border border-white/10 bg-dark aspect-[1/1.414]">
+          <div
+            class="w-full max-w-xs overflow-hidden border border-white/10 bg-dark aspect-[1/1.414] cursor-pointer group"
+            @click="activeModalImage = '/images/gikadaifes/2026/2026flyer.png'"
+          >
             <NuxtImg
               src="/images/gikadaifes/2026/2026flyer.png"
               alt="The Utopia Tone vol.11 Extended Flyer"
               format="webp"
-              class="w-full h-full object-contain object-center"
+              class="w-full h-full object-contain object-center group-hover:opacity-90 transition-opacity"
             />
           </div>
         </div>
@@ -310,7 +313,7 @@
             <div class="p-6 flex-grow flex flex-col justify-between">
               <div>
                 <span class="text-xs font-quicksand tracking-wider text-gray-400 block mb-2">DJ / TRACKMAKER</span>
-                <h3 class="font-noto text-xl font-light text-white mb-3">SyurV</h3>
+                <h3 class="font-noto text-2xl font-light text-white mb-3">SyurV</h3>
                 <p class="font-noto text-xs sm:text-sm text-gray-dim font-[350] leading-relaxed">
                   名古屋で主に活動しているDJ／トラックメイカー。Anti-Aging Record 2026現DJ班長。DnB、Psy、Experimentalを中心に、サブカルも含む幅広い音楽でDJをする。奇怪なトラックを作り、サークルメンバーに奇怪な音楽を布教する活動を行っている。
                 </p>
@@ -331,7 +334,7 @@
             <div class="p-6 flex-grow flex flex-col justify-between">
               <div>
                 <span class="text-xs font-quicksand tracking-wider text-gray-400 block mb-2">DJ</span>
-                <h3 class="font-noto text-xl font-light text-white mb-3">飛田</h3>
+                <h3 class="font-noto text-2xl font-light text-white mb-3">飛田</h3>
                 <p class="font-noto text-xs sm:text-sm text-gray-dim font-[350] leading-relaxed">
                   Liquid Funk／Deep Drum &amp; Bassを軸に、Bass Music Party「低音研究会」のCrewやLiquid Funk Party「Liquidense」の主催など、名古屋のBass Musicシーンにて精力的に活動中。
                 </p>
@@ -352,7 +355,7 @@
             <div class="p-6 flex-grow flex flex-col justify-between">
               <div>
                 <span class="text-xs font-quicksand tracking-wider text-gray-400 block mb-2">MC / RAPPER</span>
-                <h3 class="font-noto text-xl font-light text-white mb-3">大楽Chap（DaraChap）</h3>
+                <h3 class="font-noto text-2xl font-light text-white mb-3">大楽Chap（DaraChap）</h3>
                 <p class="font-noto text-xs sm:text-sm text-gray-dim font-[350] leading-relaxed">
                   愛知県春日井市出身のMC／ラッパー。HipHopやレゲエをルーツに持ち、巧みなフロウでUK Bassを乗りこなす。好きな食べ物は餃子。
                 </p>
@@ -384,7 +387,7 @@
             <div class="p-6 flex-grow flex flex-col justify-between">
               <div>
                 <span class="text-xs font-quicksand tracking-wider text-gray-400 block mb-2">DJ / TRACKMAKER</span>
-                <h3 class="font-noto text-xl font-light text-white mb-3">DJ石倉</h3>
+                <h3 class="font-noto text-2xl font-light text-white mb-3">DJ石倉</h3>
                 <p class="font-noto text-xs sm:text-sm text-gray-dim font-[350] leading-relaxed">
                   都内在住のトラックメイカー／DJ。学マスを中心としたRemix・Mashupの制作やDJを行う一方、合成音声を使ったオリジナル楽曲も制作している。後輩たちには、学割が効くうちにSerum 2を買うことを勧めている。
                 </p>
@@ -405,7 +408,7 @@
             <div class="p-6 flex-grow flex flex-col justify-between">
               <div>
                 <span class="text-xs font-quicksand tracking-wider text-gray-400 block mb-2">DJ PARTY CREW</span>
-                <h3 class="font-noto text-xl font-light text-white mb-3">おそクラ Crew</h3>
+                <h3 class="font-noto text-2xl font-light text-white mb-3">おそクラ Crew</h3>
                 <p class="font-noto text-xs sm:text-sm text-gray-dim font-[350] leading-relaxed">
                   「遅いBPMで気持ちよくなりたい」という考えから生まれた、MAX BPM140・オールジャンルのDJイベント。さまざまな楽曲を楽しめるイベントとなっています。
                 </p>
@@ -449,8 +452,8 @@
       </div>
 
       <!-- Active Day Panel: Day 1 -->
-      <div v-show="activeTimetableDay === 'day1'" class="bg-dark border border-white/10 p-6 flex flex-col justify-between">
-        <div>
+      <div v-show="activeTimetableDay === 'day1'" class="bg-dark border border-white/10 p-6 flex flex-col justify-between lg:flex-row lg:items-start lg:gap-10">
+        <div class="lg:flex-1 lg:min-w-0">
           <div class="flex items-center justify-between mb-6 pb-4 border-b border-white/10">
             <div>
               <span class="text-xs font-quicksand tracking-wider text-gray-400 block mb-1">DAY 1</span>
@@ -465,7 +468,10 @@
               v-for="slot in day1Schedule"
               :key="slot.time"
               class="py-3 flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 sm:gap-4 transition-colors hover:bg-white/[0.02] px-2"
-              :class="{ 'bg-white/[0.03]': slot.tag === 'GUEST' }"
+              :class="[
+                { 'bg-white/[0.03]': slot.tag === 'GUEST' },
+                slot.tag === 'GUEST' ? 'sm:flex-col sm:items-stretch' : '',
+              ]"
             >
               <div class="flex items-baseline gap-3 shrink-0">
                 <span class="font-mono text-xs sm:text-sm text-gray-400 font-light w-28">{{ slot.time }}</span>
@@ -480,7 +486,7 @@
                 </div>
               </div>
               <div class="flex-grow text-left sm:text-right">
-                <div class="font-noto text-sm font-light" :class="slot.tag === 'GUEST' ? 'text-white font-normal' : 'text-gray-200'">
+                <div class="font-noto text-sm font-light" :class="slot.tag === 'GUEST' ? 'text-white font-normal text-xl' : 'text-gray-200'">
                   {{ slot.artist }}
                 </div>
                 <div
@@ -499,7 +505,7 @@
         </div>
 
         <!-- Flyer image preview (placed below schedule) -->
-        <div class="pt-6 border-t border-white/10 mt-6">
+        <div class="pt-6 border-t border-white/10 mt-6 lg:pt-0 lg:mt-0 lg:border-t-0 lg:border-l lg:pl-8 lg:w-96 lg:shrink-0">
           <div class="flex items-center justify-between mb-3">
             <span class="text-xs font-quicksand tracking-wider text-gray-400">TIMETABLE FLYER</span>
             <button
@@ -525,8 +531,8 @@
       </div>
 
       <!-- Active Day Panel: Day 2 -->
-      <div v-show="activeTimetableDay === 'day2'" class="bg-dark border border-white/10 p-6 flex flex-col justify-between">
-        <div>
+      <div v-show="activeTimetableDay === 'day2'" class="bg-dark border border-white/10 p-6 flex flex-col justify-between lg:flex-row lg:items-start lg:gap-10">
+        <div class="lg:flex-1 lg:min-w-0">
           <div class="flex items-center justify-between mb-6 pb-4 border-b border-white/10">
             <div>
               <span class="text-xs font-quicksand tracking-wider text-gray-400 block mb-1">DAY 2</span>
@@ -541,7 +547,10 @@
               v-for="slot in day2Schedule"
               :key="slot.time"
               class="py-3 flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 sm:gap-4 transition-colors hover:bg-white/[0.02] px-2"
-              :class="{ 'bg-white/[0.03]': slot.tag === 'GUEST' }"
+              :class="[
+                { 'bg-white/[0.03]': slot.tag === 'GUEST' },
+                slot.tag === 'GUEST' ? 'sm:flex-col sm:items-stretch' : '',
+              ]"
             >
               <div class="flex items-baseline gap-3 shrink-0">
                 <span class="font-mono text-xs sm:text-sm text-gray-400 font-light w-28">{{ slot.time }}</span>
@@ -556,7 +565,7 @@
                 </div>
               </div>
               <div class="flex-grow text-left sm:text-right">
-                <div class="font-noto text-sm font-light" :class="slot.tag === 'GUEST' ? 'text-white font-normal' : 'text-gray-200'">
+                <div class="font-noto text-sm font-light" :class="slot.tag === 'GUEST' ? 'text-white font-normal text-xl' : 'text-gray-200'">
                   {{ slot.artist }}
                 </div>
                 <div v-if="slot.genre" class="text-xs font-quicksand text-gray-500 font-light mt-0.5">
@@ -568,7 +577,7 @@
         </div>
 
         <!-- Flyer image preview (placed below schedule) -->
-        <div class="pt-6 border-t border-white/10 mt-6">
+        <div class="pt-6 border-t border-white/10 mt-6 lg:pt-0 lg:mt-0 lg:border-t-0 lg:border-l lg:pl-8 lg:w-96 lg:shrink-0">
           <div class="flex items-center justify-between mb-3">
             <span class="text-xs font-quicksand tracking-wider text-gray-400">TIMETABLE FLYER</span>
             <button
