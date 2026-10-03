@@ -107,7 +107,7 @@
     <!-- Hero / Title Header -->
     <header data-glow-stop class="relative mb-16">
       <div class="flex flex-wrap items-center gap-3 mb-4">
-        <span class="font-quicksand text-xs sm:text-sm tracking-widest text-brand uppercase font-medium">
+        <span class="font-quicksand text-xs sm:text-sm tracking-widest text-[#00b1e0] uppercase font-medium">
           The Utopia Tone vol.11 Extended
         </span>
       </div>
@@ -456,7 +456,7 @@
               <span class="text-xs font-quicksand tracking-wider text-gray-400 block mb-1">DAY 1</span>
               <h3 class="font-noto text-xl font-light text-white">10月10日（土）</h3>
             </div>
-            <span class="text-xs font-quicksand tracking-widest text-brand-primary border border-brand-primary/30 px-3 py-1">CLUB MUSIC</span>
+            <span class="text-xs font-quicksand tracking-widest text-[#00b1e0] border-[#00b1e0]/30 px-3 py-1">CLUB MUSIC</span>
           </div>
 
           <!-- Schedule List -->
@@ -473,7 +473,7 @@
                   <span
                     v-if="slot.tag"
                     class="text-xs font-quicksand font-medium tracking-wide w-full text-center py-0.5"
-                    :class="slot.tag === 'GUEST' ? 'bg-[#C7000A] text-white font-semibold' : 'border border-white/20 text-gray-300'"
+                    :class="slot.tag === 'GUEST' ? 'bg-[#00b1e0] text-white font-semibold' : 'border border-white/20 text-gray-300'"
                   >
                     {{ slot.tag }}
                   </span>
@@ -532,7 +532,7 @@
               <span class="text-xs font-quicksand tracking-wider text-gray-400 block mb-1">DAY 2</span>
               <h3 class="font-noto text-xl font-light text-white">10月11日（日）</h3>
             </div>
-            <span class="text-xs font-quicksand tracking-widest text-brand-primary border border-brand-primary/30 px-3 py-1">SUBCULTURE</span>
+            <span class="text-xs font-quicksand tracking-widest text-[#00b1e0] border-[#00b1e0]/30 px-3 py-1">SUBCULTURE</span>
           </div>
 
           <!-- Schedule List -->
@@ -549,7 +549,7 @@
                   <span
                     v-if="slot.tag"
                     class="text-xs font-quicksand font-medium tracking-wide w-full text-center py-0.5"
-                    :class="slot.tag === 'GUEST' ? 'bg-[#C7000A] text-white font-semibold' : 'border border-white/20 text-gray-300'"
+                    :class="slot.tag === 'GUEST' ? 'bg-[#00b1e0] text-white font-semibold' : 'border border-white/20 text-gray-300'"
                   >
                     {{ slot.tag }}
                   </span>
@@ -647,6 +647,12 @@ const pageRoot = ref<HTMLElement | null>(null)
 // 2.3s splash screen, then reveal the page
 onMounted(() => {
   if (import.meta.client) {
+    // Swap the shared header/footer logo accent to cyan while on this page
+    document.body.classList.add('utone-cyan-theme')
+    onUnmounted(() => {
+      document.body.classList.remove('utone-cyan-theme')
+    })
+
     const splashTimer = setTimeout(() => {
       isLoading.value = false
     }, 2300)
@@ -855,6 +861,13 @@ useSeoMeta({
 </script>
 
 <style>
+/* This page only: tint the shared header/footer logo accent (#C7000A) to cyan
+   via a hue-rotate filter while body has .utone-cyan-theme. */
+body.utone-cyan-theme img[src="/images/logo/logo.svg"],
+body.utone-cyan-theme img[src="/images/logo/logo_dark.svg"] {
+  filter: hue-rotate(195deg) saturate(1.5);
+}
+
 /* Leaflet Dark Theme & Custom Pins */
 .map-dark-theme .leaflet-container {
   background: #050505 !important;
@@ -897,10 +910,10 @@ useSeoMeta({
 }
 
 .marker-brand .marker-pulse {
-  background-color: rgba(199, 0, 10, 0.4);
+  background-color: rgba(0, 177, 224, 0.4);
 }
 .marker-brand .marker-core {
-  background-color: #c7000a;
+  background-color: #00b1e0;
 }
 
 .marker-label {
@@ -947,7 +960,7 @@ useSeoMeta({
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.1em;
-  color: #c7000a;
+  color: #00b1e0;
   text-transform: uppercase;
   margin-bottom: 4px;
 }
@@ -977,7 +990,7 @@ useSeoMeta({
 
 .utone-svg-loader svg path {
   fill: transparent;
-  stroke: #ffffff;
+  stroke: #00b1e0;
   stroke-width: 1px;
   stroke-dasharray: 600;
   stroke-dashoffset: 600;
