@@ -1,6 +1,6 @@
 # technotut.net
 このリポジトリはTechnoTUTの公式ホームページ, https://technotut.net のソースコードです.  
-Nuxt 3で作成されており, pushすると自動的にGitHub Actionsによってビルドされ, Cloudflare Pagesにデプロイされます.  
+Nuxt 3で作成されており, pushすると自動的にGitHub Actionsによってビルドされ, Cloudflare Workers (Static Assets) にデプロイされます.  
 編集環境構築用のDockerfileも同梱しており, `.devcontainer/Dockerfile`を編集すれば, push時に自動でGitHub ActionsがDockerイメージをビルドします.  
 Docker imageをpullするには, 以下のコマンドを実行します.
 ```bash

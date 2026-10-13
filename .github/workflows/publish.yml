@@ -1,4 +1,4 @@
-name: Publish to Cloudflare Pages
+name: Publish to Cloudflare Workers
 
 on: [push, workflow_dispatch]
 
@@ -9,7 +9,7 @@ jobs:
     permissions:
       contents: read
       deployments: write
-    name: Publish to Cloudflare Pages
+    name: Publish to Cloudflare Workers
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -29,9 +29,9 @@ jobs:
         run: npm install
       - name: export
         run: npm run export
-      - name: Publish to Cloudflare Pages
+      - name: Deploy to Cloudflare Workers
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy out --project-name technotut
+          command: deploy
