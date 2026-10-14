@@ -31,9 +31,19 @@ jobs:
         run: npm run export
       - name: build worker
         run: npm run build
-      - name: Deploy to Cloudflare Workers
+      # main -> production Worker ("technotut", custom domain)
+      - name: Deploy to production
+        if: ${{ github.ref == 'refs/heads/main' }}
         uses: cloudflare/wrangler-action@v4
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: deploy
+      # Other branches -> separate preview Worker, so production is never touched
+      - name: Deploy preview
+        if: ${{ github.ref != 'refs/heads/main' }}
+        uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy --name technotut-preview
