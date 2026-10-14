@@ -74,8 +74,7 @@ const scheduleGroups = computed(() => {
   for (const item of scheduleItems.value ?? []) {
     const key = `${item.fiscalYear}|${item.category}`
     if (!groups.has(key)) {
-      const label = [item.fiscalYear && `${item.fiscalYear}年度`, item.category].filter(Boolean).join(' ')
-      groups.set(key, { key, label, items: [] })
+      groups.set(key, { key, label: item.category, items: [] })
     }
     groups.get(key)!.items.push(item)
   }
