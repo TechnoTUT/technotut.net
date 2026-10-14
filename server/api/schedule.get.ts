@@ -79,7 +79,11 @@ export default defineEventHandler(async (event) => {
     if (!res.ok) throw new Error(`upstream status ${res.status}`)
 
     const items = toScheduleItems(parseCsv(await res.text()))
-    setResponseHeader(event, 'Cache-Control', 'public, max-age=300, stale-while-revalidate=172800')
+    setResponseHeader(
+      event,
+      'Cache-Control',
+      import.meta.dev ? 'no-store' : 'public, max-age=300, stale-while-revalidate=172800',
+    )
     return items
   } catch (error) {
     console.error('[schedule] failed to load sheet', error)
