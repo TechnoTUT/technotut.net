@@ -38,6 +38,9 @@ yarn-error.log*
 .env.*
 !.env.example
 
+# cloudflare wrangler
+.wrangler
+
 # vercel & netlify
 .vercel
 .netlify
