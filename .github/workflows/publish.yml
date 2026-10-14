@@ -39,11 +39,12 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: deploy
-      # Other branches -> separate preview Worker, so production is never touched
-      - name: Deploy preview
+      # Other branches -> upload a new version of the same Worker without promoting it.
+      # Production keeps serving the current deployment; the version gets its own preview URL.
+      - name: Upload preview version
         if: ${{ github.ref != 'refs/heads/main' }}
         uses: cloudflare/wrangler-action@v4
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: deploy --name technotut-preview
+          command: versions upload
