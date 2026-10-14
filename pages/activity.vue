@@ -12,27 +12,74 @@
     <div id="schedule" class="mt-24 sm:mt-32 border-t border-white/10 pt-12">
       <p class="font-quicksand text-xs tracking-[0.2em] text-gray-400 mb-3">RECORD</p>
       <h2 class="font-noto font-light text-3xl sm:text-4xl mb-8">活動予定・実績</h2>
-      <!-- Markdown Content for Schedule / Record -->
-      <template v-if="doc">
+      <!-- Sheet-backed schedule (loaded on the client). Falls back to the Markdown below when unavailable. -->
+      <template v-if="scheduleGroups.length">
         <article
           class="schedule-content prose prose-invert prose-lg max-w-none font-noto prose-p:font-[350] prose-p:text-gray-dim prose-headings:font-noto prose-p:font-[350] prose-p:text-gray-dim prose-headings:font-light prose-headings:text-white prose-table:border-collapse prose-th:border-b prose-th:border-white/20 prose-th:py-3 prose-th:text-white prose-td:border-b prose-td:border-white/10 prose-td:py-3"
         >
-          <ContentRenderer :value="doc" />
+          <section v-for="group in scheduleGroups" :key="group.key">
+            <h3>{{ group.label }}</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>日程</th>
+                  <th>活動名</th>
+                  <th>場所</th>
+                  <th>内容</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="(item, index) in group.items" :key="index">
+                  <td>{{ item.date }}</td>
+                  <td>
+                    <a v-if="item.url" :href="item.url" target="_blank" rel="noopener">{{ item.title }}</a>
+                    <template v-else>{{ item.title }}</template>
+                  </td>
+                  <td>{{ item.place }}</td>
+                  <td>{{ item.description }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
         </article>
       </template>
+      <p v-else-if="scheduleStatus === 'error' || scheduleStatus === 'success'" class="font-noto text-gray-dim">
+        活動予定・実績は現在準備中です。
+      </p>
+      <p v-else class="font-noto text-gray-dim">読み込み中…</p>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-// Resolve content before rendering so navigation cannot show a temporary not-found state.
-const documentPath = '/activity'
-const { data: doc, error } = await useAsyncData(`page-document-${documentPath}`, () =>
-  queryContent(documentPath).findOne(),
-)
-if (error.value) throw createError(error.value)
-if (!doc.value) throw createError({ statusCode: 404, statusMessage: 'Page not found' })
-useContentHead(doc)
+interface ScheduleItem {
+  fiscalYear: string
+  category: string
+  date: string
+  title: string
+  url: string
+  place: string
+  description: string
+}
+
+// Fetched at runtime (not during prerender) so sheet edits show without rebuilding.
+// Until it loads, or when the sheet is unavailable, the section shows a placeholder.
+const { data: scheduleItems, status: scheduleStatus } = await useFetch<ScheduleItem[]>('/api/schedule', {
+  server: false,
+  default: () => [],
+})
+
+const scheduleGroups = computed(() => {
+  const groups = new Map<string, { key: string; label: string; items: ScheduleItem[] }>()
+  for (const item of scheduleItems.value ?? []) {
+    const key = `${item.fiscalYear}|${item.category}`
+    if (!groups.has(key)) {
+      groups.set(key, { key, label: item.category, items: [] })
+    }
+    groups.get(key)!.items.push(item)
+  }
+  return [...groups.values()]
+})
 
 useSeoMeta({
   title: '活動情報 - TechnoTUT',

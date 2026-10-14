@@ -6,6 +6,9 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: false },
 
+  // Workers rejects uploads whose gzipped source maps exceed 15MB.
+  sourcemap: { server: false, client: false },
+
   modules: ['@nuxtjs/tailwindcss', '@nuxt/content', '@nuxt/eslint', '@nuxt/image'],
 
   content: {
@@ -50,7 +53,13 @@ export default defineNuxtConfig({
 
   css: ['~/assets/css/main.css'],
 
+  runtimeConfig: {
+    // Published CSV URL of the activity schedule sheet. Set via NUXT_SCHEDULE_CSV_URL.
+    scheduleCsvUrl: '',
+  },
+
   nitro: {
+    preset: 'cloudflare_module',
     output: {
       publicDir: fileURLToPath(new URL('./out', import.meta.url)),
     },

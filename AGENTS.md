@@ -42,7 +42,8 @@
 | 依頼内容 | 主な編集先 | 関連する表示・ファイル |
 | :--- | :--- | :--- |
 | 技科大祭の記事・告知の更新 | `content/gikadaifes/年.md`、対応する `public/images/gikadaifes/年/` | 記事詳細、`pages/gikadaifes/index.vue` の一覧、`components/GikadaifesSection.vue` のトップページ表示 |
-| 活動情報・FAQの本文更新 | `content/activity.md`, `content/faq.md` | 対応する `pages/activity.vue`, `pages/faq.vue`。見出し等はVue側にもあるため表示元を確認 |
+| 活動予定・実績の更新 | Googleスプレッドシート（公開CSV、環境変数 `NUXT_SCHEDULE_CSV_URL`） | `server/api/schedule.get.ts` → `pages/activity.vue`。リポジトリ内には表データを持たない |
+| FAQの本文更新 | `content/faq.md` | 対応する `pages/faq.vue`。見出し等はVue側にもあるため表示元を確認 |
 | トップページの各セクション更新 | `components/*Section.vue` | `pages/index.vue`。記事から取得している内容はMarkdown側で更新 |
 | アクセス・入部案内の更新 | `pages/access.vue`, `pages/join-us.vue` と参照先 | トップページの関連セクションや画像など。同名のMarkdownが表示元とは限らない |
 | その他のMarkdown記事更新 | 対象の `content/*.md` と参照画像 | `pages/[...slug].vue` による記事表示 |
