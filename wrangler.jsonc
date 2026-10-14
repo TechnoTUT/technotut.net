@@ -8,5 +8,7 @@
     "directory": "./out",
     "not_found_handling": "404-page",
     "run_worker_first": ["/api/*"]
-  }
+  },
+  // Preview-specific overrides. Secrets are set with `wrangler preview (base-config) secret put`.
+  "previews": {}
 }

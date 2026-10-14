@@ -39,12 +39,12 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: deploy
-      # Other branches -> upload a new version of the same Worker without promoting it.
-      # Production keeps serving the current deployment; the version gets its own preview URL.
-      - name: Upload preview version
+      # Other branches -> Worker Preview for this branch (same Worker, production is not changed).
+      # Preview name defaults to the git branch name.
+      - name: Deploy branch preview
         if: ${{ github.ref != 'refs/heads/main' }}
         uses: cloudflare/wrangler-action@v4
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: versions upload
+          command: preview
