@@ -219,6 +219,38 @@
       </div>
     </section>
 
+    <!-- Regional Rail Map: rail lines and main stations around Nagoya, Toyohashi and Hamamatsu. Shown only for public transport. -->
+    <section v-if="activeTransitTab === 'public'" aria-labelledby="regional-map-heading" class="mb-16 sm:mb-24">
+      <div class="mb-6">
+        <p class="font-quicksand text-xs tracking-widest text-gray-400 uppercase mb-1">
+          REGIONAL RAIL MAP
+        </p>
+        <h2 id="regional-map-heading" class="font-noto text-2xl sm:text-3xl font-light text-white">
+          鉄道路線図
+        </h2>
+        <p class="mt-2 text-sm sm:text-base font-noto text-gray-dim font-light leading-relaxed max-w-3xl">
+          名古屋駅・豊橋駅・浜松駅と、周辺の鉄道路線です。
+        </p>
+      </div>
+
+      <div class="overflow-hidden border border-white/10 bg-dark h-[420px] sm:h-[500px] w-full flex flex-col">
+        <ClientOnly>
+          <RegionalRailMap class="w-full h-full flex-grow" />
+          <template #fallback>
+            <div class="w-full h-full flex-grow bg-dark flex flex-col items-center justify-center gap-3">
+              <div class="w-8 h-8 rounded-full border-2 border-brand border-t-transparent animate-spin" />
+              <p class="font-quicksand text-xs tracking-widest text-gray-400 uppercase">
+                Loading Rail Map...
+              </p>
+            </div>
+          </template>
+        </ClientOnly>
+      </div>
+      <p class="mt-3 text-xs font-quicksand text-gray-400 tracking-wide">
+        Rail: National Land Numerical Information (MLIT), CC BY 4.0
+      </p>
+    </section>
+
     <!-- Campus 3D Flyover (PLATEAU building models) -->
     <section aria-labelledby="campus-3d-heading" class="mb-16 sm:mb-24">
       <div class="mb-6">
