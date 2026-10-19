@@ -34,7 +34,7 @@
 
       <div class="mt-16 pt-8 border-t border-white/10 flex justify-between items-center">
         <NuxtLinkLocale to="/gikadaifes" class="common-btn text-xs py-2 px-6">
-          <span>{{ $t('gikadaifes.backToList') }}</span>
+          <span>{{ (locale === 'en' ? 'Back to list' : '一覧へ戻る') }}</span>
         </NuxtLinkLocale>
       </div>
     </template>
@@ -43,7 +43,7 @@
 
 <script setup lang="ts">
 import { formatJaDate as formatDate } from '~/utils/date'
-useI18n()
+const { locale } = useI18n()
 
 definePageMeta({ key: route => route.path })
 
@@ -192,18 +192,3 @@ useContentHead(doc)
   font-weight: 600;
 }
 </style>
-
-<i18n lang="json">
-{
-  "ja": {
-    "gikadaifes": {
-      "backToList": "一覧へ戻る"
-    }
-  },
-  "en": {
-    "gikadaifes": {
-      "backToList": "Back to list"
-    }
-  }
-}
-</i18n>

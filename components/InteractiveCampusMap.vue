@@ -73,40 +73,40 @@ const mapInstance = shallowRef<LeafletMap | null>(null)
 let markersList: Array<{ id: LocationId; marker: LeafletMarker }> = []
 let resizeObserver: ResizeObserver | null = null
 
-const { t } = useI18n()
+const { locale } = useI18n()
 
 const locations = computed<LocationItem[]>(() => [
   {
     id: 'all',
-    name: t('map.overview'),
+    name: (locale.value === 'en' ? 'Overview' : '全体俯瞰'),
     center: [34.7009, 137.4095],
     zoom: 16,
   },
   {
     id: 'commons',
-    name: t('map.commonsName'),
+    name: (locale.value === 'en' ? 'Commons 1' : 'コモンズ1'),
     center: [34.70075, 137.40903],
     zoom: 18,
-    title: t('map.commonsTitle'),
-    description: t('map.commonsDesc'),
+    title: (locale.value === 'en' ? 'Commons 1 (1F, Welfare Facility)' : 'コモンズ1 (福利施設1階)'),
+    description: (locale.value === 'en' ? 'Venue for the on-campus event \x22The Utopia Tone\x22' : '学内イベント \x22The Utopia Tone\x22 の開催場所'),
     badge: 'COMMONS 1',
   },
   {
     id: 'clubroom',
-    name: t('map.clubName'),
+    name: (locale.value === 'en' ? 'Club Room' : '部室'),
     center: [34.70105, 137.40663],
     zoom: 18,
-    title: t('map.clubTitle'),
-    description: t('map.clubDesc'),
+    title: (locale.value === 'en' ? 'TechnoTUT Club Room (2F, Clubhouse)' : '音楽技術部 部室 (クラブハウス2階)'),
+    description: (locale.value === 'en' ? 'Our everyday activity space' : '日常的な活動場所'),
     badge: 'CLUB ROOM',
   },
   {
     id: 'bus',
-    name: t('map.busName'),
+    name: (locale.value === 'en' ? 'Gikadaimae Bus Stop' : '技科大前 バス停'),
     center: [34.70088, 137.41273],
     zoom: 17,
-    title: t('map.busTitle'),
-    description: t('map.busDesc'),
+    title: (locale.value === 'en' ? 'Gikadaimae Bus Stop (in front of the East Gate roundabout)' : '技科大前 バス停 (東門ロータリー前)'),
+    description: (locale.value === 'en' ? 'About 30 minutes from Toyohashi Station Bus Stop No. 2 by the Toyotetsu Bus (Toyohashi Gikadai Line).' : '豊橋駅前2番乗り場より豊鉄バス（豊橋技科大線）で約30分。'),
     badge: 'BUS STOP',
   },
 ])
@@ -398,36 +398,3 @@ onUnmounted(() => {
   color: #aaa !important;
 }
 </style>
-
-<i18n lang="json">
-{
-  "ja": {
-    "map": {
-      "overview": "全体俯瞰",
-      "commonsName": "コモンズ1",
-      "commonsTitle": "コモンズ1 (福利施設1階)",
-      "commonsDesc": "学内イベント \"The Utopia Tone\" の開催場所",
-      "clubName": "部室",
-      "clubTitle": "音楽技術部 部室 (クラブハウス2階)",
-      "clubDesc": "日常的な活動場所",
-      "busName": "技科大前 バス停",
-      "busTitle": "技科大前 バス停 (東門ロータリー前)",
-      "busDesc": "豊橋駅前2番乗り場より豊鉄バス（豊橋技科大線）で約30分。"
-    }
-  },
-  "en": {
-    "map": {
-      "overview": "Overview",
-      "commonsName": "Commons 1",
-      "commonsTitle": "Commons 1 (1F, Welfare Facility)",
-      "commonsDesc": "Venue for the on-campus event \"The Utopia Tone\"",
-      "clubName": "Club Room",
-      "clubTitle": "TechnoTUT Club Room (2F, Clubhouse)",
-      "clubDesc": "Our everyday activity space",
-      "busName": "Gikadaimae Bus Stop",
-      "busTitle": "Gikadaimae Bus Stop (in front of the East Gate roundabout)",
-      "busDesc": "About 30 minutes from Toyohashi Station Bus Stop No. 2 by the Toyotetsu Bus (Toyohashi Gikadai Line)."
-    }
-  }
-}
-</i18n>

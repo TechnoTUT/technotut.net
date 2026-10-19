@@ -17,9 +17,7 @@ export default defineNuxtConfig({
     strategy: 'prefix_except_default',
     detectBrowserLanguage: false,
     baseUrl: 'https://technotut.net',
-    // Messages live in each file's <i18n lang="json"> block and are shared globally.
     bundle: { optimizeTranslationDirective: false },
-    customBlocks: { globalSFCScope: true },
     locales: [
       { code: 'ja', language: 'ja-JP', name: '日本語' },
       { code: 'en', language: 'en-US', name: 'English' },

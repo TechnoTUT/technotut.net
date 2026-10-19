@@ -82,7 +82,7 @@
         v-for="(item, idx) in activities"
         :key="item.title"
         :href="`/activity#${item.id}`"
-        :aria-label="$t('concept.viewActivity', { name: item.title })"
+        :aria-label="(locale === 'en' ? `View the ${item.title} activity` : `${item.title} の活動紹介を見る`)"
         class="orbit-item group z-20 cursor-pointer"
         :class="[
           isVisible ? 'orbit-item--visible' : 'orbit-item--hidden',
@@ -142,7 +142,7 @@
           <button
             type="button"
             class="activity-detail-close w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-xs text-white/70 hover:text-white cursor-pointer"
-            :aria-label="$t('common.close')"
+            :aria-label="(locale === 'en' ? 'Close' : '閉じる')"
             @click.stop="activeItem = null"
           >
             ✕
@@ -156,7 +156,7 @@
             :to="`/activity#${displayedItem.id}`"
             class="inline-flex items-center min-h-11 gap-2 text-xs sm:text-sm 2xl:text-base [@media(min-width:2560px)]:text-lg text-brand hover:text-white landscape:text-white font-medium transition-colors"
           >
-            <span class="landscape:underline underline-offset-4">{{ $t('concept.learnMore') }}</span><span aria-hidden="true">&rarr;</span>
+            <span class="landscape:underline underline-offset-4">{{ (locale === 'en' ? 'Learn more about this activity' : '活動を詳しく見る') }}</span><span aria-hidden="true">&rarr;</span>
           </NuxtLinkLocale>
         </div>
       </div>
@@ -335,7 +335,7 @@ const handleSectionClick = (e: MouseEvent) => {
   }
 }
 
-const { t } = useI18n()
+const { locale } = useI18n()
 
 const activities = computed<Activity[]>(() => [
   {
@@ -346,7 +346,7 @@ const activities = computed<Activity[]>(() => [
     image: '/images/concept/dj.jpg',
     delay: 0,
     duration: 6.2,
-    description: t('concept.desc.dj'),
+    description: (locale.value === 'en' ? 'Mainly active in playing at our own event The Utopia Tone and at Gikadaisai. We also perform at off-campus clubs and host our own events.' : '主催イベント「The Utopia Tone」や技科大祭でのプレイを中心に活動。学外クラブでの出演や主催イベントも展開しています。'),
   },
   {
     id: 'vj-lj',
@@ -356,7 +356,7 @@ const activities = computed<Activity[]>(() => [
     image: '/images/concept/vj.jpg',
     delay: -1.8,
     duration: 7.1,
-    description: t('concept.desc.vjlj'),
+    description: (locale.value === 'en' ? 'In charge of video (VJ) and lighting (LJ) production. We develop equipment and create light and video staging that brings the space to life to the fullest.' : '映像演出 (VJ) と照明演出 (LJ) を担当。機材開発を行い、空間を最大限に盛り上げる光と映像の演出を手掛けます。'),
   },
   {
     id: 'media',
@@ -366,7 +366,7 @@ const activities = computed<Activity[]>(() => [
     image: '/images/concept/media.jpg',
     delay: -3.4,
     duration: 6.8,
-    description: t('concept.desc.media'),
+    description: (locale.value === 'en' ? 'We create content that appeals to sight and feeling, including flyer design, managing promotional SNS, updating the website, video production, and illustration.' : 'フライヤー制作、広報SNS運用、Webサイト更新、映像制作やイラストレーションなど視覚と感覚に訴えるコンテンツを創出します。'),
   },
   {
     id: 'dtm',
@@ -376,7 +376,7 @@ const activities = computed<Activity[]>(() => [
     image: '/images/concept/dtm.png',
     delay: -0.9,
     duration: 7.5,
-    description: t('concept.desc.dtm'),
+    description: (locale.value === 'en' ? 'We make music based on the songs we each love. We release original works at M3 in spring and autumn and release tracks on Bandcamp.' : '各自の好む音楽を求めて楽曲制作。春・秋のM3でのオリジナル作品頒布やBandcampでの音源リリースを行っています。'),
   },
   {
     id: 'tech-diy',
@@ -386,17 +386,17 @@ const activities = computed<Activity[]>(() => [
     image: '/images/concept/tech.jpg',
     delay: -2.6,
     duration: 6.4,
-    description: t('concept.desc.techDiy'),
+    description: (locale.value === 'en' ? 'We develop technology that supports music and live events, including server maintenance, real-time video streaming at event venues, and lighting programming.' : 'サーバー保守管理、イベント会場のリアルタイム映像配信、照明プログラミングなど、音楽とライブを支える技術開発を行います。'),
   },
   {
     id: 'ramen',
     slot: 4,
-    title: t('concept.ramenTitle'),
+    title: (locale.value === 'en' ? 'RAMEN' : 'ら'),
     side: 'left',
     image: '/images/concept/ra.jpg',
     delay: -4.2,
     duration: 7.8,
-    description: t('concept.desc.ramen'),
+    description: (locale.value === 'en' ? 'A club tradition of eating our way through ramen and karaage worth traveling for. Members\' favorite shops are featured on the Ramen Map.' : '旅行する価値のある卓越したラーメンと唐揚げを求めて食べ歩く部内文化。部員厳選のおすすめ店舗はラーメンマップで公開中です。'),
   },
   {
     id: 'event',
@@ -406,7 +406,7 @@ const activities = computed<Activity[]>(() => [
     image: '/images/index/event/camp.jpg',
     delay: -1.2,
     duration: 7.3,
-    description: t('concept.desc.event'),
+    description: (locale.value === 'en' ? 'From after-school events in the club room, to large events in Commons, to Gikadaisai and events at clubs. Through planning and running events, we build playgrounds and stages everyone can enjoy, with our own hands.' : '部室での放課後イベントから、コモンズでの大規模イベント、技科大祭やクラブでの開催まで。企画・運営を通じて、誰もが楽しめる遊び場とステージを自分たちの手で作ります。'),
   },
 ])
 
@@ -957,46 +957,3 @@ onUnmounted(() => {
   }
 }
 </style>
-
-<i18n lang="json">
-{
-  "ja": {
-    "concept": {
-      "viewActivity": "{name} の活動紹介を見る",
-      "learnMore": "活動を詳しく見る",
-      "ramenTitle": "ら",
-      "desc": {
-        "dj": "主催イベント「The Utopia Tone」や技科大祭でのプレイを中心に活動。学外クラブでの出演や主催イベントも展開しています。",
-        "vjlj": "映像演出 (VJ) と照明演出 (LJ) を担当。機材開発を行い、空間を最大限に盛り上げる光と映像の演出を手掛けます。",
-        "media": "フライヤー制作、広報SNS運用、Webサイト更新、映像制作やイラストレーションなど視覚と感覚に訴えるコンテンツを創出します。",
-        "dtm": "各自の好む音楽を求めて楽曲制作。春・秋のM3でのオリジナル作品頒布やBandcampでの音源リリースを行っています。",
-        "techDiy": "サーバー保守管理、イベント会場のリアルタイム映像配信、照明プログラミングなど、音楽とライブを支える技術開発を行います。",
-        "ramen": "旅行する価値のある卓越したラーメンと唐揚げを求めて食べ歩く部内文化。部員厳選のおすすめ店舗はラーメンマップで公開中です。",
-        "event": "部室での放課後イベントから、コモンズでの大規模イベント、技科大祭やクラブでの開催まで。企画・運営を通じて、誰もが楽しめる遊び場とステージを自分たちの手で作ります。"
-      }
-    },
-    "common": {
-      "close": "閉じる"
-    }
-  },
-  "en": {
-    "concept": {
-      "viewActivity": "View the {name} activity",
-      "learnMore": "Learn more about this activity",
-      "ramenTitle": "RAMEN",
-      "desc": {
-        "dj": "Mainly active in playing at our own event The Utopia Tone and at Gikadaisai. We also perform at off-campus clubs and host our own events.",
-        "vjlj": "In charge of video (VJ) and lighting (LJ) production. We develop equipment and create light and video staging that brings the space to life to the fullest.",
-        "media": "We create content that appeals to sight and feeling, including flyer design, managing promotional SNS, updating the website, video production, and illustration.",
-        "dtm": "We make music based on the songs we each love. We release original works at M3 in spring and autumn and release tracks on Bandcamp.",
-        "techDiy": "We develop technology that supports music and live events, including server maintenance, real-time video streaming at event venues, and lighting programming.",
-        "ramen": "A club tradition of eating our way through ramen and karaage worth traveling for. Members' favorite shops are featured on the Ramen Map.",
-        "event": "From after-school events in the club room, to large events in Commons, to Gikadaisai and events at clubs. Through planning and running events, we build playgrounds and stages everyone can enjoy, with our own hands."
-      }
-    },
-    "common": {
-      "close": "Close"
-    }
-  }
-}
-</i18n>

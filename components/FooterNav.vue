@@ -12,7 +12,7 @@
             >
           </NuxtLinkLocale>
           <p class="text-sm text-gray-400 leading-relaxed font-noto font-[350]">
-            <template v-if="locale === 'ja'">{{ $t('common.university') }}<br ></template>
+            <template v-if="locale === 'ja'">{{ (locale === 'en' ? 'Toyohashi University of Technology Music & Live production Club' : '豊橋技術科学大学 音楽技術部') }}<br ></template>
             Music &amp; Live production Club - TechnoTUT<br >
             Official Club of Toyohashi University of Technology. We are interested in music and technology.
           </p>
@@ -92,7 +92,7 @@
           <ul class="space-y-2">
             <li><NuxtLinkLocale to="/" class="text-gray-400 hover:text-white transition-colors">HOME</NuxtLinkLocale></li>
             <li><NuxtLinkLocale to="/activity" class="text-gray-400 hover:text-white transition-colors">ACTIVITY</NuxtLinkLocale></li>
-            <li><NuxtLinkLocale to="/gikadaifes" class="text-gray-400 hover:text-white transition-colors">{{ $t('nav.gikadaifes') }}</NuxtLinkLocale></li>
+            <li><NuxtLinkLocale to="/gikadaifes" class="text-gray-400 hover:text-white transition-colors">{{ (locale === 'en' ? 'Gikadaisai' : '技科大祭') }}</NuxtLinkLocale></li>
             <li><NuxtLinkLocale to="/access" class="text-gray-400 hover:text-white transition-colors">ACCESS</NuxtLinkLocale></li>
             <li><NuxtLinkLocale to="/faq" class="text-gray-400 hover:text-white transition-colors">FAQ</NuxtLinkLocale></li>
             <li><NuxtLinkLocale to="/join-us" class="text-gray-400 hover:text-white transition-colors">JOIN US</NuxtLinkLocale></li>
@@ -103,9 +103,9 @@
         <div class="space-y-3 text-sm text-gray-400 font-noto">
           <p class="text-xs uppercase text-gray-500 font-quicksand font-semibold mb-4">Address</p>
           <p class="leading-relaxed">
-            <span class="whitespace-nowrap">{{ $t('footer.addressLine1') }}</span><br >
-            <span class="whitespace-nowrap">{{ $t('footer.addressLine2') }}</span><br >
-            <span class="whitespace-nowrap">{{ $t('footer.addressLine3') }}</span>
+            <span class="whitespace-nowrap">{{ (locale === 'en' ? '1-1 Hibarigaoka, Tenpaku-cho, Toyohashi, Aichi' : '愛知県豊橋市天伯町雲雀ヶ丘1-1') }}</span><br >
+            <span class="whitespace-nowrap">{{ (locale === 'en' ? 'Toyohashi University of Technology, 2F Clubhouse' : '豊橋技術科学大学 クラブハウス2階') }}</span><br >
+            <span class="whitespace-nowrap">{{ (locale === 'en' ? 'TechnoTUT Club Room' : '音楽技術部室') }}</span>
           </p>
 
           <!-- Spam-protected Contact -->
@@ -129,34 +129,3 @@
 const { locale } = useI18n()
 const currentYear = new Date().getFullYear()
 </script>
-
-<i18n lang="json">
-{
-  "ja": {
-    "footer": {
-      "addressLine2": "豊橋技術科学大学 クラブハウス2階",
-      "addressLine3": "音楽技術部室",
-      "addressLine1": "愛知県豊橋市天伯町雲雀ヶ丘1-1"
-    },
-    "common": {
-      "university": "豊橋技術科学大学 音楽技術部"
-    },
-    "nav": {
-      "gikadaifes": "技科大祭"
-    }
-  },
-  "en": {
-    "footer": {
-      "addressLine2": "Toyohashi University of Technology, 2F Clubhouse",
-      "addressLine3": "TechnoTUT Club Room",
-      "addressLine1": "1-1 Hibarigaoka, Tenpaku-cho, Toyohashi, Aichi"
-    },
-    "common": {
-      "university": "Toyohashi University of Technology Music & Live production Club"
-    },
-    "nav": {
-      "gikadaifes": "Gikadaisai"
-    }
-  }
-}
-</i18n>

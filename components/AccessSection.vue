@@ -5,7 +5,7 @@
       <SectionHeader
         eyebrow="LOCATION &amp; ACCESS"
         title="Access"
-        :description="$t('access.sectionDescription')"
+        :description="(locale === 'en' ? 'Access to Toyohashi University of Technology and our on-campus activity spaces' : '豊橋技術科学大学へのアクセス、および学内活動拠点のご案内')"
       >
         <template #action>
           <NuxtLinkLocale to="/access" class="common-btn text-xs py-2 px-5 inline-flex">
@@ -34,11 +34,11 @@
           </div>
           <div class="mt-4 flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 text-xs font-noto text-gray-400 font-light shrink-0">
             <div>
-              <span>{{ $t('common.universityShort') }}</span>
+              <span>{{ (locale === 'en' ? 'Toyohashi University of Technology' : '豊橋技術科学大学') }}</span>
               <span class="mx-2 text-white/20">•</span>
-              <span class="whitespace-nowrap">{{ $t('footer.addressLine1') }}</span>
+              <span class="whitespace-nowrap">{{ (locale === 'en' ? '1-1 Hibarigaoka, Tenpaku-cho, Toyohashi, Aichi' : '愛知県豊橋市天伯町雲雀ヶ丘1-1') }}</span>
             </div>
-            <p>{{ $t('access.sectionBus') }}</p>
+            <p>{{ (locale === 'en' ? 'Toyotetsu Bus from in front of Toyohashi Station, get off at Gikadaimae' : '豊橋駅前より豊鉄バス「技科大前」下車') }}</p>
           </div>
         </div>
 
@@ -48,7 +48,7 @@
           <div>
             <div class="flex items-center justify-between mb-3">
               <div class="title-with-line">
-                <h3 class="font-noto text-xl sm:text-2xl font-light text-white">{{ $t('access.commons1') }}</h3>
+                <h3 class="font-noto text-xl sm:text-2xl font-light text-white">{{ (locale === 'en' ? 'Commons 1' : 'コモンズ1') }}</h3>
               </div>
               <button
                 type="button"
@@ -60,7 +60,7 @@
               </button>
             </div>
             <p class="font-noto text-sm sm:text-base text-gray-dim font-[350] leading-relaxed mb-4">
-              {{ $t('access.commons1Desc') }}
+              {{ (locale === 'en' ? 'Venue for the on-campus event \x22The Utopia Tone.\x22' : '学内イベント \x22The Utopia Tone\x22 の開催場所です。') }}
             </p>
 
             <!-- Compact Photo Viewer -->
@@ -71,7 +71,7 @@
           <div class="pt-8 lg:pt-10">
             <div class="flex items-center justify-between mb-3">
               <div class="title-with-line">
-                <h3 class="font-noto text-xl sm:text-2xl font-light text-white">{{ $t('access.clubRoom') }}</h3>
+                <h3 class="font-noto text-xl sm:text-2xl font-light text-white">{{ (locale === 'en' ? 'Club Room' : '音楽技術部 部室') }}</h3>
               </div>
               <button
                 type="button"
@@ -83,11 +83,11 @@
               </button>
             </div>
             <p class="font-noto text-sm sm:text-base text-gray-dim font-[350] leading-relaxed">
-              {{ $t('access.clubRoomDesc') }}
+              {{ (locale === 'en' ? 'At the back of the clubhouse, 2nd floor. A DJ booth is permanently set up, and it is our everyday base.' : 'クラブハウス2階奥。DJブースが常設され日常的な活動拠点です。') }}
             </p>
             <div class="pt-5">
               <NuxtLinkLocale to="/access" class="common-btn text-xs py-2 px-6">
-                <span>{{ $t('access.seeDirections') }}</span>
+                <span>{{ (locale === 'en' ? 'See directions' : '詳しい行き方を見る') }}</span>
                 <span>&rarr;</span>
               </NuxtLinkLocale>
             </div>
@@ -99,7 +99,7 @@
 </template>
 
 <script setup lang="ts">
-useI18n()
+const { locale } = useI18n()
 interface CampusMapInstance {
   flyTo: (id: 'all' | 'commons' | 'clubroom' | 'bus') => void
 }
@@ -110,42 +110,3 @@ const focusLocation = (id: 'all' | 'commons' | 'clubroom' | 'bus') => {
   campusMapRef.value?.flyTo(id)
 }
 </script>
-
-<i18n lang="json">
-{
-  "ja": {
-    "common": {
-      "universityShort": "豊橋技術科学大学"
-    },
-    "access": {
-      "sectionDescription": "豊橋技術科学大学へのアクセス、および学内活動拠点のご案内",
-      "sectionBus": "豊橋駅前より豊鉄バス「技科大前」下車",
-      "commons1": "コモンズ1",
-      "commons1Desc": "学内イベント \"The Utopia Tone\" の開催場所です。",
-      "clubRoom": "音楽技術部 部室",
-      "clubRoomDesc": "クラブハウス2階奥。DJブースが常設され日常的な活動拠点です。",
-      "seeDirections": "詳しい行き方を見る"
-    },
-    "footer": {
-      "addressLine1": "愛知県豊橋市天伯町雲雀ヶ丘1-1"
-    }
-  },
-  "en": {
-    "common": {
-      "universityShort": "Toyohashi University of Technology"
-    },
-    "access": {
-      "sectionDescription": "Access to Toyohashi University of Technology and our on-campus activity spaces",
-      "sectionBus": "Toyotetsu Bus from in front of Toyohashi Station, get off at Gikadaimae",
-      "commons1": "Commons 1",
-      "commons1Desc": "Venue for the on-campus event \"The Utopia Tone.\"",
-      "clubRoom": "Club Room",
-      "clubRoomDesc": "At the back of the clubhouse, 2nd floor. A DJ booth is permanently set up, and it is our everyday base.",
-      "seeDirections": "See directions"
-    },
-    "footer": {
-      "addressLine1": "1-1 Hibarigaoka, Tenpaku-cho, Toyohashi, Aichi"
-    }
-  }
-}
-</i18n>

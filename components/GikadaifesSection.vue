@@ -4,7 +4,7 @@
       <!-- Section Header -->
       <SectionHeader
         eyebrow="TechnoTUT Presents - School Festival"
-        :title="$t('gikadaifes.title')"
+        :title="(locale === 'en' ? 'Gikadaisai' : '技科大祭')"
       >
         <template #action>
           <NuxtLinkLocale to="/gikadaifes" class="common-btn text-xs py-2 px-5 inline-flex">
@@ -61,7 +61,7 @@
           <div class="space-y-3 pt-1">
             <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6">
               <span class="font-quicksand text-xs tracking-widest text-gray-400 uppercase w-28 shrink-0">LOCATION</span>
-              <span class="font-noto text-sm sm:text-base text-white font-light">{{ $t('gikadaifes.venue') }}</span>
+              <span class="font-noto text-sm sm:text-base text-white font-light">{{ (locale === 'en' ? 'Welfare Facility Commons I & Special Stage in front of the Library' : '福利施設 コモンズⅠ & 図書館前特設ステージ') }}</span>
             </div>
             <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6">
               <span class="font-quicksand text-xs tracking-widest text-gray-400 uppercase w-28 shrink-0">OPEN</span>
@@ -69,18 +69,18 @@
             </div>
             <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6">
               <span class="font-quicksand text-xs tracking-widest text-gray-400 uppercase w-28 shrink-0">ENTRANCE</span>
-              <span class="font-noto text-sm sm:text-base text-white font-light">{{ $t('gikadaifes.free') }}</span>
+              <span class="font-noto text-sm sm:text-base text-white font-light">{{ (locale === 'en' ? 'Free' : '無料') }}</span>
             </div>
           </div>
 
           <!-- Action Buttons -->
           <div class="flex flex-wrap items-center gap-4 pt-2">
             <NuxtLinkLocale :to="latestPost._path" class="common-btn text-xs py-2 px-6">
-              <span>{{ $t('gikadaifes.seeDetails') }}</span>
+              <span>{{ (locale === 'en' ? 'See details' : '詳細を見る') }}</span>
               <span>&rarr;</span>
             </NuxtLinkLocale>
             <NuxtLinkLocale to="/gikadaifes" class="text-xs font-quicksand tracking-wider text-gray-400 hover:text-white transition-colors">
-              {{ $t('gikadaifes.archiveLink') }} &rarr;
+              {{ (locale === 'en' ? 'Past event archive' : '過去の開催アーカイブ一覧') }} &rarr;
             </NuxtLinkLocale>
           </div>
         </div>
@@ -91,7 +91,7 @@
 
 <script setup lang="ts">
 import { formatJaDate } from '~/utils/date'
-useI18n()
+const { locale } = useI18n()
 
 const { data: latestPost } = await useAsyncData('gikadaifes-latest', () =>
   queryContent('gikadaifes')
@@ -102,26 +102,3 @@ const { data: latestPost } = await useAsyncData('gikadaifes-latest', () =>
 
 const formatDate = formatJaDate
 </script>
-
-<i18n lang="json">
-{
-  "ja": {
-    "gikadaifes": {
-      "archiveLink": "過去の開催アーカイブ一覧",
-      "venue": "福利施設 コモンズⅠ & 図書館前特設ステージ",
-      "free": "無料",
-      "seeDetails": "詳細を見る",
-      "title": "技科大祭"
-    }
-  },
-  "en": {
-    "gikadaifes": {
-      "archiveLink": "Past event archive",
-      "venue": "Welfare Facility Commons I & Special Stage in front of the Library",
-      "free": "Free",
-      "seeDetails": "See details",
-      "title": "Gikadaisai"
-    }
-  }
-}
-</i18n>

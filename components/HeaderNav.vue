@@ -24,7 +24,7 @@
       </div>
       <!-- Desktop: Static university text without any animation on scroll -->
       <p class="header-university font-noto hidden md:block" :class="{ 'compact-university': showLinks, invisible: locale === 'en' }">
-        {{ $t('common.university') }}
+        {{ (locale === 'en' ? 'Toyohashi University of Technology Music & Live production Club' : '豊橋技術科学大学 音楽技術部') }}
       </p>
       <NuxtLink :to="switchPath" class="lang-switch font-quicksand hidden md:inline-flex shrink-0" :lang="targetLocale">
         {{ targetLabel }}
@@ -39,8 +39,8 @@
             class="header-university font-noto"
             :class="{ invisible: locale === 'en' }"
           >
-            <span class="block">{{ $t('common.universityLine1') }}</span>
-            <span class="block">{{ $t('common.universityLine2') }}</span>
+            <span class="block">{{ (locale === 'en' ? 'Toyohashi University' : '豊橋技術科学大学') }}</span>
+            <span class="block">{{ (locale === 'en' ? 'Music & Live production Club' : '音楽技術部') }}</span>
           </p>
           <button
             v-else
@@ -49,7 +49,7 @@
             class="hamburger-btn relative z-50"
             :class="{ 'is-active': isMenuOpen }"
             :aria-expanded="isMenuOpen"
-            :aria-label="isMenuOpen ? $t('nav.closeMenu') : $t('nav.openMenu')"
+            :aria-label="isMenuOpen ? (locale === 'en' ? 'Close menu' : 'メニューを閉じる') : (locale === 'en' ? 'Open menu' : 'メニューを開く')"
             aria-controls="mobile-navigation"
             @click="toggleMenu"
           >
@@ -87,7 +87,7 @@
           </nav>
           <div class="border-t border-white/10 pt-6 text-sm text-gray-400 font-zen mt-8">
             <p class="font-quicksand text-xs tracking-wider text-gray-500 mb-1">Music &amp; Live production Club - TechnoTUT</p>
-            <p class="text-xs">{{ $t('common.university') }}</p>
+            <p class="text-xs">{{ (locale === 'en' ? 'Toyohashi University of Technology Music & Live production Club' : '豊橋技術科学大学 音楽技術部') }}</p>
             <NuxtLink :to="switchPath" class="lang-switch font-quicksand inline-flex mt-4" :lang="targetLocale" @click="closeMenu">
               {{ targetLabel }}
             </NuxtLink>
@@ -99,7 +99,7 @@
 </template>
 
 <script setup lang="ts">
-const { t, locale } = useI18n()
+const { locale } = useI18n()
 const switchLocalePath = useSwitchLocalePath()
 
 // Link to the same page in the other language.
@@ -110,7 +110,7 @@ const switchPath = computed(() => switchLocalePath(targetLocale.value))
 const navItems = computed(() => [
   { label: 'HOME', to: '/' },
   { label: 'ACTIVITY', to: '/activity' },
-  { label: t('nav.gikadaifes'), to: '/gikadaifes' },
+  { label: (locale.value === 'en' ? 'Gikadaisai' : '技科大祭'), to: '/gikadaifes' },
   { label: 'ACCESS', to: '/access' },
   { label: 'FAQ', to: '/faq' },
   { label: 'JOIN US', to: '/join-us' },
@@ -325,32 +325,3 @@ onUnmounted(() => {
   }
 }
 </style>
-
-<i18n lang="json">
-{
-  "ja": {
-    "common": {
-      "universityLine1": "豊橋技術科学大学",
-      "universityLine2": "音楽技術部",
-      "university": "豊橋技術科学大学 音楽技術部"
-    },
-    "nav": {
-      "openMenu": "メニューを開く",
-      "closeMenu": "メニューを閉じる",
-      "gikadaifes": "技科大祭"
-    }
-  },
-  "en": {
-    "common": {
-      "universityLine1": "Toyohashi University",
-      "universityLine2": "Music & Live production Club",
-      "university": "Toyohashi University of Technology Music & Live production Club"
-    },
-    "nav": {
-      "openMenu": "Open menu",
-      "closeMenu": "Close menu",
-      "gikadaifes": "Gikadaisai"
-    }
-  }
-}
-</i18n>

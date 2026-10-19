@@ -1,11 +1,11 @@
 <template>
   <div>
     <p class="font-noto font-light text-gray-300 leading-8">
-      {{ $t('activityGroups.intro') }}
+      {{ (locale === 'en' ? 'You can join any activity group that interests you, and you are free to be part of several groups at once. There are no constraints or obligations. It is a place to enjoy things at your own pace, following what moves you.' : '自分の興味に合わせ、好きな活動班に自由に参加でき、複数のグループに関わることも可能です。制約や強制は一切なく、自分のペースで、心が動くままに楽しめる場所です。') }}
     </p>
 
-    <nav :aria-label="$t('activityGroups.tocLabel')" class="mt-10 mb-10 sm:mb-12">
-      <p class="font-noto text-xs tracking-widest text-gray-400 mb-4">{{ $t('activityGroups.toc') }}</p>
+    <nav :aria-label="(locale === 'en' ? 'Contents of activity groups and schedule' : '活動班とスケジュールの目次')" class="mt-10 mb-10 sm:mb-12">
+      <p class="font-noto text-xs tracking-widest text-gray-400 mb-4">{{ (locale === 'en' ? 'Contents' : '目次') }}</p>
       <ol class="grid grid-cols-2 sm:grid-cols-4 gap-x-5 gap-y-2 list-none p-0 m-0">
         <li v-for="(group, index) in groups" :key="group.id" class="min-w-0">
           <NuxtLinkLocale :to="`/activity#${group.id}`" class="activity-index-link">
@@ -15,7 +15,7 @@
         </li>
         <li class="min-w-0">
           <NuxtLinkLocale to="/activity#schedule" class="activity-index-link">
-            <span class="font-noto text-sm">{{ $t('activity.recordHeading') }}</span>
+            <span class="font-noto text-sm">{{ (locale === 'en' ? 'Schedule & Records' : '活動予定・実績') }}</span>
           </NuxtLinkLocale>
         </li>
       </ol>
@@ -49,7 +49,7 @@
             :class="group.id === 'media' ? 'h-80 sm:h-96 object-contain p-4' : 'aspect-[16/10] object-cover'"
           />
           <figcaption v-if="group.id === 'media'" class="font-noto text-xs text-gray-400 mt-3 leading-relaxed">
-            {{ image.src.includes('media-1') ? $t('activityGroups.mascotCaption') : $t('activityGroups.flyerCaption') }}
+            {{ image.src.includes('media-1') ? (locale === 'en' ? 'TechnoTUT official character Techno-chan (Minimum Techno-chan ver.)' : 'テクノ部公式キャラクター テクノちゃん（みにまむてくのちゃん ver.）') : (locale === 'en' ? 'Flyer / 2024.07.13 Collaboration with GilleWorkers' : 'Flyer / 2024.07.13 Collaboration with GilleWorkers') }}
           </figcaption>
         </figure>
       </div>
@@ -116,32 +116,3 @@ const groups = computed(() =>
   text-decoration-thickness: 1px;
 }
 </style>
-
-<i18n lang="json">
-{
-  "ja": {
-    "activityGroups": {
-      "intro": "自分の興味に合わせ、好きな活動班に自由に参加でき、複数のグループに関わることも可能です。制約や強制は一切なく、自分のペースで、心が動くままに楽しめる場所です。",
-      "tocLabel": "活動班とスケジュールの目次",
-      "toc": "目次",
-      "mascotCaption": "テクノ部公式キャラクター テクノちゃん（みにまむてくのちゃん ver.）",
-      "flyerCaption": "Flyer / 2024.07.13 Collaboration with GilleWorkers"
-    },
-    "activity": {
-      "recordHeading": "活動予定・実績"
-    }
-  },
-  "en": {
-    "activityGroups": {
-      "intro": "You can join any activity group that interests you, and you are free to be part of several groups at once. There are no constraints or obligations. It is a place to enjoy things at your own pace, following what moves you.",
-      "tocLabel": "Contents of activity groups and schedule",
-      "toc": "Contents",
-      "mascotCaption": "TechnoTUT official character Techno-chan (Minimum Techno-chan ver.)",
-      "flyerCaption": "Flyer / 2024.07.13 Collaboration with GilleWorkers"
-    },
-    "activity": {
-      "recordHeading": "Schedule & Records"
-    }
-  }
-}
-</i18n>

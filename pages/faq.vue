@@ -3,8 +3,8 @@
     <!-- Header -->
     <PageHeader
       eyebrow="QUESTIONS &amp; ANSWERS"
-      :title="$t('faq.title')"
-      :description="$t('faq.description')"
+      :title="(locale === 'en' ? 'Frequently Asked Questions (FAQ)' : 'よくある質問 (FAQ)')"
+      :description="(locale === 'en' ? 'Answers to common questions from new students and anyone considering joining us.' : '新入生や入部をご検討中の方からよくいただく質問と回答をまとめました。')"
     />
 
     <template v-if="doc">
@@ -27,11 +27,11 @@ if (error.value) throw createError(error.value)
 if (!doc.value) throw createError({ statusCode: 404, statusMessage: 'Page not found' })
 useContentHead(doc)
 
-const { t } = useI18n()
+const { locale } = useI18n()
 
 useSeoMeta({
-  title: () => `${t('faq.seoTitle')} - TechnoTUT`,
-  description: () => t('faq.seoDescription'),
+  title: () => `${(locale.value === 'en' ? 'FAQ' : 'FAQ (よくある質問)')} - TechnoTUT`,
+  description: () => (locale.value === 'en' ? 'Frequently asked questions about the Toyohashi University of Technology Music & Live production Club (TechnoTUT)' : '豊橋技術科学大学 音楽技術部 (TechnoTUT) に関するよくある質問と回答'),
 })
 </script>
 
@@ -82,24 +82,3 @@ useSeoMeta({
   color: inherit;
 }
 </style>
-
-<i18n lang="json">
-{
-  "ja": {
-    "faq": {
-      "title": "よくある質問 (FAQ)",
-      "description": "新入生や入部をご検討中の方からよくいただく質問と回答をまとめました。",
-      "seoTitle": "FAQ (よくある質問)",
-      "seoDescription": "豊橋技術科学大学 音楽技術部 (TechnoTUT) に関するよくある質問と回答"
-    }
-  },
-  "en": {
-    "faq": {
-      "title": "Frequently Asked Questions (FAQ)",
-      "description": "Answers to common questions from new students and anyone considering joining us.",
-      "seoTitle": "FAQ",
-      "seoDescription": "Frequently asked questions about the Toyohashi University of Technology Music & Live production Club (TechnoTUT)"
-    }
-  }
-}
-</i18n>
