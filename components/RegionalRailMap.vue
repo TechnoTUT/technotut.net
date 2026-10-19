@@ -5,9 +5,9 @@
     <!-- Legend: colours match the travel lines on the map -->
     <ul class="absolute left-3 bottom-3 z-10 flex flex-col gap-1 rounded bg-dark/85 border border-white/20 px-3 py-2 text-[11px] font-noto text-gray-200 pointer-events-none">
       <li class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-[#2f7fd6]" />東海道新幹線 名古屋→豊橋 約20分</li>
-      <li class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-[#E0202A]" />名鉄特急 名古屋→豊橋 約50分</li>
-      <li class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-[#f28c28]" />JR在来線 名古屋→豊橋 約60分</li>
-      <li class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-[#f28c28]" />JR在来線 浜松→豊橋 約30分</li>
+      <li class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-[#E0202A]" />名鉄線 名鉄名古屋→豊橋 約50分</li>
+      <li class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-[#f28c28]" />東海道線 名古屋→豊橋 約60分</li>
+      <li class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-[#f28c28]" />東海道線 浜松→豊橋 約30分</li>
     </ul>
   </div>
 </template>
@@ -19,9 +19,9 @@ import maplibreWorkerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?url'
 
 // Main stations shown as labelled pins. Coordinates are [lng, lat].
 const STATIONS = [
-  { id: 'nagoya', label: '名古屋駅', center: [136.8815, 35.1706] as [number, number] },
-  { id: 'toyohashi', label: '豊橋駅', center: [137.3817, 34.7691] as [number, number] },
-  { id: 'hamamatsu', label: '浜松駅', center: [137.7332, 34.7036] as [number, number] },
+  { id: 'nagoya', label: '名古屋', center: [136.8815, 35.1706] as [number, number] },
+  { id: 'toyohashi', label: '豊橋', center: [137.3817, 34.7691] as [number, number] },
+  { id: 'hamamatsu', label: '浜松', center: [137.7332, 34.7036] as [number, number] },
 ]
 
 // Colours for each travel line and its moving dot.
@@ -216,12 +216,17 @@ onMounted(async () => {
     // Station labels are drawn as images on a symbol layer, so they stay in sync with the map.
     // Main stations come from the constants above; intermediate stations come from the rail station data.
     const intermediate = await fetch('/data/plateau/rail-stations.geojson').then((r) => r.json())
+    // Label placement. Most labels sit above their station. Chiryu extends up and to the right, which keeps it
+    // clear of Kariya (down-left) and Anjo (down-right), both close to it on the map.
+    const placement = (name: string): { anchor: 'bottom' | 'bottom-left'; offset: [number, number] } =>
+      name === '知立' ? { anchor: 'bottom-left', offset: [6, -10] } : { anchor: 'bottom', offset: [0, -12] }
     const labels = [
-      ...STATIONS.map((s) => ({ key: `station-${s.id}`, text: s.label, center: s.center })),
+      ...STATIONS.map((s) => ({ key: `station-${s.id}`, text: s.label, center: s.center, ...placement(s.label) })),
       ...intermediate.features.map((f: { properties: { name: string }; geometry: { coordinates: number[] } }) => ({
         key: `station-mid-${f.properties.name}`,
         text: f.properties.name,
         center: f.geometry.coordinates as [number, number],
+        ...placement(f.properties.name),
       })),
     ]
     for (const label of labels) {
@@ -231,7 +236,11 @@ onMounted(async () => {
       type: 'geojson',
       data: {
         type: 'FeatureCollection',
-        features: labels.map((l) => ({ type: 'Feature', properties: { img: l.key }, geometry: { type: 'Point', coordinates: l.center } })),
+        features: labels.map((l) => ({
+          type: 'Feature',
+          properties: { img: l.key, anchor: l.anchor, offset: l.offset },
+          geometry: { type: 'Point', coordinates: l.center },
+        })),
       },
     })
     map.addLayer({
@@ -240,8 +249,8 @@ onMounted(async () => {
       source: 'labels',
       layout: {
         'icon-image': ['get', 'img'],
-        'icon-anchor': 'bottom',
-        'icon-offset': [0, -12],
+        'icon-anchor': ['get', 'anchor'],
+        'icon-offset': ['get', 'offset'],
         'icon-allow-overlap': true,
         'icon-ignore-placement': true,
       },

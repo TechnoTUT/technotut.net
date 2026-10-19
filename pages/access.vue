@@ -247,7 +247,7 @@
         </ClientOnly>
       </div>
       <p class="mt-3 text-xs font-quicksand text-gray-400 tracking-wide">
-        Rail: National Land Numerical Information (MLIT), CC BY 4.0
+        Data: National Land Numerical Information (MLIT), CC BY 4.0
       </p>
     </section>
 
@@ -280,7 +280,7 @@
         </ClientOnly>
       </div>
       <p class="mt-3 text-xs font-quicksand text-gray-400 tracking-wide">
-        Data: Project PLATEAU, MILT (Ministry of Land, Infrastructure, Transport and Tourism)
+        Data: Project PLATEAU (MLIT), PLATEAU Site Policy
       </p>
     </section>
 
