@@ -3,15 +3,15 @@
     <!-- Header -->
     <PageHeader
       eyebrow="ACTIVITY &amp; RECORD"
-      title="活動情報"
-      description="音楽、映像、デザイン、テクノロジー。TechnoTUT の各班の活動と、年間スケジュール・活動実績を紹介します。"
+      :title="$t('activity.title')"
+      :description="$t('activity.description')"
     />
 
     <ActivityGroups />
 
     <div id="schedule" class="mt-24 sm:mt-32 border-t border-white/10 pt-12">
       <p class="font-quicksand text-xs tracking-[0.2em] text-gray-400 mb-3">RECORD</p>
-      <h2 class="font-noto font-light text-3xl sm:text-4xl mb-8">活動予定・実績</h2>
+      <h2 class="font-noto font-light text-3xl sm:text-4xl mb-8">{{ $t('activity.recordHeading') }}</h2>
       <!-- Sheet-backed schedule (loaded on the client). Falls back to the Markdown below when unavailable. -->
       <template v-if="scheduleGroups.length">
         <article
@@ -22,10 +22,10 @@
             <table>
               <thead>
                 <tr>
-                  <th>日程</th>
-                  <th>活動名</th>
-                  <th>場所</th>
-                  <th>内容</th>
+                  <th>{{ $t('activity.colDate') }}</th>
+                  <th>{{ $t('activity.colActivity') }}</th>
+                  <th>{{ $t('activity.colPlace') }}</th>
+                  <th>{{ $t('activity.colDetails') }}</th>
                 </tr>
               </thead>
               <tbody>
@@ -44,9 +44,9 @@
         </article>
       </template>
       <p v-else-if="scheduleStatus === 'error' || scheduleStatus === 'success'" class="font-noto text-gray-dim">
-        活動予定・実績は現在準備中です。
+        {{ $t('activity.preparing') }}
       </p>
-      <p v-else class="font-noto text-gray-dim">読み込み中…</p>
+      <p v-else class="font-noto text-gray-dim">{{ $t('activity.loading') }}</p>
     </div>
   </div>
 </template>
@@ -81,9 +81,11 @@ const scheduleGroups = computed(() => {
   return [...groups.values()]
 })
 
+const { t } = useI18n()
+
 useSeoMeta({
-  title: '活動情報 - TechnoTUT',
-  description: '豊橋技術科学大学 音楽技術部 (TechnoTUT) の各班の活動紹介・活動予定・実績',
+  title: () => `${t('activity.seoTitle')} - TechnoTUT`,
+  description: () => t('activity.seoDescription'),
 })
 </script>
 
@@ -113,3 +115,38 @@ useSeoMeta({
   overflow-x: auto;
 }
 </style>
+
+<i18n lang="json">
+{
+  "ja": {
+    "activity": {
+      "title": "活動情報",
+      "description": "音楽、映像、デザイン、テクノロジー。TechnoTUT の各班の活動と、年間スケジュール・活動実績を紹介します。",
+      "colDate": "日程",
+      "colActivity": "活動名",
+      "colPlace": "場所",
+      "colDetails": "内容",
+      "preparing": "活動予定・実績は現在準備中です。",
+      "loading": "読み込み中…",
+      "seoTitle": "活動情報",
+      "seoDescription": "豊橋技術科学大学 音楽技術部 (TechnoTUT) の各班の活動紹介・活動予定・実績",
+      "recordHeading": "活動予定・実績"
+    }
+  },
+  "en": {
+    "activity": {
+      "title": "Activities",
+      "description": "Music, video, design, and technology. Introducing TechnoTUT's activity groups, annual schedule, and past activities.",
+      "colDate": "Date",
+      "colActivity": "Activity",
+      "colPlace": "Place",
+      "colDetails": "Details",
+      "preparing": "The schedule and records are currently being prepared.",
+      "loading": "Loading…",
+      "seoTitle": "Activities",
+      "seoDescription": "Activity groups, schedule, and records of the Toyohashi University of Technology Music & Live production Club (TechnoTUT)",
+      "recordHeading": "Schedule & Records"
+    }
+  }
+}
+</i18n>

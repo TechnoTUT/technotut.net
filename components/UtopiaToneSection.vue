@@ -5,13 +5,13 @@
       <SectionHeader
         eyebrow="TechnoTUT Presents - Regular Party"
         title="The Utopia Tone"
-        description="TechnoTUTが定期主催する学内DJ＆ライブイベント。オールジャンルのエレクトロニックミュージックからサブカルチャーまで、部員やゲストDJが独自のフロアを創り上げます。"
+        :description="$t('utopia.description')"
       >
         <template #action>
-          <NuxtLink to="/activity" class="common-btn text-xs py-2 px-5 inline-flex">
+          <NuxtLinkLocale to="/activity" class="common-btn text-xs py-2 px-5 inline-flex">
             <span>ACTIVITY DETAIL</span>
             <span>&rarr;</span>
-          </NuxtLink>
+          </NuxtLinkLocale>
         </template>
       </SectionHeader>
 
@@ -173,6 +173,7 @@
 </template>
 
 <script setup lang="ts">
+useI18n()
 const sliderContainer = ref<HTMLElement | null>(null)
 const selectedIdx = ref<number | null>(null)
 
@@ -308,3 +309,18 @@ onUnmounted(() => {
   }
 }
 </style>
+
+<i18n lang="json">
+{
+  "ja": {
+    "utopia": {
+      "description": "TechnoTUTが定期主催する学内DJ＆ライブイベント。オールジャンルのエレクトロニックミュージックからサブカルチャーまで、部員やゲストDJが独自のフロアを創り上げます。"
+    }
+  },
+  "en": {
+    "utopia": {
+      "description": "TechnoTUT's regular on-campus DJ and live event. From all-genre electronic music to subculture, members and guest DJs create their own floors."
+    }
+  }
+}
+</i18n>

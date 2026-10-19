@@ -3,8 +3,8 @@
     <!-- Header -->
     <PageHeader
       eyebrow="GOURMET &amp; CULTURE"
-      title="豊橋らーめんマップ"
-      description="音楽技術部（TechnoTUT）の部員たちが実際に足を運んで厳選した、豊橋および周辺地域のおすすめ飲食店・ラーメン店マップです。"
+      :title="$t('ramen.title')"
+      :description="$t('ramen.description')"
       no-border
     />
 
@@ -26,8 +26,31 @@
 </template>
 
 <script setup lang="ts">
+const { t } = useI18n()
+
 useSeoMeta({
-  title: '豊橋らーめんマップ - TechnoTUT',
-  description: '豊橋技術科学大学 音楽技術部 (TechnoTUT) 部員厳選の豊橋および周辺地域おすすめラーメン・グルメマップ',
+  title: () => `${t('ramen.seoTitle')} - TechnoTUT`,
+  description: () => t('ramen.seoDescription'),
 })
 </script>
+
+<i18n lang="json">
+{
+  "ja": {
+    "ramen": {
+      "title": "豊橋らーめんマップ",
+      "description": "音楽技術部（TechnoTUT）の部員たちが実際に足を運んで厳選した、豊橋および周辺地域のおすすめ飲食店・ラーメン店マップです。",
+      "seoTitle": "豊橋らーめんマップ",
+      "seoDescription": "豊橋技術科学大学 音楽技術部 (TechnoTUT) 部員厳選の豊橋および周辺地域おすすめラーメン・グルメマップ"
+    }
+  },
+  "en": {
+    "ramen": {
+      "title": "Toyohashi Ramen Map",
+      "description": "A map of recommended restaurants and ramen shops in Toyohashi and nearby areas, carefully selected by TechnoTUT members who visited them in person.",
+      "seoTitle": "Toyohashi Ramen Map",
+      "seoDescription": "Ramen and food map of Toyohashi and nearby areas, carefully selected by members of the Toyohashi University of Technology Music & Live production Club (TechnoTUT)"
+    }
+  }
+}
+</i18n>

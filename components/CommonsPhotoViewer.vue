@@ -48,7 +48,7 @@
         :key="photo"
         :src="photo"
         format="webp"
-        :alt="`コモンズ1への行き方 写真 ${index + 1}`"
+        :alt="`${$t('access.commonsPhotoAlt')} ${index + 1}`"
         class="absolute max-w-[calc(100%-2rem)] max-h-[calc(100%-2rem)] object-contain transition-opacity duration-700 ease-in-out"
         :class="currentIndex === index ? 'opacity-100 z-1 pointer-events-auto' : 'opacity-0 z-0 pointer-events-none'"
       />
@@ -64,8 +64,8 @@
           v-if="autoplay"
           type="button"
           class="w-10 h-10 rounded-full bg-dark/80 border border-white/20 flex items-center justify-center text-xs text-white hover:border-white transition-colors cursor-pointer"
-          :title="isPlaying ? '自動切り替えを一時停止' : '自動切り替えを再開'"
-          :aria-label="isPlaying ? '自動切り替えを一時停止' : '自動切り替えを再開'"
+          :title="isPlaying ? $t('access.pauseSlideshow') : $t('access.resumeSlideshow')"
+          :aria-label="isPlaying ? $t('access.pauseSlideshow') : $t('access.resumeSlideshow')"
           @click="togglePlayPause"
         >
           <!-- Pause Icon (shown when playing) -->
@@ -81,7 +81,7 @@
         <button
           type="button"
           class="w-10 h-10 rounded-full bg-dark/80 border border-white/20 flex items-center justify-center text-xs text-white hover:border-white transition-colors cursor-pointer"
-          aria-label="前の写真"
+          :aria-label="$t('access.prevPhoto')"
           @click="onManualPrev"
         >
           &larr;
@@ -89,7 +89,7 @@
         <button
           type="button"
           class="w-10 h-10 rounded-full bg-dark/80 border border-white/20 flex items-center justify-center text-xs text-white hover:border-white transition-colors cursor-pointer"
-          aria-label="次の写真"
+          :aria-label="$t('access.nextPhoto')"
           @click="onManualNext"
         >
           &rarr;
@@ -101,6 +101,7 @@
 
 <script setup lang="ts">
 import { commonsPhotos } from '~/data/commons-photos'
+useI18n()
 
 const props = withDefaults(
   defineProps<{
@@ -198,3 +199,26 @@ onUnmounted(() => {
   stopAutoPlay()
 })
 </script>
+
+<i18n lang="json">
+{
+  "ja": {
+    "access": {
+      "commonsPhotoAlt": "コモンズ1への行き方 写真",
+      "pauseSlideshow": "自動切り替えを一時停止",
+      "resumeSlideshow": "自動切り替えを再開",
+      "prevPhoto": "前の写真",
+      "nextPhoto": "次の写真"
+    }
+  },
+  "en": {
+    "access": {
+      "commonsPhotoAlt": "Directions to Commons 1, photo",
+      "pauseSlideshow": "Pause automatic slideshow",
+      "resumeSlideshow": "Resume automatic slideshow",
+      "prevPhoto": "Previous photo",
+      "nextPhoto": "Next photo"
+    }
+  }
+}
+</i18n>

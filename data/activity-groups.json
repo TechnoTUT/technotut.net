@@ -13,7 +13,19 @@
         "src": "/images/index/event/camp.jpg",
         "alt": "部員の合宿での集合写真"
       }
-    ]
+    ],
+    "en": {
+      "label": "EVENT",
+      "title": "Event Management",
+      "tagline": "",
+      "paragraphs": [
+        "The Event Management team plans and runs a wide range of events, from after-school events in the club room to large-scale events in the large room (Commons I), and even Gikadaisai and real clubs! We build playgrounds everyone can enjoy and stages where everyone can shine, with our own hands!"
+      ],
+      "linkLabels": [],
+      "imageAlts": [
+        "Group photo from a club training camp"
+      ]
+    }
   },
   {
     "id": "dj",
@@ -33,7 +45,20 @@
         "src": "/images/home/panel-bg.jpg",
         "alt": "DJイベントのフロア"
       }
-    ]
+    ],
+    "en": {
+      "label": "DJ",
+      "title": "DJ : Disc Jockey",
+      "tagline": "Connecting people, music, and the floor",
+      "paragraphs": [
+        "We practice and perform, motivated by DJ events on campus, such as our own event The Utopia Tone and Gikadaisai. Our regular activities center on weekday DJ events, and we play after school and in gaps between classes. Some members perform and host events at clubs in Aichi and Shizuoka, extending our activities beyond campus."
+      ],
+      "linkLabels": [],
+      "imageAlts": [
+        "DJ Jokka performing",
+        "Dance floor at a DJ event"
+      ]
+    }
   },
   {
     "id": "vj-lj",
@@ -49,7 +74,19 @@
         "src": "/images/concept/vj.jpg",
         "alt": "イベントの映像・照明演出"
       }
-    ]
+    ],
+    "en": {
+      "label": "VJ & LJ",
+      "title": "VJ & LJ : Video & Light Jockey",
+      "tagline": "Professionals who command the space",
+      "paragraphs": [
+        "We work on video performance (VJ) and lighting performance (LJ). In regular activities we develop staging techniques, equipment, and software while lighting up the club room. At events we put all of it to use, creating the energy that brings the space to its peak!"
+      ],
+      "linkLabels": [],
+      "imageAlts": [
+        "Video and lighting production at an event"
+      ]
+    }
   },
   {
     "id": "media",
@@ -69,7 +106,20 @@
         "src": "/images/index/media/flyer_20240713.png",
         "alt": "2024年7月13日 GilleWorkers コラボイベントのフライヤー"
       }
-    ]
+    ],
+    "en": {
+      "label": "MEDIA",
+      "title": "Media",
+      "tagline": "Sharing the appeal of TechnoTUT",
+      "paragraphs": [
+        "From designing event flyers to running promotional SNS accounts and updating the website. We also work on video production and illustration, creating content that appeals to sight and feeling. We give shape to our creativity and passion and share the appeal of TechnoTUT widely."
+      ],
+      "linkLabels": [],
+      "imageAlts": [
+        "TechnoTUT official character Techno-chan (Minimum Techno-chan ver.)",
+        "Flyer for the July 13, 2024 GilleWorkers collaboration event"
+      ]
+    }
   },
   {
     "id": "dtm",
@@ -91,7 +141,22 @@
         "src": "/images/index/dtm/dtm.jpg",
         "alt": "DTM班の楽曲制作の様子"
       }
-    ]
+    ],
+    "en": {
+      "label": "DTM",
+      "title": "DTM",
+      "tagline": "Giving shape to what you love",
+      "paragraphs": [
+        "We create music based on the songs we love. We meet on Discord every Friday to share news and motivation.",
+        "Every spring and autumn we also distribute original tracks at M3. Please see our discography on Bandcamp."
+      ],
+      "linkLabels": [
+        "bandcamp"
+      ],
+      "imageAlts": [
+        "DTM members producing music"
+      ]
+    }
   },
   {
     "id": "tech-diy",
@@ -112,7 +177,21 @@
         "src": "/images/concept/tech.jpg",
         "alt": "ネット神社"
       }
-    ]
+    ],
+    "en": {
+      "label": "TECH & DIY",
+      "title": "Tech & DIY",
+      "tagline": "The backstage magicians who control sound, video, and light",
+      "paragraphs": [
+        "Members work with cutting-edge tech based on their interests. We maintain the club's internal servers, stream video at on-campus event venues, and develop technology for events, including lighting. Details are available at noc.technotut.net."
+      ],
+      "linkLabels": [
+        "noc.technotut.net"
+      ],
+      "imageAlts": [
+        "Net shrine"
+      ]
+    }
   },
   {
     "id": "ramen",
@@ -128,6 +207,18 @@
         "label": "豊橋らーめんマップ - Toyohashi Ramen Map"
       }
     ],
-    "images": []
+    "images": [],
+    "en": {
+      "label": "RAMEN",
+      "title": "Ramen",
+      "tagline": "",
+      "paragraphs": [
+        "To that end, we go out eating remarkable ramen and karaage worth traveling for, and spread the word far and wide. Check out members' favorite spots on the Toyohashi Ramen Map."
+      ],
+      "linkLabels": [
+        "Toyohashi Ramen Map"
+      ],
+      "imageAlts": []
+    }
   }
 ]

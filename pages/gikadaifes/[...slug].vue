@@ -3,10 +3,10 @@
     <template v-if="doc">
       <!-- Breadcrumb / Back Link -->
       <div class="mb-8">
-        <NuxtLink to="/gikadaifes" class="text-xs font-quicksand text-gray-400 hover:text-white transition-colors flex items-center gap-2">
+        <NuxtLinkLocale to="/gikadaifes" class="text-xs font-quicksand text-gray-400 hover:text-white transition-colors flex items-center gap-2">
           <span>&larr;</span>
           <span>BACK TO GIKADAIFES</span>
-        </NuxtLink>
+        </NuxtLinkLocale>
       </div>
 
       <!-- Article Header -->
@@ -33,9 +33,9 @@
       </article>
 
       <div class="mt-16 pt-8 border-t border-white/10 flex justify-between items-center">
-        <NuxtLink to="/gikadaifes" class="common-btn text-xs py-2 px-6">
-          <span>一覧へ戻る</span>
-        </NuxtLink>
+        <NuxtLinkLocale to="/gikadaifes" class="common-btn text-xs py-2 px-6">
+          <span>{{ $t('gikadaifes.backToList') }}</span>
+        </NuxtLinkLocale>
       </div>
     </template>
   </div>
@@ -43,11 +43,13 @@
 
 <script setup lang="ts">
 import { formatJaDate as formatDate } from '~/utils/date'
+useI18n()
 
 definePageMeta({ key: route => route.path })
 
 // Resolve content before rendering so navigation cannot show a temporary not-found state.
-const documentPath = useRoute().path
+// English pages share the Japanese Markdown, so strip the /en prefix before querying.
+const documentPath = useRoute().path.replace(/^\/en(?=\/)/, '')
 const { data: doc, error } = await useAsyncData(`page-document-${documentPath}`, () =>
   queryContent(documentPath).findOne(),
 )
@@ -190,3 +192,18 @@ useContentHead(doc)
   font-weight: 600;
 }
 </style>
+
+<i18n lang="json">
+{
+  "ja": {
+    "gikadaifes": {
+      "backToList": "一覧へ戻る"
+    }
+  },
+  "en": {
+    "gikadaifes": {
+      "backToList": "Back to list"
+    }
+  }
+}
+</i18n>

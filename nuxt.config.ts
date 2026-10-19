@@ -9,7 +9,22 @@ export default defineNuxtConfig({
   // Workers rejects uploads whose gzipped source maps exceed 15MB.
   sourcemap: { server: false, client: false },
 
-  modules: ['@nuxtjs/tailwindcss', '@nuxt/content', '@nuxt/eslint', '@nuxt/image'],
+  modules: ['@nuxtjs/tailwindcss', '@nuxt/content', '@nuxt/eslint', '@nuxt/image', '@nuxtjs/i18n'],
+
+  // Japanese is served at the root; English is served under /en/.
+  i18n: {
+    defaultLocale: 'ja',
+    strategy: 'prefix_except_default',
+    detectBrowserLanguage: false,
+    baseUrl: 'https://technotut.net',
+    // Messages live in each file's <i18n lang="json"> block and are shared globally.
+    bundle: { optimizeTranslationDirective: false },
+    customBlocks: { globalSFCScope: true },
+    locales: [
+      { code: 'ja', language: 'ja-JP', name: '日本語' },
+      { code: 'en', language: 'en-US', name: 'English' },
+    ],
+  },
 
   content: {
     ignores: ['\\.vue$'],
@@ -24,9 +39,6 @@ export default defineNuxtConfig({
   app: {
     head: {
       title: '豊橋技術科学大学 音楽技術部 (TechnoTUT)',
-      htmlAttrs: {
-        lang: 'ja',
-      },
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -65,7 +77,7 @@ export default defineNuxtConfig({
     },
     prerender: {
       crawlLinks: true,
-      routes: ['/', '/access', '/activity', '/join-us', '/gikadaifes', '/independent', '/audio-heihachiro'],
+      routes: ['/', '/access', '/activity', '/join-us', '/gikadaifes', '/independent', '/audio-heihachiro', '/en', '/en/access', '/en/activity', '/en/join-us', '/en/gikadaifes', '/en/faq', '/en/ramen'],
     },
   },
 

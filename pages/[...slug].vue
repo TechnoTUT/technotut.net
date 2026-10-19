@@ -28,7 +28,8 @@
 definePageMeta({ key: route => route.path })
 
 // Resolve content before rendering so navigation cannot show a temporary not-found state.
-const documentPath = useRoute().path.replace(/\/+$/, '') || '/'
+// English pages share the Japanese Markdown, so strip the /en prefix before querying.
+const documentPath = useRoute().path.replace(/^\/en(?=\/|$)/, '').replace(/\/+$/, '') || '/'
 const { data: doc, error } = await useAsyncData(`page-document-${documentPath}`, () =>
   queryContent(documentPath).findOne(),
 )

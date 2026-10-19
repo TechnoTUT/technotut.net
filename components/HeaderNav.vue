@@ -4,28 +4,31 @@
     :class="{ 'is-compact': showLinks, 'is-open': isMenuOpen }"
   >
     <div class="header-row">
-      <NuxtLink to="/" class="shrink-0 relative z-50" aria-label="TechnoTUT Home" @click="closeMenu">
+      <NuxtLinkLocale to="/" class="shrink-0 relative z-50" aria-label="TechnoTUT Home" @click="closeMenu">
         <img src="/images/logo/logo.svg" alt="TechnoTUT" class="h-10 sm:h-12 md:h-14 w-auto" >
-      </NuxtLink>
+      </NuxtLinkLocale>
       <div class="header-content">
         <Transition name="header-switch" mode="out-in">
           <p v-if="!showLinks" key="subtitle" class="header-subtitle font-quicksand">Music &amp; Live production Club - TechnoTUT</p>
           <nav v-else key="links" class="header-links font-quicksand" aria-label="Main Navigation">
-            <NuxtLink
+            <NuxtLinkLocale
               v-for="item in navItems"
               :key="item.to"
               :to="item.to"
               :class="{ 'is-ja': /[^\x00-\x7F]/.test(item.label) }"
             >
               {{ item.label }}
-            </NuxtLink>
+            </NuxtLinkLocale>
           </nav>
         </Transition>
       </div>
       <!-- Desktop: Static university text without any animation on scroll -->
-      <p class="header-university font-noto hidden md:block" :class="{ 'compact-university': showLinks }">
-        豊橋技術科学大学 音楽技術部
+      <p class="header-university font-noto hidden md:block" :class="{ 'compact-university': showLinks, invisible: locale === 'en' }">
+        {{ $t('common.university') }}
       </p>
+      <NuxtLink :to="switchPath" class="lang-switch font-quicksand hidden md:inline-flex shrink-0" :lang="targetLocale">
+        {{ targetLabel }}
+      </NuxtLink>
 
       <!-- Mobile: Animated switch between 2-line university name and hamburger button -->
       <div class="header-right-mobile md:hidden shrink-0">
@@ -34,9 +37,10 @@
             v-if="!showLinks"
             key="univ-mobile"
             class="header-university font-noto"
+            :class="{ invisible: locale === 'en' }"
           >
-            <span class="block">豊橋技術科学大学</span>
-            <span class="block">音楽技術部</span>
+            <span class="block">{{ $t('common.universityLine1') }}</span>
+            <span class="block">{{ $t('common.universityLine2') }}</span>
           </p>
           <button
             v-else
@@ -45,7 +49,7 @@
             class="hamburger-btn relative z-50"
             :class="{ 'is-active': isMenuOpen }"
             :aria-expanded="isMenuOpen"
-            :aria-label="isMenuOpen ? 'メニューを閉じる' : 'メニューを開く'"
+            :aria-label="isMenuOpen ? $t('nav.closeMenu') : $t('nav.openMenu')"
             aria-controls="mobile-navigation"
             @click="toggleMenu"
           >
@@ -67,7 +71,7 @@
           aria-label="Mobile Navigation"
         >
           <nav class="flex flex-col font-quicksand font-light">
-            <NuxtLink
+            <NuxtLinkLocale
               v-for="item in navItems"
               :key="item.to"
               :to="item.to"
@@ -79,11 +83,14 @@
               <svg class="w-4 h-4 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5l7 7-7 7" />
               </svg>
-            </NuxtLink>
+            </NuxtLinkLocale>
           </nav>
           <div class="border-t border-white/10 pt-6 text-sm text-gray-400 font-zen mt-8">
             <p class="font-quicksand text-xs tracking-wider text-gray-500 mb-1">Music &amp; Live production Club - TechnoTUT</p>
-            <p class="text-xs">豊橋技術科学大学 音楽技術部</p>
+            <p class="text-xs">{{ $t('common.university') }}</p>
+            <NuxtLink :to="switchPath" class="lang-switch font-quicksand inline-flex mt-4" :lang="targetLocale" @click="closeMenu">
+              {{ targetLabel }}
+            </NuxtLink>
           </div>
         </div>
       </Transition>
@@ -92,20 +99,31 @@
 </template>
 
 <script setup lang="ts">
-const navItems = [
+const { t, locale } = useI18n()
+const switchLocalePath = useSwitchLocalePath()
+
+// Link to the same page in the other language.
+const targetLocale = computed(() => (locale.value === 'ja' ? 'en' : 'ja'))
+const targetLabel = computed(() => (locale.value === 'ja' ? 'English' : '日本語'))
+const switchPath = computed(() => switchLocalePath(targetLocale.value))
+
+const navItems = computed(() => [
   { label: 'HOME', to: '/' },
   { label: 'ACTIVITY', to: '/activity' },
-  { label: '技科大祭', to: '/gikadaifes' },
+  { label: t('nav.gikadaifes'), to: '/gikadaifes' },
   { label: 'ACCESS', to: '/access' },
   { label: 'FAQ', to: '/faq' },
   { label: 'JOIN US', to: '/join-us' },
-]
+])
 
 const route = useRoute()
 const scrolled = ref(false)
 const isMenuOpen = ref(false)
 
-const showLinks = computed(() => route.path !== '/' || scrolled.value)
+// The home page is '/' in Japanese and '/en' in English.
+const isHome = computed(() => /^\/(en\/?)?$/.test(route.path))
+
+const showLinks = computed(() => !isHome.value || scrolled.value)
 
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value
@@ -183,6 +201,18 @@ onUnmounted(() => {
 }
 .header-university { margin-left: auto; text-align: right; font-size: 12px; font-weight: 300; line-height: 1.4; }
 .header-links { display: none; }
+.lang-switch {
+  align-items: center;
+  min-height: 44px;
+  padding-inline: 12px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  text-decoration: none;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.lang-switch:hover, .lang-switch:focus-visible { color: #fff; border-color: #fff; }
 .header-links a { display: inline-flex; align-items: center; min-height: 44px; white-space: nowrap; text-decoration: none; transition: opacity .4s ease, letter-spacing .4s ease; }
 .header-links a:hover, .header-links a:focus-visible { opacity: .75; letter-spacing: .06em; }
 .header-switch-enter-active, .header-switch-leave-active { transition: opacity .18s ease, transform .18s ease; }
@@ -295,3 +325,32 @@ onUnmounted(() => {
   }
 }
 </style>
+
+<i18n lang="json">
+{
+  "ja": {
+    "common": {
+      "universityLine1": "豊橋技術科学大学",
+      "universityLine2": "音楽技術部",
+      "university": "豊橋技術科学大学 音楽技術部"
+    },
+    "nav": {
+      "openMenu": "メニューを開く",
+      "closeMenu": "メニューを閉じる",
+      "gikadaifes": "技科大祭"
+    }
+  },
+  "en": {
+    "common": {
+      "universityLine1": "Toyohashi University",
+      "universityLine2": "Music & Live production Club",
+      "university": "Toyohashi University of Technology Music & Live production Club"
+    },
+    "nav": {
+      "openMenu": "Open menu",
+      "closeMenu": "Close menu",
+      "gikadaifes": "Gikadaisai"
+    }
+  }
+}
+</i18n>

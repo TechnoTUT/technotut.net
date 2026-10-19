@@ -8,7 +8,7 @@
           <input
             v-model="searchQuery"
             type="text"
-            placeholder="店名やキーワードで検索..."
+            :placeholder="$t('ramen.searchPlaceholder')"
             class="w-full bg-black/60 border border-white/20 rounded px-3 py-2 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-brand"
           >
           <button
@@ -38,7 +38,7 @@
             : 'text-gray-200 border-white/20 hover:border-white/40 bg-dark/90'"
           @click="selectedCategory = 'ALL'"
         >
-          すべて ({{ allSpots.length }})
+          {{ $t('ramen.all') }} ({{ allSpots.length }})
         </button>
         <button
           v-for="cat in categories"
@@ -69,7 +69,7 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
           </svg>
-          技科大周辺を表示
+          {{ $t('ramen.showCampus') }}
         </button>
       </div>
 
@@ -111,7 +111,7 @@
             rel="noopener noreferrer"
             class="inline-flex items-center gap-1 mt-3 text-[11px] text-brand hover:underline"
           >
-            Googleマップで開く
+            {{ $t('ramen.openInGoogleMaps') }}
             <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
             </svg>
@@ -121,7 +121,7 @@
           <button
             type="button"
             class="text-gray-400 hover:text-white p-1"
-            title="閉じる"
+            :title="$t('common.close')"
             @click="activeSpot = null"
           >
             ✕
@@ -138,6 +138,7 @@ import { ref, shallowRef, computed, onMounted, onUnmounted, watch } from 'vue'
 import type { Map as LeafletMap, Marker as LeafletMarker } from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 import fallbackData from '~/data/ramen-spots-fallback.json'
+useI18n()
 
 interface Spot {
   id: string
@@ -513,3 +514,30 @@ onUnmounted(() => {
   color: #aaa !important;
 }
 </style>
+
+<i18n lang="json">
+{
+  "ja": {
+    "ramen": {
+      "searchPlaceholder": "店名やキーワードで検索...",
+      "all": "すべて",
+      "showCampus": "技科大周辺を表示",
+      "openInGoogleMaps": "Googleマップで開く"
+    },
+    "common": {
+      "close": "閉じる"
+    }
+  },
+  "en": {
+    "ramen": {
+      "searchPlaceholder": "Search by shop name or keyword...",
+      "all": "All",
+      "showCampus": "Show around campus",
+      "openInGoogleMaps": "Open in Google Maps"
+    },
+    "common": {
+      "close": "Close"
+    }
+  }
+}
+</i18n>

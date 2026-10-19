@@ -8,9 +8,9 @@
     @click="handleSectionClick"
   >
     <div class="secret-entry secret-entry--mobile absolute sm:hidden font-quicksand text-sm tracking-widest text-gray-300" :style="{ opacity: secretStrength }" :aria-hidden="secretStrength === 0">
-      <NuxtLink v-if="secretReady" to="/independent" class="inline-flex min-h-11 items-center gap-3 text-white underline decoration-white/40 underline-offset-4 focus-visible:outline focus-visible:outline-offset-4" @click.stop>
+      <NuxtLinkLocale v-if="secretReady" to="/independent" class="inline-flex min-h-11 items-center gap-3 text-white underline decoration-white/40 underline-offset-4 focus-visible:outline focus-visible:outline-offset-4" @click.stop>
         <span>2/7</span><span>INDEPENDENCE DAY →</span>
-      </NuxtLink>
+      </NuxtLinkLocale>
       <span v-else class="inline-flex min-h-11 items-center">2/7</span>
     </div>
 
@@ -51,9 +51,9 @@
         :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
       >
         <div class="secret-entry hidden sm:block absolute -top-10 left-4 font-quicksand text-sm tracking-widest text-gray-300 sm:left-6" :style="{ opacity: secretStrength }" :aria-hidden="secretStrength === 0">
-          <NuxtLink v-if="secretReady" to="/independent" class="inline-flex min-h-11 items-center gap-3 text-white underline decoration-white/40 underline-offset-4 focus-visible:outline focus-visible:outline-offset-4" @click.stop>
+          <NuxtLinkLocale v-if="secretReady" to="/independent" class="inline-flex min-h-11 items-center gap-3 text-white underline decoration-white/40 underline-offset-4 focus-visible:outline focus-visible:outline-offset-4" @click.stop>
             <span>2/7</span><span>INDEPENDENCE DAY →</span>
-          </NuxtLink>
+          </NuxtLinkLocale>
           <span v-else class="inline-flex min-h-11 items-center">2/7</span>
         </div>
         <button type="button" class="concept-trigger font-quicksand text-[11px] sm:text-xs 2xl:text-sm [@media(min-width:2560px)]:text-base tracking-[0.25em] text-gray-400 uppercase mb-2 sm:mb-3 2xl:mb-4" @click.stop="chargeIndependence">
@@ -66,14 +66,14 @@
         </h2>
         <Transition name="mirror-reveal">
         <div v-if="mirrorUnlocked" class="absolute inset-0 z-30 flex items-center justify-center bg-dark/95 font-quicksand text-lg tracking-widest text-white sm:text-2xl">
-          <NuxtLink to="/audio-heihachiro" class="inline-flex min-h-11 items-center border-b border-white/40 py-3 transition-colors hover:border-white focus-visible:outline focus-visible:outline-offset-4" @click.stop>MIRROR?</NuxtLink>
+          <NuxtLinkLocale to="/audio-heihachiro" class="inline-flex min-h-11 items-center border-b border-white/40 py-3 transition-colors hover:border-white focus-visible:outline focus-visible:outline-offset-4" @click.stop>MIRROR?</NuxtLinkLocale>
         </div>
         </Transition>
         <div class="mt-4 text-center sm:mt-8 2xl:mt-10 [@media(min-width:2560px)]:mt-12">
-          <NuxtLink to="/activity" class="common-btn text-xs sm:text-sm 2xl:text-base py-1.5 px-5 sm:py-2 sm:px-6 2xl:py-3 2xl:px-8 [@media(min-width:2560px)]:py-4 [@media(min-width:2560px)]:px-10">
+          <NuxtLinkLocale to="/activity" class="common-btn text-xs sm:text-sm 2xl:text-base py-1.5 px-5 sm:py-2 sm:px-6 2xl:py-3 2xl:px-8 [@media(min-width:2560px)]:py-4 [@media(min-width:2560px)]:px-10">
             <span>EXPLORE ALL</span>
             <span>&rarr;</span>
-          </NuxtLink>
+          </NuxtLinkLocale>
         </div>
       </div>
 
@@ -82,7 +82,7 @@
         v-for="(item, idx) in activities"
         :key="item.title"
         :href="`/activity#${item.id}`"
-        :aria-label="`${item.title} の活動紹介を見る`"
+        :aria-label="$t('concept.viewActivity', { name: item.title })"
         class="orbit-item group z-20 cursor-pointer"
         :class="[
           isVisible ? 'orbit-item--visible' : 'orbit-item--hidden',
@@ -142,7 +142,7 @@
           <button
             type="button"
             class="activity-detail-close w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-xs text-white/70 hover:text-white cursor-pointer"
-            aria-label="閉じる"
+            :aria-label="$t('common.close')"
             @click.stop="activeItem = null"
           >
             ✕
@@ -152,12 +152,12 @@
           {{ displayedItem.description }}
         </p>
         <div class="pt-1 2xl:pt-2">
-          <NuxtLink
+          <NuxtLinkLocale
             :to="`/activity#${displayedItem.id}`"
             class="inline-flex items-center min-h-11 gap-2 text-xs sm:text-sm 2xl:text-base [@media(min-width:2560px)]:text-lg text-brand hover:text-white landscape:text-white font-medium transition-colors"
           >
-            <span class="landscape:underline underline-offset-4">活動を詳しく見る</span><span aria-hidden="true">&rarr;</span>
-          </NuxtLink>
+            <span class="landscape:underline underline-offset-4">{{ $t('concept.learnMore') }}</span><span aria-hidden="true">&rarr;</span>
+          </NuxtLinkLocale>
         </div>
       </div>
     </div>
@@ -335,7 +335,9 @@ const handleSectionClick = (e: MouseEvent) => {
   }
 }
 
-const activities: Activity[] = [
+const { t } = useI18n()
+
+const activities = computed<Activity[]>(() => [
   {
     id: 'dj',
     slot: 0,
@@ -344,8 +346,7 @@ const activities: Activity[] = [
     image: '/images/concept/dj.jpg',
     delay: 0,
     duration: 6.2,
-    description:
-      '主催イベント「The Utopia Tone」や技科大祭でのプレイを中心に活動。学外クラブでの出演や主催イベントも展開しています。',
+    description: t('concept.desc.dj'),
   },
   {
     id: 'vj-lj',
@@ -355,8 +356,7 @@ const activities: Activity[] = [
     image: '/images/concept/vj.jpg',
     delay: -1.8,
     duration: 7.1,
-    description:
-      '映像演出 (VJ) と照明演出 (LJ) を担当。機材開発を行い、空間を最大限に盛り上げる光と映像の演出を手掛けます。',
+    description: t('concept.desc.vjlj'),
   },
   {
     id: 'media',
@@ -366,8 +366,7 @@ const activities: Activity[] = [
     image: '/images/concept/media.jpg',
     delay: -3.4,
     duration: 6.8,
-    description:
-      'フライヤー制作、広報SNS運用、Webサイト更新、映像制作やイラストレーションなど視覚と感覚に訴えるコンテンツを創出します。',
+    description: t('concept.desc.media'),
   },
   {
     id: 'dtm',
@@ -377,8 +376,7 @@ const activities: Activity[] = [
     image: '/images/concept/dtm.png',
     delay: -0.9,
     duration: 7.5,
-    description:
-      '各自の好む音楽を求めて楽曲制作。春・秋のM3でのオリジナル作品頒布やBandcampでの音源リリースを行っています。',
+    description: t('concept.desc.dtm'),
   },
   {
     id: 'tech-diy',
@@ -388,19 +386,17 @@ const activities: Activity[] = [
     image: '/images/concept/tech.jpg',
     delay: -2.6,
     duration: 6.4,
-    description:
-      'サーバー保守管理、イベント会場のリアルタイム映像配信、照明プログラミングなど、音楽とライブを支える技術開発を行います。',
+    description: t('concept.desc.techDiy'),
   },
   {
     id: 'ramen',
     slot: 4,
-    title: 'ら',
+    title: t('concept.ramenTitle'),
     side: 'left',
     image: '/images/concept/ra.jpg',
     delay: -4.2,
     duration: 7.8,
-    description:
-      '旅行する価値のある卓越したラーメンと唐揚げを求めて食べ歩く部内文化。部員厳選のおすすめ店舗はラーメンマップで公開中です。',
+    description: t('concept.desc.ramen'),
   },
   {
     id: 'event',
@@ -410,10 +406,9 @@ const activities: Activity[] = [
     image: '/images/index/event/camp.jpg',
     delay: -1.2,
     duration: 7.3,
-    description:
-      '部室での放課後イベントから、コモンズでの大規模イベント、技科大祭やクラブでの開催まで。企画・運営を通じて、誰もが楽しめる遊び場とステージを自分たちの手で作ります。',
+    description: t('concept.desc.event'),
   },
-]
+])
 
 // Canvas animation logic
 let animationFrameId: number | null = null
@@ -962,3 +957,46 @@ onUnmounted(() => {
   }
 }
 </style>
+
+<i18n lang="json">
+{
+  "ja": {
+    "concept": {
+      "viewActivity": "{name} の活動紹介を見る",
+      "learnMore": "活動を詳しく見る",
+      "ramenTitle": "ら",
+      "desc": {
+        "dj": "主催イベント「The Utopia Tone」や技科大祭でのプレイを中心に活動。学外クラブでの出演や主催イベントも展開しています。",
+        "vjlj": "映像演出 (VJ) と照明演出 (LJ) を担当。機材開発を行い、空間を最大限に盛り上げる光と映像の演出を手掛けます。",
+        "media": "フライヤー制作、広報SNS運用、Webサイト更新、映像制作やイラストレーションなど視覚と感覚に訴えるコンテンツを創出します。",
+        "dtm": "各自の好む音楽を求めて楽曲制作。春・秋のM3でのオリジナル作品頒布やBandcampでの音源リリースを行っています。",
+        "techDiy": "サーバー保守管理、イベント会場のリアルタイム映像配信、照明プログラミングなど、音楽とライブを支える技術開発を行います。",
+        "ramen": "旅行する価値のある卓越したラーメンと唐揚げを求めて食べ歩く部内文化。部員厳選のおすすめ店舗はラーメンマップで公開中です。",
+        "event": "部室での放課後イベントから、コモンズでの大規模イベント、技科大祭やクラブでの開催まで。企画・運営を通じて、誰もが楽しめる遊び場とステージを自分たちの手で作ります。"
+      }
+    },
+    "common": {
+      "close": "閉じる"
+    }
+  },
+  "en": {
+    "concept": {
+      "viewActivity": "View the {name} activity",
+      "learnMore": "Learn more about this activity",
+      "ramenTitle": "RAMEN",
+      "desc": {
+        "dj": "Mainly active in playing at our own event The Utopia Tone and at Gikadaisai. We also perform at off-campus clubs and host our own events.",
+        "vjlj": "In charge of video (VJ) and lighting (LJ) production. We develop equipment and create light and video staging that brings the space to life to the fullest.",
+        "media": "We create content that appeals to sight and feeling, including flyer design, managing promotional SNS, updating the website, video production, and illustration.",
+        "dtm": "We make music based on the songs we each love. We release original works at M3 in spring and autumn and release tracks on Bandcamp.",
+        "techDiy": "We develop technology that supports music and live events, including server maintenance, real-time video streaming at event venues, and lighting programming.",
+        "ramen": "A club tradition of eating our way through ramen and karaage worth traveling for. Members' favorite shops are featured on the Ramen Map.",
+        "event": "From after-school events in the club room, to large events in Commons, to Gikadaisai and events at clubs. Through planning and running events, we build playgrounds and stages everyone can enjoy, with our own hands."
+      }
+    },
+    "common": {
+      "close": "Close"
+    }
+  }
+}
+</i18n>

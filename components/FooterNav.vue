@@ -4,15 +4,15 @@
       <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
         <!-- Brand column -->
         <div class="md:col-span-2 space-y-5">
-          <NuxtLink to="/" class="inline-block group">
+          <NuxtLinkLocale to="/" class="inline-block group">
             <img
               src="/images/logo/logo.svg"
               alt="TechnoTUT logo"
               class="h-10 sm:h-12 w-auto object-contain transition-opacity group-hover:opacity-80"
             >
-          </NuxtLink>
+          </NuxtLinkLocale>
           <p class="text-sm text-gray-400 leading-relaxed font-noto font-[350]">
-            豊橋技術科学大学 音楽技術部<br >
+            <template v-if="locale === 'ja'">{{ $t('common.university') }}<br ></template>
             Music &amp; Live production Club - TechnoTUT<br >
             Official Club of Toyohashi University of Technology. We are interested in music and technology.
           </p>
@@ -90,12 +90,12 @@
         <div class="space-y-3 font-quicksand text-sm tracking-wider">
           <p class="text-xs uppercase text-gray-500 font-semibold mb-4">Sitemap</p>
           <ul class="space-y-2">
-            <li><NuxtLink to="/" class="text-gray-400 hover:text-white transition-colors">HOME</NuxtLink></li>
-            <li><NuxtLink to="/activity" class="text-gray-400 hover:text-white transition-colors">ACTIVITY</NuxtLink></li>
-            <li><NuxtLink to="/gikadaifes" class="text-gray-400 hover:text-white transition-colors">技科大祭</NuxtLink></li>
-            <li><NuxtLink to="/access" class="text-gray-400 hover:text-white transition-colors">ACCESS</NuxtLink></li>
-            <li><NuxtLink to="/faq" class="text-gray-400 hover:text-white transition-colors">FAQ</NuxtLink></li>
-            <li><NuxtLink to="/join-us" class="text-gray-400 hover:text-white transition-colors">JOIN US</NuxtLink></li>
+            <li><NuxtLinkLocale to="/" class="text-gray-400 hover:text-white transition-colors">HOME</NuxtLinkLocale></li>
+            <li><NuxtLinkLocale to="/activity" class="text-gray-400 hover:text-white transition-colors">ACTIVITY</NuxtLinkLocale></li>
+            <li><NuxtLinkLocale to="/gikadaifes" class="text-gray-400 hover:text-white transition-colors">{{ $t('nav.gikadaifes') }}</NuxtLinkLocale></li>
+            <li><NuxtLinkLocale to="/access" class="text-gray-400 hover:text-white transition-colors">ACCESS</NuxtLinkLocale></li>
+            <li><NuxtLinkLocale to="/faq" class="text-gray-400 hover:text-white transition-colors">FAQ</NuxtLinkLocale></li>
+            <li><NuxtLinkLocale to="/join-us" class="text-gray-400 hover:text-white transition-colors">JOIN US</NuxtLinkLocale></li>
           </ul>
         </div>
 
@@ -103,9 +103,9 @@
         <div class="space-y-3 text-sm text-gray-400 font-noto">
           <p class="text-xs uppercase text-gray-500 font-quicksand font-semibold mb-4">Address</p>
           <p class="leading-relaxed">
-            愛知県豊橋市天伯町雲雀ヶ丘1-1<br >
-            豊橋技術科学大学 クラブハウス2階<br >
-            音楽技術部室
+            <span class="whitespace-nowrap">{{ $t('footer.addressLine1') }}</span><br >
+            <span class="whitespace-nowrap">{{ $t('footer.addressLine2') }}</span><br >
+            <span class="whitespace-nowrap">{{ $t('footer.addressLine3') }}</span>
           </p>
 
           <!-- Spam-protected Contact -->
@@ -126,5 +126,37 @@
 </template>
 
 <script setup lang="ts">
+const { locale } = useI18n()
 const currentYear = new Date().getFullYear()
 </script>
+
+<i18n lang="json">
+{
+  "ja": {
+    "footer": {
+      "addressLine2": "豊橋技術科学大学 クラブハウス2階",
+      "addressLine3": "音楽技術部室",
+      "addressLine1": "愛知県豊橋市天伯町雲雀ヶ丘1-1"
+    },
+    "common": {
+      "university": "豊橋技術科学大学 音楽技術部"
+    },
+    "nav": {
+      "gikadaifes": "技科大祭"
+    }
+  },
+  "en": {
+    "footer": {
+      "addressLine2": "Toyohashi University of Technology, 2F Clubhouse",
+      "addressLine3": "TechnoTUT Club Room",
+      "addressLine1": "1-1 Hibarigaoka, Tenpaku-cho, Toyohashi, Aichi"
+    },
+    "common": {
+      "university": "Toyohashi University of Technology Music & Live production Club"
+    },
+    "nav": {
+      "gikadaifes": "Gikadaisai"
+    }
+  }
+}
+</i18n>

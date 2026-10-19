@@ -28,17 +28,33 @@
 
     <footer class="flex flex-wrap items-center justify-between gap-4 border-t border-white/15 px-5 py-5 sm:px-8">
       <p class="font-quicksand text-xs tracking-widest text-gray-400">YOU FOUND THE OTHER SIDE.</p>
-      <NuxtLink to="/" class="inline-flex min-h-11 items-center gap-3 rounded-full border border-white/30 px-5 font-noto text-sm text-gray-300 transition-colors hover:border-white hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
-        <span aria-hidden="true">←</span> トップページへ戻る
-      </NuxtLink>
+      <NuxtLinkLocale to="/" class="inline-flex min-h-11 items-center gap-3 rounded-full border border-white/30 px-5 font-noto text-sm text-gray-300 transition-colors hover:border-white hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
+        <span aria-hidden="true">←</span> {{ $t('common.backToTop') }}
+      </NuxtLinkLocale>
     </footer>
   </div>
 </template>
 
 <script setup lang="ts">
+useI18n()
 defineProps<{
   title?: string
   subtitle?: string
   archiveCode?: string
 }>()
 </script>
+
+<i18n lang="json">
+{
+  "ja": {
+    "common": {
+      "backToTop": "トップページへ戻る"
+    }
+  },
+  "en": {
+    "common": {
+      "backToTop": "Back to top page"
+    }
+  }
+}
+</i18n>

@@ -3,13 +3,13 @@
     <!-- Header -->
     <PageHeader
       eyebrow="EVENT ARCHIVE"
-      title="技科大祭"
-      description="毎年10月に開催される &quot;技科大祭&quot; での TechnoTUT 主催DJイベントやステージパフォーマンスの特設情報です。"
+      :title="$t('gikadaifes.title')"
+      :description="$t('gikadaifes.description')"
     />
 
     <!-- Article Cards (1 Column) -->
     <div class="space-y-8">
-      <NuxtLink
+      <NuxtLinkLocale
         v-for="post in posts"
         :key="post._path"
         :to="post._path"
@@ -43,12 +43,12 @@
 
           <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between">
             <span class="text-xs font-quicksand tracking-wider text-white flex items-center gap-1 group-hover:gap-2 transition-all">
-              <span>READ MORE</span>
+              <span>{{ $t('gikadaifes.readMore') }}</span>
               <span>&rarr;</span>
             </span>
           </div>
         </div>
-      </NuxtLink>
+      </NuxtLinkLocale>
     </div>
   </div>
 </template>
@@ -56,9 +56,11 @@
 <script setup lang="ts">
 import { formatJaDate as formatDate } from '~/utils/date'
 
+const { t } = useI18n()
+
 useSeoMeta({
-  title: '技科大祭 - TechnoTUT',
-  description: '豊橋技術科学大学 音楽技術部 (TechnoTUT) の技科大祭特設情報・アーカイブ',
+  title: () => `${t('gikadaifes.seoTitle')} - TechnoTUT`,
+  description: () => t('gikadaifes.seoDescription'),
 })
 
 const { data: posts } = await useAsyncData('gikadaifes-posts', () =>
@@ -68,3 +70,26 @@ const { data: posts } = await useAsyncData('gikadaifes-posts', () =>
     .find()
 )
 </script>
+
+<i18n lang="json">
+{
+  "ja": {
+    "gikadaifes": {
+      "description": "毎年10月に開催される \"技科大祭\" での TechnoTUT 主催DJイベントやステージパフォーマンスの特設情報です。",
+      "seoTitle": "技科大祭",
+      "seoDescription": "豊橋技術科学大学 音楽技術部 (TechnoTUT) の技科大祭特設情報・アーカイブ",
+      "readMore": "READ MORE",
+      "title": "技科大祭"
+    }
+  },
+  "en": {
+    "gikadaifes": {
+      "description": "Special pages for the DJ events and stage performances hosted by TechnoTUT at the \"Gikadaisai\" university festival, held every October.",
+      "seoTitle": "Gikadaisai",
+      "seoDescription": "Gikadaisai special pages and archive from the Toyohashi University of Technology Music & Live production Club (TechnoTUT)",
+      "readMore": "READ MORE",
+      "title": "Gikadaisai"
+    }
+  }
+}
+</i18n>

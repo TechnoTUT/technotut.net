@@ -1,22 +1,22 @@
 <template>
   <div>
     <p class="font-noto font-light text-gray-300 leading-8">
-      自分の興味に合わせ、好きな活動班に自由に参加でき、複数のグループに関わることも可能です。制約や強制は一切なく、自分のペースで、心が動くままに楽しめる場所です。
+      {{ $t('activityGroups.intro') }}
     </p>
 
-    <nav aria-label="活動班とスケジュールの目次" class="mt-10 mb-10 sm:mb-12">
-      <p class="font-noto text-xs tracking-widest text-gray-400 mb-4">目次</p>
+    <nav :aria-label="$t('activityGroups.tocLabel')" class="mt-10 mb-10 sm:mb-12">
+      <p class="font-noto text-xs tracking-widest text-gray-400 mb-4">{{ $t('activityGroups.toc') }}</p>
       <ol class="grid grid-cols-2 sm:grid-cols-4 gap-x-5 gap-y-2 list-none p-0 m-0">
         <li v-for="(group, index) in groups" :key="group.id" class="min-w-0">
-          <NuxtLink :to="`/activity#${group.id}`" class="activity-index-link">
+          <NuxtLinkLocale :to="`/activity#${group.id}`" class="activity-index-link">
             <span aria-hidden="true" class="font-quicksand text-xs text-gray-400">{{ String(index + 1).padStart(2, '0') }}</span>
             <span :class="group.id === 'ramen' ? 'font-noto' : 'font-quicksand'" class="text-sm tracking-wide">{{ group.label }}</span>
-          </NuxtLink>
+          </NuxtLinkLocale>
         </li>
         <li class="min-w-0">
-          <NuxtLink to="/activity#schedule" class="activity-index-link">
-            <span class="font-noto text-sm">活動予定・実績</span>
-          </NuxtLink>
+          <NuxtLinkLocale to="/activity#schedule" class="activity-index-link">
+            <span class="font-noto text-sm">{{ $t('activity.recordHeading') }}</span>
+          </NuxtLinkLocale>
         </li>
       </ol>
     </nav>
@@ -32,9 +32,9 @@
           <h3 v-if="group.tagline" class="text-xl text-white mb-5">{{ group.tagline }}</h3>
           <p v-for="paragraph in group.paragraphs" :key="paragraph" class="text-gray-300 mb-4">{{ paragraph }}</p>
           <div v-if="group.links.length" class="flex flex-wrap gap-4 mt-6">
-            <NuxtLink v-for="link in group.links" :key="link.href" :to="link.href" class="common-btn text-sm">
+            <NuxtLinkLocale v-for="link in group.links" :key="link.href" :to="link.href" class="common-btn text-sm">
               {{ link.label }} <span aria-hidden="true">→</span>
-            </NuxtLink>
+            </NuxtLinkLocale>
           </div>
         </div>
       </div>
@@ -49,7 +49,7 @@
             :class="group.id === 'media' ? 'h-80 sm:h-96 object-contain p-4' : 'aspect-[16/10] object-cover'"
           />
           <figcaption v-if="group.id === 'media'" class="font-noto text-xs text-gray-400 mt-3 leading-relaxed">
-            {{ image.src.includes('media-1') ? 'テクノ部公式キャラクター テクノちゃん（みにまむてくのちゃん ver.）' : 'Flyer / 2024.07.13 Collaboration with GilleWorkers' }}
+            {{ image.src.includes('media-1') ? $t('activityGroups.mascotCaption') : $t('activityGroups.flyerCaption') }}
           </figcaption>
         </figure>
       </div>
@@ -58,7 +58,27 @@
 </template>
 
 <script setup lang="ts">
-import groups from '~/data/activity-groups.json'
+import { computed } from 'vue'
+import groupData from '~/data/activity-groups.json'
+
+const { locale } = useI18n()
+
+// English text lives in each group's `en` block; Japanese is the source data.
+const groups = computed(() =>
+  groupData.map((g) => {
+    if (locale.value !== 'en') return g
+    const en = g.en
+    return {
+      ...g,
+      label: en.label,
+      title: en.title,
+      tagline: en.tagline,
+      paragraphs: en.paragraphs,
+      links: g.links.map((link, i) => ({ ...link, label: en.linkLabels[i] })),
+      images: g.images.map((image, i) => ({ ...image, alt: en.imageAlts[i] })),
+    }
+  }),
+)
 </script>
 
 <style scoped>
@@ -96,3 +116,32 @@ import groups from '~/data/activity-groups.json'
   text-decoration-thickness: 1px;
 }
 </style>
+
+<i18n lang="json">
+{
+  "ja": {
+    "activityGroups": {
+      "intro": "自分の興味に合わせ、好きな活動班に自由に参加でき、複数のグループに関わることも可能です。制約や強制は一切なく、自分のペースで、心が動くままに楽しめる場所です。",
+      "tocLabel": "活動班とスケジュールの目次",
+      "toc": "目次",
+      "mascotCaption": "テクノ部公式キャラクター テクノちゃん（みにまむてくのちゃん ver.）",
+      "flyerCaption": "Flyer / 2024.07.13 Collaboration with GilleWorkers"
+    },
+    "activity": {
+      "recordHeading": "活動予定・実績"
+    }
+  },
+  "en": {
+    "activityGroups": {
+      "intro": "You can join any activity group that interests you, and you are free to be part of several groups at once. There are no constraints or obligations. It is a place to enjoy things at your own pace, following what moves you.",
+      "tocLabel": "Contents of activity groups and schedule",
+      "toc": "Contents",
+      "mascotCaption": "TechnoTUT official character Techno-chan (Minimum Techno-chan ver.)",
+      "flyerCaption": "Flyer / 2024.07.13 Collaboration with GilleWorkers"
+    },
+    "activity": {
+      "recordHeading": "Schedule & Records"
+    }
+  }
+}
+</i18n>
