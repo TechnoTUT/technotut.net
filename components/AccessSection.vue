@@ -19,14 +19,14 @@
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-stretch">
         <!-- Map visual (Larger: 7 cols on lg screen, fills full height) -->
         <div class="lg:col-span-7 flex flex-col justify-between">
-          <div class="flex-grow flex flex-col min-h-[460px] w-full">
+          <div class="w-full h-[460px] sm:h-[540px] border border-white/10 bg-dark overflow-hidden">
             <ClientOnly>
-              <InteractiveCampusMap ref="campusMapRef" class="w-full h-full flex-grow" />
+              <CampusFlyover3D ref="campusMapRef" class="w-full h-full" />
               <template #fallback>
-                <div class="w-full h-full flex-grow min-h-[460px] bg-dark flex flex-col items-center justify-center gap-3 border border-white/10">
+                <div class="w-full h-full bg-dark flex flex-col items-center justify-center gap-3">
                   <div class="w-8 h-8 rounded-full border-2 border-brand border-t-transparent animate-spin" />
                   <p class="font-quicksand text-xs tracking-widest text-gray-400 uppercase">
-                    Loading Campus Map...
+                    Loading 3D Guide...
                   </p>
                 </div>
               </template>
@@ -100,12 +100,12 @@
 
 <script setup lang="ts">
 interface CampusMapInstance {
-  flyTo: (id: 'all' | 'commons' | 'clubroom' | 'bus') => void
+  focusStop: (id: 'commons' | 'clubroom' | 'bus') => void
 }
 
 const campusMapRef = ref<CampusMapInstance | null>(null)
 
-const focusLocation = (id: 'all' | 'commons' | 'clubroom' | 'bus') => {
-  campusMapRef.value?.flyTo(id)
+const focusLocation = (id: 'commons' | 'clubroom' | 'bus') => {
+  campusMapRef.value?.focusStop(id)
 }
 </script>

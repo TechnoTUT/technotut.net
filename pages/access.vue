@@ -219,35 +219,37 @@
       </div>
     </section>
 
-    <!-- Campus Map (Interactive Leaflet Map) -->
-    <section aria-labelledby="campus-map-heading" class="mb-16 sm:mb-24">
+    <!-- Campus 3D Flyover (PLATEAU building models) -->
+    <section aria-labelledby="campus-3d-heading" class="mb-16 sm:mb-24">
       <div class="mb-6">
         <p class="font-quicksand text-xs tracking-widest text-gray-400 uppercase mb-1">
-          CAMPUS MAP
+          CAMPUS 3D GUIDE
         </p>
-        <h2 id="campus-map-heading" class="font-noto text-2xl sm:text-3xl font-light text-white">
-          学内マップ
+        <h2 id="campus-3d-heading" class="font-noto text-2xl sm:text-3xl font-light text-white">
+          学内3Dガイド
         </h2>
-        <!-- Campus Map -->
+        <!-- Campus 3D guide: bus stop -> Commons 1 -> club room, rendered with PLATEAU building models. -->
         <p class="mt-2 text-sm sm:text-base font-noto text-gray-dim font-light leading-relaxed max-w-3xl">
-          コモンズ1および音楽技術部室、バス停の位置です。
+          バス停からコモンズ1、部室までの位置関係を3Dで確認できます。
         </p>
-        <!-- Commons 1 (Welfare Facility 1F), TechnoTUT Club Room (Clubhouse 2F), and Bus Stop. -->
       </div>
 
-      <div class="overflow-hidden border border-white/10 bg-dark h-[460px] sm:h-[540px] w-full flex flex-col">
+      <div class="overflow-hidden border border-white/10 bg-dark h-[420px] sm:h-[500px] w-full flex flex-col">
         <ClientOnly>
-          <InteractiveCampusMap class="w-full h-full flex-grow" />
+          <CampusFlyover3D class="w-full h-full flex-grow" />
           <template #fallback>
             <div class="w-full h-full flex-grow bg-dark flex flex-col items-center justify-center gap-3">
               <div class="w-8 h-8 rounded-full border-2 border-brand border-t-transparent animate-spin" />
               <p class="font-quicksand text-xs tracking-widest text-gray-400 uppercase">
-                Loading Campus Map...
+                Loading 3D Guide...
               </p>
             </div>
           </template>
         </ClientOnly>
       </div>
+      <p class="mt-3 text-xs font-quicksand text-gray-400 tracking-wide">
+        Data: Project PLATEAU, MILT (Ministry of Land, Infrastructure, Transport and Tourism)
+      </p>
     </section>
 
     <!-- Commons 1 -->
