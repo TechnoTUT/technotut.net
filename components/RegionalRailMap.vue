@@ -2,6 +2,14 @@
   <div class="relative w-full h-full">
     <div ref="containerRef" class="w-full h-full" />
 
+    <button
+      type="button"
+      class="absolute right-3 top-3 z-10 px-3 py-1 rounded-full text-xs font-quicksand tracking-wider border bg-dark/80 border-white/20 text-gray-300 hover:border-white/60 transition-colors"
+      @click="resetView"
+    >
+      初期表示
+    </button>
+
     <!-- Legend: colours match the travel lines on the map -->
     <ul class="absolute left-3 bottom-3 z-10 flex flex-col gap-1 rounded bg-dark/85 border border-white/20 px-3 py-2 text-[11px] font-noto text-gray-200 pointer-events-none">
       <li class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-[#2f7fd6]" />東海道新幹線 名古屋→豊橋 約20分</li>
@@ -32,17 +40,26 @@ const COLORS: Record<string, string> = {
   jr_hamamatsu: '#f28c28', // orange
 }
 
-// Travel time for each trip in minutes, and how many one-way runs it makes in one cycle.
-// Shinkansen makes two one-way runs, each starting from the origin; the others make one run and wait at the end.
+// Travel time for each trip in minutes. All trains start together, run once and wait at Toyohashi,
+// so the arrival order shows the difference in travel time.
 const TRAVELS = [
-  { mode: 'shinkansen', minutes: 20, legs: 2, gapMs: 3000 },
-  { mode: 'meitetsu', minutes: 50, legs: 1, gapMs: 0 },
-  { mode: 'jr', minutes: 60, legs: 1, gapMs: 0 },
-  { mode: 'jr_hamamatsu', minutes: 30, legs: 1, gapMs: 0 },
+  { mode: 'shinkansen', minutes: 20 },
+  { mode: 'meitetsu', minutes: 50 },
+  { mode: 'jr', minutes: 60 },
+  { mode: 'jr_hamamatsu', minutes: 30 },
 ]
-// One minute is shown as SECONDS_PER_MINUTE. All trains start together at the beginning of each cycle.
-const SECONDS_PER_MINUTE = 0.5
-const CYCLE_MS = 40000
+// One minute is shown as SECONDS_PER_MINUTE. The cycle ends a short pause after the slowest train arrives.
+const SECONDS_PER_MINUTE = 0.2
+const END_PAUSE_MS = 3000
+const CYCLE_MS = Math.max(...TRAVELS.map((t) => t.minutes)) * SECONDS_PER_MINUTE * 1000 + END_PAUSE_MS
+
+// Initial view, and the limits for panning and zooming so the area is not lost.
+const INITIAL_BOUNDS: [[number, number], [number, number]] = [[136.85, 34.65], [137.85, 35.25]]
+const MAX_BOUNDS: [[number, number], [number, number]] = [[136.4, 34.3], [138.3, 35.6]]
+
+const resetView = () => {
+  map?.fitBounds(INITIAL_BOUNDS, { padding: 20, duration: 600 })
+}
 
 const containerRef = ref<HTMLDivElement | null>(null)
 let map: import('maplibre-gl').Map | null = null
@@ -114,7 +131,15 @@ onMounted(async () => {
     pitch: 0,
     bearing: 0,
     attributionControl: false,
+    // 2D map: keep it north-up and flat, and limit panning and zooming to the area.
+    maxBounds: MAX_BOUNDS,
+    minZoom: 7.5,
+    maxZoom: 12,
+    dragRotate: false,
+    pitchWithRotate: false,
+    touchPitch: false,
   })
+  map.touchZoomRotate.disableRotation()
 
   map.on('load', async () => {
     if (!map) return
@@ -156,22 +181,12 @@ onMounted(async () => {
     const runners = TRAVELS.map((t) => ({
       mode: t.mode,
       route: routes.get(t.mode)!,
-      legs: t.legs,
-      gapMs: t.gapMs,
       travelMs: t.minutes * SECONDS_PER_MINUTE * 1000,
     }))
 
-    // Fraction of the route (0 = origin, 1 = Toyohashi) at time t within a cycle.
-    // Every run goes from the origin to Toyohashi. Between runs the train stops at Toyohashi for gapMs,
-    // then the next run starts from the origin. After the last run it stays at Toyohashi.
-    const fractionAt = (r: (typeof runners)[number], t: number) => {
-      const period = r.travelMs + r.gapMs
-      const index = Math.floor(t / period)
-      if (index >= r.legs) return 1
-      const inRun = t - index * period
-      if (inRun >= r.travelMs) return 1
-      return inRun / r.travelMs
-    }
+    // Fraction of the route (0 = origin, 1 = Toyohashi) at time t within a cycle. After arriving, the train
+    // stays at Toyohashi until the next cycle.
+    const fractionAt = (r: (typeof runners)[number], t: number) => Math.min(t / r.travelMs, 1)
     map.addSource('runners', {
       type: 'geojson',
       data: {
@@ -257,7 +272,7 @@ onMounted(async () => {
     })
 
     // Show all of the area at first.
-    map.fitBounds([[136.85, 34.65], [137.85, 35.25]], { padding: 20, duration: 0 })
+    map.fitBounds(INITIAL_BOUNDS, { padding: 20, duration: 0 })
   })
 
   resizeObserver = new ResizeObserver(() => map?.resize())

@@ -3,6 +3,18 @@
     <!-- MapLibre's CSS sets position: relative on the map container, so size it with h-full instead of absolute inset-0 -->
     <div ref="containerRef" class="w-full h-full" />
 
+    <!-- North indicator: the arrow turns with the map so the view can be matched to the site -->
+    <div
+      class="absolute right-3 top-3 z-10 w-10 h-10 rounded-full bg-dark/80 border border-white/20 flex items-center justify-center pointer-events-none"
+      role="img"
+      aria-label="北の方向"
+    >
+      <div class="flex flex-col items-center" :style="{ transform: `rotate(${-mapBearing}deg)` }">
+        <span class="font-quicksand text-[10px] leading-none text-white">N</span>
+        <span class="w-0 h-0 border-x-[5px] border-x-transparent border-b-[9px] border-b-brand -order-1 mb-0.5" />
+      </div>
+    </div>
+
     <!-- Location switcher -->
     <div class="absolute left-3 top-3 z-10 flex flex-wrap gap-2" role="group" aria-label="表示する地点">
       <button
@@ -68,8 +80,8 @@ const ROUTE: [number, number][] = [
 
 const stops = [
   { id: 'bus', label: '技科大前 バス停', center: [137.41273, 34.70088] as [number, number], zoom: 17.2, pitch: 55, bearing: -20 },
-  { id: 'commons', label: 'コモンズ1', center: [137.40903, 34.70075] as [number, number], zoom: 17.6, pitch: 60, bearing: 30 },
-  { id: 'clubroom', label: '部室', center: [137.40663, 34.70105] as [number, number], zoom: 18, pitch: 60, bearing: -60 },
+  { id: 'commons', label: 'コモンズ1', center: [137.40877266, 34.70073215] as [number, number], zoom: 17.6, pitch: 60, bearing: 30 },
+  { id: 'clubroom', label: '部室', center: [137.40660689, 34.70120100] as [number, number], zoom: 18, pitch: 60, bearing: -60 },
 ]
 type StopId = (typeof stops)[number]['id']
 
@@ -77,6 +89,8 @@ const containerRef = ref<HTMLDivElement | null>(null)
 // Only one of "follow" or a fixed stop is selected at a time, so this starts as null while following.
 const activeStop = ref<StopId | null>(null)
 const loading = ref(true)
+// Current map bearing, for the north indicator.
+const mapBearing = ref(0)
 
 let map: import('maplibre-gl').Map | null = null
 let resizeObserver: ResizeObserver | null = null
@@ -327,13 +341,21 @@ onMounted(async () => {
     bearing: stops[1].bearing,
     attributionControl: false,
     interactive: true,
+    // Limit panning and zooming to the campus area so it is not lost.
+    maxBounds: [[137.392, 34.693], [137.426, 34.710]],
+    minZoom: 15.5,
+    maxZoom: 19,
+  })
+  map.on('rotate', () => {
+    if (map) mapBearing.value = map.getBearing()
   })
 
   map.on('load', async () => {
     if (!map) return
-    const [buildings, roads] = await Promise.all([
+    const [buildings, roads, paths] = await Promise.all([
       fetch('/data/plateau/toyohashi-campus.geojson').then((r) => r.json()),
       fetch('/data/plateau/toyohashi-campus-roads.geojson').then((r) => r.json()),
+      fetch('/data/plateau/toyohashi-campus-paths.geojson').then((r) => r.json()),
     ])
 
     // Roads sit flat on the ground, so they are added before the buildings to draw underneath.
@@ -342,7 +364,62 @@ onMounted(async () => {
       id: 'roads',
       type: 'fill',
       source: 'roads',
-      paint: { 'fill-color': '#444444', 'fill-opacity': 1 },
+      paint: { 'fill-color': '#5a5a5a', 'fill-opacity': 1 },
+    })
+    // Road edges make the roads, and where the route crosses them, easier to read.
+    map.addLayer({
+      id: 'road-edges',
+      type: 'line',
+      source: 'roads',
+      paint: { 'line-color': '#9a9a9a', 'line-width': 1, 'line-opacity': 0.8 },
+    })
+
+    // On-campus roads and footpaths from OpenStreetMap. PLATEAU road data covers public roads only.
+    map.addSource('paths', { type: 'geojson', data: paths })
+    // Roads are drawn as a light edge (casing) under a dark road surface, so they read as roads with width.
+    // Widths are in pixels at zoom 18 by road type, and scale with zoom like real widths do.
+    const FOOT = ['footway', 'path', 'track', 'steps', 'pedestrian']
+    const isRoad = ['!', ['in', ['get', 'kind'], ['literal', FOOT]]]
+    const roadWidth = (scale: number) => [
+      'interpolate', ['exponential', 2], ['zoom'],
+      15, ['*', scale / 8, ['match', ['get', 'kind'], ['secondary', 'primary'], 16, 'tertiary', 14, ['residential', 'unclassified'], 24, 'service', 18, 14]],
+      19, ['*', scale * 2, ['match', ['get', 'kind'], ['secondary', 'primary'], 16, 'tertiary', 14, ['residential', 'unclassified'], 24, 'service', 18, 14]],
+    ] as unknown as number
+    map.addLayer({
+      id: 'paths-casing',
+      type: 'line',
+      source: 'paths',
+      filter: isRoad,
+      layout: { 'line-cap': 'round', 'line-join': 'round' },
+      paint: { 'line-color': '#9c9c9c', 'line-width': roadWidth(1.25) },
+    })
+    map.addLayer({
+      id: 'paths',
+      type: 'line',
+      source: 'paths',
+      filter: isRoad,
+      layout: { 'line-cap': 'round', 'line-join': 'round' },
+      paint: { 'line-color': '#333333', 'line-width': roadWidth(1) },
+    })
+    // Dashed centre line on the main roads.
+    map.addLayer({
+      id: 'paths-centerline',
+      type: 'line',
+      source: 'paths',
+      filter: ['in', ['get', 'kind'], ['literal', ['primary', 'secondary', 'tertiary']]],
+      paint: { 'line-color': '#d8d8d8', 'line-width': 1, 'line-dasharray': [4, 4], 'line-opacity': 0.8 },
+    })
+    map.addLayer({
+      id: 'footpaths',
+      type: 'line',
+      source: 'paths',
+      filter: ['in', ['get', 'kind'], ['literal', FOOT]],
+      paint: {
+        'line-color': '#b5b5b5',
+        'line-width': ['interpolate', ['linear'], ['zoom'], 15, 1, 18, 2.5],
+        'line-dasharray': [2, 1.5],
+        'line-opacity': 0.9,
+      },
     })
 
     map.addSource('buildings', { type: 'geojson', data: buildings })

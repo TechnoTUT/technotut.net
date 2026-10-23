@@ -280,7 +280,7 @@
         </ClientOnly>
       </div>
       <p class="mt-3 text-xs font-quicksand text-gray-400 tracking-wide">
-        Data: Project PLATEAU (MLIT), PLATEAU Site Policy
+        Data: Project PLATEAU (MLIT), PLATEAU Site Policy / © OpenStreetMap contributors, ODbL
       </p>
     </section>
 
