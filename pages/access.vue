@@ -133,6 +133,12 @@
                 名古屋方面からお越しの場合
               </h4>
               <p>
+                名古屋駅から豊橋駅までは、JR東海道本線・名鉄名古屋本線で1時間程度です。
+              </p>
+              <!--
+              From Nagoya Station to Toyohashi Station takes about 1 hour by the JR Tokaido Line or the Meitetsu Line.
+              -->
+              <p class="mt-2">
                 名古屋鉄道の割引きっぷ
                 <a
                   href="https://www.meitetsu.co.jp/plan/discount/1268869_8040.html"
