@@ -133,6 +133,12 @@
                 名古屋方面からお越しの場合
               </h4>
               <p>
+                名古屋駅から豊橋駅までは、JR東海道本線・名鉄名古屋本線で1時間程度です。
+              </p>
+              <!--
+              From Nagoya Station to Toyohashi Station takes about 1 hour by the JR Tokaido Line or the Meitetsu Line.
+              -->
+              <p class="mt-2">
                 名古屋鉄道の割引きっぷ
                 <a
                   href="https://www.meitetsu.co.jp/plan/discount/1268869_8040.html"
@@ -219,35 +225,69 @@
       </div>
     </section>
 
-    <!-- Campus Map (Interactive Leaflet Map) -->
-    <section aria-labelledby="campus-map-heading" class="mb-16 sm:mb-24">
+    <!-- Regional Rail Map: rail lines and main stations around Nagoya, Toyohashi and Hamamatsu. Shown only for public transport. -->
+    <section v-if="activeTransitTab === 'public'" aria-labelledby="regional-map-heading" class="mb-16 sm:mb-24">
       <div class="mb-6">
         <p class="font-quicksand text-xs tracking-widest text-gray-400 uppercase mb-1">
-          CAMPUS MAP
+          REGIONAL RAIL MAP
         </p>
-        <h2 id="campus-map-heading" class="font-noto text-2xl sm:text-3xl font-light text-white">
-          学内マップ
+        <h2 id="regional-map-heading" class="font-noto text-2xl sm:text-3xl font-light text-white">
+          鉄道路線図
         </h2>
-        <!-- Campus Map -->
         <p class="mt-2 text-sm sm:text-base font-noto text-gray-dim font-light leading-relaxed max-w-3xl">
-          コモンズ1および音楽技術部室、バス停の位置です。
+          名古屋駅・豊橋駅・浜松駅と、周辺の鉄道路線です。
         </p>
-        <!-- Commons 1 (Welfare Facility 1F), TechnoTUT Club Room (Clubhouse 2F), and Bus Stop. -->
       </div>
 
-      <div class="overflow-hidden border border-white/10 bg-dark h-[460px] sm:h-[540px] w-full flex flex-col">
+      <div class="overflow-hidden border border-white/10 bg-dark h-[420px] sm:h-[500px] w-full flex flex-col">
         <ClientOnly>
-          <InteractiveCampusMap class="w-full h-full flex-grow" />
+          <RegionalRailMap class="w-full h-full flex-grow" />
           <template #fallback>
             <div class="w-full h-full flex-grow bg-dark flex flex-col items-center justify-center gap-3">
               <div class="w-8 h-8 rounded-full border-2 border-brand border-t-transparent animate-spin" />
               <p class="font-quicksand text-xs tracking-widest text-gray-400 uppercase">
-                Loading Campus Map...
+                Loading Rail Map...
               </p>
             </div>
           </template>
         </ClientOnly>
       </div>
+      <p class="mt-3 text-xs font-quicksand text-gray-400 tracking-wide">
+        Data: National Land Numerical Information (MLIT), CC BY 4.0
+      </p>
+    </section>
+
+    <!-- Campus 3D Flyover (PLATEAU building models) -->
+    <section aria-labelledby="campus-3d-heading" class="mb-16 sm:mb-24">
+      <div class="mb-6">
+        <p class="font-quicksand text-xs tracking-widest text-gray-400 uppercase mb-1">
+          CAMPUS 3D GUIDE
+        </p>
+        <h2 id="campus-3d-heading" class="font-noto text-2xl sm:text-3xl font-light text-white">
+          学内3Dガイド
+        </h2>
+        <!-- Campus 3D guide: bus stop -> Commons 1 -> club room, rendered with PLATEAU building models. -->
+        <p class="mt-2 text-sm sm:text-base font-noto text-gray-dim font-light leading-relaxed max-w-3xl">
+          バス停からコモンズ1、部室までの位置関係を3Dで確認できます。
+        </p>
+      </div>
+
+      <div class="overflow-hidden border border-white/10 bg-dark h-[420px] sm:h-[500px] w-full flex flex-col">
+        <ClientOnly>
+          <CampusFlyover3D class="w-full h-full flex-grow" />
+          <template #fallback>
+            <div class="w-full h-full flex-grow bg-dark flex flex-col items-center justify-center gap-3">
+              <div class="w-8 h-8 rounded-full border-2 border-brand border-t-transparent animate-spin" />
+              <p class="font-quicksand text-xs tracking-widest text-gray-400 uppercase">
+                Loading 3D Guide...
+              </p>
+            </div>
+          </template>
+        </ClientOnly>
+      </div>
+      <p class="mt-3 text-xs font-quicksand text-gray-400 tracking-wide">
+        Data: Project PLATEAU (MLIT), PLATEAU Site Policy / © OpenStreetMap contributors, ODbL
+      </p>
     </section>
 
     <!-- Commons 1 -->
